@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>객체와 표준객체</title>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">   
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">     
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+  <link href="{% static '/css/java.css'%}" rel="stylesheet">   
+</head>
+<body class="ms-3">  
+  <H2><a name="home">Javascript</a></H2>  
+      <p><a href="/javascript/j05.html" class="btn btn-purple mb-1" target="_blank">이전 노트</a>
+      <a href="/javascript/j07.html" class="btn btn-purple mb-1" target="_blank">다음 노트</a>
+      <a href="/htmls/tut1.html" class="btn btn-danger mb-1" target="_blank">HTML 노트</a> 
+      <a href="/css/tut11.html" class="btn btn-success mb-1" target="_blank">CSS 노트</a> 
+      <a href="/htmls/html_CSS.html" class="btn btn-outline-danger border-2 mb-1" target="_blank">HTML+CSS</a>
+      <a href="/htmls/html_Emmet.html" class="btn btn-outline-danger border-2 mb-1" target="_blank">HTML+Emmet</a>
+      <a href="/htmls/html_tags.html" class="btn btn-outline-danger border-2 mb-1" target="_blank">HTML+Tags</a><br>
+      <a href="/python/p01.html" class="btn btn-warning mb-1" target="_blank">파이썬 노트</a> 
+      <a href="/javascript/j01.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">자바스크립트 개요</a>
+      <a href="/javascript/j02.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">기본타입과 타입변환</a>
+      <a href="/javascript/j03.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">자바스크립트 연산자</a>
+      <a href="/javascript/j04.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">제어문과 배열 </a>
+      <a href="/javascript/j05.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">함수</a> 
+      <a href="/javascript/j06.html" class=" btn btn-secondary mb-1" target="_blank">객체</a>
+      <a href="/javascript/j07.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Number 객체</a> 
+      <a href="/javascript/j08.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Math 객체</a> 
+      <a href="/javascript/j09.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Date 객체</a>     
+      <a href="/javascript/j10.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">String 문자열 객체</a>
+      <a href="/javascript/j11.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Array 배열 객체</a> 
+      <a href="/javascript/j12.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">문서객체모델 DOM</a> 
+      <a href="/javascript/j13.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">브라우저 객체 모델 BOM</a> 
+      <a href="/javascript/j14.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">이벤트와 예외처리</a>
+      <a href="/javascript/j15.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">정규표현식</a> 
+      <a href="/javascript/j16.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">람다표현식</a> 
+      <a href="/javascript/j17.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Map과 Set, Iterator와 Generator</a> </p> 
+
+  <hr><div class="col-md-8 mb-2">
+    <div class="p-3 text-white fs-4 bd-pink-800">객체(object)란? </div></div>
+    
+    <p>객체(object)란 실생활에서 우리가 인식할 수 있는 사물로 이해할 수 있다.</p>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">객체의 예</h4>
+    
+    <p>객체(object)<br>
+    - 고양이<br>
+    <img alt="kitty" src="http://tcpschool.com/lectures/img_js_kitty.png" style="width: 320px; height: 217px;"><br>
+    프로퍼티(property)<br>
+    - cat.name = "나비"<br>
+    - cat.family = "코리안 숏 헤어"<br>
+    - cat.age = 0.1<br>
+    - cat.weight = 300<br><br>
+
+    메소드(method)<br>
+    - cat.mew()<br>
+    - cat.eat()<br>
+    - cat.sleep()<br>
+    - cat.play()<br>
+    고양이 객체는 모두 위와 같은 프로퍼티를 가지지만, 각 프로퍼티의 값은 인스턴스마다 전부 다를 것이다.</p>
+    
+    <hr><div class="col-md-8 mb-2">
+    <div class="p-3 text-white fs-4 bd-pink-800">자바스크립트 객체</div></div>
+    
+    <p>자바스크립트의 기본 타입(data type)은 객체(object)이다.<br>
+    객체란 <span class="text-danger fw-bold">이름(name)과 값(value)</span>으로 구성된 <span class="text-danger fw-bold">프로퍼티(property)의 정렬되지 않은 집합</span>이다.<br>
+    프로퍼티의 값으로 함수가 올 수도 있는데, 이러한 프로퍼티를 메소드(method)라고 한다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> cat <span style="color:#794938">=</span> <span style="color:#0b6125">"나비"</span>; <span style="color:#5a525f;font-style:italic">// 일반적인 변수의 선언</span><br>
+    <span style="color:#5a525f;font-style:italic">// 객체도 많은 값을 가지는 변수의 하나임.</span><br>
+    <span style="color:#a71d5d;font-style:italic">var</span> kitty <span style="color:#794938">=</span> { name: <span style="color:#0b6125">"나비"</span>, family: <span style="color:#0b6125">"코리안 숏 헤어"</span>, age: <span style="color:#811f24;font-weight:700">1</span>, weight: <span style="color:#811f24;font-weight:700">0.1</span> };<br>
+    cat          <span style="color:#5a525f;font-style:italic">// 나비</span><br>
+    kitty.<span style="color:#b4371f">name</span>   <span style="color:#5a525f;font-style:italic">// 나비</span><br></div>
+    자바스크립트에서는 숫자, 문자열, 불리언, undefined 타입을 제외한 모든 것이 객체이다.<br>
+    하지만 숫자, 문자열, 불리언과 같은 원시 타입은 값이 정해진 객체로 취급되어, 객체로서의 특징도 함께 가지게 된다.</p>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">객체의 프로퍼티 참조</h4>
+    
+    <p>자바스크립트에서 객체의 프로퍼티를 참조하는 방법은 다음과 같다.</p>
+    <p>객체이름.프로퍼티이름<br>
+    또는<br>
+    객체이름[<span style="color:#0b6125">"프로퍼티이름"</span>]</p> //반드시 문자열로 작성
+    </div>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> person <span style="color:#794938">=</span> {<br>
+        name: <span style="color:#0b6125">"홍길동"</span>,      <span style="color:#5a525f;font-style:italic">// 이름 프로퍼티를 정의함.</span><br>
+        birthday: <span style="color:#0b6125">"030219"</span>,  <span style="color:#5a525f;font-style:italic">// 생년월일 프로퍼티를 정의함.</span><br>
+        pId: <span style="color:#0b6125">"1234567"</span>,      <span style="color:#5a525f;font-style:italic">// 개인 id 프로퍼티를 정의함.</span><br>
+        <span style="color:#bf4f24">fullId</span>: <span style="color:#a71d5d;font-style:italic">function</span>() { <span style="color:#5a525f;font-style:italic">// 생년월일과 개인 id를 합쳐서 주민등록번호를 반환함.</span><br>
+            <span style="color:#794938">return</span> <span style="color:#234a97">this</span>.birthday <span style="color:#794938">+</span> <span style="color:#234a97">this</span>.pId;<br>
+        }<br>
+    };<br>
+    person.<span style="color:#b4371f">name</span>    <span style="color:#5a525f;font-style:italic">// 홍길동</span><br>
+    person[<span style="color:#0b6125">"name"</span>] <span style="color:#5a525f;font-style:italic">// 홍길동</span></p></div>
+    <hr>
+    <h4 class="text-primary fst-italic">객체의 메소드 참조</h4>
+    
+    <p>자바스크립트에서 객체의 메소드를 참조하는 방법은 다음과 같다.</p>
+    <p>객체이름.<span style="color:#A52A2A;">메소드이름</span>()</p>
+    </div>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> person <span style="color:#794938">=</span> {<br>
+        name: <span style="color:#0b6125">"홍길동"</span>,<br>
+        birthday: <span style="color:#0b6125">"030219"</span>,<br>
+        pId: <span style="color:#0b6125">"1234567"</span>,<br>
+        <span style="color:#bf4f24">fullId</span>: <span style="color:#a71d5d;font-style:italic">function</span>() {<br>
+            <span style="color:#794938">return</span> <span style="color:#234a97">this</span>.birthday <span style="color:#794938">+</span> <span style="color:#234a97">this</span>.pId;<br>
+        }<br>
+    };<br>
+    person.fullId() <span style="color:#5a525f;font-style:italic">// 0302191234567</span><br>
+    person.fullId;  <span style="color:#5a525f;font-style:italic">// function () { return this.birthday + this.pId; } </span></p></div>
+    메소드를 참조할 때 메소드 이름 뒤에 괄호(())를 붙이지 않으면, 메소드가 아닌 프로퍼티 그 자체를 참조하게 된다.<br>
+    따라서 괄호를 사용하지 않고 프로퍼티 그 자체를 참조하게 되면 해당 메소드의 정의 그 자체가 반환된다.</div>
+    
+    <hr><div class="col-md-8 mb-2">
+    <div class="p-3 text-white fs-4 bd-pink-800">객체의 생성</div></div>
+    
+    <p>자바스크립트에서 객체를 생성하는 방법은 다음과 같다.<br>
+    1. 리터럴 표기(literal notation)를 이용한 방법<br>
+    2. 생성자 함수(constructor function)를 이용한 방법<br>
+    3. Object.create() 메소드를 이용한 방법<br>
+    위와 같은 방법으로 생성되어 메모리에 대입된 객체를 인스턴스(instance)라고 한다.</p>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">리터럴 표기를 이용한 객체의 생성</h4>
+    
+    <p>자바스크립트에서 객체를 생성하는 가장 쉬운 방법은 리터럴 표기(literal notation)를 이용하는 방법이다.</p>
+    <span style="color:#a71d5d;font-style:italic">var</span> 객체이름 <span style="color:#794938">=</span> {<br>
+        프로퍼티1이름 : 프로퍼티1의값,<br>
+        프로퍼티2이름 : 프로퍼티2의값,<br>
+        ...<br>
+    };</p>
+    </div>
+    <p>각각의 프로퍼티는 이름과 값을 콜론(:)으로 연결하고, 쉼표(,)를 사용해 다른 프로퍼티와 구분한다.<br>
+    프로퍼티의 이름으로는 자바스크립트의 식별자(identifier)나 문자열을 사용할 수 있다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> kitty <span style="color:#794938">=</span> {<br>
+        name: <span style="color:#0b6125">"나비"</span>,<br>
+        family: <span style="color:#0b6125">"코리안 숏 헤어"</span>,<br>
+        age: <span style="color:#811f24;font-weight:700">1</span>,<br>
+        weight: <span style="color:#811f24;font-weight:700">0.1</span><br>
+    };<br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"우리 집 새끼 고양이의 이름은 "</span> <span style="color:#794938">+</span> kitty.<span style="color:#b4371f">name</span> <span style="color:#794938">+</span> <span style="color:#0b6125">"이고, 종은 "</span> <span style="color:#794938">+</span> kitty.family <span style="color:#794938">+</span> <span style="color:#0b6125">"이다."</span>);</p></div>
+   
+    <hr>
+    <h4 class="text-primary fst-italic">생성자를 이용한 객체의 생성</h4>
+    
+    <p><span class="text-danger fw-bold">new 연산자</span>를 사용하여 객체를 생성하고 초기화할 수 있다.<br>
+    이때 사용되는 메소드를 생성자(constructor)라고 하며, 이 메소드는 새롭게 생성되는 객체를 초기화하는 역할을 한다.<br>
+    자바스크립트는 원시 타입을 위한 생성자를 미리 정의하여 제공한다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;"> 
+    <span style="color:#a71d5d;font-style:italic">var</span> day <span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>(); <span style="color:#5a525f;font-style:italic">// new 연산자를 사용하여 Date 타입의 객체를 생성함.</span><br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"올해는 "</span> <span style="color:#794938">+</span> day.<span style="color:#693a17">getFullYear</span>() <span style="color:#794938">+</span> <span style="color:#0b6125">"년이다."</span>);<br>
+    ----------------------<br>
+function Book(title, pages, done = false) { <br>
+  &nbsp;&nbsp;this.title = title;<br>
+  &nbsp;&nbsp;this.pages = pages;<br>
+  &nbsp;&nbsp;this.done = done;<br>
+  &nbsp;&nbsp;this.finish = function() {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;let str="";<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;this.done === false? str="읽는중" : str="완독";<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;return str;}<br>
+    } <br>   
+   ----------------------<br>
+    let book1 = new Book("점프 투 파이썬", 360, true) <br>  <br></div>
+
+  <p>위의 예제처럼 자바스크립트에서 제공하는 생성자를 사용할 수도 있으며, 사용자가 직접 객체 생성자 함수(object constructor function)를 작성하여 사용할 수도 있다.</p> 
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100"><h5>클래스를 사용해 객체 만들기</h5></div>
+      <p class="card-text" style="padding: 10px 10px;">
+      
+    class Bbook {  // const Bbook = class {} 로도 사용할수도 있다<br>
+       &nbsp;&nbsp;constructor(title, pages, done = false) { <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;this.title = title;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;this.pages = pages;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;this.done = done;}<br><br>
+      &nbsp;&nbsp;finish() {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;let str="";<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;this.done === false? str="읽는중" : str="완독";<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return str;}<br>
+        } <br>        
+        ----------------------<br>
+          let book3 = new Bbook("웹 표준의 정석", 680, false) <br>   </p></div>
+    
+  
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100"><h5>예제 : 클래스 상속</h5></div>
+      <p class="card-text" style="padding: 10px 10px;">
+        class BookC  {<br>
+          constructor(title, price) {<br>
+            this.title = title;<br>
+            this.price = price; <br>
+          }<br>
+          buy() {<br>
+            console.log(`${this.title}을(를) ${this.price}원에 구매하였습니다.`);  
+          }<br>
+        }<br>
+        
+        const book1 = new BookC("자료 구조", 15000);<br>
+        book1.buy();<br>
+        
+        // 기존 클래스를 확장해서 새로운 클래스 선언하기<br>
+        class TextbookC extends BookC {<br>
+          constructor(title, price, major) {<br>
+            super(title, price);   // 기존 클래스의 프로퍼티 재사용<br>
+            this.major = major;     // 새로운 프로퍼티 정의<br>
+          }<br>
+        
+          buyTextbook () {   // 새로운 메서드 정의<br>
+            console.log(`${this.major} 전공 서적, ${this.title}을 구매했습니다.`);<br>
+          }<br>
+        }<br>
+        
+        const book2 = new TextbookC("인공지능", 5000, "컴퓨터공학");<br>
+        book2.buyTextbook();<br>
+        book2.buy();<br>
+        
+      </p></div>
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100"><h5>예제 : pet 클래스 만든후 인스턴스 객체 만들기</h5></div>
+      <p class="card-text" style="padding: 10px 10px;">
+      <button id="bttn02">애완견 클래스</button> <Br>
+      const bttn02 = document.querySelector("#bttn02"); <br>
+      class Pet {<br>
+        constructor(name, color) {<br>
+        this.name = name;<br>
+        this.color = color;}<br>
+        run() {<br>
+          alert(`${this.name} is running`);<br>
+        }}<br><br>
+            
+      const pet1 = new Pet("moongchi", "yellow");<br>
+      bttn02.addEventListener("click", function() {pet1.run()}) ;<br>
+      // "click", pet1.run() 으로 하면 버튼을 누를때마다가 아닌 페이지가 로드 될때마다 알림창이 나온다 <br>
+      // 그러면 pet1.run()이 즉시 실행되어 알림창이 뜬후 그 결과를 나중에서야 addEventListener에 전달한다. <br>
+      // "click"후에 pet1.run()을 호출하는 형식으로 입력하면 버튼을 누를때마다 알림창이 나온다<br></p></div>
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100"><h5>예제 : pet 클래스를 상속받는 cat 클래스 만들기</h5></div>
+      <p class="card-text" style="padding: 10px 10px;">
+      <button id="bttn03">애완묘 클래스</button>  <Br>
+      const bttn03 = document.querySelector("#bttn03"); <br>
+      class Cat extends Pet{<br>
+        constructor(name, color, breed) {<br>
+          super(name, color);
+          this.breed = breed;
+        }<br> 
+        viewInfo() {<br>
+          alert(`이름 : ${this.name}, 품종 : ${this.breed}, 색깔 : ${this.color}`);<br>
+        }}<br><br>
+            
+      const cat1 = new Cat("보리", "흰색", "코숏");<br>
+      bttn03.addEventListener("click", function() {cat1.viewInfo()}) ;<br>  </p></div>
+
+  <h1>원기둥 부피 구하기</h1>
+  <p>원기둥의 지름과 높이가 주어졌을 때, 객체를 사용해 원기둥의 부피를 구하는 프로그램을 작성하시오.(결괏값은 소숫점 이하 2자리까지)</p>     
+  
+      <div id="container01">
+        <div id="userInput">
+          <form action="">
+            <ul>
+              <li>
+                <label for="cyl-diameter">지름</label>
+                <input type="text" id="cyl-diameter">
+              </li>
+              <li>
+                <label for="cyl-height">높이</label>
+                <input type="text" id="cyl-height">        
+              </li>
+              <li>
+                <button id="bttn01">계산하기</button>    
+              </li>
+            </ul>   
+          </form>
+        </div>  
+        <div id="result01"></div>
+      </div><br><br>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100"><h5>예제 : 원기둥 부피 구하기</h5></div>
+        <div class="card-text" style="padding: 10px 10px;">
+          const bttn01 = document.querySelector("#bttn01");<br>
+          const result01 = document.querySelector("#result01");<br>
+          function cal(e) {<br>
+            e.preventDefault();<br>
+            const diameter = document.querySelector("#cyl-diameter").value;<br>
+            const height = document.querySelector("#cyl-height").value;<br>
+            result01.innerText = `원기둥의 부피는 ${(height*Math.PI*diameter*diameter/4).toFixed(2)} 입니다`<br>
+          }<br>
+          bttn01.addEventListener("click", cal)<br>
+        </div></div><br>
+
+    <hr>
+    <h4 class="text-primary fst-italic">Object.create() 메소드를 이용한 객체의 생성</h4>
+    
+    <p><span class="text-bg-warning"> Object.create() </span>메소드를 이용하여 객체를 생성할 수도 있다.<br>
+    Object.create() 메소드는 지정된 프로토타입(prototype) 객체와 프로퍼티를 가지고 새로운 객체를 만들어 준다.<br>
+    따라서 이 메소드를 이용하면 사용자가 프로토타입 객체를 직접 명시할 수 있으므로, 상당히 유용하게 사용된다.</p>
+    <span style="color:#691c97">Object</span>.create(프로토타입객체[, 새로운객체의프로퍼티1, 새로운객체의프로퍼티2, ...]);</p>
+    </div>
+    <p>Object.create() 메소드의 첫 번째 인수로는 프로토타입으로 사용할 객체를 전달한다.<br>
+    두 번째 인수로는 새로운 객체의 추가할 프로퍼티 정보를 전달한다.</p>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> obj <span style="color:#794938">=</span> <span style="color:#691c97">Object</span>.create(<span style="color:#811f24;font-weight:700">null</span>, {             <span style="color:#5a525f;font-style:italic">// null 프로토타입을 사용하여 새로운 객체를 만들고</span><br>
+        x: { value: <span style="color:#811f24;font-weight:700">100</span>, enumerable: <span style="color:#811f24;font-weight:700">true</span> },    <span style="color:#5a525f;font-style:italic">// x좌표를 나타내는 열거할 수 있는 프로퍼티와</span><br>
+        y: { value: <span style="color:#811f24;font-weight:700">200</span>, enumerable: <span style="color:#811f24;font-weight:700">true</span> }     <span style="color:#5a525f;font-style:italic">// y좌표를 나타내는 열거할 수 있는 프로퍼티를 추가함.</span><br>
+    });<br>
+    obj.<span style="color:#b4371f">x</span>;                      <span style="color:#5a525f;font-style:italic">// x좌표</span><br>
+    obj.<span style="color:#b4371f">y</span>;                      <span style="color:#5a525f;font-style:italic">// y좌표</span> <br>
+    <span style="color:#691c97">Object</span>.getPrototypeOf(obj); <span style="color:#5a525f;font-style:italic">// 객체의 프로토타입을 반환해 줌. 여기서는 null</span><br>
+    ----------------------<br>
+    아예 빈 객체를 선언하 후 프로퍼티를 추가할수도 있다<br>
+    let Cbook = {}<br>
+    let Dbook = new Object()<br></p> </div>
+     
+
+    <hr><div class="col-md-8 mb-2">
+    <div class="p-3 text-white fs-4 bd-pink-800">프로토타입</div></div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">상속(inheritance)</h4>
+    
+    <p>상속(inheritance)이란 새로운 클래스에서 기존 클래스의 모든 프로퍼티와 메소드를 사용할 수 있는 것을 의미한다.<br>
+    상속을 통해 새로운 프로그램의 요구에 맞게 기존 클래스를 수정하여 재사용할 수 있다.<br>
+    또한, 클래스 간의 종속 관계를 형성함으로써 객체의 관계를 조직화할 수 있는 장점이 있다.<br>
+    따라서 이러한 상속은 추상화, 캡슐화와 더불어 객체 지향 프로그래밍을 구성하는 중요한 특징 중 하나가 된다.<br>
+    하지만 C#이나 C++과 같은 클래스 기반(class-based)의 객체 지향 언어와는 달리 <br>자바스크립트는 프로토타입 기반(prototype-based)의 객체 지향 언어이다.<br>
+    프로토타입 기반이기 때문에 상속의 개념이 클래스 기반의 객체 지향 언어와는 약간 다르다.<br>
+    자바스크립트에서는 현재 존재하고 있는 객체를 프로토타입으로 사용하여, 해당 객체를 복제하여 재사용하는 것을 상속이라고 한다.<br><br>
+
+    클래스를 상속할때는 <br>
+    class 새클래스명 extends 기존 클래스명 (예 : class B extends A)<br><br>
+    기존 클래스에 있는 프로퍼티를 사용할 때는 constructor() 함수에서 <span class="text-danger fw-bold">super(다른클래스의 프로퍼티)</span>를 사용한다.<br><br>
+
+    
+    <hr>
+    <h4 class="text-primary fst-italic">기본유형과 객체의 자료복사 </h4>
+    
+    <p>숫자나 문자열과 같은 기본 유형 자료는 "값"을 전달한다. 
+      let number1 = 100 <br>
+      let number2 = number1 <br>
+      number 2 = 200  //   number2가 number1의 값을 전달받고 값을 수정하여 number2 = 200으로 바뀌지만 number1 = 100 이다 <br>  
+      반면 객체는 "참조 주소"를 전달한다. <br>
+      let bags1 {color :"blue", width: 30, height:50,} <br>
+      let bags2 = bags1 <br>
+      bags2.color ="red" // bags1.color = "red", bags2.color ="red" 로 두 객체의 프로퍼티가 함께 변경된다<br> </p>
+    
+    <hr><div class="col-md-8 mb-2">
+    <div class="p-3 text-white fs-4 bd-pink-800">프로토타입(prototype) </div></div>
+    
+    <p>자바스크립트의 모든 객체는 프로토타입(prototype)이라는 객체를 가지고 있다.<br>
+    모든 객체는 그들의 프로토타입으로부터 프로퍼티와 메소드를 상속받다.<br>
+    이처럼 자바스크립트의 모든 객체는 최소한 하나 이상의 다른 객체로부터 상속을 받으며, 이때 상속되는 정보를 제공하는 객체를 프로토타입(prototype)이라고 한다.</p><br>
+    <img src="/js/prototype.jpg" alt=""><br><Br>
+   
+      <h4 class="text-primary fst-italic">__proto__프로퍼티와 prototype 프로퍼티 </h4>
+      <p> <span class="text-brown text-bg-warning">__proto__프로퍼티</span> : 객체의 부모 프로토타입 확인 예] book1.__proto__ => Book() 함수로 만든 객체</p>
+      <p> <span class="text-brown text-bg-warning">prototype 프로퍼티</span> : 생성자 함수의 프로토타입 확인 예] Book.prototype => Object객체</p>
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    function Book(title, price) {
+      this.title = title;
+      this.price = price;
+    }  
+    Book.prototype.buy = function() {
+      document.write(`${this.title}을 ${this.price}에 구매하였습니다`);
+    }
+    const book1 = new Book ("ABCDE", 10000);
+    book1.buy();
+
+    function Textbook(title, price, major) {
+      Book.call(this, title, price);
+      this.major = major;
+  }
+    Textbook.prototype.buyTextbook = function () {
+      document.write(`${this.major}전공 서적, ${this.title}을 구매하였습니다`);
+    }
+    </p></div>
+
+    <span class="text-danger fw-bold">Object.setPrototypeOf(Textbook.prototype, Book.prototype)</span> 
+
+    <hr>
+    <h4 class="text-primary fst-italic">프로토타입 체인(prototype chain)</h4>
+    
+    <p>자바스크립트에서는 객체 이니셜라이저를 사용해 생성된 같은 타입의 객체들은 모두 같은 프로토타입을 가진다.<br>
+    또한, new 연산자를 사용해 생성한 객체는 생성자의 프로토타입을 자신의 프로토타입으로 상속받다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> obj <span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">Object</span>(); <span style="color:#5a525f;font-style:italic">// 이 객체의 프로토타입은 Object.prototype이다.</span><br>
+    <span style="color:#a71d5d;font-style:italic">var</span> arr <span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">Array</span>();  <span style="color:#5a525f;font-style:italic">// 이 객체의 프로토타입은 Array.prototype이다.</span><br>
+    <span style="color:#a71d5d;font-style:italic">var</span> date <span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>();  <span style="color:#5a525f;font-style:italic">// 이 객체의 프로토타입은 Date.prototype이다.</span></p></div>
+    </div> <br>
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> date <span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>(); <span style="color:#5a525f;font-style:italic">// 이 객체는 Date.prototype 뿐만 아니라 Object.prototype도 프로토타입으로 가진다.</span></p></div>
+    </div>
+    <p>위와 같이 프로토타입이 상속되는 가상의 연결 고리를 프로토타입 체인(prototype chain)이라고 한다.<br>
+    <span class="text-danger fw-bold">Object.prototype 객체</span>는 이러한 프로토타입 체인에서도 <span class="text-danger fw-bold">가장 상위에 존재</span>하는 프로토타입이다.</p>
+    <p>따라서 자바스크립트의 모든 객체는 Object.prototype 객체를 프로토타입으로 상속받다.</p>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">프로토타입의 생성</h4>
+    
+    <p>프로토타입을 생성하는 가장 기본적인 방법은 객체 생성자 함수(object constructor function)를 작성하는 것이다.<br>
+    생성자 함수를 작성하고 new 연산자를 사용해 객체를 생성하면, 같은 프로토타입을 가지는 객체들을 생성할 수 있다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">Dog</span>(color, name, age) { <span style="color:#5a525f;font-style:italic">// 개에 관한 생성자 함수를 작성함.</span><br>
+    <span style="color:#234a97">    this</span>.<span style="color:#b4371f">color</span> <span style="color:#794938">=</span> color;          <span style="color:#5a525f;font-style:italic">// 색에 관한 프로퍼티</span><br>
+    <span style="color:#234a97">    this</span>.<span style="color:#b4371f">name</span> <span style="color:#794938">=</span> name;            <span style="color:#5a525f;font-style:italic">// 이름에 관한 프로퍼티</span><br>
+    <span style="color:#234a97">    this</span>.age <span style="color:#794938">=</span> age;              <span style="color:#5a525f;font-style:italic">// 나이에 관한 프로퍼티</span><br>
+    }<br>
+    <span style="color:#a71d5d;font-style:italic">var</span> myDog <span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">Dog</span>(<span style="color:#0b6125">"흰색"</span>, <span style="color:#0b6125">"마루"</span>, <span style="color:#811f24;font-weight:700">1</span>); <span style="color:#5a525f;font-style:italic">// 이 객체는 Dog라는 프로토타입을 가짐.</span><br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"우리 집 강아지는 "</span> <span style="color:#794938">+</span> myDog.<span style="color:#b4371f">name</span> <span style="color:#794938">+</span> <span style="color:#0b6125">"라는 이름의 "</span> <span style="color:#794938">+</span> myDog.<span style="color:#b4371f">color</span> <span style="color:#794938">+</span> <span style="color:#0b6125">" 털이 매력적인 강아지이다."</span>);</p></div>
+    <span class="text-danger fw-bold">객체 생성자 함수</span>를 작성할 때에는 관례상 이름의 <span class="text-danger fw-bold">첫 문자만을 대문자</span>로 작성한다.</div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">객체에 프로퍼티 및 메소드 추가</h4>
+    
+    <p>이미 생성된 객체에 새로운 프로퍼티나 메소드를 추가하는 방법은 다음과 같다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">Dog</span>(color, name, age) {<br>
+    <span style="color:#234a97">    this</span>.<span style="color:#b4371f">color</span> <span style="color:#794938">=</span> color;<br>
+    <span style="color:#234a97">    this</span>.<span style="color:#b4371f">name</span> <span style="color:#794938">=</span> name;<br>
+    <span style="color:#234a97">    this</span>.age <span style="color:#794938">=</span> age;<br>
+    }<br>
+    <span style="color:#a71d5d;font-style:italic">var</span> myDog <span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">Dog</span>(<span style="color:#0b6125">"흰색"</span>, <span style="color:#0b6125">"마루"</span>, <span style="color:#811f24;font-weight:700">1</span>);<br>
+    myDog.family <span style="color:#794938">=</span> <span style="color:#0b6125">"시베리안 허스키"</span>; <span style="color:#5a525f;font-style:italic">// 품종에 관한 프로퍼티를 추가함.</span><br>
+    <span style="color:#691c97">myDog</span>.<span style="color:#bf4f24">breed</span> <span style="color:#794938">=</span> <span style="color:#a71d5d;font-style:italic">function</span>() {        <span style="color:#5a525f;font-style:italic">// 털색을 포함한 품종을 반환해 주는 메소드를 추가함.</span><br>
+    <span style="color:#234a97">    </span><span style="color:#794938">return</span> <span style="color:#234a97">this</span>.<span style="color:#b4371f">color</span> <span style="color:#794938">+</span> <span style="color:#0b6125">" "</span> <span style="color:#794938">+</span> <span style="color:#234a97">this</span>.family;<br>
+    }<br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"우리 집 강아지는 "</span> <span style="color:#794938">+</span> myDog.breed() <span style="color:#794938">+</span> <span style="color:#0b6125">"이다."</span>);<br></div>
+    위의 예제에서 새롭게 추가된 family 프로퍼티와 breed() 메소드는 오직 myDog 인스턴스에만 추가된다.<br>
+    이미 생성된 다른 Dog 객체나 차후에 생성되는 어떠한 다른 Dog 객체에도 추가되지 않는다.</p>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">프로토타입에 프로퍼티 및 메소드 추가</h4>
+    
+    <p>프로토타입에 새로운 프로퍼티나 메소드를 추가하는 것은 객체에 추가할 때와는 다른 방법을 사용해야 한다.<br>
+    프로토타입의 경우에는 생성자 함수에 직접 추가해야만 이후에 생성되는 모든 다른 객체에도 적용할 수 있다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">Dog</span>(color, name, age) {<br>
+    <span style="color:#234a97">    this</span>.<span style="color:#b4371f">color</span> <span style="color:#794938">=</span> color;<br>
+    <span style="color:#234a97">    this</span>.<span style="color:#b4371f">name</span> <span style="color:#794938">=</span> name;<br>
+    <span style="color:#234a97">    this</span>.age <span style="color:#794938">=</span> age;<br>
+    <span style="color:#234a97">    this</span>.family <span style="color:#794938">=</span> <span style="color:#0b6125">"시베리안 허스키"</span>; <span style="color:#5a525f;font-style:italic">// 프로토타입에 프로퍼티를 추가할 때에는 기본값을 가지게 할 수 있음.</span><br>
+    <span style="color:#234a97">    </span><span style="color:#691c97">this</span>.<span style="color:#bf4f24">breed</span> <span style="color:#794938">=</span> <span style="color:#a71d5d;font-style:italic">function</span>() {<br>
+    <span style="color:#234a97">    </span><span style="color:#234a97">    </span><span style="color:#794938">return</span> <span style="color:#234a97">this</span>.<span style="color:#b4371f">color</span> <span style="color:#794938">+</span> <span style="color:#0b6125">" "</span> <span style="color:#794938">+</span> <span style="color:#234a97">this</span>.family;<br>
+    <span style="color:#234a97">    </span>};<br>
+    }<br>
+    <span style="color:#a71d5d;font-style:italic">var</span> myDog <span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">Dog</span>(<span style="color:#0b6125">"흰색"</span>, <span style="color:#0b6125">"마루"</span>, <span style="color:#811f24;font-weight:700">1</span>);<br>
+    <span style="color:#a71d5d;font-style:italic">var</span> hisDog <span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">Dog</span>(<span style="color:#0b6125">"갈색"</span>, <span style="color:#0b6125">"콩이"</span>, <span style="color:#811f24;font-weight:700">3</span>);<br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"우리 집 강아지는 "</span> <span style="color:#794938">+</span> myDog.family <span style="color:#794938">+</span> <span style="color:#0b6125">"이고, 친구네 집 강아지도 "</span> <span style="color:#794938">+</span> hisDog.family <span style="color:#794938">+</span> <span style="color:#0b6125">"이다."</span>);</p></div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">프로토타입명.prototype.프로퍼티 추가</h4>
+    
+    <p>prototype 프로퍼티를 이용하면 현재 존재하고 있는 프로토타입에 새로운 프로퍼티나 메소드를 손쉽게 추가할 수 있다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">Dog</span>(color, name, age) {<br>
+    <span style="color:#234a97">    this</span>.<span style="color:#b4371f">color</span> <span style="color:#794938">=</span> color;<br>
+    <span style="color:#234a97">    this</span>.<span style="color:#b4371f">name</span> <span style="color:#794938">=</span> name;<br>
+    <span style="color:#234a97">    this</span>.age <span style="color:#794938">=</span> age;<br>
+    }<br>
+    <span style="color:#5a525f;font-style:italic">// 현재 존재하고 있는 Dog 프로토타입에 family 프로퍼티를 추가함.</span><br>
+    <span style="color:#691c97">Dog</span>.<span style="color:#b4371f">prototype</span>.<span style="color:#bf4f24">family</span> <span style="color:#794938">=</span> <span style="color:#0b6125">"시베리안 허스키"</span>;<br>
+    <span style="color:#5a525f;font-style:italic">// 현재 존재하고 있는 Dog 프로토타입에 breed 메소드를 추가함.</span><br>
+    <span style="color:#691c97">Dog</span>.<span style="color:#b4371f">prototype</span>.<span style="color:#bf4f24">breed</span> <span style="color:#794938">=</span> <span style="color:#a71d5d;font-style:italic">function</span>() {<br>
+    <span style="color:#234a97">    </span><span style="color:#794938">return</span> <span style="color:#234a97">this</span>.<span style="color:#b4371f">color</span> <span style="color:#794938">+</span> <span style="color:#0b6125">" "</span> <span style="color:#794938">+</span> <span style="color:#234a97">this</span>.family;<br>
+    };<br>
+    <span style="color:#a71d5d;font-style:italic">var</span> myDog <span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">Dog</span>(<span style="color:#0b6125">"흰색"</span>, <span style="color:#0b6125">"마루"</span>, <span style="color:#811f24;font-weight:700">1</span>);<br>
+    <span style="color:#a71d5d;font-style:italic">var</span> hisDog <span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">Dog</span>(<span style="color:#0b6125">"갈색"</span>, <span style="color:#0b6125">"콩이"</span>, <span style="color:#811f24;font-weight:700">3</span>);<br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"우리 집 강아지는 "</span> <span style="color:#794938">+</span> myDog.family <span style="color:#794938">+</span> <span style="color:#0b6125">"이고, 친구네 집 강아지도 "</span> <span style="color:#794938">+</span> hisDog.family <span style="color:#794938">+</span> <span style="color:#0b6125">"이다."</span>);<br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"우리 집 강아지의 품종은 "</span> <span style="color:#794938">+</span> myDog.breed() <span style="color:#794938">+</span> <span style="color:#0b6125">"이다.&lt;br&gt;"</span>);<br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"친구네 집 강아지의 품종은 "</span> <span style="color:#794938">+</span> hisDog.breed() <span style="color:#794938">+</span> <span style="color:#0b6125">"이다."</span>);</p></div>
+    직접 생성한 프로토타입은 위와 같이 새로운 프로퍼티나 메소드를 마음껏 추가하거나 삭제할 수 있다.<br>
+    물론 자바스크립트 표준 객체의 프로토타입도 임의로 수정할 수 있으나, 심각한 오류가 발생할 가능성이 있다.<br>
+    따라서 자바스크립트 표준 객체의 프로토타입은 수정해서는 안된다.</div>
+    
+    <hr><div class="col-md-8 mb-2">
+    <div class="p-3 text-white fs-4 bd-pink-800">객체 다루기</div></div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">this 키워드</h4>
+    
+    <p>자바스크립트에서 this 키워드는 해당 키워드가 사용된 자바스크립트 코드 영역을 포함하고 있는 객체를 가리킨다.<br>
+    예를 들어, 메소드 내부에서 사용된 this 키워드는 해당 메소드를 포함하고 있는 객체를 가리킨다.<br>
+    또한, 객체 내부에서 사용된 this 키워드는 객체 그 자신을 가리킨다.<br>
+    이러한 this는 변수가 아닌 키워드이므로, 사용자가 임의로 가리키는 값을 바꿀 수 없다.</p>
+    객체 생성자 함수 내부에서 사용된 this 키워드는 어떠한 값도 가지지 않으며, 단순히 새로운 객체로 대체된다.</div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">객체 프로퍼티의 삭제</h4>
+    
+    <p>자바스크립트에서 객체의 프로퍼티를 참조하는 방법은 다음과 같다.</p>
+    <p>객체이름.프로퍼티이름<br>
+    또는<br>
+    객체이름[<span style="color:#0b6125">"프로퍼티이름"</span>]</p>
+    </div>
+    <p>자바스크립트에서는 delete 키워드를 사용하여 객체의 프로퍼티를 삭제할 수 있다.</p>
+    <span style="color:#794938">delete</span> 객체이름.프로퍼티이름;</p>
+    </div>
+    <p>delete 키워드를 사용하여 프로퍼티를 삭제하면, 프로퍼티의 값뿐만 아니라 프로퍼티 그 자체도 삭제된다.<br>
+    이 키워드는 본래 객체의 프로퍼티만을 삭제하기 위해 만들어졌기 때문에 함수나 변수에 사용하면 아무런 동작도 하지 않는다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">Dog</span>(color, name, age) {<br>
+    <span style="color:#234a97">    this</span>.<span style="color:#b4371f">color</span> <span style="color:#794938">=</span> color;<br>
+    <span style="color:#234a97">    this</span>.<span style="color:#b4371f">name</span> <span style="color:#794938">=</span> name;<br>
+    <span style="color:#234a97">    this</span>.age <span style="color:#794938">=</span> age;<br>
+    }<br>
+    <span style="color:#a71d5d;font-style:italic">var</span> myDog <span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">Dog</span>(<span style="color:#0b6125">"흰색"</span>, <span style="color:#0b6125">"마루"</span>, <span style="color:#811f24;font-weight:700">1</span>);<br>
+    <span style="color:#794938">delete</span> myDog.age; <span style="color:#5a525f;font-style:italic">// age 프로퍼티를 삭제함.</span><br>
+    <span style="color:#5a525f;font-style:italic">// age 프로퍼티가 삭제되었기 때문에 undefined를 출력함.</span><br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"우리집 강아지의 나이는 "</span> <span style="color:#794938">+</span> myDog.age <span style="color:#794938">+</span> <span style="color:#0b6125">"이다."</span>);</p></div>
+    직접 생성한 프로토타입은 위와 같이 새로운 프로퍼티나 메소드를 마음껏 추가하거나 삭제할 수 있다.<br>
+    물론 자바스크립트 표준 객체의 프로토타입도 임의로 수정할 수 있으나, 심각한 오류가 발생할 가능성이 있다.<br>
+    따라서 자바스크립트 표준 객체의 프로토타입은 수정해서는 안된다.</div>
+    
+    <hr><div class="col-md-8 mb-2">
+    <div class="p-3 text-white fs-4 bd-pink-800">객체 프로퍼티의 순회</div></div>
+    
+    <p>자바스크립트에서는 for / in 문을 사용하여 객체의 모든 프로퍼티를 순회할 수 있다.<br>
+    for / in 문은 객체의 모든 <span class="text-danger fw-bold">열거할 수 있는 프로퍼티(enumerable properties)</span>를 손쉽게 순회할 수 있도록 해준다.</p>
+    
+    <p>객체의 프로퍼티를 순회하는 방법으로는 for / in 문 이외에도 다음과 같은 메소드를 사용할 수 있다.<br>
+    <span class="text-bg-warning">1. Object.keys()</span> <br>
+    <span class="text-bg-warning">2. Object.getOwnPropertyNames()</span><br><br>
+    Object.keys() 메소드는 해당 객체가 가진 고유 프로퍼티 중에서 열거할 수 있는 프로퍼티의 이름을 배열에 담아 반환한다.<br>
+    Object.getOwnPropertyNames() 메소드는 열거가능 여부와 상관없이  해당 객체가 가진 모든 고유 프로퍼티의 이름을 배열에 담아 반환한다.</p>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">Dog</span>(color, name, age) {<br>
+    <span style="color:#234a97">    this</span>.<span style="color:#b4371f">color</span> <span style="color:#794938">=</span> color;<br>
+    <span style="color:#234a97">    this</span>.<span style="color:#b4371f">name</span> <span style="color:#794938">=</span> name;<br>
+    <span style="color:#234a97">    this</span>.age <span style="color:#794938">=</span> age;<br>
+    }<br>
+    <span style="color:#a71d5d;font-style:italic">var</span> myDog <span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">Dog</span>(<span style="color:#0b6125">"흰색"</span>, <span style="color:#0b6125">"마루"</span>, <span style="color:#811f24;font-weight:700">1</span>);<br>
+    <span style="color:#5a525f;font-style:italic">// color 프로퍼티의 enumerable 속성을 false로 설정함.</span><br>
+    <span style="color:#691c97">Object</span><span class="text-bg-warning">.defineProperty</span>(myDog, <span style="color:#0b6125">'color'</span>, {enumerable : <span style="color:#811f24;font-weight:700">false</span>} );<br>
+    <span style="color:#5a525f;font-style:italic">// 객체가 가진 고유 프로퍼티 중에서 열거할 수 있는 프로퍼티 이름을 배열에 담아 반환함.</span><br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#691c97">Object</span>.keys(myDog) <span style="color:#794938">+</span> <span style="color:#0b6125">"&lt;br&gt;"</span>);       // name, age<br>
+    <span style="color:#5a525f;font-style:italic">// 열거가능 여부와 상관없이 객체가 가진 모든 고유 프로퍼티의 이름을 배열에 담아 반환함.</span><br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#691c97">Object</span>.getOwnPropertyNames(myDog)); // color, name, age</p></div>
+    Object.defineProperty() 메소드는 ECMAScript 5부터 추가된 객체에 프로퍼티를 추가해주는 메소드이다.<br>
+    이때 추가하는 프로퍼티의 속성까지도 설정할 수 있다.</div>
+    
+    <hr><div class="col-md-8 mb-2">
+    <div class="p-3 text-white fs-4 bd-pink-800">객체간의 비교</div></div>
+    
+    <p>자바스크립트에서 별개의 두 객체는 프로퍼티의 값이 모두 같아도, 절대로 같다고 말할 수 없다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">Dog</span>(color, name, age) {<br>
+    <span style="color:#234a97">    this</span>.<span style="color:#b4371f">color</span> <span style="color:#794938">=</span> color;<br>
+    <span style="color:#234a97">    this</span>.<span style="color:#b4371f">name</span> <span style="color:#794938">=</span> name;<br>
+    <span style="color:#234a97">    this</span>.age <span style="color:#794938">=</span> age;<br>
+    }<br>
+    <span style="color:#a71d5d;font-style:italic">var</span> myDog <span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">Dog</span>(<span style="color:#0b6125">"흰색"</span>, <span style="color:#0b6125">"마루"</span>, <span style="color:#811f24;font-weight:700">1</span>);<br>
+    <span style="color:#a71d5d;font-style:italic">var</span> hisDog <span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">Dog</span>(<span style="color:#0b6125">"흰색"</span>, <span style="color:#0b6125">"마루"</span>, <span style="color:#811f24;font-weight:700">1</span>);      <span style="color:#5a525f;font-style:italic">// 모든 프로퍼티의 값이 모두 같은 객체를 생성함.</span><br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>((myDog <span style="color:#794938">==</span> hisDog) <span style="color:#794938">+</span> <span style="color:#0b6125">"&lt;br&gt;"</span>);   <span style="color:#5a525f;font-style:italic">// false</span><br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>((myDog <span style="color:#794938">===</span> hisDog) <span style="color:#794938">+</span> <span style="color:#0b6125">"&lt;br&gt;"</span>);  <span style="color:#5a525f;font-style:italic">// false</span><br>
+    <span style="color:#a71d5d;font-style:italic">var</span> herDog <span style="color:#794938">=</span> hisDog;                          <span style="color:#5a525f;font-style:italic">// hisDog 객체를 변수 herDog에 대입함.</span><br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>((hisDog <span style="color:#794938">==</span> herDog) <span style="color:#794938">+</span> <span style="color:#0b6125">"&lt;br&gt;"</span>);  <span style="color:#5a525f;font-style:italic">// true</span><br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>((hisDog <span style="color:#794938">===</span> herDog) <span style="color:#794938">+</span> <span style="color:#0b6125">"&lt;br&gt;"</span>); <span style="color:#5a525f;font-style:italic">// true</span><br></div>
+    위의 예제에서 myDog과 hisDog 객체는 가지고 있는 프로퍼티의 값이 모두 같다.<br>
+    하지만 이 두 객체는 별개의 객체이므로, 동등(==) 연산자와 일치(===) 연산자로 비교해도 모두 false를 반환한다.<br><br>
+    
+    위의 예제에서는 변수 herDog에 hisDog 객체를 대입한다.<br>
+    이렇게 객체를 대입한 변수를 <span class="text-danger fw-bold">객체 레퍼런스(object reference)</span>라고 하며, 이제부터 변수 herDog은 hisDog 객체를 가리키게 된다.<br>
+    즉, <span class="text-danger fw-bold">객체 레퍼런스</span>는 객체 자체를 저장하는 것이 아니라, <span class="text-danger fw-bold">객체가 위치한 주소를 저장</span>하는 것이다. <br>
+    <p>따라서 변수 herDog과 hisDog을 동등 연산자와 일치 연산자로 비교하면, 모두 true를 반환하게 된다.</p>
+    
+    <hr><div class="col-md-8 mb-2">
+    <div class="p-3 text-white fs-4 bd-pink-800">객체 프로퍼티(property) </div></div>
+    
+    <p>모든 자바스크립트 객체는 Object 객체와 Object.prototype 객체의 모든 프로퍼티를 상속받다.<br>
+    prototype 프로퍼티를 이용하면 현재 존재하는 프로토타입에 새로운 프로퍼티나 메소드를 손쉽게 추가할 수 있다.</p> 
+    <hr><div class="col-md-8 mb-2">
+    <div class="p-3 text-white fs-4 bd-pink-800">객체 메소드(method) </div></div>
+    
+    <p>모든 자바스크립트 객체는 Object 객체와 Object.prototype 객체의 모든 프로퍼티와 메소드를 상속받다.<br>
+    자주 사용되는 대표적인 객체 메소드는 다음과 같다.<br>
+    1. hasOwnProperty()<br>
+    2. propertyIsEnumerable()<br>
+    3. isPrototypeOf()<br>
+    4. isExtensible()<br>
+    5. toString()<br>
+    6. valueOf()</p>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">hasOwnProperty() 메소드</h4>
+    
+    <p><span class="text-bg-warning">hasOwnProperty()</span> 메소드는 특정 프로퍼티가 해당 객체에 존재하는지를 검사한다.<br>
+    해당 객체에서 직접 선언된 프로퍼티만을 검사하며, 같은 이름의 프로퍼티라도 상속받은 프로퍼티는 false 값을 반환한다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">Dog</span>(color, name, age, family) {<br>
+    <span style="color:#794938">    </span><span style="color:#234a97">this</span>.<span style="color:#b4371f">color</span> <span style="color:#794938">=</span> color;<br>
+    <span style="color:#794938">    </span><span style="color:#234a97">this</span>.<span style="color:#b4371f">name</span> <span style="color:#794938">=</span> name;<br>
+    <span style="color:#794938">    </span><span style="color:#234a97">this</span>.age <span style="color:#794938">=</span> age;<br>
+    <span style="color:#794938">    </span><span style="color:#234a97">this</span>.family <span style="color:#794938">=</span> family;<br>
+    <span style="color:#794938">    </span><span style="color:#691c97">this</span>.<span style="color:#bf4f24">breed</span> <span style="color:#794938">=</span> <span style="color:#a71d5d;font-style:italic">function</span>() {<br>
+    <span style="color:#794938">        return</span> <span style="color:#234a97">this</span>.<span style="color:#b4371f">color</span> <span style="color:#794938">+</span> <span style="color:#0b6125">" "</span> <span style="color:#794938">+</span> <span style="color:#234a97">this</span>.family;<br>
+    <span style="color:#794938">    </span>}<br>
+    }<br>
+    <span style="color:#a71d5d;font-style:italic">var</span> myDog <span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">Dog</span>(<span style="color:#0b6125">"검정색"</span>, <span style="color:#0b6125">"곰"</span>, <span style="color:#811f24;font-weight:700">3</span>, <span style="color:#0b6125">"불독"</span>);<br>
+    myDog.hasOwnProperty(<span style="color:#0b6125">"color"</span>); <span style="color:#5a525f;font-style:italic">// true</span><br>
+    myDog.hasOwnProperty(<span style="color:#0b6125">"breed"</span>); <span style="color:#5a525f;font-style:italic">// true</span><br>
+    myDog.hasOwnProperty(<span style="color:#0b6125">"class"</span>); <span style="color:#5a525f;font-style:italic">// 상속받은 프로퍼티이므로, false를 반환함.</span></p></div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">propertyIsEnumerable() 메소드</h4>
+    
+    <p><span class="text-bg-warning">propertyIsEnumerable() </span>메소드는 특정 프로퍼티가 해당 객체에 존재하고, 열거할 수 있는 프로퍼티인지를 검사한다.<br>
+    즉, 이 메소드는 hasOwnProperty() 메소드의 결과가 true이면서, 동시에 열거할 수 있는 프로퍼티인지를 검사한다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">Dog</span>(color, name, age) {<br>
+    <span style="color:#234a97">    this</span>.<span style="color:#b4371f">color</span> <span style="color:#794938">=</span> color;<br>
+    <span style="color:#234a97">    this</span>.<span style="color:#b4371f">name</span> <span style="color:#794938">=</span> name;<br>
+    <span style="color:#234a97">    this</span>.age <span style="color:#794938">=</span> age;<br>
+    }<br>
+    <span style="color:#a71d5d;font-style:italic">var</span> myDog <span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">Dog</span>(<span style="color:#0b6125">"흰색"</span>, <span style="color:#0b6125">"마루"</span>, <span style="color:#811f24;font-weight:700">1</span>);<br>
+    <span style="color:#5a525f;font-style:italic">// color 프로퍼티의 enumerable 속성을 false로 설정함.</span><br>
+    <span style="color:#691c97">Object</span>.defineProperty(myDog, <span style="color:#0b6125">'color'</span>, { enumerable : <span style="color:#811f24;font-weight:700">false</span>} );<br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(myDog.propertyIsEnumerable(<span style="color:#0b6125">"color"</span>) <span style="color:#794938">+</span> <span style="color:#0b6125">"&lt;br&gt;"</span>); <span style="color:#5a525f;font-style:italic">// false</span><br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(myDog.propertyIsEnumerable(<span style="color:#0b6125">"name"</span>) <span style="color:#794938">+</span> <span style="color:#0b6125">"&lt;br&gt;"</span>);  <span style="color:#5a525f;font-style:italic">// true</span><br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(myDog.propertyIsEnumerable(<span style="color:#0b6125">"age"</span>));            <span style="color:#5a525f;font-style:italic">// true</span></p></div>
+    
+    <div class="content-box s2">열거할 수 있는 프로퍼티란 내부적으로 enumerable 플래그가 true로 설정된 프로퍼티를 의미한다.<br>
+    이러한 프로퍼티들은 for / in 문으로 접근할 수 있게 된다.</div>
+    
+    <div class="content-box s4">Object.defineProperty() 메소드는 ECMAScript 5부터 추가된 객체에 프로퍼티를 추가해주는 메소드이다.<br>
+    이때 추가하는 프로퍼티의 속성까지도 설정할 수 있다.</div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">isPrototypeOf() 메소드</h4>
+    
+    <p><span class="text-bg-warning">isPrototypeOf() </span>메소드는 특정 객체의 프로토타입 체인에 현재 객체가 존재하는지를 검사한다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> day <span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>(); <span style="color:#5a525f;font-style:italic">// Date 객체를 생성함.</span><br>
+    <span style="color:#5a525f;font-style:italic">// 객체 day의 프로토타입이 Date.prototype인지를 검사함.</span><br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#691c97">Date</span>.<span style="color:#b4371f">prototype</span>.isPrototypeOf(day));          <span style="color:#5a525f;font-style:italic">// true</span><br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#691c97">Date</span>.<span style="color:#b4371f">prototype</span>.isPrototypeOf(<span style="color:#794938">new</span> <span style="color:#bf4f24">String</span>())); <span style="color:#5a525f;font-style:italic">// false</span></p></div>
+      
+    <hr>
+    <h4 class="text-primary fst-italic">isExtensible() 메소드</h4>
+    
+    <p><span class="text-bg-warning">isExtensible() </span>메소드는 객체에 새로운 프로퍼티를 추가할 수 있는지 여부를 반환한다.<br>
+    자바스크립트에서 모든 객체는 기본적으로 새로운 프로퍼티를 추가할 수 있다.<br>
+    하지만 <span class="text-bg-warning">preventExtensions() </span>메소드를 사용하여 해당 객체에 새로운 프로퍼티를 추가할 수 없도록 설정할 수 있다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> day <span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>(); <span style="color:#5a525f;font-style:italic">// Date 객체를 생성함.</span><br>
+    <span style="color:#5a525f;font-style:italic">// 객체 day에 새로운 프로퍼티를 추가할 수 있는지 검사함.</span><br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#691c97">Object</span>.isExtensible(day) <span style="color:#794938">+</span> <span style="color:#0b6125">"&lt;br&gt;"</span>); <span style="color:#5a525f;font-style:italic">// true</span><br>
+    <span style="color:#5a525f;font-style:italic">// 해당 객체에 새로운 프로퍼티를 추가할 수 없도록 설정함.</span><br>
+    <span style="color:#a71d5d;font-style:italic">var</span> myDay <span style="color:#794938">=</span> <span style="color:#691c97">Object</span>.preventExtensions(day);<br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#691c97">Object</span>.isExtensible(day));          <span style="color:#5a525f;font-style:italic">// false</span></p></div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">toString() 메소드</h4>
+    
+    <p><span class="text-bg-warning">toString() 메소드는 이 메소드를 호출한 객체의 값을 문자열로 반환한다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> arr <span style="color:#794938">=</span> [<span style="color:#811f24;font-weight:700">10</span>, <span style="color:#0b6125">"문자열"</span>, <span style="color:#811f24;font-weight:700">true</span>]; <span style="color:#5a525f;font-style:italic">// 배열</span><br>
+    <span style="color:#a71d5d;font-style:italic">var</span> bool <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">false</span>;               <span style="color:#5a525f;font-style:italic">// 불리언</span><br>
+    <span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">func</span>() { <span style="color:#794938">return</span> <span style="color:#811f24;font-weight:700">0</span>; }   <span style="color:#5a525f;font-style:italic">// 함수</span><br>
+    arr.<span style="color:#693a17">toString</span>();  <span style="color:#5a525f;font-style:italic">// 10,문자열,true</span><br>
+    bool.<span style="color:#693a17">toString</span>(); <span style="color:#5a525f;font-style:italic">// false</span><br>
+    func.<span style="color:#693a17">toString</span>(); <span style="color:#5a525f;font-style:italic">// 함수의 소스 코드가 전부 문자열로 반환됨.</span></p></div>
+    <span class="text-danger fw-bold"></span> toString() 메소드는 어떠한 인수도 전달받지 않는다.</div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">valueOf() 메소드</h4>
+    
+    <p><span class="text-bg-warning">valueOf() </span>메소드는 특정 객체의 원시 타입(primitive type)의 값을 반환한다.<br>
+    자바스크립트에서는 원시 타입의 값이 기대되는 곳에 객체가 사용되면, 내부적으로 이 메소드를 호출하여 처리한다.</p>
+    
+    <p>만약 어떤 객체가 원시 타입의 값을 가지고 있지 않는다면, 이 메소드는 객체 자신을 반환한다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+      var numObj = new Number(123); <br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>("numObj의 데이터유형은 "  <span style="color:#794938">+</span> typeof numObj  <span style="color:#794938">+</span> "이다  &lt;br> ");<span style="color:#5a525f;font-style:italic"> // object </span><br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>("numObj의 데이터값은 "  <span style="color:#794938">+</span> numObj.valueOf()  <span style="color:#794938">+</span> "이다 &lt;br> "); <span style="color:#5a525f;font-style:italic">// 123 </span><br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>("numObj.valueOf()의 데이터유형은 "  <span style="color:#794938">+</span> typeof numObj.valueOf()  <span style="color:#794938">+</span> "이다"); <span style="color:#5a525f;font-style:italic">// number </span><br><br>
+    typeOf 아님 typeof 임 주의필요 </p> </div><hr>
+    <h4 class="text-primary fst-italic">getter와 setter 메소드의 정의</h4>
+    
+    <p>getter와 setter 메소드로 정의된 프로퍼티는 단순한 값을 지닌 데이터 프로퍼티와는 달리 <span class="text-danger fw-bold">접근자 프로퍼티</span>라고 부른다.<br>
+    getter 메소드는 특정 프로퍼티의 값을 받아오기 위한 메소드이다.<br>
+    자바스크립트는 객체의 프로퍼티 값에 접근할 때 getter 메소드에 아무런 인수를 전달하지 않고 호출한다.<br>
+    setter 메소드는 특정 프로퍼티의 값을 설정하기 위한 메소드이다.<br>
+    자바스크립트는 객체의 프로퍼티 값을 변경할 때 setter 메소드에 대입하고자 하는 값을 인수로 전달하여 호출한다.<br> 
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제 : getter 메소드를 정의</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> gildong <span style="color:#794938">=</span> { age: <span style="color:#811f24;font-weight:700">18</span> };<br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(gildong.age <span style="color:#794938">+</span> <span style="color:#0b6125">"&lt;br&gt;"</span>); <span style="color:#5a525f;font-style:italic">// 18</span><br>
+    <span style="color:#691c97">Object</span>.defineProperty(gildong, <span style="color:#0b6125">"americanAge"</span>, { <span style="color:#bf4f24">get</span>: <span style="color:#a71d5d;font-style:italic">function</span>() { <span style="color:#794938">return</span> <span style="color:#234a97">this</span>.age <span style="color:#794938">-</span> <span style="color:#811f24;font-weight:700">1</span>; } });<br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(gildong.americanAge); <span style="color:#5a525f;font-style:italic">// 17</span><br></div>
+    위의 예제에서는 gildong 객체에 americanAge라는 프로퍼티를 추가할 때 <span class="text-bg-warning">get 키워드</span>를 사용하여  <span class="text-bg-warning">getter 메소드</span>를 정의하고 있다.<br>
+    따라서 해당 프로퍼티를 참조하려고 할 때는 내부적으로 미리 정의한 getter 메소드가 자동으로 호출될 것이다.<br> 
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제 : setter 메소드를 정의</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> gildong <span style="color:#794938">=</span> { age: <span style="color:#811f24;font-weight:700">18</span> };<br>
+    gildong.age <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">20</span>;<br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(gildong.age <span style="color:#794938">+</span> <span style="color:#0b6125">"&lt;br&gt;"</span>); <span style="color:#5a525f;font-style:italic">// 20</span><br>
+    <span style="color:#691c97">Object</span>.defineProperty(gildong, <span style="color:#0b6125">"changeAge"</span>, { <span style="color:#bf4f24">set</span>: <span style="color:#a71d5d;font-style:italic">function</span>(n) { <span style="color:#234a97">this</span>.age <span style="color:#794938">=</span> <span style="color:#234a97">this</span>.age <span style="color:#794938">-</span> n; } });<br>
+    gildong.changeAge <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">5</span>;<br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(gildong.age); <span style="color:#5a525f;font-style:italic">// 15</span><br></div>
+    위의 예제에서는 gildong 객체에 changeAge라는 프로퍼티를 추가할 때 <span class="text-bg-warning">set 키워드</span>를 사용하여 <span class="text-bg-warning"> setter 메소드</span>를 정의하고 있다.<br>
+    따라서 해당 프로퍼티의 값을 변경하려고 할 때는 내부적으로 미리 정의한 setter 메소드가 자동으로 호출될 것이다.<br>
+    getter와 setter 메소드를 지원하는 주요 웹 브라우저의 버전은 다음과 같다.</p>
+    
+    <table class="table table-responsive text-center" summary="">
+      <tbody>
+    <tr>
+    <th>메소드</th>
+    <th><img alt="ie" class="icon" src="http://www.tcpschool.com//img/icon-ie.png"></th>
+    <th><img alt="chrome" class="icon" src="http://www.tcpschool.com//img/icon-chrome.png"></th>
+    <th><img alt="firefox" class="icon" src="http://www.tcpschool.com//img/icon-firefox.png"></th>
+    <th><img alt="safari" class="icon" src="http://www.tcpschool.com//img/icon-safari.png"></th>
+    <th><img alt="opera" class="icon" src="http://www.tcpschool.com//img/icon-opera.png"></th>
+    </tr>
+    <tr>
+    <td>getter 메소드<br>
+    setter 메소드    </td>
+    <td>9.0    </td>
+    <td>1.0    </td>
+    <td>2.0    </td>
+    <td>3.0    </td>
+    <td>9.5    </td>
+    </tr>
+      </tbody>
+    </table>
+    
+    <hr><div class="col-md-8 mb-2">
+    <div class="p-3 text-white fs-4 bd-pink-800">전역 객체와 래퍼 객체</div></div>
+    
+    <hr><div class="col-md-8 mb-2">
+    <div class="p-3 text-white fs-4 bd-pink-800">전역 객체(global object) </div></div>
+    
+    <p>전역 객체란 자바스크립트에 미리 정의된 객체로 전역 프로퍼티나 전역 함수를 담는 공간의 역할을 한다.<br>
+    전역 객체 그 자체는 전역 범위(global scope)에서 this 연산자를 통해 접근할 수 있다.<br>
+    자바스크립트에서 모든 객체는 전역 객체의 프로퍼티가 된다.<br>
+    웹 브라우저가 새로운 페이지를 로드(load)하면, 자바스크립트는 새로운 전역 개체를 만들고 해당 프로퍼티들을 초기화한다.</p>
+    
+    <hr><div class="col-md-8 mb-2">
+    <div class="p-3 text-white fs-4 bd-pink-800">래퍼 객체(wrapper object)</div><br>
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> str <span style="color:#794938">=</span> <span style="color:#0b6125">"문자열"</span>;   <span style="color:#5a525f;font-style:italic">// 문자열 생성</span><br>
+    <span style="color:#a71d5d;font-style:italic">var</span> len <span style="color:#794938">=</span> str.<span style="color:#b4371f">length</span>; <span style="color:#5a525f;font-style:italic">// 문자열 프로퍼티인 length 사용</span></p>
+    </div></div>
+    
+    <p>위의 예제에서 생성한 문자열 리터럴 str은 객체가 아닌데도 length 프로퍼티를 사용할 수 있다.<br>
+    프로그램이 문자열 리터럴 str의 프로퍼티를 참조하려고 하면, 자바스크립트는 new String(str)을 호출한 것처럼 <span class="text-danger fw-bold"> 문자열 리터럴을 객체로 자동 변환</span>해주기 때문이다.</p>
+    <p>이렇게 생성된 임시 객체는 String 객체의 메소드를 상속받아 프로퍼티를 참조하는 데 사용된다.<br>
+    이후 프로퍼티의 참조가 끝나면 사용된 임시 객체는 자동으로 삭제된다.<br>
+    이렇게 숫자, 문자열, 불리언 등 <span class="text-danger fw-bold">원시 타입의 프로퍼티</span>에 접근하려고 할 때 생성되는 임시 객체를 <span class="text-danger fw-bold">래퍼 객체(wrapper object)</span>라고 한다.</p>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> str <span style="color:#794938">=</span> <span style="color:#0b6125">"문자열"</span>;           <span style="color:#5a525f;font-style:italic">// 문자열 리터럴 생성</span><br>
+    <span style="color:#a71d5d;font-style:italic">var</span> strObj <span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">String</span>(str); <span style="color:#5a525f;font-style:italic">// 문자열 객체 생성</span><br>
+    str.<span style="color:#b4371f">length</span>;                   <span style="color:#5a525f;font-style:italic">// 리터럴 값은 내부적으로  래퍼 객체를 생성한 후에 length 프로퍼티를 참조함.</span><br>
+    str <span style="color:#794938">==</span> strObj;                <span style="color:#5a525f;font-style:italic">// 동등 연산자는 리터럴 값과 해당 래퍼 객체를 동일하게 봄. true </span></p>
+    
+    <p>str <span style="color:#794938">===</span> strObj;               <span style="color:#5a525f;font-style:italic">// 일치 연산자는 리터럴 값과 해당 래퍼 객체를 구별함. false</span><br>
+    <span style="color:#794938">typeof</span> str;                   <span style="color:#5a525f;font-style:italic">// string 타입</span><br>
+    <span style="color:#794938">typeof</span> strObj;                <span style="color:#5a525f;font-style:italic">// object 타입</span></p></div>
+    
+<style>
+  #container01 { display: flex; flex-wrap: wrap; justify-content: left; align-items: center;}  
+  #userInput {width:320px; height:150px;}
+  #userInput ul { list-style: none;}
+  #userInput ul  li { margin:15px;}
+  #userInput li > label {float: left; width:50px; padding:5px; }
+  #userInput input[type="text"] {width:140px; padding:5px;}
+  #bttn01 {width:190px; margin-left:5px; padding:5px; }
+  #result01 {  width:300px; height:100px;  text-align: center; line-height: 100px; background-color:#fcfcfc;  border:1px solid #ccc; border-radius:12px; }
+</style>
+<script>
+  const bttn02 = document.querySelector("#bttn02");
+  class Pet {
+    constructor(name, color) {
+    this.name = name;
+    this.color = color;}
+    run() {
+      alert(`${this.name} is running`);
+    }}
+        
+  const pet1 = new Pet("moongchi", "yellow");
+  bttn02.addEventListener("click", function() {pet1.run()}) ;
+
+  const bttn03 = document.querySelector("#bttn03");  
+  class Cat extends Pet{ 
+    constructor(name, color, breed) { 
+      super(name, color);
+      this.breed = breed;
+    } 
+    viewInfo() {
+      alert(`이름 : ${this.name}, 품종 : ${this.breed}, 색깔 : ${this.color}`);
+    }}
+          
+  const cat1 = new Cat("보리", "흰색", "코숏");
+  bttn03.addEventListener("click", function() {cat1.viewInfo()}) ;
+
+  const bttn01 = document.querySelector("#bttn01");
+  const result01 = document.querySelector("#result01");
+  function cal(e) {
+    e.preventDefault();    
+    const diameter = document.querySelector("#cyl-diameter").value;
+    const height = document.querySelector("#cyl-height").value;
+    result01.innerText = `원기둥의 부피는 ${(height*Math.PI*diameter*diameter/4).toFixed(2)} 입니다`
+  }
+  bttn01.addEventListener("click", cal)
+
+</script>
+</body>
+</html>

@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>날짜시간 객체</title>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">   
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">     
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+  <link href="{% static '/css/java.css'%}" rel="stylesheet">   
+</head>
+<body class="ms-3">  
+  <H2><a name="home">Javascript</a></H2>  
+      <p><a href="/javascript/j08.html" class="btn btn-purple mb-1" target="_blank">이전 노트</a>
+      <a href="/javascript/j10.html" class="btn btn-purple mb-1" target="_blank">다음 노트</a>
+      <a href="/htmls/tut1.html" class="btn btn-danger mb-1" target="_blank">HTML 노트</a> 
+      <a href="/css/tut11.html" class="btn btn-success mb-1" target="_blank">CSS 노트</a> 
+      <a href="/htmls/html_CSS.html" class="btn btn-outline-danger border-2 mb-1" target="_blank">HTML+CSS</a>
+      <a href="/htmls/html_Emmet.html" class="btn btn-outline-danger border-2 mb-1" target="_blank">HTML+Emmet</a>
+      <a href="/htmls/html_tags.html" class="btn btn-outline-danger border-2 mb-1" target="_blank">HTML+Tags</a><br>
+      <a href="/python/p01.html" class="btn btn-warning mb-1" target="_blank">파이썬 노트</a> 
+      <a href="/javascript/j01.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">자바스크립트 개요</a>
+      <a href="/javascript/j02.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">기본타입과 타입변환</a>
+      <a href="/javascript/j03.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">자바스크립트 연산자</a>
+      <a href="/javascript/j04.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">제어문과 배열 </a>
+      <a href="/javascript/j05.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">함수</a> 
+      <a href="/javascript/j06.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">객체</a>      
+      <a href="/javascript/j07.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Number 객체</a> 
+      <a href="/javascript/j08.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Math 객체</a> 
+      <a href="/javascript/j09.html" class=" btn btn-secondary mb-1" target="_blank">Date 객체</a> 
+      <a href="/javascript/j10.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">String 문자열 객체</a>
+      <a href="/javascript/j11.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Array 배열 객체</a> 
+      <a href="/javascript/j12.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">문서객체모델 DOM</a> 
+      <a href="/javascript/j13.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">브라우저 객체 모델 BOM</a> 
+      <a href="/javascript/j14.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">이벤트와 예외처리</a>
+      <a href="/javascript/j15.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">정규표현식</a> 
+      <a href="/javascript/j16.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">람다표현식</a> 
+      <a href="/javascript/j17.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Map과 Set, Iterator와 Generator</a> </p> 
+
+    <hr><div class="col-md-8 mb-2">
+      <div class="p-3 text-white fs-4 bd-pink-800">표준 객체(Standard Object)</div></div>     
+      <hr><p>자바스크립트에서 표준 객체(standard object)는 다른 객체의 기초가 되는 핵심적인 객체이다.<br>
+      자주 사용되는 대표적인 자바스크립트 표준 객체는 다음과 같다.<br>
+      1. Number 객체<br>
+      2. Math 객체<br>
+      3. Date 객체<br>
+      4. String 객체<br>
+      5. Array 객체</p></div><br>
+      
+ <hr><div class="col-md-8 mb-2">
+    <div class="p-3 text-white fs-4 bd-pink-800">자바스크립트에서의 날짜 표현</div></div>
+    
+    <p>자바스크립트에서는 Date 객체를 사용하여 매 순간 변화하는 시간과 날짜에 관한 정보를 손쉽게 얻을 수 있다.<br>
+    Date 객체는 연월일, 시분초의 정보와 함께 밀리초(millisecond)의 정보도 함께 제공한다.<br>
+    자바스크립트에서 날짜와 시간을 나타내기 위한 값의 범위는 다음과 같다.<br>
+    1. 연도(year) : 1900년(00) ~ 1999년(99)<br>
+    2. 월(month) : 1월(0) ~ 12월(11) <br>
+    3. 일(day) : 1일(1) ~ 31일(31)<br>
+    4. 시(hours) : 0시(0) ~ 23시(23)<br>
+    5. 분(minutes) : 0분(0) ~ 59분(59)<br>
+    6. 초(seconds) : 0초(0) ~ 59초(59)</p>
+    자바스크립트에서 월(month)을 나타낼 때는 1월이 0으로 표현되고, 12월이 11로 표현된다는 사실에 유의해야 한다.</div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">Date 객체</h4>
+    
+    <p>자바스크립트에서 Date 객체를 초기화하는 방법은 다음과 같다.<br>
+    1. new Date()<br>
+    2. new Date("날짜를 나타내는 문자열")<br>
+    3. new Date(밀리초)<br>
+    4. new Date(년, 월, 일, 시, 분, 초, 밀리초)<br>
+    Date 객체를 생성할 때 어떠한 인수도 전달하지 않으면, 현재 날짜와 시간을 가지고 Date 객체를 생성한다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <p> <br>
+    <span style="color:#a71d5d;font-style:italic">var</span> date <span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>(); <span style="color:#5a525f;font-style:italic">// Date 객체 생성</span><br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(date);<br>
+      </p>
+    </div>
+    <p>Date 객체를 생성할 때 인수가 전달되면, 그 형태에 따라 특정 날짜와 시간을 가리키는 Date 객체를 생성한다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>(<span style="color:#0b6125">"December 14, 1977 13:30:00"</span>); <span style="color:#5a525f;font-style:italic">// 날짜를 나타내는 문자열</span><br>
+    <span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>(<span style="color:#811f24;font-weight:700">80000000</span>);               <span style="color:#5a525f;font-style:italic">// 1970년 1월 1일 0시부터 해당 밀리초만큼 지난 날짜</span><br>
+    <span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>(<span style="color:#811f24;font-weight:700">16</span>, <span style="color:#811f24;font-weight:700">5</span>, <span style="color:#811f24;font-weight:700">25</span>);              <span style="color:#5a525f;font-style:italic">// 3개의 숫자로 나타내는 날짜이며, 시간은 자동으로 </span>0시 0분 0초<span style="color:#5a525f;font-style:italic">로 설정됨.</span><br>
+    <span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>(<span style="color:#811f24;font-weight:700">16</span>, <span style="color:#811f24;font-weight:700">5</span>, <span style="color:#811f24;font-weight:700">25</span>, <span style="color:#811f24;font-weight:700">15</span>, <span style="color:#811f24;font-weight:700">40</span>, <span style="color:#811f24;font-weight:700">0</span>);   <span style="color:#5a525f;font-style:italic">// 7개의 숫자로 나타내는 날짜</span><br>
+    <span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>(<span style="color:#811f24;font-weight:700">2016</span>, <span style="color:#811f24;font-weight:700">5</span>, <span style="color:#811f24;font-weight:700">25</span>, <span style="color:#811f24;font-weight:700">15</span>, <span style="color:#811f24;font-weight:700">40</span>, <span style="color:#811f24;font-weight:700">0</span>); <span style="color:#5a525f;font-style:italic">// 2000년대를 표기하고자 할 때에는 연도를 전부 표기해야 함.</span></p></div>
+    자바스크립트에서 날짜 계산의 모든 기준은 1970년 1월 1일 00:00:00(UTC, 협정세계시)부터이다.<br>
+    또한, 하루는 86,400,000 밀리초(millisecond)로 계산된다.</div>
+    
+    <hr><div class="col-md-8 mb-2">
+    <div class="p-3 text-white fs-4 bd-pink-800">자바스크립트 날짜 양식(date format) </div></div>
+    
+    <p>자바스크립트에서 날짜를 표현할 수 있는 양식은 다음과 같다.<br>
+    1. ISO 날짜 양식<br>
+    2. Long 날짜 양식<br>
+    3. Short 날짜 양식 <br>
+    4. Full 날짜 양식</p>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">ISO 날짜 양식</h4>
+    
+    <p>ISO 8601은 날짜와 시간을 나타내는 국제 표준 양식이다.</p>
+    <p>YYYY<span style="color:#794938">-</span>MM<span style="color:#794938">-</span>DDTHH:MM:SS <span style="color:#5a525f;font-style:italic">// T는 UTC(협정세계시)를 나타내는 문자로 시간까지 표현할 때에는 반드시 사용해야 함.</span><br>
+    YYYY<span style="color:#794938">-</span>MM<span style="color:#794938">-</span>DD<br>
+    YYYY<span style="color:#794938">-</span>MM<br>
+    YYYY</p>
+    </div>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>(<span style="color:#0b6125">"1977-12-14T13:30:00"</span>); <span style="color:#5a525f;font-style:italic">// 날짜와 시간까지 표현함.</span><br>
+    <span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>(<span style="color:#0b6125">"1977-12-14"</span>);          <span style="color:#5a525f;font-style:italic">// 시간이 생략되면 자동으로 09:00:00으로 설정됨.</span><br>
+    <span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>(<span style="color:#0b6125">"1977-12"</span>);             <span style="color:#5a525f;font-style:italic">// 일이 생략되면 자동으로 1일로 설정됨.</span><br>
+    <span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>(<span style="color:#0b6125">"1977"</span>);                <span style="color:#5a525f;font-style:italic">// 월이 생략되면 자동으로 1월로 설정됨.</span></p></div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">Long 날짜 양식</h4>
+    <p>MMM DD YYYY<br>
+    DD MMM YYYY</p>
+    </div>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>(<span style="color:#0b6125">"Feb 19 1982"</span>);        <span style="color:#5a525f;font-style:italic">// MMM DD YYYY</span><br>
+    <span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>(<span style="color:#0b6125">"19 Feb 1982"</span>);        <span style="color:#5a525f;font-style:italic">// DD MMM YYYY</span><br>
+    <span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>(<span style="color:#0b6125">"February 19 1982"</span>);   <span style="color:#5a525f;font-style:italic">// 월의 축약형 뿐만 아니라 전체 단어도 인식함.</span><br>
+    <span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>(<span style="color:#0b6125">"FEBRUARY, 19, 1982"</span>); <span style="color:#5a525f;font-style:italic">// 쉼표는 무시되며, 대소문자의 구분은 없음.</span></p></div>
+    <hr>
+    <h4 class="text-primary fst-italic">Short 날짜 양식</h4>
+    <p>MM/DD/YYYY<br>
+    YYYY/MM/DD</p>
+    </div>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <p> <br>
+    <span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>(<span style="color:#0b6125">"02/19/1982"</span>); <span style="color:#5a525f;font-style:italic">// MM/DD/YYYY</span><br>
+    <span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>(<span style="color:#0b6125">"1982/02/19"</span>); <span style="color:#5a525f;font-style:italic">// YYYY/MM/DD</span><br>
+      </p></div>
+    ISO 날짜 양식과 short 날짜 양식에서는 <span class="text-danger fw-bold">반드시 월일 순서</span>로 날짜가 나와야 하며, 일월 순서로 나온 날짜는 자바스크립트가 제대로 인식하지 못한다.</div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">Full 날짜 양식</h4>
+    
+    <p>자바스크립트에서 사용하는 날짜 양식으로 표현된 문자열도 날짜로 인식한다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <p>Wed May <span style="color:#811f24;font-weight:700">25</span> <span style="color:#811f24;font-weight:700">2016</span> <span style="color:#811f24;font-weight:700">17</span>:<span style="color:#811f24;font-weight:700">00</span>:<span style="color:#811f24;font-weight:700">31</span> GMT<span style="color:#794938">+</span><span style="color:#811f24;font-weight:700">0900</span></p>
+    </div>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>(<span style="color:#0b6125">"Wed May 25 2016 17:00:00 GMT+0900 (Seoul Time)"</span>);<br>
+    <span style="color:#5a525f;font-style:italic">// GMT가 현재 국가와 다른 시간은 현재 국가의 GMT로 변환되어 표현됨.</span><br>
+    <span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>(<span style="color:#0b6125">"Wed May 25 2016 17:00:00 GMT-0500 (New York Time)"</span>);</p>
+    </div>
+    <hr>
+    <h4 class="text-primary fst-italic">Date.now() 메소드</h4>
+    
+    <p>Date.now() 메소드는 1970년 1월 1일 0시 0분 0초부터 현재까지의 시간을 밀리초(millisecond) 단위의 정수로 반환한다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> nowMiliSec <span style="color:#794938">=</span> <span style="color:#691c97">Date</span>.now();<br>
+    nowMiliSec;           <span style="color:#5a525f;font-style:italic">// 1970년 1월 1일 00:00:00부터 현재까지의 밀리초</span><br>
+    <span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>(nowMiliSec); <span style="color:#5a525f;font-style:italic">// new Date()와 같은 결과를 반환함.</span><br>
+    <span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>();</p></div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">Date 객체 <span class="text-danger fw-bold">getter 메소드</h4></span>
+    
+    <p>모든 Date 인스턴스는 Date.prototype으로부터 메소드와 프로퍼티를 상속받다.<br>
+    Date.prototype getter 메소드는 날짜와 관련된 정보를 받아오기 위한 메소드이다.<br>
+    가장 많이 사용되는 대표적인 getter 메소드는 다음과 같다.<br>
+    <span class="text-bg-warning">1. getFullYear()</span> <br>
+    <span class="text-bg-warning">2. getDate()</span> <br>
+    <span class="text-bg-warning">3. getDay()</span> <br>
+    <span class="text-bg-warning">4. getTime()</span> </p>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">getFullYear() 메소드</h4>
+    
+    <p>getFullYear() 메소드는 현재 연도를 4비트의 숫자(YYYY)로 반환한다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <p> <br>
+    <span style="color:#a71d5d;font-style:italic">var</span> date <span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>();<br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"올해는 "</span> <span style="color:#794938">+</span> date.<span style="color:#693a17">getFullYear</span>() <span style="color:#794938">+</span> <span style="color:#0b6125">"년이다."</span>); <span style="color:#5a525f;font-style:italic">// 현재 연도를 반환함.</span></p></div>
+    <hr>
+    <h4 class="text-primary fst-italic">getDate() 메소드</h4>
+    
+    <p>getDate() 메소드는 현재 날짜에 해당하는 숫자를 반환한다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <p> <br>
+    <span style="color:#a71d5d;font-style:italic">var</span> date <span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>();<br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"오늘은 "</span> <span style="color:#794938">+</span> date.<span style="color:#693a17">getMonth</span>() <span style="color:#794938">+</span> <span style="color:#0b6125">"월 "</span> <span style="color:#794938">+</span> date.<span style="color:#693a17">getDate</span>() <span style="color:#794938">+</span> <span style="color:#0b6125">"일이다."</span>); <span style="color:#5a525f;font-style:italic">// 현재 날짜를 반환함.</span></p></div>
+    <hr>
+    <h4 class="text-primary fst-italic">getDay() 메소드</h4>
+    
+    <p>getDay() 메소드는 현재 요일에 해당하는 숫자를 반환한다.<br>
+    자바스크립트에서 일주일은 일요일(0)부터 시작하여 토요일(6)로 끝난다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> date <span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>();<br>
+    <span style="color:#a71d5d;font-style:italic">var</span> day;<br>
+    <span style="color:#794938">switch</span> (date.<span style="color:#693a17">getDay</span>()) { <span style="color:#5a525f;font-style:italic">// 현재 요일을 반환함.</span><br>
+    <span style="color:#794938">    case</span> <span style="color:#811f24;font-weight:700">0</span>:<br>
+    <span style="color:#794938">    </span><span style="color:#794938">    </span>day <span style="color:#794938">=</span> <span style="color:#0b6125">"일"</span>;<br>
+    <span style="color:#794938">        break</span>;<br>
+    <span style="color:#794938">    case</span> <span style="color:#811f24;font-weight:700">1</span>:<br>
+    <span style="color:#794938">    </span><span style="color:#794938">    </span>day <span style="color:#794938">=</span> <span style="color:#0b6125">"월"</span>;<br>
+    <span style="color:#794938">        break</span>;<br>
+    <span style="color:#794938">    </span>...<br>
+    <span style="color:#794938">    case</span> <span style="color:#811f24;font-weight:700">6</span>:<br>
+    <span style="color:#794938">    </span><span style="color:#794938">    </span>day <span style="color:#794938">=</span> <span style="color:#0b6125">"토"</span>;<br>
+    <span style="color:#794938">        break</span>;<br>
+    }<br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"오늘은 "</span> <span style="color:#794938">+</span> day <span style="color:#794938">+</span> <span style="color:#0b6125">"요일이다."</span>);<br></div>
+    배열을 사용하면 더욱 간단하게 요일을 출력할 수 있다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> date <span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>();<br>
+    <span style="color:#a71d5d;font-style:italic">var</span> days <span style="color:#794938">=</span> [<span style="color:#0b6125">"일"</span>, <span style="color:#0b6125">"월"</span>, <span style="color:#0b6125">"화"</span>, <span style="color:#0b6125">"수"</span>, <span style="color:#0b6125">"목"</span>, <span style="color:#0b6125">"금"</span>, <span style="color:#0b6125">"토"</span>];<br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"오늘은 "</span> <span style="color:#794938">+</span> days[date.<span style="color:#693a17">getDay</span>()] <span style="color:#794938">+</span> <span style="color:#0b6125">"요일이다."</span>);</p></div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">getTime() 메소드</h4>
+    
+    <p>getTime() 메소드는 1970년 1월 1일 0시 0분 0초부터 현재까지의 시간을 밀리초 단위로 환산한 값을 숫자로 반환한다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> date <span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>();<br>
+    <span style="color:#a71d5d;font-style:italic">var</span> period <span style="color:#794938">=</span> date.<span style="color:#693a17">getTime</span>() / <span style="color:#811f24;font-weight:700">86400000</span> <span style="color:#5a525f;font-style:italic">// 하루는 86,400,000 밀리초로 계산됨.</span><br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"1970년 1월 1일부터 오늘까지 "</span> <span style="color:#794938">+</span> period.toFixed() <span style="color:#794938">+</span> <span style="color:#0b6125">"일이 지났다."</span>); <span style="color:#5a525f;font-style:italic">// 소수 부분은 생략함.</span></p></div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">자바스크립트 Date 객체 getter 메소드</h4>
+    
+    <table class="table" style="width: 50%;">
+      <thead class="table-light">
+    <tr class="table-warning">
+    <th>메소드</th>
+    <th>설명</th>
+    <th>값의 범위</th>
+    </tr>
+      </thead>
+      <tbody>
+    <tr>
+    <td>getDate()    </td>
+    <td>현지 시각으로 현재 일자에 해당하는 숫자를 반환함.</td>
+    <td>1 ~ 31</td>
+    </tr>
+    <tr>
+    <td>getDay()    </td>
+    <td>현지 시각으로 현재 요일에 해당하는 숫자를 반환함.</td>
+    <td>0 ~ 6</td>
+    </tr>
+    <tr>
+    <td>getMonth()</td>
+    <td>현지 시각으로 현재 월에 해당하는 숫자를 반환함.</td>
+    <td>0 ~ 11</td>
+    </tr>
+    <tr>
+    <td>getFullYear()    </td>
+    <td>현지 시각으로 현재 연도를 4비트의 숫자(YYYY)로 반환함.</td>
+    <td>YYYY</td>
+    </tr>
+    <tr>
+    <td>getHours()    </td>
+    <td>현지 시각으로 현재 시각에 해당하는 숫자를 반환함.</td>
+    <td>0 ~ 23</td>
+    </tr>
+    <tr>
+    <td>getMilliseconds()    </td>
+    <td>현지 시각으로 현재 시각의 밀리초에 해당하는 숫자를 반환함.</td>
+    <td>0 ~ 999</td>
+    </tr>
+    <tr>
+    <td>getMinutes()    </td>
+    <td>현지 시각으로 현재 시각의 분에 해당하는 숫자를 반환함.</td>
+    <td>0 ~ 59</td>
+    </tr>
+    <tr>
+    <td>getSeconds()    </td>
+    <td>현지 시각으로 현재 시각의 초에 해당하는 숫자를 반환함.</td>
+    <td>0 ~ 59</td>
+    </tr>
+    <tr>
+    <td>getTime()    </td>
+    <td>1970년 1월 1일 0시 0분 0초부터 현재까지의 시간을 밀리초 단위로 환산한 값을 숫자로 반환함.</td>
+    <td>-</td>
+    </tr>
+    <tr>
+    <td>getTimezoneOffset()    </td>
+    <td>UTC로부터 현재 시각까지의 시간차를 분 단위로 환산한 값을 숫자로 반환함.</td>
+    <td>-</td>
+    </tr>
+      </tbody>
+    </table>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">자바스크립트 Date 객체 UTC getter 메소드</h4>
+    
+    <table class="table" style="width: 50%;">
+      <thead class="table-light">
+    <tr class="table-warning">
+    <th>메소드</th>
+    <th>설명</th>
+    </tr>
+      </thead>
+      <tbody>
+    <tr>
+    <td>getUTCDate()    </td>
+    <td>협정세계시(UTC)로 현재 일자에 해당하는 숫자를 반환함.</td>
+    </tr>
+    <tr>
+    <td>getUTCDay()    </td>
+    <td>협정세계시(UTC)로 현재 요일에 해당하는 숫자를 반환함.</td>
+    </tr>
+    <tr>
+    <td>getUTCMonth()</td>
+    <td>협정세계시(UTC)로 현재 월에 해당하는 숫자를 반환함.</td>
+    </tr>
+    <tr>
+    <td>getUTCFullYear()    </td>
+    <td>협정세계시(UTC)로 현재 연도를 4비트의 숫자(YYYY)로 반환함.</td>
+    </tr>
+    <tr>
+    <td>getUTCHours()    </td>
+    <td>협정세계시(UTC)로 현재 시각에 해당하는 숫자를 반환함.</td>
+    </tr>
+    <tr>
+    <td>getUTCMilliseconds()    </td>
+    <td>협정세계시(UTC)로 현재 시각의 밀리초에 해당하는 숫자를 반환함.</td>
+    </tr>
+    <tr>
+    <td>getUTCMinutes()    </td>
+    <td>협정세계시(UTC)로 현재 시각의 분에 해당하는 숫자를 반환함.</td>
+    </tr>
+    <tr>
+    <td>getUTCSeconds()    </td>
+    <td>협정세계시(UTC)로 현재 시각의 초에 해당하는 숫자를 반환함.</td>
+    </tr>
+      </tbody>
+    </table>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">Date 객체 <span class="text-danger fw-bold">setter 메소드</h4></span>
+    
+    <p>Date.prototype setter 메소드는 날짜와 관련된 정보를 설정하기 위한 메소드이다.<br>
+    가장 많이 사용되는 대표적인 setter 메소드는 다음과 같다.<br>
+    <span class="text-bg-warning">1. setFullYear()</span><br>
+    <span class="text-bg-warning">2. setDate()</span></p>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">setFullYear() 메소드</h4>
+    
+    <p>setFullYear() 메소드는 Date 객체의 값을 특정 날짜로 설정한다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> date <span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>();<br>
+    date.<span style="color:#693a17">setFullYear</span>(<span style="color:#811f24;font-weight:700">1982</span>, <span style="color:#811f24;font-weight:700">1</span>, <span style="color:#811f24;font-weight:700">19</span>); <span style="color:#5a525f;font-style:italic">// 자바스크립트에서 2월은 1임.</span><br>
+    date.<span style="color:#693a17">getFullYear</span>();            <span style="color:#5a525f;font-style:italic">// 1982</span><br>
+    date.<span style="color:#693a17">getMonth</span>();               <span style="color:#5a525f;font-style:italic">// 1</span><br>
+    date.<span style="color:#693a17">getDate</span>();                <span style="color:#5a525f;font-style:italic">// 19</span></p></div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">setDate() 메소드</h4>
+    
+    <p>setDate() 메소드는 Date 객체의 일자 값을 특정 일자로 설정한다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> date <span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>();<br>
+    date.<span style="color:#693a17">setDate</span>(<span style="color:#811f24;font-weight:700">10</span>);              <span style="color:#5a525f;font-style:italic">// Date 객체의 일자 값을 10일로 설정함.</span><br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(date <span style="color:#794938">+</span> <span style="color:#0b6125">"&lt;br&gt;"</span>);<br>
+    date.<span style="color:#693a17">setDate</span>(<span style="color:#811f24;font-weight:700">40</span>);              <span style="color:#5a525f;font-style:italic">// 40일을 설정하면, 초과되는 일수만큼 다음달로 넘어감.</span><br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(date);</p></div>
+    <hr>
+    <h4 class="text-primary fst-italic">자바스크립트 Date 객체 setter 메소드</h4>
+    
+    <table class="table" style="width: 50%;">
+      <thead class="table-light">
+    <tr class="table-warning">
+    <th>메소드</th>
+    <th>설명</th>
+    <th>값의 범위</th>
+    </tr>
+      </thead>
+      <tbody>
+    <tr>
+    <td>setDate()    </td>
+    <td>현지 시각으로 특정 일자를 설정함.    </td>
+    <td>1 ~ 31</td>
+    </tr>
+    <tr>
+    <td>setMonth()</td>
+    <td>현지 시각으로 특정 월을 설정함.</td>
+    <td>0 ~ 11</td>
+    </tr>
+    <tr>
+    <td>setFullYear()    </td>
+    <td>현지 시각으로 특정 연도를 설정함. (연도뿐만 아니라 월과 일자도 설정할 수 있음)</td>
+    <td>YYYY, MM, DD</td>
+    </tr>
+    <tr>
+    <td>setHours()    </td>
+    <td>현지 시각으로 특정 시간을 설정함.</td>
+    <td>0 ~ 23</td>
+    </tr>
+    <tr>
+    <td>setMilliseconds()    </td>
+    <td>현지 시각으로 특정 밀리초를 설정함.</td>
+    <td>0 ~ 999</td>
+    </tr>
+    <tr>
+    <td>setMinutes()    </td>
+    <td>현지 시각으로 특정 분을 설정함.</td>
+    <td>0 ~ 59</td>
+    </tr>
+    <tr>
+    <td>setSeconds()    </td>
+    <td>현지 시각으로 특정 초를 설정함.</td>
+    <td>0 ~ 59</td>
+    </tr>
+    <tr>
+    <td>setTime()    </td>
+    <td>1970년 1월 1일 0시 0분 0초부터 밀리초 단위로 표현되는 특정 시간을 설정함.</td>
+    <td>-</td>
+    </tr>
+      </tbody>
+    </table>
+    자바스크립트에서 setDay() 메소드는 존재하지 않는다.</div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">자바스크립트 Date 객체 UTC setter 메소드</h4>
+    
+    <table class="table" style="width: 50%;">
+      <thead class="table-light">
+    <tr class="table-warning">
+    <th>메소드</th>
+    <th>설명</th>
+    <th>값의 범위</th>
+    </tr>
+      </thead>
+      <tbody>
+    <tr>
+    <td>setUTCDate()    </td>
+    <td>협정세계시(UTC)로 특정 일자를 설정함.    </td>
+    <td>1 ~ 31</td>
+    </tr>
+    <tr>
+    <td>setUTCMonth()</td>
+    <td>협정세계시(UTC)로 특정 월을 설정함.</td>
+    <td>0 ~ 11</td>
+    </tr>
+    <tr>
+    <td>setUTCFullYear()    </td>
+    <td>협정세계시(UTC)로 특정 연도를 설정함. (연도뿐만 아니라 월과 일자도 설정할 수 있음)</td>
+    <td>YYYY, MM, DD</td>
+    </tr>
+    <tr>
+    <td>setUTCHours()    </td>
+    <td>협정세계시(UTC)로 특정 시간을 설정함.</td>
+    <td>0 ~ 23</td>
+    </tr>
+    <tr>
+    <td>setUTCMilliseconds()    </td>
+    <td>협정세계시(UTC)로 특정 밀리초를 설정함.</td>
+    <td>0 ~ 999</td>
+    </tr>
+    <tr>
+    <td>setUTCMinutes()    </td>
+    <td>협정세계시(UTC)로 특정 분을 설정함.</td>
+    <td>0 ~ 59</td>
+    </tr>
+    <tr>
+    <td>setUTCSeconds()    </td>
+    <td>협정세계시(UTC)로 특정 초를 설정함.</td>
+    <td>0 ~ 59</td>
+    </tr>
+      </tbody>
+    </table>
+
+     
+    <hr>
+    <h4> 날짜와 시간의 형식을 바꾸는 메소드</h4>
+    
+    
+    <table class="table" style="width: 50%;">
+      <thead class="table-light">
+    <tr class="table-warning">
+    <th>메소드</th>
+    <th>설명</th>
+    </tr>
+      </thead>
+      <tbody>
+    <tr>
+    <td>toUTCString()    </td>
+    <td>'요일 일 월 연도 시:분:초 UTC' 형식으로 표시</td>
+    </tr>
+    <tr>
+    <td>toLocaleString()    </td>
+    <td>'월/일/연도 시:분:초' 형식으로 표시</td>
+    </tr>
+    <tr>
+    <td>toString()</td>
+    <td>'요일 월 날짜 시:분:초 UTC+대한민국 표준시'형식으로 표시</td>
+    </tr>
+    <tr>
+    <td>toDateString()    </td>
+    <td>Date에서 날짜 부분만 표시</td>
+    </tr>
+    <tr>
+    <td>toTimeString()     </td>
+    <td>Date에서 시간 부분만 표시</td>
+    </tr>
+      </tbody>
+    </table>
+    <hr><div class="col-md-8 mb-2">
+      <div class="p-3 text-white fs-4 bd-pink-800">타이머(timer)</div>      </div> <br>
+
+<div id="step">   
+  <h1 style="margin-bottom:20px;">만보 걷기</h1>
+  <p><span id="result04" style="font-size:1.5em; font-weight: bold; color:red;"></span>일 연속 달성</p></div>
+
+  <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제 : 만보 경과일</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    const firstday = new Date("2021-01-01");  <br>
+    const result = document.querySelector("#result");<br>
+    let passedTime = today1.getTime()-firstday.getTime;<br>
+    const today1 = new Date();<br>
+    cal = today.get   <br>
+    result.innerText = math.round(passedTime/ 60*60*1000);<br>
+    </p></div><br>
+
+<div id="current">
+  <div id="container3"> 
+    <div id="today">
+      <!-- 현재 날짜 -->
+    </div>
+    <div id="clock">
+      <!-- 현재 시간 -->
+    </div>
+  </div>
+</div>
+
+
+  <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제: 현재시각</h5></div>
+    <p class="card-text" style="padding: 10px 10px;"> 
+      const today01 = new Date(); 
+      const date01 = document.querySelector("#today");
+      let day01 = "";
+
+      switch (today.getDay()) { 
+        case 0 : day01 = "일요일"; break;
+        case 1 : day01 = "월요일"; break;
+        case 2 : day01 = "화요일"; break;
+        case 3 : day01 = "수요일"; break;
+        case 4 : day01 = "목요일"; break;
+        case 5 : day01 = "금요일"; break;
+        case 6 : day01 = "토요일"; break; } 
+
+      date01.innerHTML =`${today01.getFullYear()}년 ${today01.getMonth()}월 ${today.getDate()}일 ${day01}`
+
+      const clock01 = document.querySelector("#clock");
+      clock01.innerHTML =`${today01.getHour()}시 ${today01.getMinute()}분 ${today.getSecond()}초`
+    </p></div><br>
+
+
+<p>window 객체는 일정 시간이 지난 뒤에 함수를 호출할 수 있도록 다음 메소드를 제공한다.<br>
+<span class="text-bg-warning">1. setTimeout()</span> <br>
+<span class="text-bg-warning">2. setInterval()</span> <br>
+또한, 이렇게 설정된 함수의 호출을 취소할 수 있도록 다음 메소드를 제공한다.<br>
+<span class="text-bg-warning">3. clearTimeout()</span> <br>
+<span class="text-bg-warning">4. clearInterval()</span> </p>
+
+<hr>
+<h4 class="text-primary fst-italic">setTimeout() 메소드</h4> 
+
+<p>setTimeout() 메소드는 명시된 시간이 지난 뒤에 지정된 함수를 호출한다.</p>
+<span style="color:#691c97">window</span>.<span style="color:#693a17">setTimeout</span>(호출할함수, 지연시간);</p>
+</div>
+<p>이 메소드가 성공적으로 호출되면, 설정된 timeoutID를 반환한다.<br>
+이 메소드는 밀리초(milliseconds) 단위로 지연 시간을 설정할 수 있다.</p>
+
+<button id="btn_21" onClick="startTimeout()">setTimeout 버튼</button><br><br> 
+<p id="date"><br> </p>
+
+<div class="card text-bg-light mb-3" style="max-width: 50rem;">
+<div class="card-header bd-yellow-100"><h5>예제</h5></div>
+<p class="card-text" style="padding: 10px 10px;">
+  <span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">startTimeout</span>() {<br>
+  <span style="color:#693a17">    setTimeout</span>(printCurrentDate, <span style="color:#811f24;font-weight:700">2000</span>);<br>
+  }<br>
+  <span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">printCurrentDate</span>() {<br>
+  <span style="color:#693a17">    </span><span style="color:#691c97">document</span>.<span style="color:#693a17">getElementById</span>(<span style="color:#0b6125">"date"</span>).innerHTML <span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>();<br>
+  }</p></div>
+  
+
+<hr>
+<h4 class="text-primary fst-italic">setInterval() 메소드</h4>
+
+<p>setInterval() 메소드는 지정된 시간 간격마다 지정된 함수를 반복적으로 호출한다.</p>
+<span style="color:#691c97">window</span>.<span style="color:#693a17">setInterval</span>(호출할함수, 지연시간);</p>
+</div>
+<p>이 메소드가 성공적으로 호출되면, 설정된 timeoutID를 반환한다.<br>
+이 메소드는 밀리초(milliseconds) 단위로 시간 간격을 설정할 수 있다.</p>
+
+<div class="card text-bg-light mb-3" style="max-width: 50rem;">
+<div class="card-header bd-yellow-100"><h5>예제</h5></div>
+<p class="card-text" style="padding: 10px 10px;"> 
+<span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">startInterval</span>() {<br>
+<span style="color:#693a17">    setInterval</span>(printCurrentDate, <span style="color:#811f24;font-weight:700">2000</span>);<br>
+}<br>
+<span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">printCurrentDate</span>() {<br>
+<span style="color:#693a17">    </span><span style="color:#691c97">document</span>.<span style="color:#693a17">getElementById</span>(<span style="color:#0b6125">"date"</span>).innerHTML <span style="color:#794938">+</span><span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>() <span style="color:#794938">+</span> <span style="color:#0b6125">"&lt;br&gt;"</span>;<br>
+}</p></div>
+
+
+<div class="card text-bg-light mb-3" style="max-width: 50rem;">
+  <div class="card-header bd-yellow-100"><h5>2초마다 인사말 표시하기</h5></div>
+  <p class="card-text" style="padding: 10px 10px;"> 
+</p></div>
+<button id="btn_22" onClick="startInterval()">setInterval 버튼</button><br><br>
+<button id="btn_24" onClick="cancelInterval()">시간 표시 취소!</button><br><br>
+<button id="btn_25" onClick="greeting()">2초마다 인사</button><br><br>
+<p id="greeting"></p><br>
+<p id="date1"></p>
+
+<hr>
+<h4 class="text-primary fst-italic">clearTimeout() 메소드</h4>
+
+<p>setTimeout() 메소드의 반환값을 clearTimeout() 메소드의 인수로 전달하면, 계획된 함수의 호출을 취소할 수 있다.</p>
+<span style="color:#691c97">window</span>.<span style="color:#693a17">clearTimeout</span>(timeoutID);</p>
+</div>
+<p>이 메소드는 setTimeout() 메소드에 의해 함수가 호출되기 전에 실행되어야 호출을 취소할 수 있다.<br>
+함수가 호출된 이후에 이 메소드를 호출하면 아무런 동작도 하지 않는다.</p>
+<div class="card text-bg-light mb-3" style="max-width: 50rem;">
+<div class="card-header bd-yellow-100"><h5>예제</h5></div>
+<p class="card-text" style="padding: 10px 10px;">
+
+<span style="color:#a71d5d;font-style:italic">var</span> timeoutId;<br>
+<span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">startTimeout</span>() {<br>
+<span style="color:#693a17">    </span>timeoutId <span style="color:#794938">=</span> <span style="color:#693a17">setTimeout</span>(printCurrentDate, <span style="color:#811f24;font-weight:700">2000</span>);<br>
+}<br>
+<span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">cancelTimeout</span>() {<br>
+<span style="color:#693a17">    clearTimeout</span>(timeoutId);<br>
+}<br>
+<span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">printCurrentDate</span>() {<br>
+<span style="color:#691c97">    document</span>.<span style="color:#693a17">getElementById</span>(<span style="color:#0b6125">"date"</span>).innerHTML <span style="color:#794938">+</span><span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>() <span style="color:#794938">+</span> <span style="color:#0b6125">"&lt;br&gt;"</span>;<br>
+}</p></div>
+
+<hr>
+<h4 class="text-primary fst-italic">clearInterval() 메소드</h4>
+
+<p>setInterval() 메소드의 반환값을 clearInterval() 메소드의 인수로 전달하면, 반복되는 함수의 호출을 취소할 수 있다.</p>
+<span style="color:#691c97">window</span>.<span style="color:#693a17">clearInterval</span>(timeoutID);</p>
+</div>
+
+<div class="card text-bg-light mb-3" style="max-width: 50rem;">
+<div class="card-header bd-yellow-100"><h5>예제</h5></div>
+<p class="card-text" style="padding: 10px 10px;"> 
+<span style="color:#a71d5d;font-style:italic">var</span> timeoutId;<br>
+<span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">startInterval</span>() {<br>
+<span style="color:#693a17">    </span>timeoutId <span style="color:#794938">=</span> <span style="color:#693a17">setInterval</span>(printCurrentDate, <span style="color:#811f24;font-weight:700">2000</span>);<br>
+}<br>
+<span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">cancelInterval</span>() {<br>
+<span style="color:#693a17">    clearInterval</span>(timeoutId);<br>
+}<br>
+<span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">printCurrentDate</span>() {<br>
+<span style="color:#693a17">    </span><span style="color:#691c97">document</span>.<span style="color:#693a17">getElementById</span>(<span style="color:#0b6125">"date"</span>).innerHTML <span style="color:#794938">+</span><span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>() <span style="color:#794938">+</span> <span style="color:#0b6125">"&lt;br&gt;"</span>;<br>
+}</p></div>
+
+<style>  
+  #current {height:50vh; display:flex; justify-content: center;  align-items: center; }
+  #container3 { padding:20px; border:1px solid #ccc;  border-radius: 14px; display:flex; flex-direction: column;  justify-content: center; align-items: left; }
+  #container3 div { margin:10px; }
+  #today { font-size:1.2em; }
+  #clock {font-size:1em; text-align: center; }
+  </style>
+</style>
+<script>  
+    
+function startTimeout() {
+      setTimeout(() => {document.getElementById("date").innerHTML="안녕하세요? "}, 3000); } 
+
+var timeoutId1;
+    var timeGr;
+    function startInterval() {
+        timeoutId1 = setInterval(printCurrentDate, 2000);    }
+    function cancelInterval() {
+        clearInterval(timeoutId1);    }
+    function printCurrentDate() {
+        document.getElementById("date1").innerHTML += new Date() + "<br>";    }
+    function greeting() {
+        setInterval(function() {document.getElementById("greeting").innerHTML += "안녕하세요? <br>"},2000);} 
+
+    const result04 = document.querySelector("#result04");
+    const firstday = new Date("2023-01-01");
+    const today1 = new Date();
+    let passedTime = today1.getTime()-firstday.getTime();
+    result04.innerText = Math.round(passedTime/ (60*60*24*1000));
+
+    let clockfx = function() {
+    const today01 = new Date(); 
+    const date01 = document.querySelector("#today");
+    let day01 = "";
+
+    switch (today01.getDay()) { 
+      case 0 : day01 = "일요일"; break;
+      case 1 : day01 = "월요일"; break;
+      case 2 : day01 = "화요일"; break;
+      case 3 : day01 = "수요일"; break;
+      case 4 : day01 = "목요일"; break;
+      case 5 : day01 = "금요일"; break;
+      case 6 : day01 = "토요일"; break; }
+
+    date01.innerHTML =`${today01.getFullYear()}년 ${today01.getMonth()}월 ${today01.getDate()}일 ${day01}`
+
+    
+    let hours =  today01.getHours();
+    let mins  =  today01.getMinutes();
+    let secs =   today01.getSeconds();
+
+    let period ="AM";
+    if (hours === 0) {hours=12;}
+      else if (hours >12) {hours = hours - 12; period="PM"};
+
+    if (hours < 10) {hours = "0" + hours};
+    if (mins < 10) {hours = "0" + mins};
+    if (secs < 10) {hours = "0" + secs};
+
+    const clock01 = document.querySelector("#clock"); 
+    clock01.innerHTML =`${period} ${hours}시 ${mins}분 ${secs}초`}
+
+    setInterval(clockfx, 1000);
+</script>
+</body>
+</html>

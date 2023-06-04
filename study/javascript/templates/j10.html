@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>String 문자열 객체</title>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">   
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">     
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+  <link href="{% static '/css/java.css'%}" rel="stylesheet">   
+</head>
+<body class="ms-3">  
+  <H2><a name="home">Javascript</a></H2>  
+      <p><a href="/javascript/j09.html" class="btn btn-purple mb-1" target="_blank">이전 노트</a>
+      <a href="/javascript/j11.html" class="btn btn-purple mb-1" target="_blank">다음 노트</a>
+      <a href="/htmls/tut1.html" class="btn btn-danger mb-1" target="_blank">HTML 노트</a> 
+      <a href="/css/tut11.html" class="btn btn-success mb-1" target="_blank">CSS 노트</a> 
+      <a href="/htmls/html_CSS.html" class="btn btn-outline-danger border-2 mb-1" target="_blank">HTML+CSS</a>
+      <a href="/htmls/html_Emmet.html" class="btn btn-outline-danger border-2 mb-1" target="_blank">HTML+Emmet</a>
+      <a href="/htmls/html_tags.html" class="btn btn-outline-danger border-2 mb-1" target="_blank">HTML+Tags</a><br>
+      <a href="/python/p01.html" class="btn btn-warning mb-1" target="_blank">파이썬 노트</a> 
+      <a href="/javascript/j01.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">자바스크립트 개요</a>
+      <a href="/javascript/j02.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">기본타입과 타입변환</a>
+      <a href="/javascript/j03.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">자바스크립트 연산자</a>
+      <a href="/javascript/j04.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">제어문과 배열 </a>
+      <a href="/javascript/j05.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">함수</a> 
+      <a href="/javascript/j06.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">객체</a>      
+      <a href="/javascript/j07.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Number 객체</a> 
+      <a href="/javascript/j08.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Math 객체</a> 
+      <a href="/javascript/j09.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Date 객체</a>     
+      <a href="/javascript/j10.html" class=" btn btn-secondary mb-1" target="_blank">String 문자열 객체</a>
+      <a href="/javascript/j11.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Array 배열 객체</a> 
+      <a href="/javascript/j12.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">문서객체모델 DOM</a> 
+      <a href="/javascript/j13.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">브라우저 객체 모델 BOM</a> 
+      <a href="/javascript/j14.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">이벤트와 예외처리</a>
+      <a href="/javascript/j15.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">정규표현식</a> 
+      <a href="/javascript/j16.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">람다표현식</a> 
+      <a href="/javascript/j17.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Map과 Set, Iterator와 Generator</a> </p> 
+
+      <hr><div class="col-md-8 mb-2">
+        <div class="p-3 text-white fs-4 bd-pink-800">표준 객체(Standard Object)</div></div>     
+        <hr><p>자바스크립트에서 표준 객체(standard object)는 다른 객체의 기초가 되는 핵심적인 객체이다.<br>
+        자주 사용되는 대표적인 자바스크립트 표준 객체는 다음과 같다.<br>
+        1. Number 객체<br>
+        2. Math 객체<br>
+        3. Date 객체<br>
+        4. String 객체<br>
+        5. Array 객체</p></div><br>
+    <hr><div class="col-md-8 mb-2">
+    <div class="p-3 text-white fs-4 bd-pink-800">String 객체</div></div>
+    
+    <hr><div class="col-md-8 mb-2">
+    <div class="p-3 text-white fs-4 bd-pink-800">자바스크립트에서의 문자열 표현</div></div>
+    
+    <p>자바스크립트에서 문자열 리터럴은 큰따옴표("")나 작은따옴표('')를 사용하여 손쉽게 만들 수 있다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> firstStr <span style="color:#794938">=</span> <span style="color:#0b6125">"이것도 문자열이다."</span>;      <span style="color:#5a525f;font-style:italic">// 큰따옴표를 사용한 문자열</span><br>
+    <span style="color:#a71d5d;font-style:italic">var</span> secondStr <span style="color:#794938">=</span> <span style="color:#0b6125">'이것도 문자열이다.'</span>;     <span style="color:#5a525f;font-style:italic">// 작은따옴표를 사용한 문자열</span><br>
+    <span style="color:#a71d5d;font-style:italic">var</span> thirdStr <span style="color:#794938">=</span> <span style="color:#0b6125">"나의 이름은 '홍길동'이야."</span>  <span style="color:#5a525f;font-style:italic">// 작은따옴표는 큰따옴표로 둘러싸인 문자열에만 포함될 수 있음.</span><br>
+    <span style="color:#a71d5d;font-style:italic">var</span> fourthStr <span style="color:#794938">=</span> <span style="color:#0b6125">'나의 이름은 "홍길동"이야.'</span> <span style="color:#5a525f;font-style:italic">// 큰따옴표는 작은따옴표로 둘러싸인 문자열에만 포함될 수 있음.</span></p></div>
+    </div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">문자열의 길이</h4>
+    
+    <p>자바스크립트에서 문자열의 길이는 length 프로퍼티에 저장된다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> strKor <span style="color:#794938">=</span> <span style="color:#0b6125">"한글"</span>;<br>
+    <span style="color:#a71d5d;font-style:italic">var</span> strEng <span style="color:#794938">=</span> <span style="color:#0b6125">"abcABC"</span>;<br>
+    strKor.<span style="color:#b4371f">length</span>; <span style="color:#5a525f;font-style:italic">// 2</span><br>
+    strEng.<span style="color:#b4371f">length</span>; <span style="color:#5a525f;font-style:italic">// 6</span><br></div>
+    오랫동안 사용되어 온 아스키(ASCII) 인코딩 환경에서 영문자는 한 글자당 1바이트, 한글은 한 글자당 2바이트로 표현된다 
+    
+    <p>하지만 UTF-8 인코딩 환경에서는 영문자는 한 글자당 1바이트, 한글은 한 문자당 3바이트로 표현된다  
+    <p>자바스크립트의 length 프로퍼티는 해당 문자열의 총 바이트 수를 저장하는 것이 아닌
+      <span class="text-danger">글자의 개수</span>만을 저장한다.</p>
+
+    <hr>
+    <h4 class="text-primary fst-italic">이스케이프 시퀀스(escape sequence)</h4>
+    
+    <p>자바스크립트는 더욱 다양한 문자 표현을 위해 여러 가지 이스케이프 시퀀스(escape sequence) 방식을 제공한다.<br>
+    자바스크립트에서 제공하는 이스케이프 시퀀스 방식은 다음과 같다.<br>
+    1. 16진수 이스케이프 시퀀스(hexadecimal escape sequence)<br>
+    2. 유니코드 이스케이프 시퀀스(unicode escape sequence)<br>
+    3. 유니코드 코드 포인트 이스케이프(unicode code point escape)</p>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#5a525f;font-style:italic">// 16진수 이스케이프 시퀀스로 \x 다음은 16진수 수로 인식됨.</span><br>
+    <span style="color:#0b6125">'<span style="color:#696969;font-weight:700">\xA2</span>'</span>;   <br>
+    <span style="color:#5a525f;font-style:italic">// 유니코드 이스케이프 시퀀스로 \u 다음은 유니코드로 인식됨.</span><br>
+    <span style="color:#0b6125">'<span style="color:#696969;font-weight:700">\u</span>00A2'</span>;<br>
+    <span style="color:#5a525f;font-style:italic">// ECMAScript 6부터 새롭게 추가된 유니코드 코드 포인트 이스케이프 방식임.</span><br>
+    <span style="color:#691c97">String</span>.fromCodePoint(<span style="color:#811f24;font-weight:700">0x00A2</span>);</p></div>
+    String.fromCodePoint() 메소드는 사파리, 익스플로러에서 지원하지 않는다.</div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">긴 문자열 리터럴을 나누어 표현하기</h4>
+    
+    <p>자바스크립트에서는 길이가 긴 문자열 리터럴을 보기 좋게 표현하기 위해서 역 슬래시(\)나 결합(+) 연산자를 사용할 수 있다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"이 문자열은 아주 긴 문자열이다. \ </span><br>
+    <span style="color:#0b6125">따라서 몇 번에 걸친 줄 나누기가 필요한다. \ </span><br>
+    <span style="color:#0b6125">자바스크립트에서는 역슬래시와 문자 결합 연산자를 사용하여 줄을 나눌 수 있다.&lt;br&gt;"</span>);<br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"이 문자열은 아주 긴 문자열이다."</span> <span style="color:#794938">+</span> <br>
+    <span style="color:#0b6125">" 따라서 몇 번에 걸친 줄 나누기가 필요한다."</span> <span style="color:#794938">+</span> <br>
+    <span style="color:#0b6125">" 자바스크립트에서는 역슬래시와 문자 결합 연산자를 사용하여 줄을 나눌 수 있다."</span>);</p></div>
+    
+    역 슬래시(\)를 사용한 방식은 ECMAScript의 표준 방식이 아니다.<br>
+    따라서 특정 웹 브라우저에서는 정상적으로 표현되지 않을 수도 있다.</div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">String 객체</h4>
+    
+    <p>자바스크립트에서 문자열은 보통 문자열 리터럴을 사용하여 표현한다.<br>
+    하지만 문자열을 나타낼 때 new 연산자를 사용하여 명시적으로 String 객체를 생성할 수도 있다.<br>
+    이러한 String 객체는 문자열 값을 감싸고 있는 래퍼(wrapper) 객체이다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> str <span style="color:#794938">=</span> <span style="color:#0b6125">"JavaScript"</span>;<br>
+    <span style="color:#a71d5d;font-style:italic">var</span> strObj <span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">String</span>(<span style="color:#0b6125">"JavaScript"</span>);<br>
+    str;              <span style="color:#5a525f;font-style:italic">// "JavaScript"</span><br>
+    strObj;           <span style="color:#5a525f;font-style:italic">// "JavaScript"</span><br>
+    <span style="color:#794938">typeof</span> str;       <span style="color:#5a525f;font-style:italic">// string</span><br>
+    <span style="color:#794938">typeof</span> strObj;    <span style="color:#5a525f;font-style:italic">// object</span><br>
+    (str <span style="color:#794938">==</span> strObj);  <span style="color:#5a525f;font-style:italic">// 문자열 값이 같으므로, true를 반환함.</span><br>
+    (str <span style="color:#794938">===</span> strObj); <span style="color:#5a525f;font-style:italic">// 문자열 값은 같지만 타입이 다르므로, false를 반환함.</span></p></div>
+    
+    <hr><div class="col-md-8 mb-2">
+    <div class="p-3 text-white fs-4 bd-pink-800">String 메소드</div></div>
+    
+    <p>String 메소드는 String 객체에 정의된 문자열과 관련된 작업을 할 때 사용하는 메소드이다.<br>
+    <span class="text-bg-warning">1. String.fromCharCode()</span><br>
+    <span class="text-bg-warning">2. String.fromCodePoint()</span></p>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">String.fromCharCode() 메소드</h4>
+    
+    <p>이 메소드는 쉼표로 구분되는 일련의 유니코드에 해당하는 문자들로 구성된 문자열을 반환한다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#691c97">String</span>.<span style="color:#693a17">fromCharCode</span>(<span style="color:#811f24;font-weight:700">65</span>, <span style="color:#811f24;font-weight:700">66</span>, <span style="color:#811f24;font-weight:700">67</span>); <span style="color:#5a525f;font-style:italic">// "ABC"</span></p>
+    </div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">String.fromCodePoint() 메소드</h4>
+    
+    <p>이 메소드는 쉼표로 구분되는 일련의 코드 포인트(code point)에 해당하는 문자들로 구성된 문자열을 반환한다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#691c97">String</span>.fromCodePoint(<span style="color:#811f24;font-weight:700">65</span>, <span style="color:#811f24;font-weight:700">66</span>, <span style="color:#811f24;font-weight:700">67</span>); <span style="color:#5a525f;font-style:italic">// "ABC"</span><br>
+    <span style="color:#691c97">String</span>.fromCodePoint(<span style="color:#811f24;font-weight:700">0x2F804</span>);    <span style="color:#5a525f;font-style:italic">// "\uD87E\uDC04"</span><br>
+    <span style="color:#691c97">String</span>.fromCodePoint(<span style="color:#811f24;font-weight:700">194564</span>);     <span style="color:#5a525f;font-style:italic">// "\uD87E\uDC04"</span></p>
+    </div>
+    
+    <p>String.fromCodePoint() 메소드는 사파리, 익스플로러에서 지원하지 않는다.</p>
+    </div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">자바스크립트 String 메소드</h4>
+    
+    <table class="table" style="width: 50%;">
+      <thead class="table-light">
+    <tr class="table-warning">
+    <th>메소드</th>
+    <th>설명</th>
+    </tr>
+      </thead>
+      <tbody>
+    <tr>
+    <td>String.fromCharCode()    </td>
+    <td>쉼표로 구분되는 일련의 유니코드에 해당하는 문자들로 구성된 문자열을 반환함.</td>
+    </tr>
+    <tr>
+    <td>String.fromCodePoint()    </td>
+    <td>쉼표로 구분되는 일련의 코드 포인트(code point)에 해당하는 문자들로 구성된 문자열을 반환함.</td>
+    </tr>
+    <tr>
+    <td>String.raw()    </td>
+    <td>템플릿 문자열(template string)의 원형을 반환함.</td>
+    </tr>
+      </tbody>
+    </table>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">String.prototype 메소드</h4>
+    
+    <p>모든 String 인스턴스는 String.prototype으로부터 메소드와 프로퍼티를 상속받다.<br>
+    이렇게 상속받은 String.prototype 메소드를 이용하면, 다음과 같은 문자열 작업을 할 수 있다.<br>
+    1. 문자열에서의 위치 반환<br>
+    2. 문자열에서 지정된 위치에 있는 문자 반환<br>
+    3. 문자열 추출<br>
+    4. 문자열 분리<br>
+    5. 문자열 결합<br>
+    6. 문자열의 대소문자 변환<br>
+    7. 문자열 주위의 공백 제거<br>
+    8. 정규 표현식을 이용한 문자열 조작</p>
+    String 인스턴스의 값은 변경될 수(immutable) 없으므로, 모든 String 메소드는 결괏값으로 새로운 문자열을 생성하여 반환한다.</div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">문자열에서의 위치 찾기</h4>
+    
+    <p>다음 메소드는 String 인스턴스에서 특정 문자나 문자열이 처음으로 등장하는 위치나 마지막으로 등장하는 위치를 반환한다.<br>
+    <span class="text-bg-warning">- indexOf()</span><br>
+    <span class="text-bg-warning">- lastIndexOf()</span><br>
+    이 메소드들은 문자열을 찾기 시작할 String 인스턴스의 위치를 두 번째 인수로 전달할 수 있다.<br>
+    만약 전달받은 특정 문자나 문자열을 찾을 수 없을 때는 -1을 반환한다.</p>
+    <div class="codding-test" style="height: auto !important;">
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> str <span style="color:#794938">=</span> <span style="color:#0b6125">"abcDEFabc"</span>;<br>
+    str.<span style="color:#693a17">indexOf</span>(<span style="color:#0b6125">'abc'</span>);     <span style="color:#5a525f;font-style:italic">// 0  -&gt; 자바스크립트에서 인덱스는 0부터 시작함.</span><br>
+    str.<span style="color:#693a17">indexOf</span>(<span style="color:#0b6125">'abcd'</span>);    <span style="color:#5a525f;font-style:italic">// -1 -&gt; 문자열을 비교할 때 문자의 대소문자를 구분함.</span></p>
+    
+    <p>str.<span style="color:#693a17">indexOf</span>(<span style="color:#0b6125">'abc'</span>, <span style="color:#811f24;font-weight:700">3</span>);  <span style="color:#5a525f;font-style:italic">// 6  -&gt; 인덱스 3부터 'abc'를 찾기 시작함.</span><br>
+    str.<span style="color:#693a17">lastIndexOf</span>(<span style="color:#0b6125">'abc'</span>); <span style="color:#5a525f;font-style:italic">// 6</span><br>
+    str.<span style="color:#693a17">lastIndexOf</span>(<span style="color:#0b6125">'d'</span>);   <span style="color:#5a525f;font-style:italic">// -1</span><br>
+    str.<span style="color:#693a17">lastIndexOf</span>(<span style="color:#0b6125">'c'</span>);   <span style="color:#5a525f;font-style:italic">// 8</span></p></div>
+    <hr>
+    <h4 class="text-primary fst-italic">문자열에서 지정된 위치에 있는 문자 반환</h4>
+    
+    <p>다음 메소드는 String 인스턴스에서 전달받은 인덱스에 위치한 문자나 문자 코드를 반환한다.<br>
+   <span class="text-bg-warning">- charAt()</span><br>
+   <span class="text-bg-warning">- charCodeAt()</span><br>
+   <span class="text-bg-warning">- charPointAt()</span></p>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> str <span style="color:#794938">=</span> <span style="color:#0b6125">"abcDEFabc"</span>;<br>
+    str.<span style="color:#693a17">charAt</span>(<span style="color:#811f24;font-weight:700">0</span>);      <span style="color:#5a525f;font-style:italic">// a</span><br>
+    str.<span style="color:#693a17">charAt</span>(<span style="color:#811f24;font-weight:700">10</span>);     <span style="color:#5a525f;font-style:italic">// 빈 문자열 -&gt; 전달받은 인덱스가 문자열의 길이보다 클 경우에는 빈 문자열을 반환함.</span><br>
+    str.<span style="color:#693a17">charCodeAt</span>(<span style="color:#811f24;font-weight:700">0</span>);  <span style="color:#5a525f;font-style:italic">// 97        -&gt; 'a'에 해당하는 UTF-16 코드를 반환함.</span><br>
+    str.codePointAt(<span style="color:#811f24;font-weight:700">0</span>); <span style="color:#5a525f;font-style:italic">// 97        -&gt; 'a'에 해당하는 유니코드 코드 포인트를 반환함.</span></p></div>
+    codePointAt() 메소드는 사파리, 익스플로러에서 지원하지 않는다.</div><Br><Br>
+    
+    <h3>문자열에서 특정문자가 몇번 나타나는지 확인하기</h3><br>
+   
+    <div id="container04" class="row m-3 row-cols-auto flex-wrap justify-content-center" style="width:500px;"> 
+      <label for="strings">문자열<input type="text" id="strings"  class="form-control" style="width:400px;" ></label>
+      <label for="letters">원하는 문자<input type="text" id="letters" class="form-control" style="width:400px;" ></label> 
+      <button id="bttn01" class ="btn btn-secondary m-2 lh-sm" style="width:200px;">실행</button></div>
+  <div id="result01" class="cardshadow fs-6" style="margin-left: 110px;"></div><Br></div></p>
+
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100"><h5>예제 : 문자열에서 특정문자가 몇번 포함되어 있는지 확인</h5></div>
+      <p class="card-text" style="padding: 10px 10px;">
+        let incl = function() {  <Br>
+          const string = document.querySelector("#strings");<Br>
+          const letter = document.querySelector("#letters");<Br>
+          const bttn01 = document.querySelector("#bttn01");<Br>
+          const result01 = document.querySelector("#result01");<Br><Br>
+          
+          let count=0;<Br>
+          for (let i=0 ; i < string.value.length; i++) {   //string.length 하면 실행되지 않는다<Br>
+            if (letter.value == string.value[i]) {   <Br>
+              count += 1} }<Br>
+          result01.innerText = `"${string.value}"에는 "${letter.value}" 글자가 ${count}개 있습니다`; <Br>
+        } // 여기서 string은 객체이기때문에 string.value, letter.value라고 해야 인식된다<Br>
+  
+      bttn01.addEventListener("click", incl);<Br>
+      
+      <span style="color:#a71d5d;font-style:italic">var</span> str <span style="color:#794938">=</span> <span style="color:#0b6125">"abcDEFabc"</span>;<br>
+      str </p></div>
+
+    <hr>
+    <h4 class="text-primary fst-italic">문자열 추출</h4>
+    
+    <p>다음 메소드는 String 인스턴스에서 전달받은 시작 인덱스부터 종료 인덱스 바로 앞까지의 문자열만을 추출하여 만든 새로운 문자열을 반환한다.<br>
+   <span class="text-bg-warning"> - slice()</span><br>
+   <span class="text-bg-warning"> - substring()</span><br>
+   <span class="text-bg-warning"> - substr()</span></p>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> str <span style="color:#794938">=</span> <span style="color:#0b6125">"abcDEFabc"</span>;<br>
+    str.<span style="color:#693a17">slice</span>(<span style="color:#811f24;font-weight:700">2</span>, <span style="color:#811f24;font-weight:700">6</span>);     <span style="color:#5a525f;font-style:italic">// cDEF     -&gt; 인덱스 2부터 인덱스 5까지의 문자열을 추출함.</span><br>
+    str.<span style="color:#693a17">slice</span>(<span style="color:#794938">-</span><span style="color:#811f24;font-weight:700">4</span>, <span style="color:#794938">-</span><span style="color:#811f24;font-weight:700">2</span>);   <span style="color:#5a525f;font-style:italic">// Fa       -&gt; <span class="text-danger">음수</span>로 전달된 인덱스는 <span class="text-danger">문자열의 뒤에서부터</span> 시작함.</span><br>
+    str.<span style="color:#693a17">slice</span>(<span style="color:#811f24;font-weight:700">2</span>);        <span style="color:#5a525f;font-style:italic">// cDEFabc -&gt; 인수로 종료 인덱스가 전달되지 않으면 문자열의 마지막까지 추출함.</span><br>
+    str.<span style="color:#693a17">substring</span>(<span style="color:#811f24;font-weight:700">2</span>, <span style="color:#811f24;font-weight:700">6</span>); <span style="color:#5a525f;font-style:italic">// cDEF 인덱스 2부터 5까지 문자열 추출</span><br> 
+    str.<span style="color:#693a17">substr</span>(<span style="color:#811f24;font-weight:700">2</span>, <span style="color:#811f24;font-weight:700">4</span>);    <span style="color:#5a525f;font-style:italic">// cDEF 인덱스 2부터 길이 4만큼 문자열 추출</span>
+  substring(시작위치, 끝위치)과 slice(시작위치, 끝위치)는 <span class="text-danger fw-bold">끝 위치의 직전까지 추출해서 반환. 즉 끝 위치는 포함되지 않는다 </span>
+  </p></div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">문자열 분리</h4>
+    
+    <p>다음 메소드는 String 인스턴스를 구분자(separator)를 기준으로 나눈 후, 나뉜 문자열을 하나의 배열로 반환한다.<br>
+    - split()<br>
+    split() 메소드는 인수로 구분자를 전달하지 않으면, 전체 문자열을 하나의 배열 요소로 가지는 길이가 1인 배열을 반환한다.</p>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> str <span style="color:#794938">=</span> <span style="color:#0b6125">"자바스크립트는 너무 멋져요! 그리고 유용해요."</span>;<br>
+    str.<span style="color:#693a17">split</span>();    <span style="color:#5a525f;font-style:italic">// 구분자를 명시하지 않으면 아무런 동작도 하지 않음.</span><br>
+    str.<span style="color:#693a17">split</span>(<span style="color:#0b6125">""</span>);  <span style="color:#5a525f;font-style:italic">// 한 문자("")씩 나눔.</span><br>
+    str.<span style="color:#693a17">split</span>(<span style="color:#0b6125">" "</span>); <span style="color:#5a525f;font-style:italic">// 띄어쓰기(" ")를 기준으로 나눔.</span><br>
+    str.<span style="color:#693a17">split</span>(<span style="color:#0b6125">"!"</span>); <span style="color:#5a525f;font-style:italic">// 느낌표("!")를 기준으로 나눔.</span></p></div>
+   
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제 : 첫번째 글자를 대문자로 바꾸기</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    const string = prompt("영문 소문자로 된 문자열을 입력하세요");  //good morning
+    const firstCh = string[0].toUpperCase ; // (1)
+    const remainStr = string.slice[1];      // (2)
+    const result = firstCh + reminStr;      // (1) (2) 행을 지우고 const result = [string[0] + ...string.slice[1]].join(""); 으로 대체할수 있다
+    document.write(result)  // Good morning
+    </p></div>
+
+    <div id="container05" class="row m-3 row-cols-auto " style="width:500px;"> 
+      <input type="text" id="email" class="form-control" style="width:250px;">
+      <button id="bttn02" class ="btn btn-secondary m-2 lh-sm" style="width:100px;">실행</button></div>
+      <div id="result02" class="cardshadow fs-6" style="margin-left: 20px;"></div><Br></div></p>
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100"><h5>예제 : 이메일주소에서 사용자이름 세자리만 표시하기</h5></div>
+      <p class="card-text" style="padding: 10px 10px;">
+    let tomail = function() {  <Br>
+      const email = document.querySelector("#email").value;<Br> 
+      const bttn02 = document.querySelector("#bttn02");<Br>
+      const result02 = document.querySelector("#result02");<Br><Br>
+       
+      let username = email.split("@")[0];
+      let domain =  email.split("@")[1];
+      let name = email.slice(0,3);
+       
+      result02.innerText = `${name}...@${domain}`; }      <Br> 
+      bttn02.addEventListener("click", tomail);<Br></p></div>
+        
+    <div id="container06" class="row m-3 row-cols-auto " style="width:500px;"> 
+      <input type="text" id="email01" class="form-control" style="width:250px;">
+      <button id="bttn03" class ="btn btn-secondary m-2 lh-sm" style="width:100px;">실행</button></div>
+      <div id="result03" class="cardshadow fs-6" style="margin-left: 20px;"></div><Br></div></p>
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100"><h5>예제 : 이메일주소에서 사용자이름을 절반만 표시하기</h5></div>
+      <p class="card-text" style="padding: 10px 10px;">
+    let tomail1 = function() {  <Br>
+      const email01 = document.querySelector("#email01").value;<Br> 
+      const bttn03 = document.querySelector("#bttn03");<Br>
+      const result03 = document.querySelector("#result03");<Br><Br>
+        
+      let username1 = email01.split("@")[0];
+      let domain1 =  email01.split("@")[1];
+      let name1 = email01.slice(0, (username1.length)/2);  //여기서 ${username1.length} 라고 하면 실행되지 않는다.<Br>
+        
+      result03.innerText = `${name1}...@${domain1}`; }      <Br> 
+      bttn03.addEventListener("click", tomail1);<Br></p></div>
+    <hr>
+    <h4 class="text-primary fst-italic">문자열 결합</h4>
+    
+    <p>다음 메소드는 String 인스턴스에 전달받은 문자열을 결합한 새로운 문자열을 반환한다.<br>
+    <span class="text-bd-warning">- concat()</span></p>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> str <span style="color:#794938">=</span> <span style="color:#0b6125">"자바스크립트"</span>;<br>
+    str;                                                <span style="color:#5a525f;font-style:italic">// 자바스크립트</span><br>
+    str.<span style="color:#693a17">concat</span>(<span style="color:#0b6125">"는 너무 멋져요!"</span>);                      <span style="color:#5a525f;font-style:italic">// 자바스크립트는 너무 멋져요!</span><br>
+    str.<span style="color:#693a17">concat</span>(<span style="color:#0b6125">"는 너무 멋져요!"</span>, <span style="color:#0b6125">" 그리고 유용해요."</span>); <span style="color:#5a525f;font-style:italic">// 자바스크립트는 너무 멋져요! 그리고 유용해요!</span><br>
+    str;                                                <span style="color:#5a525f;font-style:italic">// 자바스크립트</span><br></div>
+    위의 예제에서 여러 번 concat() 메소드를 실행한 후의 변수 str의 문자열은 여전히 처음과 같다.<br>
+    이처럼 자바스크립트에서 <span class="text-danger">String 인스턴스의 값은 변경될 수(immutable) 없다.</span><br>
+    따라서 모든 String 메소드는 결괏값으로 새로운 문자열을 생성하여 반환한다.</p>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">문자열의 대소문자 변환</h4>
+    
+    <p>다음 메소드는 String 인스턴스의 모든 문자를 대문자나 소문자로 변환한 새로운 문자열을 반환한다.<br>
+    <span class="text-bd-warning">- toUpperCase()</span><br>
+    <span class="text-bd-warning">- toLowerCase()</span></p>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> str <span style="color:#794938">=</span> <span style="color:#0b6125">"JavaScript"</span>;<br>
+    str.<span style="color:#693a17">toUpperCase</span>(); <span style="color:#5a525f;font-style:italic">// JAVASCRIPT</span><br>
+    str.<span style="color:#693a17">toLowerCase</span>(); <span style="color:#5a525f;font-style:italic">// javascript</span></p></div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">문자열 주위의 공백 제거</h4>
+    
+    <p>다음 메소드는 String 인스턴스의 <span class="text-danger">양 끝에 존재하는 모든 공백과 줄 바꿈 문자(LF, CR 등)를 제거</span>한 새로운 문자열을 반환한다.<br>
+    - trim()<br>
+    trim() 메소드는 String 인스턴스의 문자열 값 그 자체에는 영향을 주지 않는다.</p>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;"> 
+    <span style="color:#a71d5d;font-style:italic">var</span> str <span style="color:#794938">=</span> <span style="color:#0b6125">"      JavaScript    "</span>;<br>
+    str.trim();</p></div>
+
+    <hr>
+    <h4 class="text-primary fst-italic">localeCompare()</h4><br>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    <span style="color:#a71d5d;font-style:italic">var str = "JavaScript";</span>
+    <span style="color:#5a525f;font-style:italic">// 알파벳 순서 정렬상 인수 'apple'은 'JavaScript'보다는 앞쪽에 있다.</span>
+    <span style="color:#691c97">console.log(str.localeCompare("apple"));</span>
+    <span style="color:#5a525f;font-style:italic">// 알파벳 순서 정렬상 인수 'kiss'은 'JavaScript'보다는 뒤쪽에 있다.</span>
+    <span style="color:#691c97">console.log(str.localeCompare("kiss"));</span>
+    <span style="color:#5a525f;font-style:italic">// 알파벳 순서 정렬상 인수 'JavaScript'는 'JavaScript'와 동등한 위치에 있다.</span>
+    <span style="color:#691c97">console.log(str.localeCompare("JavaScript"));</span> </p></div>
+
+    <hr>
+    <h4 class="text-primary fst-italic">normalize()</h4><br>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    <span style="color:#a71d5d;font-style:italic">var first = '\uD55C\uAE00';</span>
+    <span style="color:#5a525f;font-style:italic">// U+D55C: 한(HANGUL SYLLABLE HAN),  U+AE00: 글(HANGUL SYLLABLE GEUL)   <br>
+      // 정규형 정준 분해 (NFD) : 초성, 중성, 종성의 자소분리가 일어난다. 결과값 '한글'이 자소분리된 상태로 보여질 수 있다.<br> 
+      // U+1112: ᄒ(HANGUL CHOSEONG HIEUH)<br>
+      // U+1161: ᅡ(HANGUL JUNGSEONG A)<br>
+      // U+11AB: ᆫ(HANGUL JONGSEONG NIEUN)<br>
+      // U+1100: ᄀ(HANGUL CHOSEONG KIYEOK)<br>
+      // U+1173: ᅳ(HANGUL JUNGSEONG EU)<br>
+      // U+11AF: ᆯ(HANGUL JONGSEONG RIEUL)<br><br>
+      // 정규형 정준 결합 (NFC) : 자소분리 되었던 한글이 결합된다.<br>      
+      // U+D55C: 한(HANGUL SYLLABLE HAN)<br>
+      // U+AE00: 글(HANGUL SYLLABLE GEUL) <br>     </span>
+    <span style="color:#a71d5d;font-style:italic">var second = first.normalize('NFD');<br>
+    var third = second.normalize('NFC');  <br></span>
+    <span style="color:#691c97">document.write(second); </span><span style="color:#5a525f;font-style:italic">// 한글 </span>
+    <span style="color:#691c97">console.log(third); </span><span style="color:#5a525f;font-style:italic">// 한글 </span>
+    console.log(second === third);</span>
+    <span style="color:#5a525f;font-style:italic">// 같은 글자처럼 보이지만 false 출력</span></p></div>
+
+    <hr>
+    <h4 class="text-primary fst-italic">정규 표현식을 이용한 문자열 조작</h4>
+    
+    <p>다음 메소드는 인수로 전달받은 정규 표현식을 이용하여, String 인스턴스 값에서 검색, 대조, 대체 등의 작업을 수행한다.<br>
+    <span class="text-bg-warning">- search()</span><br>
+    <span class="text-bg-warning">- match()</span><br>
+    <span class="text-bg-warning">- replace()</span></p> 
+    
+    <hr>
+    <h4 class="text-primary fst-italic">자바스크립트 String.prototype 메소드</h4>
+    
+    <table class="table" style="width: 50%;">
+      <thead class="table-light">
+    <tr class="table-warning">
+    <th>메소드</th>
+    <th>설명</th>
+    </tr>
+      </thead>
+      <tbody>
+    <tr>
+    <td>indexOf()    </td>
+    <td>String 인스턴스에서 특정 문자나 문자열이 처음으로 등장하는 위치의 인덱스를 반환함.</td>
+    </tr>
+    <tr>
+    <td>lastIndexOf()    </td>
+    <td>String 인스턴스에서 특정 문자나 문자열이 마지막으로 등장하는 위치의 인덱스를 반환함.</td>
+    </tr>
+    <tr>
+    <td>charAt()    </td>
+    <td>String 인스턴스에서 전달받은 인덱스에 위치한 문자를 반환함.</td>
+    </tr>
+    <tr>
+    <td>charCodeAt()    </td>
+    <td>String 인스턴스에서 전달받은 인덱스에 위치한 문자의 UTF-16 코드를 반환함. (0 ~ 65535)</td>
+    </tr>
+    <tr>
+    <td>charPointAt()    </td>
+    <td>String 인스턴스에서 전달받은 인덱스에 위치한 문자의 유니코드 코드 포인트(unicode code point)를 반환함.</td>
+    </tr>
+    <tr>
+    <td>slice()</td>
+    <td>String 인스턴스에서 전달받은 시작 인덱스부터 종료 인덱스 바로 앞까지의 문자열을 추출한 새 문자열을 반환함.</td>
+    </tr>
+    <tr>
+    <td>substring()</td>
+    <td>String 인스턴스에서 전달받은 시작 인덱스부터 종료 인덱스 바로 앞까지의 문자열을 추출한 새 문자열을 반환함.</td>
+    </tr>
+    <tr>
+    <td>substr()</td>
+    <td>String 인스턴스에서 전달받은 시작 인덱스부터 길이만큼의 문자열을 추출한 새로운 문자열을 반환함.</td>
+    </tr>
+    <tr>
+    <td>split()</td>
+    <td>String 인스턴스에서 구분자(separator)를 기준으로 나눈 후, 나뉜 문자열을 하나의 배열로 반환함.</td>
+    </tr>
+    <tr>
+    <td>concat()</td>
+    <td>String 인스턴스에 전달받은 문자열을 결합한 새로운 문자열을 반환함.</td>
+    </tr>
+    <tr>
+    <td>toUpperCase()</td>
+    <td>String 인스턴스의 모든 문자를 대문자로 변환한 새로운 문자열을 반환함.</td>
+    </tr>
+    <tr>
+    <td>toLowerCase()</td>
+    <td>String 인스턴스의 모든 문자를 소문자로 변환한 새로운 문자열을 반환함.</td>
+    </tr>
+    <tr>
+    <td>trim()</td>
+    <td>String 인스턴스의 양 끝에 존재하는 공백과 모든 줄 바꿈 문자(LF, CR 등)를 제거한 새로운 문자열을 반환함.</td>
+    </tr>
+    <tr>
+    <td>search()</td>
+    <td>인수로 전달받은 정규 표현식에 맞는 문자나 문자열이 처음으로 등장하는 위치의 인덱스를 반환함.</td>
+    </tr>
+    <tr>
+    <td>replace()</td>
+    <td>인수로 전달받은 패턴에 맞는 문자열을 대체 문자열로 변환한 새 문자열을 반환함.</td>
+    </tr>
+    <tr>
+    <td>match()</td>
+    <td>인수로 전달받은 정규 표현식에 맞는 문자열을 찾아서 하나의 배열로 반환함.</td>
+    </tr>
+    <tr>
+    <td>includes()</td>
+    <td>인수로 전달받은 문자나 문자열이 포함되어 있는지를 검사한 후 그 결과를 불리언 값으로 반환함.</td>
+    </tr>
+    <tr>
+    <td>startsWith()</td>
+    <td>인수로 전달받은 문자나 문자열로 시작되는지를 검사한 후 그 결과를 불리언 값으로 반환함.</td>
+    </tr>
+    <tr>
+    <td>endsWith()</td>
+    <td>인수로 전달받은 문자나 문자열로 끝나는지를 검사한 후 그 결과를 불리언 값으로 반환함.</td>
+    </tr>
+    <tr>
+    <td>toLocaleUpperCase()</td>
+    <td>영문자뿐만 아니라 모든 언어의 문자를 대문자로 변환한 새로운 문자열을 반환함. toUpperCase()와 같은결과. 터키어 등에 사용된다</td>
+    </tr>
+    <tr>
+    <td>toLocaleLowerCase()</td>
+    <td>영문자뿐만 아니라 모든 언어의 문자를 소문자로 변환한 새로운 문자열을 반환함. toLowerCase()와 같은결과. 터키어 등에 사용된다</td>
+    </tr>
+    <tr>
+    <td>localeCompare()</td>
+    <td>인수로 전달받은 문자열과 정렬 순서로 비교하여 그 결과를 정수 값으로 반환함.</td>
+    </tr>
+    <tr>
+    <td>normalize()</td>
+    <td>해당 문자열의 유니코드 표준화 양식(Unicode Normalization Form)을 반환함.</td>
+    </tr>
+    <tr>
+    <td>repeat()</td>
+    <td>해당 문자열을 인수로 전달받은 횟수만큼 반복하여 결합한 새로운 문자열을 반환함.</td>
+    </tr>
+    <tr>
+    <td>toString()</td>
+    <td>String 인스턴스의 값을 문자열로 반환함.</td>
+    </tr>
+    <tr>
+    <td>valueOf()</td>
+    <td>String 인스턴스의 값을 문자열로 반환함.</td>
+    </tr>
+      </tbody>
+    </table>
+  
+    <style>
+
+    </style>
+    <script> 
+    let incl = function() {
+        const string = document.querySelector("#strings");
+        const letter = document.querySelector("#letters");
+        const bttn01 = document.querySelector("#bttn01");
+        const result01 = document.querySelector("#result01");
+        
+        let count=0;
+        for (let i=0 ; i < string.value.length; i++) {
+          if (letter.value == string.value[i]) {
+            count += 1} }
+        result01.innerText = `"${string.value}"에는 "${letter.value}" 글자가 ${count}개 있습니다`;
+      }
+
+    bttn01.addEventListener("click", incl);
+
+    let tomail = function() {  
+    const email = document.querySelector("#email").value; 
+    const bttn02 = document.querySelector("#bttn02");
+    const result02 = document.querySelector("#result02");
+      
+    let username = email.split("@")[0];
+    let domain =  email.split("@")[1];
+    let name = email.slice(0,3);
+      
+    result02.innerText = `${name}...@${domain}`; }       
+    bttn02.addEventListener("click", tomail);
+
+    let tomail1 = function() {   
+    const email01 = document.querySelector("#email01").value;
+    const bttn03 = document.querySelector("#bttn03");
+    const result03 = document.querySelector("#result03");
+      
+    let username1 = email01.split("@")[0];
+    let domain1 =  email01.split("@")[1];
+    let name1 = email01.slice(0, (username1.length)/2);
+      
+    result03.innerText = `${name1}...@${domain1}`; }     
+    bttn03.addEventListener("click", tomail1);
+
+    </script>
+</body>
+</html>

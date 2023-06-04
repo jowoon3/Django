@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>파이썬 클래스</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">   
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">     
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <!-- font css -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="{% static '/css/java.css'%}" rel="stylesheet">   
+  <link href="{% static '/css/style.css'%}" rel="stylesheet">     
+</head>
+<body class="ms-3">  
+  <H2 class="coffee_taital" style="text-align:left;"><a name="home">파이썬</a></H2>  
+    <p><a href="/python/p01.html" class="btn btn-warning mb-1" target="_blank">이전 노트</a>
+      <a href="/python/p03.html" class="btn btn-warning mb-1" target="_blank">다음 노트</a>            
+      <a href="/htmls/tut1.html" class="btn btn-danger mb-1" target="_blank">HTML 노트</a> 
+      <a href="/css/tut11.html" class="btn btn-success mb-1" target="_blank">CSS 노트</a> 
+      <a href="/javascript/j01.html" class="btn btn-purple mb-1" target="_blank">Javascript 노트</a>
+     <a href="/python/p01.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">파이썬의 기초</a>
+     <a href="/python/p02.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">변수</a>
+     <a href="/python/p03.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">숫자형타입</a>
+     <a href="/python/p04.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">불리언타입</a>
+     <a href="/python/p05.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">문자열타입</a>
+     <a href="/python/p06.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">조건문</a>
+     <a href="/python/p07.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">반복문</a>
+     <a href="/python/p08.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">break와 continue</a>
+     <a href="/python/p09.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">리스트 타입</a>
+     <a href="/python/p10.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">튜플 타입</a>
+     <a href="/python/p11.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">세트 타입</a>
+     <a href="/python/p12.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">딕셔녀리 타입</a>
+     <a href="/python/p13.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">함수</a>
+     <a href="/python/p14.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">변수의 유효범위</a>
+     <a href="/python/p15.html" class=" btn btn-secondary mb-1" target="_blank">클래스</a>
+     <a href="/python/p16.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">객체</a>
+     <a href="/python/p17.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">상속</a>
+     <a href="/python/p18.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">모듈</a>
+     <a href="/python/p19.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">파일 입출력</a>     
+     <a href="/python/p20.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">예외처리</a>    
+     <a href="/python/p21.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">웹스크래핑1</a>    
+     <a href="/python/p22.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">웹스크래핑2</a>   </p> 
+
+     <div class="col-md-8 mb-2">
+      <div class="p-3 text-white fs-4 bd-pink-800">클래스와 객체</div>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">클래스(class)</h2>
+      <p>우리는 앞서 함수(function)란 하나의 특정 작업을 수행하기 위해 독립적으로 설계된 프로그램 코드라고 배웠다.<br>
+      이때 함수의 호출은 특정 작업만을 수행할 뿐 그 결괏값을 계속 사용하기 위해서는 반드시 어딘가에 따로 저장해야만 한다.<br>
+      즉, 함수를 포함한 프로그램 코드의 일부를 재사용하기 위해서는 해당 함수뿐만 아니라 데이터가 저장되는 변수까지도 한꺼번에 관리하는 것이 편할 것이다.<br>
+      이처럼 함수뿐만 아니라 관련된 변수까지도 한꺼번에 묶어서 관리하고 재사용할 수 있게 해주는 것이 바로 클래스(class)이다.</p>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">객체(object)</h2>
+      <p>클래스(class)와 객체(object)는 우리가 거리에서 흔히 볼 수 있는 붕어빵으로 간단히 비유하여 이해할 수 있다.<br>
+      붕어빵을 계속해서 찍어낼 수 있는 틀을 클래스(class)라고 한다면, 이러한 붕어빵 틀에서 찍혀 나온 맛있는 붕어빵 하나하나를 객체(object)라고 이해할 수 있는 것이다. 즉, 하나의 클래스로부터 무수히 많은 객체를 생성할 수 있는 것이다.</p> 
+      <p>이와 같은 객체를 사용하여 데이터를 표현하는 프로그래밍 기법을 객체 지향 프로그래밍(Object-Oriented Programming, OOP)이라고 한다.</p>
+       
+      파이썬에서는 굳이 클래스와 객체를 사용하지 않더라도 충분히 모든 문제를 해결할 수 있다. 하지만 클래스와 객체를 사용하면 많은 문제들을 더욱 손쉽게 해결할 수 있다.</div>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">속성(attribute)과 메소드(method)</h2>
+      <p>클래스는 여러 함수와 변수들을 한 번에 묶어서 관리하기 위해 사용한다고 했다.<br>
+      이때 클래스에 포함되는 변수를 속성(attribute)이라고 부르며, 클래스에 포함되는 함수를 메소드(method)라고 부른다.<br>
+      예를 들어, 은행 업무를 클래스로 작성한다면 속성으로는 계좌번호, 소유주, 잔액, 이자율 등이 있을 수 있으며, 메소드로는 입금하기, 출금하기, 이체하기 등을 만들 수 있을 것이다.</p>
+       
+      <p>이처럼 우리가 실생활에서 접할 수 있는 무언가를 속성과 메소드로 분리하여 분석해 보는 연습을 자주한다면 이후에 클래스를 디자인하는데 훨씬 많은 도움이 될 수 있다.</p>
+      클래스의 속성과 메소드를 한꺼번에 클래스 멤버(class member)라고도 부른다.</div>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">클래스 선언하기</h2>
+      <p>파이썬에서는 class 키워드를 사용하여 클래스를 선언할 수 있으며, 그 내부에서 def 키워드를 사용하여 메소드를 선언할 수 있다.<br>
+      속성은 변수를 선언하는 일반적인 방법과 같은 방법으로 선언할 수 있다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      class Dog:  # 클래스 선언</p>
+          name = "삼식이" # 속성 선언</p>
+          age = 3</p>
+          breed = "골든 리트리버"  </p>
+          def bark(self): # 메소드 선언</p>
+              print(self.name + "가 멍멍하고 짖는다.")<br>
+      위의 예제에서 작성한 Dog 클래스는 name, age, breed라는 3개의 속성과 bark()라는 하나의 메소드로 구성된다.<br>
+      6번 라인의 bark() 메소드 선언 시 매개변수로 사용된 self 매개변수는 자바의 this 키워드와 마찬가지로 객체가 자기 자신을 참조하는데 사용하는 매개변수이다.</p> 
+      <p>즉, self 매개변수를 사용하면, 메소드에서 클래스에 정의된 모든 속성 및 다른 메소드에 접근할 수 있는 것이다.</p> 
+      <p>예를 들어 7번 라인에서 self 매개변수를 사용하여 해당 클래스의 name 속성에 접근하고 있는 것을 확인할 수 있다.<br>
+      파이썬에서는 메소드를 선언할 때 첫 번째 매개변수로 반드시 self를 명시하도록 하고 있으며, 메소드를 호출할 때는 self 매개변수에 아무런 인수를 전달하지 않아도 된다.</p>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">인스턴스 생성하기</h2>
+      <p>인스턴스(instance)란 클래스를 기반으로 생성된 객체(object)를 가리킨다<br>
+      파이썬에서는 클래스명에 소괄호(())를 사용하여 해당 클래스의 인스턴스를 생성할 수 있다.<br>
+      생성된 인스턴스에 닷(.) 연산자를 사용하면 해당 클래스의 속성이나 메소드를 호출할 수 있다.</p>
+      <h5>문법</h5>
+      인스턴스명 = 클래스명()<br>
+      다음 예제는 앞서 선언한 Dog 클래스의 인스턴스를 생성하는 예제이다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      class Dog: # 클래스 선언</p>
+          name = "삼식이"</p>
+          age = 3</p>
+          breed = "골든 리트리버"  </p>
+          def bark(self):</p>
+              print(self.name + "가 멍멍하고 짖는다.")    </p>
+       </p>
+      my_dog = Dog()      # 인스턴스 생성  </p>
+      print(my_dog.breed) # 인스턴스의 속성 접근</p>
+      my_dog.bark()       # 인스턴스의 메소드 호출</p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <span class="fw-bold">실행 결과</span><br>
+      골든 리트리버<br>
+      삼식이가 멍멍하고 짖는다.<br>
+      위 예제의 10번 라인에서는 my_dog라는 이름을 가지는 Dog 클래스의 인스턴스를 생성하고 있다. my_dog는 객체(object)이면서 동시에 Dog 클래스의 인스턴스(instance)가 된다.<br>
+      13번 라인처럼 생성된 인스턴스를 가지고 해당 클래스의 메소드를 호출할 수 있다. 이때 메소드 선언에서 사용된 self 매개변수에는 어떠한 인수도 전달하지 않는 것을 확인할 수 있다.</p>
+      객체(object)와 인스턴스(instance)는 전혀 별개의 것이 아니며, 객체를 바라보는 관점의 차이이다.<br>
+      <br>
+      위의 예제에서 'my_dog는 인스턴스이다.'라고 하기보다는 'my_dog는 객체이다.'라고 말하는 것이 좀 더 정확하며, 'my_dog는 Dog 클래스의 객체이다.'라고 하기보다는 'my_dog는 Dog 클래스의 인스턴스이다.'라고 말하는 것이 좀 더 정확한 표현인 것이다.</div>
+
+               
+</body>
+</html>

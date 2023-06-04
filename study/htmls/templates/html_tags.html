@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 태그</title>
+</head>
+<body>
+<div>
+    <H2>HTML</H2>  
+    <style>
+        .txtlink {color: green; text-decoration:none; margin-left:20px; font-size:16px;}
+        .txtlink:hover {text-decoration:underline;}        /*마우스 올라가면 밑줄 */        
+        /* .button_S {display:inline-block; background-color:gray; color: #FFFFFF; padding: 14px 25px; text-align: center; text-decoration: none; font-size: 16px; margin-left: 20px; opacity: 0.9; border-radius: 5px;}
+        .button_S:hover {color:white; background-color:lightyellow ; opacity:1.0;}      /*마우스 올라가면 배경색 핑크색 글자 흰색으로 바뀜 
+        .button1 {display:inline-block; background-color:#f44336; color: #FFFFFF; padding: 14px 25px; text-align: center; text-decoration: none; font-size: 16px; margin-left: 20px; opacity: 0.9; border-radius: 5px;}
+        .button1:hover {color:white; background-color:pink; opacity:1.0;}      마우스 올라가면 배경색 핑크색 글자 흰색으로 바뀜 
+        .button2 {background-color: white; color: black; border: 2px solid #f44336; padding: 14px 24px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin-left: 20px;}
+        .button2:hover {background-color: #f44336; color: white;}    /*마우스 올라가면 배경색 및 글자 색 바뀜
+        .button3 {display:inline-block; background-color: #44bb55; color: #FFFFFF; padding: 14px 25px; text-align: center; text-decoration: none; font-size: 16px; margin-left: 20px; opacity: 0.9;border-radius: 5px;}
+        .button3:hover {background-color: #44bb55; color: white;}    마우스 올라가면 배경색 및 글자 색 바뀜 
+        .button4 {background-color: white; color: black; border: 2px solid #44bb55; padding: 14px 24px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin-left: 20px;}
+        .button4:hover {background-color: #44bb55; color: white;}    마우스 올라가면 배경색 및 글자 색 바뀜 */
+        
+        .btn {margin: 4px 0px;--bs-btn-padding-x: 0.75rem;  --bs-btn-padding-y: 0.375rem; --bs-btn-font-family: 'Nanum Gothic', sans-serif; --bs-btn-font-size: 1rem; --bs-btn-font-weight: 400;
+              --bs-btn-line-height: 1.5;    --bs-btn-border-width: var(--bs-border-width);
+              --bs-btn-border-radius: 0.375rem;   --bs-btn-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15),0 1px 1px rgba(0, 0, 0, 0.075);
+              --bs-btn-disabled-opacity: 0.65;    --bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(var(--bs-btn-focus-shadow-rgb), .5);
+              display: inline-block; padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x); font-family: var(--bs-btn-font-family);
+              font-size: var(--bs-btn-font-size); font-weight: var(--bs-btn-font-weight); line-height: var(--bs-btn-line-height); 
+              color: var(--bs-btn-color);         text-align: center;    text-decoration: none;    vertical-align: middle;    cursor: pointer;
+              -webkit-user-select: none;    -moz-user-select: none;      user-select: none;    
+              border: var(--bs-btn-border-width) solid var(--bs-btn-border-color); border-radius: var(--bs-btn-border-radius);
+              background-color: var(--bs-btn-bg);}
+        .button_S {--bs-btn-color: #fff;    --bs-btn-bg: #6c757d;    --bs-btn-border-color: #6c757d;    --bs-btn-hover-color: #fff;
+              --bs-btn-hover-bg: #5c636a;    --bs-btn-hover-border-color: #565e64;    --bs-btn-focus-shadow-rgb: 130,138,145;
+              --bs-btn-active-color: #fff;    --bs-btn-active-bg: #565e64;    --bs-btn-active-border-color: #51585e;
+              --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #fff;    --bs-btn-disabled-bg: #6c757d;
+              --bs-btn-disabled-border-color: #6c757d;}
+        .button1 {--bs-btn-color: #fff;     --bs-btn-bg: #dc3545;       --bs-btn-border-color: #dc3545;     --bs-btn-hover-color: #fff;
+                  --bs-btn-hover-bg: #bb2d3b;    --bs-btn-hover-border-color: #b02a37;     --bs-btn-focus-shadow-rgb: 225,83,97;
+                  --bs-btn-active-color: #fff;   --bs-btn-active-bg: #b02a37;    --bs-btn-active-border-color: #a52834;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #fff;
+                  --bs-btn-disabled-bg: #dc3545;    --bs-btn-disabled-border-color: #dc3545;}
+        .button2 {--bs-btn-color: #dc3545;    --bs-btn-border-color: #dc3545;    --bs-btn-hover-color: #fff;    --bs-btn-hover-bg: #dc3545;
+                  --bs-btn-hover-border-color: #dc3545;    --bs-btn-focus-shadow-rgb: 220,53,69;    --bs-btn-active-color: #fff;
+                  --bs-btn-active-bg: #dc3545;    --bs-btn-active-border-color: #dc3545; --bs-border-width: 2px;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #dc3545;
+                  --bs-btn-disabled-bg: transparent;    --bs-btn-disabled-border-color: #dc3545;    --bs-gradient: none;}
+        .button3 {--bs-btn-color: #fff;    --bs-btn-bg: #198754;    --bs-btn-border-color: #198754;    --bs-btn-hover-color: #fff;
+                  --bs-btn-hover-bg: #157347;     --bs-btn-hover-border-color: #146c43;     --bs-btn-focus-shadow-rgb: 60,153,110;
+                  --bs-btn-active-color: #fff;    --bs-btn-active-bg: #146c43;    --bs-btn-active-border-color: #13653f;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #fff;
+                  --bs-btn-disabled-bg: #198754; --bs-btn-disabled-border-color: #198754;}
+        .button4 {--bs-btn-color: #198754;    --bs-btn-border-color: #198754;    --bs-btn-hover-color: #fff;    --bs-btn-hover-bg: #198754;
+                  --bs-btn-hover-border-color: #198754;    --bs-btn-focus-shadow-rgb: 25,135,84;    --bs-btn-active-color: #fff;
+                  --bs-btn-active-bg: #198754;    --bs-btn-active-border-color: #198754;--bs-border-width: 2px;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #198754;
+                  --bs-btn-disabled-bg: transparent;    --bs-btn-disabled-border-color: #198754;    --bs-gradient: none;}
+        </style>
+        <p><a href="/htmls/tut1.html" class="btn button1" target="_blank">이전 노트</a>
+        <a href="/htmls/tut3.html" class="btn button1" target="_blank">다음 노트</a>
+        <a href="/css/tut11.html" class="btn button3" target="_blank">CSS 노트</a> 
+        <a href="/htmls/html_CSS.html" class="btn button2" target="_blank">HTML+CSS</a>
+        <a href="/htmls/html_Emmet.html" class="btn button2" target="_blank">HTML+Emmet</a>
+        <a href="/htmls/html_tags.html" class="btn button_S" target="_blank">HTML+Tags</a><br>
+        <a href="/javascript/j01.html" class="btn button3" target="_blank">자바스크립트 노트</a> 
+        <a href="/python/p01.html" class="btn button3" target="_blank">파이썬 노트</a> 
+        <a href="/htmls/tut1.html" class="btn button2" target="_blank">기본구조</a> 
+        <a href="/htmls/tut2.html" class="btn button2" target="_blank">서식(Format)</a>
+        <a href="/htmls/tut3.html" class="btn button2" target="_blank">스타일(Style)</a>
+        <a href="/htmls/tut4.html" class="btn button2" target="_blank">Heading, Links and Images</a>
+        <a href="/htmls/tut5.html" class="btn button2" target="_blank">Table and Lists</a>
+        <a href="/htmls/tut6.html" class="btn button2" target="_blank">요소 블록 인라인</a>
+        <a href="/htmls/tut7.html" class="btn button2" target="_blank">폼(Forms)</a>
+        <a href="/htmls/tut8.html" class="btn button2" target="_blank">레이아웃(Layout)</a>
+        <a href="/htmls/tut9.html" class="btn button2" target="_blank">input 요소</a><br>
+        <a href="/css/tut11.html" class="btn button4" target="_blank">CSS 문법</a>
+        <a href="/css/tut12.html" class="btn button4" target="_blank">색과 배경</a>
+        <a href="/css/tut13.html" class="btn button4" target="_blank">텍스트 글꼴 링크 </a>
+        <a href="/css/tut14.html" class="btn button4" target="_blank">글꼴 링크 이미지 스프라이트</a> 
+        <a href="/css/tut15.html" class="btn button4" target="_blank">리스트 테이블</a>
+        <a href="/css/tut16.html" class="btn button4" target="_blank">박스모델 크기 패딩</a> 
+        <a href="/css/tut17.html" class="btn button4" target="_blank">박스모델 테두리 마진 아웃라인</a> 
+        <a href="/css/tut18.html" class="btn button4" target="_blank">위치 디스플레이 플로트 정렬</a> 
+        <a href="/css/tut19.html" class="btn button4" target="_blank">위치 포지션 선택자 selector</a>  
+        <a href="/css/tut20.html" class="btn button4" target="_blank">유사클래스 상태의사클래스 동적의사클래스 </a>
+        <a href="/css/tut21.html" class="btn button4" target="_blank">구조의사클래스</a> 
+        <a href="/css/tut22.html" class="btn button4" target="_blank">의사 요소(pseudo-element)</a>
+        <a href="/css/tut23.html" class="btn button4" target="_blank">CSS 네비게이션바</a>
+        <a href="/css/tut24.html" class="btn button4" target="_blank">CSS form 요소 @규칙</a></p> 
+    <hr>    
+</div>
+    <div class="editor-template">
+        <h3>HTML 태그</h3><hr>
+
+        <h4>HTML 태그</h4>
+        <p>HTML 태그(tag)는 HTML 요소(element)라고도 부르며, HTML 문서를 구성하는 기본 단위</p>        
+        <p><img alt="html5" src="http://www.tcpschool.com/lectures/html5_logo_s.png" style="width: 19px; height: 28px;"> : HTML5에서 새롭게 추가된 태그</p>
+        
+        <table class="tb-3" summary="">
+            <thead>
+                <tr class="title">                
+                    <th>태그</th>
+                    <th class="void"> </th>
+                    <th>설명</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/comment" target="_blank">&lt;!-- --&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>주석(comment)을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/doctype" target="_blank">&lt;!DOCTYPE&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>해당 문서(document)의 타입을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/a" target="_blank">&lt;a&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>다른 콘텐츠와 연결되는 하이퍼링크(hyperlink)를 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/abbr" target="_blank">&lt;abbr&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>축약형(abbreviation)이나 머리글자로만 된 단어(acronym)를 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/acronym" target="_blank"><span style="color:#FF0000;">&lt;acronym&gt;</span></a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>머리글자로만 된 단어(acronym)를 정의함.</p>
+        
+                    <p><span style="color:#FF0000;">HTML5에서는 더 이상 지원하지 않으며, 대신 &lt;abbr&gt; 요소를 사용함.</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/address" target="_blank">&lt;address&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>문서나 글의 저자 또는 회사와 연락할 수 있는 정보를 명시함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/applet" target="_blank"><span style="color:#FF0000;">&lt;applet&gt;</span></a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>문서에 포함되는 애플릿(웹 페이지에 포함되어 작은 기능을 수행하는 프로그램)을 정의함.</p>
+        
+                    <p><span style="color:#FF0000;">HTML5에서는 더 이상 지원하지 않으며, 대신 &lt;embed&gt; 요소나 &lt;object&gt; 요소를 사용함.</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/area" target="_blank">&lt;area&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>이미지 맵(image-map)에서 하이퍼링크가 연결될 영역을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/article" target="_blank">&lt;article&gt;</a></p>
+                    </td>
+                    <td class="void"><img alt="html5" src=" http://www.tcpschool.com/lectures/html5_logo_s.png" style="width: 19px; height: 28px;"></td>
+                    <td>
+                    <p>해당 문서나 페이지 또는 사이트와는 완전히 독립적으로 구성할 수 있는 요소를 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/aside" target="_blank">&lt;aside&gt;</a></p>
+                    </td>
+                    <td class="void"><img alt="html5" src=" http://www.tcpschool.com/lectures/html5_logo_s.png" style="width: 19px; height: 28px;"></td>
+                    <td>
+                    <p>페이지의 다른 콘텐츠들과 약간의 연관성을 가지고 있지만 해당 콘텐츠들로부터 분리시킬 수 있는 콘텐츠로 구성된 페이지 영역을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/audio" target="_blank">&lt;audio&gt;</a></p>
+                    </td>
+                    <td class="void"><a href="/html-tags/audio" target="_blank"><img alt="html5" src=" http://www.tcpschool.com/lectures/html5_logo_s.png" style="width: 19px; height: 28px;"></a></td>
+                    <td>
+                    <p>음악이나 오디오 스트림과 같은 사운드를 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/base" target="_blank">&lt;base&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>해당 문서의 모든 상대 주소(relative URL)에 대한 기본 URL과 target 속성값을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/basefont" target="_blank"><span style="color:#FF0000;">&lt;basefont&gt;</span></a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>해당 문서의 모든 텍스트에 대한 색상, 크기 및 폰트의 기본값을 정의함.</p>
+        
+                    <p><span style="color:#FF0000;">HTML5에서는 더 이상 지원하지 않으며, 대신 CSS를 사용함.</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/bdi" target="_blank">&lt;bdi&gt;</a></p>
+                    </td>
+                    <td class="void"><img alt="html5" src=" http://www.tcpschool.com/lectures/html5_logo_s.png" style="width: 19px; height: 28px;"></td>
+                    <td>
+                    <p>주위의 텍스트들과는 다른 방향으로 써지는 텍스트 영역을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/bdo" target="_blank">&lt;bdo&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>자식 요소의 텍스트 방향성(text directionality)을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/big" target="_blank"><span style="color:#FF0000;">&lt;big&gt;</span></a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>글자 크기가 큰 텍스트를 정의함.</p>
+        
+                    <p><span style="color:#FF0000;">HTML5에서는 더 이상 지원하지 않으며, 대신 CSS를 사용함.</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/blockquote" target="_blank">&lt;blockquote&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>다른 출처로부터 인용된 영역을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/body" target="_blank">&lt;body&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>해당 문서의 콘텐츠 영역을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/br" target="_blank">&lt;br&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>행 바꿈(line-break)을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/button" target="_blank">&lt;button&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>클릭할 수 있는 버튼을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/canvas" target="_blank">&lt;canvas&gt;</a></p>
+                    </td>
+                    <td class="void"><img alt="html5" src=" http://www.tcpschool.com/lectures/html5_logo_s.png" style="width: 19px; height: 28px;"></td>
+                    <td>
+                    <p>자바스크립트와 같은 스크립트를 이용하여 그래픽 콘텐츠를 그릴 때 사용함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/caption" target="_blank">&lt;caption&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>테이블의 캡션(caption)을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/center" target="_blank"><span style="color:#FF0000;">&lt;center&gt;</span></a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>가운데로 정렬되는 텍스트를 정의함.</p>
+        
+                    <p><span style="color:#FF0000;">HTML5에서는 더 이상 지원하지 않으며, 대신 CSS를 사용함.</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/cite" target="_blank">&lt;cite&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>예술 작품과 같은 창작물의 제목을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/code" target="_blank">&lt;code&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>컴퓨터 코드(code)의 일부분을 나타냄.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/col" target="_blank">&lt;col&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>&lt;colgroup&gt; 요소에 속하는 각 열(column)의 속성을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/colgroup" target="_blank">&lt;colgroup&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>테이블에서 서식 지정을 위해 하나 이상의 열을 그룹으로 묶을 때 사용함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/data" target="_blank">&lt;data&gt;</a></p>
+                    </td>
+                    <td class="void"><img alt="html5" src=" http://www.tcpschool.com/lectures/html5_logo_s.png" style="width: 19px; height: 28px;"></td>
+                    <td>
+                    <p>특정 콘텐츠에 기계가 읽을 수 있는(machine-readable) 형태의 값(value)을 덧붙여 나타낼 때 사용함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/datalist" target="_blank">&lt;datalist&gt;</a></p>
+                    </td>
+                    <td class="void"><img alt="html5" src=" http://www.tcpschool.com/lectures/html5_logo_s.png" style="width: 19px; height: 28px;"></td>
+                    <td>
+                    <p>&lt;input&gt; 요소에서 사용하기 위한 옵션들의 리스트를 미리 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/dd" target="_blank">&lt;dd&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>용어와 그에 대한 설명을 리스트 형식으로 보여주는 &lt;dl&gt; 요소에서 설명(description) 부분을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/del" target="_blank">&lt;del&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>텍스트 한가운데 라인을 추가하여 문서에서 삭제된 텍스트를 표현함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/details" target="_blank">&lt;details&gt;</a></p>
+                    </td>
+                    <td class="void"><img alt="html5" src=" http://www.tcpschool.com/lectures/html5_logo_s.png" style="width: 19px; height: 28px;"></td>
+                    <td>
+                    <p>사용자가 직접 조작하여 보거나 숨길 수 있는 부가적인 세부사항(additional details)을 명시함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/dfn" target="_blank">&lt;dfn&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>HTML에서 용어(term)의 정의를 나타냄.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/dialog" target="_blank">&lt;dialog&gt;</a></p>
+                    </td>
+                    <td class="void"><img alt="html5" src=" http://www.tcpschool.com/lectures/html5_logo_s.png" style="width: 19px; height: 28px;"></td>
+                    <td>
+                    <p>대화 상자(dialog box)나 대화 윈도우(dialog window)를 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/dir" target="_blank"><span style="color:#FF0000;">&lt;dir&gt;</span></a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>HTML 리스트(list)를 정의함.</p>
+        
+                    <p><span style="color:#FF0000;">HTML5에서는 더 이상 지원하지 않으며, 대신 &lt;ul&gt; 요소를 사용함.</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/div" target="_blank">&lt;div&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>HTML 문서에서 특정 영역이나 구획을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/dl" target="_blank">&lt;dl&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>용어와 그에 대한 설명을 리스트 형식으로 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/dt" target="_blank">&lt;dt&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>용어와 그에 대한 설명을 리스트 형식으로 보여주는 &lt;dl&gt; 요소에서 용어(term) 부분을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/em" target="_blank">&lt;em&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>강조된 텍스트를 표현함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/embed" target="_blank">&lt;embed&gt;</a></p>
+                    </td>
+                    <td class="void"><img alt="html5" src=" http://www.tcpschool.com/lectures/html5_logo_s.png" style="width: 19px; height: 28px;"></td>
+                    <td>
+                    <p>외부 애플리케이션이나 대화형 콘텐츠를 포함시킬 수 있는 컨테이너를 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/fieldset" target="_blank">&lt;fieldset&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>&lt;form&gt; 요소에서 연관된 요소들을 하나의 그룹으로 묶을 때 사용함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/figcaption" target="_blank">&lt;figcaption&gt;</a></p>
+                    </td>
+                    <td class="void"><img alt="html5" src=" http://www.tcpschool.com/lectures/html5_logo_s.png" style="width: 19px; height: 28px;"></td>
+                    <td>
+                    <p>&lt;figure&gt; 요소의 캡션(caption)을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/figure" target="_blank">&lt;figure&gt;</a></p>
+                    </td>
+                    <td class="void"><img alt="html5" src=" http://www.tcpschool.com/lectures/html5_logo_s.png" style="width: 19px; height: 28px;"></td>
+                    <td>
+                    <p>삽화나 다이어그램, 사진 등과 같이 문서의 주요 흐름과는 독립적인 콘텐츠를 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/font" target="_blank"><span style="color:#FF0000;">&lt;font&gt;</span></a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>텍스트의 폰트, 색상 그리고 크기를 정의함.</p>
+        
+                    <p><span style="color:#FF0000;">HTML5에서는 더 이상 지원하지 않으며, 대신 CSS를 사용함.</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/footer" target="_blank">&lt;footer&gt;</a></p>
+                    </td>
+                    <td class="void"><img alt="html5" src=" http://www.tcpschool.com/lectures/html5_logo_s.png" style="width: 19px; height: 28px;"></td>
+                    <td>
+                    <p>문서나 특정 섹션의 푸터(footer)를 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/form" target="_blank">&lt;form&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>사용자로부터 입력을 받을 수 있는 HTLM 입력 폼(form)을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/frame" target="_blank"><span style="color:#FF0000;">&lt;frame&gt;</span></a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>&lt;frameset&gt; 요소에 포함되는 하나의 프레임(frame)을 정의함.</p>
+        
+                    <p><span style="color:#FF0000;">HTML5에서는 더 이상 지원하지 않음.</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="/html-tags/frameset" target="_blank"><span style="color:#FF0000;">&lt;frameset&gt;</span></a></td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>문서의 레이아웃을 구성하기 위해 사용되는 프레임(frame)들의 집합을 정의함.</p>
+        
+                    <p><span style="color:#FF0000;">HTML5에서는 더 이상 지원하지 않음.</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/headings" target="_blank">&lt;h1&gt; ~ &lt;h6&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>HTML 문서에서 제목(headings)을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/head" target="_blank">&lt;head&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>해당 문서에 대한 정보인 메타데이터(metadata)의 집합을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/header" target="_blank">&lt;header&gt;</a></p>
+                    </td>
+                    <td class="void"><img alt="html5" src=" http://www.tcpschool.com/lectures/html5_logo_s.png" style="width: 19px; height: 28px;"></td>
+                    <td>
+                    <p>문서나 특정 섹션의 헤더(header)를 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/hr" target="_blank">&lt;hr&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>콘텐츠 내용에서 주제가 바뀔 때 사용할 수 있는 수평 가로선을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/html" target="_blank">&lt;html&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>HTML 문서의 루트 요소(root element)를 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/i" target="_blank">&lt;i&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>기본 텍스트와는 다른 분위기나 음성을 위한 텍스트 영역을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/iframe" target="_blank">&lt;iframe&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>인라인 프레임(inline frame)을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/img" target="_blank">&lt;img&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>이미지(image)를 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/input" target="_blank">&lt;input&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>사용자로부터 입력을 받을 수 있는 입력 필드(input filed)를 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/ins" target="_blank">&lt;ins&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>텍스트 아래쪽에 라인을 추가하여 문서에 추가된 텍스트를 표현함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/kbd" target="_blank">&lt;kbd&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>키보드 입력을 나타냄.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/label" target="_blank">&lt;label&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>사용자 인터페이스(UI) 요소의 라벨(label)을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/legend" target="_blank">&lt;legend&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>&lt;fieldset&gt; 요소의 캡션(caption)을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/li" target="_blank">&lt;li&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>HTML 리스트(list)에 포함되는 아이템(item)을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/link" target="_blank">&lt;link&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>해당 문서와 외부 소스(external resource) 사이의 관계를 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/main" target="_blank">&lt;main&gt;</a></p>
+                    </td>
+                    <td class="void"><img alt="html5" src=" http://www.tcpschool.com/lectures/html5_logo_s.png" style="width: 19px; height: 28px;"></td>
+                    <td>
+                    <p>해당 문서의 &lt;body&gt; 요소의 주 콘텐츠(main content)를 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/map" target="_blank">&lt;map&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>클라이언트 사이드 이미지맵(client-side image-map)을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/mark" target="_blank">&lt;mark&gt;</a></p>
+                    </td>
+                    <td class="void"><img alt="html5" src=" http://www.tcpschool.com/lectures/html5_logo_s.png" style="width: 19px; height: 28px;"></td>
+                    <td>
+                    <p>형광펜으로 칠한 것처럼 하이라이트된(highlighted) 텍스트를 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/meta" target="_blank">&lt;meta&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>해당 문서에 대한 정보인 메타데이터(metadata)를 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/meter" target="_blank">&lt;meter&gt;</a></p>
+                    </td>
+                    <td class="void"><img alt="html5" src=" http://www.tcpschool.com/lectures/html5_logo_s.png" style="width: 19px; height: 28px;"></td>
+                    <td>
+                    <p>분수 값이나 범위(gauge) 내에서 특정 스칼라 값이 어느 정도인지를 표현함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/nav" target="_blank">&lt;nav&gt;</a></p>
+                    </td>
+                    <td class="void"><img alt="html5" src=" http://www.tcpschool.com/lectures/html5_logo_s.png" style="width: 19px; height: 28px;"></td>
+                    <td>
+                    <p>다른 페이지 또는 현재 페이지의 다른 부분과 연결되는 네비게이션 링크(navigation links)들의 집합을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/noframes" target="_blank"><span style="color:#FF0000;">&lt;noframes&gt;</span></a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>프레임(frame) 기능을 사용하지 않도록 설정했거나, 프레임 기능을 지원하지 않는 브라우저를 위한 별도의 콘텐츠를 정의함. </p>
+        
+                    <p><span style="color:#FF0000;">HTML5에서는 더 이상 지원하지 않음.</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/noscript" target="_blank">&lt;noscript&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>클라이언트 사이드 스크립트(client-side scripts)를 사용하지 않도록 설정했거나, 스크립트를 지원하지 않는 브라우저를 위한 별도의 콘텐츠를 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/object" target="_blank">&lt;object&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>외부 리소스의 종류에 따라 문서 내에서 처리하는 방식을 변경할 수 있는 임베디드 객체(embedded object)를 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/ol" target="_blank">&lt;ol&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>순서가 있는 HTML 리스트(list)를 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/optgroup" target="_blank">&lt;optgroup&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>옵션 메뉴를 제공하는 드롭다운 리스트(drop-down list)에서 사용되는 옵션들의 그룹을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/option" target="_blank">&lt;option&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>옵션 메뉴를 제공하는 드롭다운 리스트(drop-down list)에서 사용되는 하나의 옵션을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/output" target="_blank">&lt;output&gt;</a></p>
+                    </td>
+                    <td class="void"><img alt="html5" src=" http://www.tcpschool.com/lectures/html5_logo_s.png" style="width: 19px; height: 28px;"></td>
+                    <td>
+                    <p>스크립트 등에 의해 수행된 계산의 결과나 사용자의 액션에 의한 결과를 나타냄.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/p" target="_blank">&lt;p&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>문단(paragraph)을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/param" target="_blank">&lt;param&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>&lt;object&gt; 요소에 의해 호출되는 플러그인의 매개변수(parameter)를 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/picture" target="_blank">&lt;picture&gt;</a></p>
+                    </td>
+                    <td class="void"><img alt="html5" src=" http://www.tcpschool.com/lectures/html5_logo_s.png" style="width: 19px; height: 28px;"></td>
+                    <td>
+                    <p>&lt;img&gt; 요소의 다중 이미지 리소스(multiple image resources)를 위한 컨테이너를 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/pre" target="_blank">&lt;pre&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>미리 정의된 형식(preformatted)의 텍스트를 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/progress" target="_blank">&lt;progress&gt;</a></p>
+                    </td>
+                    <td class="void"><img alt="html5" src=" http://www.tcpschool.com/lectures/html5_logo_s.png" style="width: 19px; height: 28px;"></td>
+                    <td>
+                    <p>작업의 진행률을 나타냄.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/q" target="_blank">&lt;q&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>짧은 인용구를 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/rp" target="_blank">&lt;rp&gt;</a></p>
+                    </td>
+                    <td class="void"><img alt="html5" src=" http://www.tcpschool.com/lectures/html5_logo_s.png" style="width: 19px; height: 28px;"></td>
+                    <td>
+                    <p>루비 주석을 지원하지 않는 브라우저를 위한 대체 내용을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/rt" target="_blank">&lt;rt&gt;</a></p>
+                    </td>
+                    <td class="void"><img alt="html5" src=" http://www.tcpschool.com/lectures/html5_logo_s.png" style="width: 19px; height: 28px;"></td>
+                    <td>
+                    <p>루비 주석에서 발음이나 설명을 나타내는 윗첨자를 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/ruby" target="_blank">&lt;ruby&gt;</a></p>
+                    </td>
+                    <td class="void"><img alt="html5" src=" http://www.tcpschool.com/lectures/html5_logo_s.png" style="width: 19px; height: 28px;"></td>
+                    <td>
+                    <p>해당 문자의 발음이나 설명을 작은 크기의 윗첨자로 알려주는 루비 주석(ruby annotation)을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/s" target="_blank">&lt;s&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>텍스트 한가운데 라인을 추가하여 더 이상 정확하지 않거나 관련이 없는 텍스트를 표현함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/samp" target="_blank">&lt;samp&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>컴퓨터 프로그램의 샘플 또는 인용 출력(output)을 나타냄.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/script" target="_blank">&lt;script&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>자바스크립트와 같은 클라이언트 사이드 스크립트(client-side scripts)를 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/section" target="_blank">&lt;section&gt;</a></p>
+                    </td>
+                    <td class="void"><img alt="html5" src=" http://www.tcpschool.com/lectures/html5_logo_s.png" style="width: 19px; height: 28px;"></td>
+                    <td>
+                    <p>HTML 문서에 포함된 독립적인 섹션(section)을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/select" target="_blank">&lt;select&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>옵션 메뉴를 제공하는 드롭다운 리스트(drop-down list)를 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/small" target="_blank">&lt;small&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>글자 크기가 작은 텍스트를 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/source" target="_blank">&lt;source&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>&lt;audio&gt; 요소나 &lt;video&gt; 요소에서 사용할 수 있는 다중 미디어 자원(multiple media resources)을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/span" target="_blank">&lt;span&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>HTML 문서에서 인라인 요소(inline-element)들을 하나로 묶을 때 사용함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/strike" target="_blank"><span style="color:#FF0000;">&lt;strike&gt;</span></a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>텍스트 한가운데 라인을 추가할 때 사용함.</p>
+        
+                    <p><span style="color:#FF0000;">HTML5에서는 더 이상 지원하지 않으며, 대신 &lt;del&gt; 요소나 &lt;s&gt; 요소를 사용함.</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/strong" target="_blank">&lt;strong&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>해당 콘텐츠의 중요성이나 심각함, 긴급함 등을 강조함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/style" target="_blank">&lt;style&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>해당 HTML 문서의 스타일 정보를 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/sub" target="_blank">&lt;sub&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>아랫첨자(subscript) 텍스트를 표현함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/summary" target="_blank">&lt;summary&gt;</a></p>
+                    </td>
+                    <td class="void"><img alt="html5" src=" http://www.tcpschool.com/lectures/html5_logo_s.png" style="width: 19px; height: 28px;"></td>
+                    <td>
+                    <p>&lt;details&gt; 요소에 의해 생성되는 대화형 위젯에서 기본적으로 보이는 제목을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/sup" target="_blank">&lt;sup&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>윗첨자(superscript) 텍스트를 표현함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/svg" target="_blank">&lt;svg&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>SVG 그래픽을 위한 컨테이너를 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/table" target="_blank">&lt;table&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>데이터를 포함하는 셀(cell)들의 행과 열로 구성된 2차원 테이블을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/tbody" target="_blank">&lt;tbody&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>테이블에서 내용 콘텐츠(body content)들을 하나의 그룹으로 묶을 때 사용함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/td" target="_blank">&lt;td&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>테이블에서 하나의 셀(cell)을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/template" target="_blank">&lt;template&gt;</a></p>
+                    </td>
+                    <td class="void"><img alt="html5" src=" http://www.tcpschool.com/lectures/html5_logo_s.png" style="width: 19px; height: 28px;"></td>
+                    <td>
+                    <p>추가되거나 복사될 수 있는 HTML 요소들을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/textarea" target="_blank">&lt;textarea&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>사용자가 여러 줄의 텍스트를 입력할 수 있는 텍스트 입력 영역을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/tfoot" target="_blank">&lt;tfoot&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>테이블에서 푸터 콘텐츠(footer content)들을 하나의 그룹으로 묶을 때 사용함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/th" target="_blank">&lt;th&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>테이블에서 제목이 되는 헤더 셀(header cell)들을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/thead" target="_blank">&lt;thead&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>테이블에서 헤더 콘텐츠(header content)들을 하나의 그룹으로 묶을 때 사용함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/time" target="_blank">&lt;time&gt;</a></p>
+                    </td>
+                    <td class="void"><img alt="html5" src=" http://www.tcpschool.com/lectures/html5_logo_s.png" style="width: 19px; height: 28px;"></td>
+                    <td>
+                    <p>사람이 읽을 수 있는(human-readable) 형태의 날짜와 시간 데이터를 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/title">&lt;title&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>해당 문서의 제목(title)을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/tr" target="_blank">&lt;tr&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>테이블에서 셀들로 이루어진 하나의 행(row)을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/track" target="_blank">&lt;track&gt;</a></p>
+                    </td>
+                    <td class="void"><img alt="html5" src=" http://www.tcpschool.com/lectures/html5_logo_s.png" style="width: 19px; height: 28px;"></td>
+                    <td>
+                    <p>&lt;audio&gt;나 &lt;video&gt; 요소와 같은 미디어 요소를 위한 텍스트 트랙(track)을 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/tt" target="_blank"><span style="color:#FF0000;">&lt;tt&gt;</span></a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>텔레타이프 텍스트(teletype text)를 나타냄.</p>
+        
+                    <p><span style="color:#FF0000;">HTML5에서는 더 이상 지원하지 않으며, 대신 CSS를 사용함.</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/u" target="_blank">&lt;u&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>철자가 틀린 단어나 중국어의 고유 명사처럼 문체상 일반적인 텍스트와는 달라야만 하는 텍스트를 표현함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/ul" target="_blank">&lt;ul&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>순서가 없는 HTML 리스트(list)를 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/var" target="_blank">&lt;var&gt;</a></p>
+                    </td>
+                    <td class="void"> </td>
+                    <td>
+                    <p>변수(variable)를 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/video" target="_blank">&lt;video&gt;</a></p>
+                    </td>
+                    <td class="void"><img alt="html5" src=" http://www.tcpschool.com/lectures/html5_logo_s.png" style="width: 19px; height: 28px;"></td>
+                    <td>
+                    <p>무비 클립(movie clip)이나 비디오 스트림(video stream)과 같은 비디오를 정의함.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p><a href="/html-tags/wbr" target="_blank">&lt;wbr&gt;</a></p>
+                    </td>
+                    <td class="void"><img alt="html5" src=" http://www.tcpschool.com/lectures/html5_logo_s.png" style="width: 19px; height: 28px;"></td>
+                    <td>
+                    <p>단어 중간에서 행바꿈될 수 있는(line-break) 위치를 정의함.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table> </div>    
+    <style>
+        table.tb-3, th, td { border: 1px solid black; border-collapse: collapse }
+        th.void, td.void {border-left:hidden; } 
+        tr.title {background-color:lightgrey}
+    </style> 
+</body>
+</html>

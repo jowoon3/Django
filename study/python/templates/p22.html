@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>파이썬 웹스크래핑2</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">   
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">     
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <!-- font css -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet"> 
+  <link href="{% static '/css/style.css'%}" rel="stylesheet">     
+</head>
+<body class="ms-3">  
+  <H2 class="coffee_taital" style="text-align:left;"><a name="home">파이썬</a></H2>  
+    <p><a href="/python/p20.html" class="btn btn-warning mb-1" target="_blank">이전 노트</a>
+      <a href="/python/p21.html" class="btn btn-warning mb-1" target="_blank">다음 노트</a>            
+      <a href="/htmls/tut1.html" class="btn btn-danger mb-1" target="_blank">HTML 노트</a> 
+      <a href="/css/tut11.html" class="btn btn-success mb-1" target="_blank">CSS 노트</a> 
+      <a href="/javascript/j01.html" class="btn btn-purple mb-1" target="_blank">Javascript 노트</a>
+     <a href="/python/p01.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">파이썬의 기초</a>
+     <a href="/python/p02.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">변수</a>
+     <a href="/python/p03.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">숫자형타입</a>
+     <a href="/python/p04.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">불리언타입</a>
+     <a href="/python/p05.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">문자열타입</a>
+     <a href="/python/p06.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">조건문</a>
+     <a href="/python/p07.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">반복문</a>
+     <a href="/python/p08.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">break와 continue</a>
+     <a href="/python/p09.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">리스트 타입</a>
+     <a href="/python/p10.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">튜플 타입</a>
+     <a href="/python/p11.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">세트 타입</a>
+     <a href="/python/p12.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">딕셔녀리 타입</a>
+     <a href="/python/p13.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">함수</a>
+     <a href="/python/p14.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">변수의 유효범위</a>
+     <a href="/python/p15.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">클래스</a>
+     <a href="/python/p16.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">객체</a>
+     <a href="/python/p17.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">상속</a>
+     <a href="/python/p18.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">모듈</a>
+     <a href="/python/p19.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">파일 입출력</a>
+     <a href="/python/p20.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">예외처리</a>    
+     <a href="/python/p21.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">웹스크래핑1</a>    
+     <a href="/python/p22.html" class=" btn btn-secondary mb-1" target="_blank">웹스크래핑2</a>   </p> 
+
+
+ <div class="col-md-8 mb-2">
+  <div class="p-3 text-white fs-4 bd-pink-800">스크래피 사용하기</div>
+  <p><a style="color:#007bff;" href="https://docs.scrapy.org/en/latest/intro/tutorial.html" target="_blank"> 튜토리얼 원본 <br></a>
+  <P>BS Soup는 진입장벽이 낮고 빠르게 정적인 정보를 가져 올 수 있다. 해당 API(URL)에 요청했을때 바로 가져올수 있는 정보들만 가져올 수 있다. <br>
+    시간이 좀 더 걸린 후에 나오는 정보들은 가져올 수 없다<br>
+  반면, Scrapy는  spider(bot)을 작성해서 크롤링을 하고 직접 Beautiful Soup 이나 lxml을 사용할 수 있다. <br>
+  Beautiful Soup에서는 지원하지 않는 Xpath를 사용함으롴써 복잡한 HTML소스도 쉽게 크롤링 할 수 있게 해준다. <br>
+  Xpath를 통한 crawling이 가능한 모듈로 selenium도 있는데 selenium도 Scrapy와 연동해서 가능하다.<br></P>
+  <div ><h2 style="color:#007bff; font-style:italic; font-weight:bold; text-align:left;">스크래피 scrapy 익숙해지기</h2>
+    <p>-본 포스팅은 스크래피 공식 문서에 있는 튜토리얼을 다시 한국어로 정리한 포스팅이다.<br>-pycharm 을 이용하여 진행한다.<br>-이 튜토리얼 하나로 스크래피의 기본 사용 방법을 알 수가 있다.<br>
+    <br>quotes.toscrape.com 유명 작가들의 글귀가 담겨져 있는 사이트를 스크랩할려고 한다.</p>
+    <p>&nbsp;</p>
+    <p>이 튜토리얼의 진행순서이다.</p>
+    <p>1.새로운 scrapy project 생성</p>
+    <p>2.spider를 작성하여 크롤링과 데이터 추출</p>
+    <p>3.command line을 이용하여 스크랩된 data 추출하기</p>
+    <p>4.작성된 spider를 재귀적으로 가져오도록 변형시키기</p>
+    <p>5.spider의 argument 이용하기</p> 
+
+    <hr>
+    <h2 style="color:#007bff; font-style:italic; font-weight:bold; text-align:left;">프로젝트 생성하기</b><b></h2>
+    <p>1.먼저 pycharm의 새로운 프로젝트를 생성한다. </p>
+    <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F5dstn%2FbtqQJDHVRfv%2FrjmPjQuNpwjZ3HGbWgKHeK%2Fimg.jpg" alt=""> 
+    <p>2.File-&gt;Setttings.. 에서 scrapy와 pywin32 패키지를 프로젝트환경에 설치한다.</p>
+    <p>&nbsp;</p>
+    <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FIPshf%2FbtqQIbd4gd5%2FWATtKuefW5CQIR9Mg6h9PK%2Fimg.jpg" alt=""> 
+    <p>File->Setttings.. 메뉴를 선택해서 Settings 창에서 +버튼을 누릅니다.<br>
+    <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbxzIL0%2FbtqQJFltFck%2FQYC7gkHNmgJRN7wfcBdqtK%2Fimg.jpg" alt=""> 
+    <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FyuXs4%2FbtqQLkOyz45%2FsPzjJxbyXYCnUS2wXtqZd0%2Fimg.jpg" alt="">
+    <p>3.pycharm의 터미널창에서 scrapy 커맨드의 startproject 를 이용하여 프로젝트를 생성한다.</p>
+    <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FMWJTP%2FbtqQLkOyEDu%2FUHgrOZhCpB9GeA9oJsdg30%2Fimg.jpg" alt=""> 
+
+    <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbNWJMr%2FbtqQLkudwwX%2Fk0XbjrZXG9Xgl5PpmyEOwk%2Fimg.jpg" alt="">
+    <p>4. genspider를 이용하여 spider class를 만든다.</p>
+    <p>&nbsp;</p> 
+    <p> 다음과 같이 기본 구조의 프로젝트가 생성되었다. </p>
+    <p class="bd-purple-100 p-3 ms-3">tutorial/<br>
+        scrapy.cfg            # 모든 명령어는 이 파일이 존재한 디렉토리에서 해야함<br>
+        tutorial/             # project's Python module, you'll import your code from here<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;__init__.py<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;items.py          # project items definition file<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;middlewares.py    # project middlewares file<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;pipelines.py      # project pipelines file<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;settings.py       # project settings file<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;spiders/          # a directory where you'll later put your spiders<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__init__.py</p>
+    
+        <hr>
+    <h2 style="color:#007bff; font-weight: bold; font-style:italic; text-align:left;">첫번째 스파이더 완성하기</h2>
+    <p>이제 genspider를 이용하여 스파이더 클래스를 만들고 이를 이용해서&nbsp; Scrapy가 웹사이트에서 정보들을 스크랩하도록 할것이다.</p>
+    <p>스카이더 클래스는 Spider라는 클래스를 상속해야하고, initial request 를 만들어야한다. 때에 따라서는 옵션적으로 페이지 안에서 어떻게 링크를 따라 갈것인지(재귀적으로) 그리고 어떻게 다운로드한 페이지 컨텐츠들을 이용해서 데이터를 추출할 것인지를 정의 해야할 것이다.</p>
+    <p class="bd-gray-300 p-3 ms-3"> scrapy genspider testspider blog.scrapinghub.com</p>
+    <p>아래의 코드는 첫번재 스파이더 코드이며</p>
+    <p>quotes_spider.py 라는 파일네임으로 tutorial/spiders 디렉토리 안에 두도록 한다.</p>
+    
+    <p class="bd-purple-100 p-3 ms-3"> 
+    import scrapy<br>
+    Class QuotesSpider (scrapy.Spider): <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;name = "quotes"<br><br>
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;def start_requests(self):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;urls = [<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'http://quotes.toscrape.com/page/1/',<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'http://quotes.toscrape.com/page/2/',<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;] <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for url in urls: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yield scrapy.Request(url=url, callback=self.parse) <br><br>
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;def parse(self, response):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;page = response.url.split("/")[-2]<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;filename = f'quotes-{page}.html'<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with open(filename, 'wb') as f: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f.write(response.body) <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.log(f'Saved file {filename}')</p><br>
+    <p>보다시피, 스파이더 클래스는 scrapy.Spider를 상속하고 있으며 어트리뷰트와 메소드등을 정의 하고 있다.</p>
+ 
+    <p><span class="fw-bold">name : </span>스파이더를 정의한다. scrapy 프로젝트 안에서는 무조건 유일해야하며 중복된 이름을 가진 스파이더가 존재하면 안된다.<br>
+    <p><span class="fw-bold">start_requests() : </span>무조건 Requests의 iterable 형을(requests의 리스트나 generator 함수도 가능) 리턴시켜야 한다. <br>
+      그렇게 해야 스파이더는 데이터를 크롤할 수 있기 때문이다. </p>
+    <p><span class="fw-bold">parse() : </span>requests 로부터 다운로드된 response 데이터들을 이용할 콜백 메쏘드 함수이다. 여기서 response 파라미터는 <br>
+      TextResponse의 인스턴스로 TextResponse 는 페이지의 컨텐츠를 좀 더 활용하기 쉽게 만들어주는 기능을 담당한다. <br>
+      여기서 parse 메쏘드는 보통 response를 파싱하거나 스크랩된 데이터를 dicts 형으로 추출시켜주며 또한 새로운 requests를 생성시킬 새로운 URL을 찾기도 한다.<br></p>
+    <hr>
+    <h2 style="color:#007bff; font-style:italic; font-weight:bold; text-align:left;">스파이더 실행 시키기</h2>
+    <p></p>
+    <img src=" https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb7ZjzD%2FbtqQNpWnOYr%2FzP4XCFgMRkXlnIMIJerhMK%2Fimg.jpg" alt="">
+    
+    <p>tutorial 디렉토리로 이동 후 명령어를 실행한다.</p>
+    <p>스파이더를 실행시키기 위해 프로젝트의 top level 디렉토리로 이동 후 명령어를 실행 한다.</p>
+    <p class="bd-gray-300 p-3 ms-3">
+      scrapy runspider testspider.py # 또는 <br>
+      scrapy crawl quotes --nolog # --nolog는 로그를 생략해준다</p>
+    <p>runspider는 spiders폴더에서 실행할 수 있고, crawl은 scrapy.cfg파일이 존재하는 폴더에서 실행해야 한다.<br>
+       runspider 명령어를 통해 spider bot을 실행시키는 것은 단위 테스트를 할 때 유용하고 crawl은 우리가 원하는 구조를 다 만들어 놓은 후 테스트 할 때<br>
+       실제로 크롤링을 할 경우 사용하는 것이 유용하다.</p>
+    <p>이 커맨드는 quotes라는 이름의 스파이더를 실행 시키며 quotes.toscrape.com 도메인에 request를 send 한다.</p>
+    <p>이제 아래와같은 결과가 나올 것이다.</p> 
+    <img src=" https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb6Dt4F%2FbtqQXA3Bwje%2FkUSEmbMTKzodwXJvt7PpjK%2Fimg.jpg
+    " alt="">
+    <p>현재 디렉토리에서 파일을 체크해보면 두개의 quotes-1.html, quotes-2.html 이 생성된 것을 알 수가 있다.</p>
+    
+    <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FoBE4M%2FbtqQNq14Wr3%2FqbBiQR5LbavO9CtEmBAEB1%2Fimg.jpg" alt="">
+    <p>지금까지 스크래피는 한것을 정리하자면, 스파이더의 start_requests 메쏘드에서 리턴된 오브젝트(scrapy.Request)들을 스케쥴링한다. 각각의 request 에서 받은 response들을 Response 오브젝트로 인스턴스화 한 후 콜백 메쏘드를 호출 시킨 것이다(parse method).</p>
+    <hr>
+    <h2 style="color:#007bff; font-style:italic; font-weight:bold; text-align:left;">start_requests 메소드대신 간단하게 실행시켜보는 방법&nbsp;</h2>
+    <p>스파이더 클래스에 start_requests() 메소드를 정의하지 않고 간단하게 실행시킬 수 있다.</p>
+    <p>스파이더 클래스 안에 start_urls 리스트 어트리뷰트를 이용하면 된다.</p>
+    
+    <p class="bd-purple-100 p-3 ms-3">
+    import scrapy<br><Br>
+    class QuotesSpider(scrapy.Spider):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;name = "quotes"<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;start_urls = [<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'http://quotes.toscrape.com/page/1/',<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'http://quotes.toscrape.com/page/2/',<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;] <br>
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;def parse(self, response):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;page = response.url.split("/")[-2]<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;filename = f'quotes-{page}.html'<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with open(filename, 'wb') as f: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f.write(response.body) <br></p>
+
+    <p>위의 코드와 같이 start_urls 기본 어트리뷰트에 있는 URL에 따라 parse 메소드가 호출되며 간단하게 실행 할 수 있다.</p>
+    <p>참고: <a href="https://docs.scrapy.org/en/latest/intro/tutorial.html" target="_blank" rel="noopener">docs.scrapy.org/en/latest/intro/tutorial.html</a></p></div>
+  
+    <hr>
+    <h2 style="color:#007bff; font-style:italic; font-weight:bold; text-align:left;">데이터 추출하기</h2> 
+    
+    <p>스크래피를 이용해서 데이터를 추출해보는 연습중에 가장 좋은 방법은 Scrapy shell을 이용하는 것이다.</p>
+    <p>아래와같이 터미널에 입력하여 실행 시킨다.</p>
+    <p class="bd-gray-300 p-3 ms-3"> scrapy shell "http://quotes.toscrape.com/page/1/"</p>
+    <p>커맨드라인에서 Scarpy shell을 이용할 때 무조건 작은따옴표(' ') 를 사용해서 만에하나 특수문자가 들어가 있는 url을 실행 시켰을 때 안되는 것을 방지 한다. 그렇지만 만약 Window 환경일 경우에는 큰따옴표(" ")를 쓰도록 한다.</blockquote>
+    
+    <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbyeWNL%2FbtqQH91A8oH%2F7KHODduXzRTUXCK2HDzL40%2Fimg.jpg" alt=""> 
+    <p>크롤링이 된 후 바로 파이썬 인터프리터로 넘어가는걸 볼 수 있다.</p>
+    <p>이제 shell 안에서 CSS를 이용하여 element를 선택할 수있다.</p>
+    <p class="bd-gray-300 p-3 ms-3">&gt;&gt;&gt; response.css('title')<br>
+    [&lt;Selector xpath='descendant-or-self::title' data='&lt;title&gt;Quotes to Scrape&lt;/title&gt;'&gt;]</p>
+    <p>response.css('title') 이 커맨드를 사용함으로써 얻는 결과값은 XML/HTML element를 감싸는 Selector 오브젝트의 리스트를 담고있는 SelectorList 형태이다.&nbsp; 위의 결과값인 title 의 text를 추출할려면 다음과같이 하면 된다.</p>
+    <p class="bd-gray-300 p-3 ms-3"> &gt;&gt;&gt; response.css('title::text').getall()<br>
+    ['Quotes to Scrape']</p>
+    <p>두가지 특별한점이 있는데, 먼저 ::text 를 CSS query에 추가 된것이다. 이것은 &lt;title&gt; element 안의 text요소만을 가져오기 위한 것이며, ::text를 추가하지 않을경우 tags를 포함한 전체 요소를 리턴하게 된다.</p>
+    <p class="bd-gray-300 p-3 ms-3">response.css('title').getall()<br>
+    ['&lt;title&gt;Quotes to Scrape&lt;/title&gt;']</p>
+    <p>나머지는 .getall() 을 이용하는 것이다. 이것은 한개 이상의 selector를 리스트로 반환이 가능하며, 만약 첫번째 결과값만 추출하고 싶을 때는 아래와 같이 하면된다.</p>
+    <p class="bd-gray-300 p-3 ms-3"> &gt;&gt;&gt; response.css('title::text').get()<br>
+    'Quotes to Scrape'</p> 
+    <p>또다른 방법으로는 아래와 같다.</p> 
+    <p class="bd-gray-300 p-3 ms-3"> &gt;&gt;&gt; response.css('title::text')[0].get()<br>
+    'Quotes to Scrape'</p>
+    <p>SelectorList에서 .get()을 사용할 때 주목할점은 결과를 찾을 수 없을때 IndexError 가 아닌 None 을 리턴하는 것이다.</p>
+    <p>.get()과 .getall() 말고 또다른 방법은 정규식을 쓰는 것이다.</p>
+    <p class="bd-gray-300 p-3 ms-3"> &gt;&gt;&gt; response.css('title::text').re(r'Quotes.*')<br>
+    ['Quotes to Scrape']<br>
+    &gt;&gt;&gt; response.css('title::text').re(r'Q\w+')<br>
+    ['Quotes']<br>
+    &gt;&gt;&gt; response.css('title::text').re(r'(\w+) to (\w+)')<br>
+    ['Quotes', 'Scrape']</p>
+    <hr> 
+    <h2 style="color:#007bff; font-style:italic; font-weight:bold; text-align:left;">XPath 사용하기&nbsp;</b></h2>
+    <p>CSS 이외로 Scrapy는 XPath expression을 지원한다.</p>
+    <p class="bd-gray-300 p-3 ms-3"> &gt;&gt;&gt; response.xpath('//title')<br>
+    [&lt;Selector xpath='//title' data='&lt;title&gt;Quotes to Scrape&lt;/title&gt;'&gt;]<br>
+    &gt;&gt;&gt; response.xpath('//title/text()').get()<br>
+    'Quotes to Scrape'</p>
+    <p>XPath 익스프레션은 매우 강력하며, Scrapy Selectors의 근본이다. 사실 CSS selectors의 메카니즘의 안쪽은 결국 XPath로 변환이 된다. <br>
+    CSS만큼 유명하지는 않을지라도 XPath는 구조를 navigating 함에 있어서 그 속에 담긴 컨텐츠 또한 찾아낼 수 있으므로 가장 파워를 가진다.<br>
+    예를들면 어떠한 "Next Page" 라는 단어가 담긴 링크를 선택할 수 있어 스크래핑에 딱 맞는 기능을 가지고 있는 것이다. <br>
+    따라서 CSS selectors에 익숙할지라도 XPath를 공부하는 것을 추천한다. 이것이 스크랩하는데 더 쉽게 해줄 것이다.</p>
+    <hr>
+    <h2 style="color:#007bff; font-style:italic; font-weight:bold; text-align:left;">인용글과 작가 추출하기</b></h2>
+    <p>이제 어느정도는 검색(selection) 과 추출(extraction)이 가능하므로, 인용글을 추출하는 코드를 스파이더에 넣어서 완성 해보도록 하겠다.</p>
+    <p>&nbsp;</p>
+    <p><span style="color: #e8e6e3;" data-darkreader-inline-color=""><span style="color: #000000;">각각의 <a style="color: #000000;" href="https://quotes.toscrape.com">https://quotes.toscrape.com</a> 인용글은 아래와같은 HTML elements 형식으로 표현된다.</p> 
+    <p class="bd-gray-300 p-3 ms-3"> 
+      &lt;div class="quote"&gt;<br>
+      &lt;span class="text"&gt;"The world as we have created it is a process of our<br>
+        thinking. It cannot be changed without changing our thinking."&lt;/span&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;span&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;by &lt;small class="author"&gt;Albert Einstein&lt;/small&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="/author/Albert-Einstein"&gt;(about)&lt;/a&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;/span&gt;<br>
+        &lt;div class="tags"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;Tags:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="tag" href="/tag/change/page/1/"&gt;change&lt;/a&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="tag" href="/tag/deep-thoughts/page/1/"&gt;deep-thoughts&lt;/a&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="tag" href="/tag/thinking/page/1/"&gt;thinking&lt;/a&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="tag" href="/tag/world/page/1/"&gt;world&lt;/a&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+    &lt;/div&gt;<br></p> 
+    <p>이제 다시 terminal 을 꺼내 우리가 원하는 데이터를 어떻게 꺼내는지 알아보겠다.</p>
+    <p class="bd-gray-300 p-3 ms-3"> $ scrapy shell 'http://quotes.toscrape.com'</p> 
+    <p>인용문을 가지고 있는 HTML 요소의 리스트를 가져온다.</p>
+    <p class="bd-gray-300 p-3 ms-3"> &gt;&gt;&gt; response.css("div.quote")<br>
+    [&lt;Selector xpath="descendant-or-self::div[@class and contains(concat(' ', normalize-space(@class), ' '), ' quote ')]" data='&lt;div class="quote" itemscope itemtype...'&gt;,
+     &lt;Selector xpath="descendant-or-self::div[@class and contains(concat(' ', normalize-space(@class), ' '), ' quote ')]" data='&lt;div class="quote" itemscope itemtype...'&gt;,
+     ...]</p>
+    <p>쿼리에 의해 리턴된 selector들은 그 안의 element를 또 쿼리가 가능하도록 만들어줍니다. 이제 특정한 인용문을 가져오기 위해 첫번째 selector만 가져와본다.</p>
+    <p class="bd-gray-300 p-3 ms-3"> &gt;&gt;&gt; quote = response.css("div.quote")[0]
+    </p> 
+    <p>이제 인용문 quote 오브젝트에서 text, author 그리고 tags를 추출해본다.&nbsp;</p>
+    <p class="bd-gray-300 p-3 ms-3"> &gt;&gt;&gt; text = quote.css("span.text::text").get()<br>
+    &gt;&gt;&gt; text<br>
+    '"The world as we have created it is a process of our thinking. It cannot be changed without changing our thinking."'<br>
+    &gt;&gt;&gt; author = quote.css("small.author::text").get()<br>
+    &gt;&gt;&gt; author<br>
+    'Albert Einstein'</p> 
+    <p>.getall() 메쏘드를 통해 스트링 태그들을 가져올 수 있다.</p> 
+    <p class="bd-gray-300 p-3 ms-3"> &gt;&gt;&gt; tags = quote.css("div.tags a.tag::text").getall()<br>
+    &gt;&gt;&gt; tags<br>
+    ['change', 'deep-thoughts', 'thinking', 'world']</p> 
+    <p>이제는 반복을 통해 찾았던 quote들의 요소들을 추출하고 파이썬 dictionary형식으로 저장을 시킬 수 있다.</p> 
+    <p class="bd-gray-300 p-3 ms-3"> 
+      &gt;&gt;&gt; for quote in response.css("div.quote"):<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;...     text = quote.css("span.text::text").get()<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;...     author = quote.css("small.author::text").get()<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;...     tags = quote.css("div.tags a.tag::text").getall()<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;...     print(dict(text=text, author=author, tags=tags))<br>
+    {'text': '"The world as we have created it is a process of our thinking. It cannot be changed without changing our thinking."', 'author': 'Albert Einstein', 'tags': ['change', 'deep-thoughts', 'thinking', 'world']}<br>
+    {'text': '"It is our choices, Harry, that show what we truly are, far more than our abilities."', 'author': 'J.K. Rowling', 'tags': ['abilities', 'choices']}<br>
+    ...</p>
+    <hr>
+    <h2 style="color:#007bff; font-style:italic; font-weight:bold; text-align:left;">스파이더에서 데이터 추출하기</b></h3>
+    <p>이제 다시 스파이더로 돌아와서, 지금까지는 특정 데이터를 추출하는 대신 HTML 페이지들을 저장하였는데 이제는 데이터를 추출하는 기능을 스파이더에 넣어보도록 하겠다.</p>
+    <p>전형적으로 스크래피 스파이더는 dictionary 형식으로 페이지에서 데이터를 추출하는데, 그렇게 하기 위해서는 yield 파이썬 키워드를 콜백 함수에 써야한다.</p> 
+    <p class="bd-purple-100 p-3 ms-3">
+      import scrapy      <br>
+      class QuotesSpider(scrapy.Spider):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name = "quotes"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;start_urls = [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'http://quotes.toscrape.com/page/1/',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'http://quotes.toscrape.com/page/2/',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;]<br><Br>
+    
+&nbsp;&nbsp;&nbsp;&nbsp;def parse(self, response):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for quote in response.css('div.quote'):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yield {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'text': quote.css('span.text::text').get(),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'author': quote.css('small.author::text').get(),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'tags': quote.css('div.tags a.tag::text').getall(),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p> <br>
+    <p>이제 스파이더를 실행하면 추출 데이터를 로그를 통해 아래와 같이 출력해준다.</p>
+    <p class="bd-gray-300 p-3 ms-3">
+    2016-09-19 18:57:19 [scrapy.core.scraper] DEBUG: Scraped from &lt;200 http://quotes.toscrape.com/page/1/&gt;<br>
+    {'tags': ['life', 'love'], 'author': 'André Gide', 'text': '"It is better to be hated for what you are than to be loved for what you are not."'}<Br><br>
+    2016-09-19 18:57:19 [scrapy.core.scraper] DEBUG: Scraped from &lt;200 http://quotes.toscrape.com/page/1/&gt;<Br>
+    {'tags': ['edison', 'failure', 'inspirational', 'paraphrased'], 'author': 'Thomas A. Edison', 'text': ""I have not failed. I've just found 10,000 ways that won't work.""}</p>
+  
+    <hr>
+    <h2 style="color:#007bff; font-style:italic; font-weight:bold; text-align:left;"><b>스크랩 데이터를 저장하기</h2>
+    <p>스크랩 데이터를 저장하는 간단한 방법은 아래의 커맨드를 이용하는 방법이다.</p>
+    <p class="bd-gray-300 p-3 ms-3">scrapy crawl quotes -O quotes.json</p>
+    <p>이것은 JSON 파일로 serialized 스크랩데이터들을 저장한다.<br>
+    여기서 -O 는 이미 존재하는 파일에 덮어쓰기를 하는 것이며, -o는 이미 존재하는 파일에 내용을 추가하는 것이다. 하지만 JSON 형식에 파일을 추가하면 JSON의 기본 형식이 깨지기 때문에 JSON Lines을 이용하면 된다.</p> 
+    <p class="bd-gray-300 p-3 ms-3">scrapy crawl quotes -o quotes.jl</p>
+    
+    <p>JSON Line 포맷은 스트림 형식에 유용한데, 두번 반복 실행을 해도 문제가 없다. 또한 각각의 record는 라인으로 분리되어 있기 때문에 메모리에 상관없이 큰 파일들을 참조가 가능한다. JQ 라는 툴을 커맨드에 이용하면 된다.<br>
+    이렇게 간단하고 작은형태일 경우 상관없지만 크고 복잡한 상황일 경우 Item Pipeline을 이용한다. 기본적인 프로젝트를 생성시에 tutorial/pipelines.py 파일이 생성되어 있다.</p>
+    
+    <hr>
+    <h2 style="color:#007bff; font-style:italic; font-weight:bold; text-align:left;"><b>링크 따라가기</h2>
+    <p><a href="https://quotes.toscrape.com">https://quotes.toscrape.com</a> 의 첫번째와 두번째 페이지의 스크랩을 하는 것 대신 만약 그 웹사이트안에 있는 모든 quote를 추출하고 싶다고 가정한다. 그러면 만약 페이지에서 데이터를 추출하는 패턴을 안 상태에서 어떻게 링크를 따라 추출하는지 알아봅시다.</p>
+ 
+    <p>첫번째는 따라갈 페이지 링크를 추출해야한다. 현재의 페이지에서 next page 라는 링크를 찾을 수 있다.</p>
+    <p class="bd-gray-300 p-3 ms-3"> &lt;ul class="pager"&gt;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;li class="next"&gt;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="/page/2/"&gt;Next &lt;span aria-hidden="true"&gt;&amp;rarr;&lt;/span&gt;&lt;/a&gt;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt;<br>
+    &lt;/ul&gt;</p> 
+    <p>셸에서 실행해 봅시다.</p>
+    <p class="bd-gray-300 p-3 ms-3">&gt;&gt;&gt; response.css('li.next a').get()<br>
+    '&lt;a href="/page/2/"&gt;Next &lt;span aria-hidden="true"&gt;→&lt;/span&gt;&lt;/a&gt;'</p>
+    <p>anchor 요소가 있지만 우리는 href 어트리뷰트 값을 알고 싶어 한다. 그렇게 하기 위해서 CSS를 이용하는 방법은 아래와 같다.</p>
+    <p class="bd-gray-300 p-3 ms-3"> &gt;&gt;&gt; response.css('li.next a::attr(href)').get()<br>
+    '/page/2/'</p>
+    <p>또한 비슷한 대안으로 attrib 라는 프로퍼티가 존재한다.</p>
+    <p class="bd-gray-300 p-3 ms-3"> &gt;&gt;&gt; response.css('li.next a').attrib['href']<br>
+    '/page/2/'</p>
+    <p>&nbsp;</p>
+    <p>이제 재귀적으로 링크를 따라서 데이터를 추출하는 스파이더를 봅시다.</p> 
+    <p class="bd-gray-300 p-3 ms-3">
+      import scrapy<br>
+      class QuotesSpider(scrapy.Spider):<Br>
+      &nbsp;&nbsp;&nbsp;&nbsp;  name = "quotes"<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;  start_urls = <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'http://quotes.toscrape.com/page/1/',<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;  ]<br>
+    
+      &nbsp;&nbsp;&nbsp;&nbsp;  def parse(self, response):<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for quote in response.css('div.quote'):<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          yield {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              'text': quote.css('span.text::text').get(),<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              'author': quote.css('small.author::text').get(),<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              'tags': quote.css('div.tags a.tag::text').getall(),<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          }
+    
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;next_page = response.css('li.next a::attr(href)').get()<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if next_page is not None:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;           next_page = response.urljoin(next_page)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;           yield scrapy.Request(next_page, callback=self.parse)</p>
+    <p>이제 데이터를 추출한 후 parse() 메쏘느는 next page 링크를 확인하고 urljoin() 메쏘드를 이용해 absolute URL을 만들고 새로운 request 를 그다음 페이지로 요청하게 된다. 그렇게 재귀적으로 크롤링을 하게 되는 것이다.<br>
+    여기서 확인할 수 있는 스크래피의 기본 메커니즘은 링크를 따라가는 것이다. 스크래피는 request 를 요청하고 콜백함수를 실행하는 스케쥴링을 끝날때까지 계속하게 된다.<br>
+    이러한 점을 이용해 링크를 따라가는 복잡한 크롤러를 만들 수가 있다.</p>
+    </div>
+
+    <hr>
+    <div class="col-md-8 mb-2">
+    <h2 style="color:#007bff; font-style:italic; font-weight:bold; text-align:left;">Spider 종류</h2> 
+    <p class="fw-bold">1. CrawlSpider<br>      2. XMLFeedSpide<br>    3. CSVFeedSpider<br>    4. SitemapSpider<br></p><br>
+
+    <p style="font-weight:bold">Selector<br>
+      xpath selector 도움 사이트</p> 
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;<a style="color:#007bff;" href="https://docs.scrapy.org/en/latest/topics/selectors.html#working-with-xpath" target="_blank">https://docs.scrapy.org/en/latest/topics/selectors.html#working-with-xpath</a>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;<a style="color:#007bff;" href="www.nextree.co.kr/p6278" target="_blank"> www.nextree.co.kr/p6278</a><br>
+      <p style="font-weight:bold">css selector 도움 사이트
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;<a style="color:#007bff;" href="https://docs.scrapy.org/en/latest/topics/selectors.html#extension-to-css-selectors" target="_blank">https://docs.scrapy.org/en/latest/topics/selectors.html#extension-to-css-selectors<br></a></p>
+      
+      <p style="font-weight:bold">crawling시 활용 tip<br></p></p></p></p>
+      <div class="p-3 fs-4 bd-yellow-100" style="width:400">
+      <p>타겟 데이터는 크롬 개발자 도구 사용<br>
+      선택자 연습 팁 : scrapy shell 에서 테스트(효율성)<br>
+      scrapy shell 도메인<br>
+      중요(거의 비슷)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;get() == extract_first()<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;getall() == extract()<br></div>
+      <p style="font-weight:bold">CSS 선택자</p>
+      <div class="p-3 fs-4 bd-yellow-100">
+      <p>div#chan div : (자손) chan이라는 class속성값으로 갖는 div tag의 아래에 존재하는 모든 div<br>
+      div#chan > div : (자식) chan이라는 class속성값으로 갖는 div tag의 직계자식 div들<br>
+      ::text -> 노드의 텍스트만 추출<br>
+      ::attr(name) -> 노드 속성값 추출<br>
+      get(default=’’) : get으로 추출할 때 해당사항이 없다면 공백으로 출력<br>
+      예시)<br>
+      response.css(‘title::text’).get() : title tag의 텍스트만 추출<br>
+      response.css(‘div > a::attr(href)’).getall() : div tag의 자식 a tag의 href속성값 전부 추출<br></p></div>
+      <p style="font-weight:bold">Xpath 선택자</p>
+      <div class="p-3 fs-4 bd-yellow-100">
+      <p>nodename : 이름이 nodename 선택<br>
+      text() -> 노드 텍스트만 추출<br>
+      / : 루트부터 시작<br>
+      // : 현재 node 부터 문서상의 모든 노드 조회<br>
+      . : 현재 node<br>
+      .. : 현재 node의 부모노드<br>
+      @ : 속성 선택자<br>
+      예시)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;response.xpath(‘/div’) : 루트노드부터 모든 div tag 선택<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;response.xpath(‘//div[@id=”id”]/a/text()’).get() : div tag 중 id가 ‘id’인 자식 a tag의 텍스트 하나만 추출<br></div>
+      <p style="font-weight:bold">혼합 사용 가능!!</p>
+      <p>response.css(‘img’).xpath(‘@src’).getall()</p>   
+</body>
+</html>

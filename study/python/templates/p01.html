@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>파이썬의 기초</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">   
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">     
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <!-- font css -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="{% static '/css/java.css'%}" rel="stylesheet">   
+  <link href="{% static '/css/style.css'%}" rel="stylesheet">     
+</head>
+<body class="ms-3">  
+  <H2 class="coffee_taital" style="text-align:left;"><a name="home">파이썬</a></H2>  
+    <p><a href="/python/p01.html" class="btn btn-warning mb-1" target="_blank">이전 노트</a>
+      <a href="/python/p03.html" class="btn btn-warning mb-1" target="_blank">다음 노트</a>        
+      <a href="/htmls/tut1.html" class="btn btn-danger mb-1" target="_blank">HTML 노트</a> 
+      <a href="/css/tut11.html" class="btn btn-success mb-1" target="_blank">CSS 노트</a> 
+      <a href="/javascript/j01.html" class="btn btn-purple mb-1" target="_blank">Javascript 노트</a> 
+     <a href="/python/p01.html" class=" btn btn-secondary mb-1" target="_blank">파이썬의 기초</a>
+     <a href="/python/p02.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">변수</a>
+     <a href="/python/p03.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">숫자형타입</a>
+     <a href="/python/p04.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">불리언타입</a>
+     <a href="/python/p05.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">문자열타입</a>
+     <a href="/python/p06.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">조건문</a>
+     <a href="/python/p07.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">반복문</a>
+     <a href="/python/p08.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">break와 continue</a>
+     <a href="/python/p09.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">리스트 타입</a>
+     <a href="/python/p10.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">튜플 타입</a>
+     <a href="/python/p11.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">세트 타입</a>
+     <a href="/python/p12.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">딕셔녀리 타입</a>
+     <a href="/python/p13.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">함수</a>
+     <a href="/python/p14.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">변수의 유효범위</a>
+     <a href="/python/p15.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">클래스</a>
+     <a href="/python/p16.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">객체</a>
+     <a href="/python/p17.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">상속</a>
+     <a href="/python/p18.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">모듈</a>
+     <a href="/python/p19.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">파일 입출력</a>     
+     <a href="/python/p20.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">예외처리</a>    
+     <a href="/python/p21.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">웹스크래핑1</a>    
+     <a href="/python/p22.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">웹스크래핑2</a>   </p> 
+
+     <div class="col-md-8 mb-2">
+      <div class="p-3 text-white fs-4 bd-pink-800">파이썬의 기초</div>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">표준 입출력 함수</h2>
+      <p>대부분의 프로그램은 사용자의 입력을 받아 동작을 수행한 후 그 결과를 다시 사용자에게 출력하는 형태를 가지고 있다. 따라서 프로그램을 만들 때 입출력 작업은 매우 기본적인 동작이 되며, 대부분의 프로그래밍 언어에서는 표준 입출력 함수라는 것을 통해 이러한 기능을 제공한다.<br>
+      파이썬에서도 사용자에게 출력 내용을 보여주기 위한 표준 출력 함수로 print() 함수를 제공하며, 사용자의 입력을 받기 위한 표준 입력 함수로 input() 함수를 제공하고 있다.<br>
+      함수(function)란 하나의 특별한 목적의 작업을 수행하기 위해 독립적으로 설계된 프로그램 코드의 집합으로 정의할 수 있다. 함수를 사용하면 반복적인 프로그래밍을 피할 수 있으며, 모듈화로 인해 전체적인 코드의 가독성이 좋아진다.</p>
+      
+      <hr>
+      <div class="col-md-8 mb-2">
+        <div class="p-3 text-white fs-4 bd-pink-800">print() 함수</div> 
+      <p>파이썬에서는 데이터를 화면에 출력하고 싶을 때 표준 출력 함수인 print() 함수를 사용한다.<br>
+        자바스크립트에서 console.log과 같은 역할, ()안에 내용을 출력한다<br><br>
+        옵션<br>
+        1. separator option : 옵션 안의 내용을 print안의 요소 사이에 넣어 요소들을 합쳐줌<br>
+        2. end option : 다음 print함수와 내용을 합쳐서 출력함<br>
+        3. format option : {}안에 매핑하여 넣어줌<br><br>
+      다음 예제는 다양한 타입의 데이터를 print() 함수를 사용하여 출력하는 예제이다.</p>
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+        <p class="card-text" style="padding: 10px 10px;">
+      print(38)<br>
+      print("문자열")<br>
+      print([1, 2, 3])<br></p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <b>실행 결과</b><br>
+      38<br>
+      문자열<br>
+      [1, 2, 3]</p></div></div>
+      <p>이와 같이 print() 함수는 숫자나 문자열뿐만 아니라 배열과 같은 데이터까지도 출력할 수 있다.<br>
+      다음 예제는 여러 데이터를 print() 함수를 사용하여 한 번에 출력하는 예제이다.</p>
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+          <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+      <p class="card-text" style="padding: 10px 10px;">
+      print(1+2)<br>
+      print("파"+"이"+"썬")<br>
+      print("파""이""썬")<br>
+      print("파","이","썬")</p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <b>실행 결과</b><br>
+      3<br>
+      파이썬<br>
+      파이썬<br>
+      파 이 썬</p></div></div>
+      <p>파이썬에서는 1번과 2번 라인의 print() 함수처럼 더하기(+) 기호를 사용하여 여러 데이터를 한 번에 출력할 수 있다. <br>
+        그리고 문자열에 한해 더하기 기호를 생략해도 같은 결과를 출력해 주며, 쉼표(,)를 사용하면 띄어쓰기(white space)를 하나씩 삽입하여 출력한다.</p>
+
+    <hr>
+    <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">Escape Code 출력</h2>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+    <p class="card-text" style="padding: 10px 10px;">     
+      # Escape Code<br>
+      print('\'you\'')  # ''문자로 인식<br>
+      print('\\you\\\n\n\n')  # 줄바꿈<br>
+      print('\t\t\t\'you\'')  # tap<br></p></div> 
+
+    <hr>
+    <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">Separator 옵션 출력</h2>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+    <p class="card-text" style="padding: 10px 10px;">
+      # Separator 옵션 : 옵션 안에 문자를 이용해 요소들을 합쳐줌<br>
+      print('T', 'E', 'S', 'T', sep='')  # TEST<br>
+      print('2019', '02', '19', sep='-')  # 2019-02-19<br>
+      print('abcd', 'google.com', sep='@')  # abcd@google.com<br>    <p></p></p></div> 
+    
+    <hr>
+    <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">end 옵션 출력</h2>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+    <p class="card-text" style="padding: 10px 10px;">
+      # end 옵션 : 다음줄과 이어서 이어진 내용으로 출력함<br>
+      print('Welcome To', end=' ')<br>
+      print('the black parade', end=' ')<br>
+      print('piano notes')<br>
+      print('no end option')<br>   </p></div> 
+
+
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">변수가 포함된 문자열 출력</h2>
+      <p>문자열 만드는 방법은 다음 3가지가 있다 <br>
+        1. 서식 지정자(문자열 포맷코드) 사용 <br>
+        2. format 메서드 사용 <br>
+        3. f-string 사용 <br><br>
+
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">서식기호 대입 출력</h2>
+      <p>문자열 서식 format 코드 <br>
+        <table class="tb-2">
+          <thead>
+          <tr style="background-color: lightgray;"><th style="width:40%">코드</th><th>설명</th></tr>
+          </thead>
+          <tbody>
+          <tr>
+          <td>%s</td>
+          <td>문자열(String)</td></tr><tr>
+          <td>%c</td>
+          <td>문자 1개(character)</td></tr><tr>
+          <td>%d</td>
+          <td>정수(Integer)</td></tr><tr>
+          <td>%f</td>
+          <td>부동소수(floating-point)</td></tr><tr>
+          <td>%o</td>
+          <td>8진수</td></tr><tr>
+          <td>%x</td>
+          <td>16진수</td></tr><tr>
+          <td>%%</td>
+          <td>Literal % (문자 <code>%</code> 자체)</td>
+          </tr>          </tbody>          </table> <br><Br>
+           
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+      <p class="card-text" style="padding: 10px 10px;">     
+        age = 80 <br>
+        money = 20000<br>
+        name = 'Kim'<br>
+        weight = 80.12<br>
+        etc = 'abcde'<br>
+        y2 = 'my name is %s, age : %d, weight : %f, money : %d, etc : %s' % (name, age, weight, money, etc)<br>
+        print(y2)<br>
+        # my name is Kim, age : 80, weight : 80.120000, money : 20000, etc : abcde<br><br>
+        
+        print("%s's favorite number is %d" % ('Jeewon', 7)) # Jeewon's favorite number is 7<br>
+        print('Test1: %5d, Price: %4.2f' % (776, 6534.123))  # 최대 자리수 정해주기<br>
+        print("Test1: {0:5d}, Price: {1:4.2f}".format(776, 6534.123))        # 776, Price: 6534.12<br>
+        print("Test1: {a:5d}, Price: {b:4.2f}".format(a=776, b=6534.123))        # 776, Price: 6534.12<br></p></div>
+
+        
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">format 함수 사용 문자열 출력</h2>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+      <p class="card-text" style="padding: 10px 10px;">     
+        <span class="text-danger fw-bold fs-4"># 문자열 포맷팅 <br></span>
+          : {}에 들어있는 변수의 값을 문자열 중간 중간에 넣어주기 위해서 사용하는 것.<br>
+        print('{} and {}'.format('You', 'Me'))  # You and Me<br>
+        print("{0} and {1} and {0}".format('You', 'Me'))  # You and Me and You<br>
+        print("{a} and {b}".format(a='You', b='Me'))  # You and Me<br><br>
+
+        <span class="fw-bold fs-4"># 직접 대입하기<br></span>
+        s1 = 'name : {0}'.format('BlockDMask')<br>
+        print(s1) # name : BlockDMask<br><br>
+        
+        <span class="fw-bold fs-4"># 변수로 대입 하기<br></span>
+        age = 55<br>
+        s2 = 'age : {0}'.format(age)<br>
+        print(s2) # age : 55<br><br>
+        
+        <span class="fw-bold fs-4"># 이름으로 대입하기<br></span>
+        s3 = 'number : {num}, gender : {gen}'.format(num=1234, gen='남')<br>
+        print(s3) # number : 1234, gender : 남<br><br>
+        
+        <span class="fw-bold fs-4"># 인덱스를 입력하지 않으면?<br></span>
+        s4 = 'name : {}, city : {}'.format('BlockDMask', 'seoul')<br>
+        print(s4) # name : BlockDMask, city : seoul<br><br>
+        
+        <span class="fw-bold fs-4"># 인덱스 순서가 바뀌면?<br></span>
+        s5 = 'song1 : {1}, song2 : {0}'.format('nunu nana', 'ice cream')<br>
+        print(s5) # song1 : ice cream, song2 : nunu nana<br><br>
+        
+        <span class="fw-bold fs-4"># 인덱스를 중복해서 입력하면?<br></span>
+        s6 = '\ntest1 : {0}, test2 : {1}, test3 : {0}'.format('인덱스0', '인덱스1')<br>
+        print(s6) # test1 : 인덱스0, test2 : 인덱스1, test3 : 인덱스0<br><br>
+        
+        <span class="fw-bold fs-4"># 중괄호를 두번 겹치면 중괄호 문자가 나온다<br></span>
+        s7 = 'Format example.{ { } }, {}'.format('test')<br> 
+         print(s7) # Format example.{}, test<br><br> 
+        
+        <span class="fw-bold fs-4"># 중괄호로 겹쳐진 인자값<br></span>
+        s8 = 'This is value { {  {0}  } }'.format(1212)<br>
+        print(s8) # This is value {1212}<br><br>
+        
+        <span class="text-danger fw-bold fs-4"># 왼쪽 정렬 <br></span>
+        {0:&lt;10} 의미는 {0} 값을 ":&lt;10" 10자리로 표현할건데 왼쪽 정렬을 할 것<br>
+        # 오른쪽 정렬 {1:>5} 의미는 {1} 값을 ":>5" 5자리로 표현할건데 오른쪽 정렬을 할 것<br>
+        s9 = '\nthis is {0:&lt;10} | done {1:&lt;5} |'.format('left', 'a')<br>
+        print(s9) # this is left       | done a&nbsp;&nbsp;&nbsp;&nbsp;|<br><br>
+        
+        <span class="fw-bold fs-4"># 오른쪽 정렬<br></span>
+        s10 = 'this is {0:>10} | done {1:>5} |'.format('right', 'b')<br>
+        print(s10) # this is      right | done &nbsp;&nbsp;&nbsp;&nbsp;b |<br><br>
+        
+        <span class="fw-bold fs-4"># 가운데 정렬<br></span>
+        s11 = 'this is {0:^10} | done {1:^5} |'.format('center', 'c')<br>
+        print(s11) # this is   center   | done &nbsp;&nbsp;c&nbsp;&nbsp; | <Br><br>        
+                
+        <span class="fw-bold fs-4"># 왼쪽 정렬하면서 공백대신 "- /o"로 채우기<br></span>
+        s12 = '\nthis is {0:-&lt;10} | done {1:o&lt;5} |'.format('left', 'a')<br>
+        print(s12) # this is left------ | done aoooo |<br><br>
+        
+        <span class="fw-bold fs-4"># 오른쪽 정렬하면서 공백대신 "+/0"로 채우기<br></span>
+        s13 = 'this is {0:+>10} | done {1:0>5} |'.format('right', 'b')<br>
+        print(s13) # this is +++++right | done 0000b |<br><br>
+        
+        <span class="fw-bold fs-4"># 가운데 정렬하면서 공백대신 "./@"로 채우기<br></span>
+        s14 = 'this is {0:.^10} | done {1:@^5} |'.format('center', 'c')<br>
+        print(s14) # this is ..center.. | done @@c@@ |<br><br>
+        
+        # {0:03d} 의미는 {0} 값을 "03d" 정수 3자리로 표현하는데 자리수가 부족하면 0으로 채워진다<br>
+        # {0:02f} 의미는 {0} 값을 "0.2f" 소수점 2자리까지 표현하고 남는부분은 0으로 채워진다.<br>
+        <span class="text-danger fw-bold fs-4"># 정수 N자리<br></span>
+        s15 = '\n정수 3자리 : {0:03d}, {1:03d}'.format(12345, 12)<br></span>
+        print(s15) # 정수 3자리 : 12345, 012<br><br>
+        
+        <span class="text-danger fw-bold fs-4"># 소수점 N자리<br></span>
+        s16 = '아래 2자리 : {0:0.2f}, 아래 5자리 : {1:0.5f}\n'.format(123.1234567, 3.14)<br>
+        print(s16) # 아래 2자리 : 123.12, 아래 5자리 : 3.14000<br><br>
+        
+        <span class="fw-bold fs-4"># 천단위 구분자<br></span>         
+        '{:,}.format(100000000)  # 10,000,000   <br>
+
+        <span class="fw-bold fs-4"># 백분율<br></span>         
+        '{:%}.format(5/12)  # 41.666667%   <br>   
+        '{:2%}.format(5/12)  # 41.67%   <br>
+
+        <span class="text-danger fw-bold fs-4"># 부호표시<br></span>         
+        '{:+f}; {:+f}'.format(3.14 -3.14)  # +. - 기호 항상 출력  <br>
+        '{: f}; {: f}'.format(3.14 -3.14)  # +는 공백으로, - 기호만 출력  <br>
+        '{:-f}; {:-f}'.format(3.14 -3.14)  # - 기호만 출력  <br>
+
+        <span class="text-danger fw-bold fs-4"># 여러가지 진수표시<br></span>         
+        s17 = '정수: {:d}; 16진수: {:#x}; 8진수: {:#o}; 2진수: {:#b}.format(50)  <br>
+        print(s17) # '정수:50; 16진수: 0x32; 8진수: 0o62; 2진수: 0b110010' <br>
+
+        <span class="fw-bold fs-4"># 구구단 표시 (2단과 3단만 표시)<br></span>
+        print('구구단 2단과 3단')<br>
+        for a in range(2, 4):  # 앞에 표시하는 단 수 (2단, 3단)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    for b in range(1, 10):  # 뒤에 곱하는 수<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print('{0} x {1} = {2:2}'.format(a, b, a * b))<br></p></div>
+
+         
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">f-string사용 문자열 출력</h2>
+      <p>f'문자열 {변수} 문자열'<Br>
+        문자열 맨 앞에 f를 붙이고, 출력할 변수, 값을 중괄호 안에 넣는다.<br></p>
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+      <p class="card-text" style="padding: 10px 10px;">     
+        s = 'coffee' <br>
+        n = 5<br>
+        result1 = f'저는 {s}를 좋아합니다. 하루 {n}잔 마셔요.'<br>
+        print(result1) # 저는 coffee를 좋아합니다. 하루 5잔 마셔요.<br><br>
+        
+        <span class="fw-bold fs-4"># f-string 왼쪽 정렬<br></span>
+        x1 = '커피를 left에 두세요'<br>
+        result1 = f'|{x1:&lt;18}|'<br>
+        print(result1) # |커피를 left에 두세요&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br><br>
+        
+        <span class="fw-bold fs-4"># f-string 가운데 정렬<br></span>
+        x2 = '커피를 mid에 두세요'<br>
+        result2 = f'|{x2:^18}|'<br>
+        print(result2) # |&nbsp;&nbsp;&nbsp;커피를 mid에 두세요&nbsp;&nbsp;&nbsp;|<br><br>
+        
+        <span class="fw-bold fs-4"># f-string 오른쪽 정렬<br></span>
+        x3 = '커피를 right에 두세요'<br>
+        result3 = f'|{x3:>18}|'<br>
+        print(result3) # |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;커피를 right에 두세요|<br><br>
+        
+        <span class="fw-bold fs-4"># f-string 중괄호 출력<br></span>
+        num = 10<br>
+        result = f'\nmy age { { { num } } }, { { num } }'<br>
+        print(result) # my age {10}, {num}<br><br>
+        
+        <span class="fw-bold fs-4"># f-string과 딕셔너리<br></span>
+        d = {'name': 'selfburning', 'gender': 'woman', 'age': 100}<br>
+        result = f'my name {d["name"]}, gender {d["gender"]}, age {d["age"]}'<br>
+        print(result) # my name selfburning, gender woman, age 100<br><br>
+        
+        <span class="fw-bold fs-4"># f-string과 리스트<br></span>
+        n = [100, 200, 300]<br>
+        print(f'\nlist : {n[0]}, {n[1]}, {n[2]}')  # list : 100, 200, 300<br><br>
+        
+        for v in n:<br>
+            print(f'list with for : {v}')<br>
+          # list with for : 100<br>
+          # list with for : 200<br>
+          # list with for : 300 </p></div> 
+
+      <hr>
+      <div class="col-md-8 mb-2">
+        <div class="p-3 text-white fs-4 bd-pink-800">input() 함수</div>  
+      <p>파이썬에서는 프로그램 실행 도중 사용자의 입력을 전달받아 그 값을 프로그램에서 사용하고 싶을 때 input() 함수를 사용할 수 있다.<br>
+      다음 예제는 사용자가 입력한 데이터를 곧바로 출력하는 예제이다.<br> 
+      <p>예제<p>
+      var = input()<Br>
+      print(var)<br>
+      하지만 위의 예제와 같은 경우에는 사용자 입장에서 현재 프로그램이 자신의 입력을 받기 위해 정지해 있는 건지 아니면 다른 이유로 정지된 건지를 명확히 알 수 없다.<br>
+      따라서 다음 예제와 같이 입력 안내 문자열을 input() 함수에 인수로 전달하여 사용자에게 입력에 관한 정보나 입력을 해달라는 요청 메시지를 전달하는 것이 좋다.<br>
+      예제<p>
+      var = input("출력할 문자열을 입력해 주세요 : ")<br>
+      print(var)</p>
+      </div>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">주석(comments)</h2>
+      <p>주석(comments)이란 해당 프로그램 소스 코드를 이해하는데 도움을 주는 설명을 적거나 개발자가 디버깅을 위해 작성한 코드를 가리킨다.<br>
+         이러한 주석은 파이썬 인터프리터에 의해 해석되지 않으므로 실행되지 않는다.<br>
+      파이썬에서는 해시(#) 기호를 사용하여 주석을 작성할 수 있다.</p>
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100"><h5>예제</h5> </div>
+      <p class="card-text" style="padding: 10px 10px;">
+      # 작성자 : kjyschool<br>
+      # 수정날짜 : 2023.05.15<br>
+      print(38)# 숫자를 출력하는 코드<br>
+      print("문자열")# 문자열을 출력하는 코드<br>
+      print([1, 2, 3]) # 리스트를 출력하는 코드</p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <b>실행 결과</b><br>
+      38<br>
+      문자열<br>
+      [1, 2, 3]</p></div></div>
+
+      <p>위의 실행결과를 살펴보면 주석으로 처리된 문자열은 프로그램에 어떠한 영향도 미치지 않음을 확인할 수 있다.<br>
+      위 예제의 1~2번 라인의 주석처럼 여러 라인에 걸쳐 작성해야 하는 주석은 다음과 같이 세 개의 큰따옴표(""")나 작은따옴표(''')를 사용하여 더욱 손쉽게 작성할 수 있다.</p>
+     
+             
+</body>
+</html>

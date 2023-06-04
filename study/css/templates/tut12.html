@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 색과 배경</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div>
+    <H2>CSS</H2>  
+    <style>
+        .txtlink {color: green; text-decoration:none; margin-left:20px; font-size:16px;}
+        .txtlink:hover {text-decoration:underline;}        /*마우스 올라가면 밑줄 */        
+        /* .button_S {display:inline-block; background-color:gray; color: #FFFFFF; padding: 14px 25px; text-align: center; text-decoration: none; font-size: 16px; margin-left: 20px; opacity: 0.9; border-radius: 5px;}
+        .button_S:hover {color:white; background-color:lightyellow ; opacity:1.0;}      /*마우스 올라가면 배경색 핑크색 글자 흰색으로 바뀜 
+        .button1 {display:inline-block; background-color:#f44336; color: #FFFFFF; padding: 14px 25px; text-align: center; text-decoration: none; font-size: 16px; margin-left: 20px; opacity: 0.9; border-radius: 5px;}
+        .button1:hover {color:white; background-color:pink; opacity:1.0;}      마우스 올라가면 배경색 핑크색 글자 흰색으로 바뀜 
+        .button2 {background-color: white; color: black; border: 2px solid #f44336; padding: 14px 24px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin-left: 20px;}
+        .button2:hover {background-color: #f44336; color: white;}    /*마우스 올라가면 배경색 및 글자 색 바뀜
+        .button3 {display:inline-block; background-color: #44bb55; color: #FFFFFF; padding: 14px 25px; text-align: center; text-decoration: none; font-size: 16px; margin-left: 20px; opacity: 0.9;border-radius: 5px;}
+        .button3:hover {background-color: #44bb55; color: white;}    마우스 올라가면 배경색 및 글자 색 바뀜 
+        .button4 {background-color: white; color: black; border: 2px solid #44bb55; padding: 14px 24px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin-left: 20px;}
+        .button4:hover {background-color: #44bb55; color: white;}    마우스 올라가면 배경색 및 글자 색 바뀜 */
+        
+        .btn {margin: 4px 0px;--bs-btn-padding-x: 0.75rem;  --bs-btn-padding-y: 0.375rem; --bs-btn-font-family: 'Nanum Gothic', sans-serif; --bs-btn-font-size: 1rem; --bs-btn-font-weight: 400;
+              --bs-btn-line-height: 1.5;    --bs-btn-border-width: var(--bs-border-width);
+              --bs-btn-border-radius: 0.375rem;   --bs-btn-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15),0 1px 1px rgba(0, 0, 0, 0.075);
+              --bs-btn-disabled-opacity: 0.65;    --bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(var(--bs-btn-focus-shadow-rgb), .5);
+              display: inline-block; padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x); font-family: var(--bs-btn-font-family);
+              font-size: var(--bs-btn-font-size); font-weight: var(--bs-btn-font-weight); line-height: var(--bs-btn-line-height); 
+              color: var(--bs-btn-color);         text-align: center;    text-decoration: none;    vertical-align: middle;    cursor: pointer;
+              -webkit-user-select: none;    -moz-user-select: none;      user-select: none;    
+              border: var(--bs-btn-border-width) solid var(--bs-btn-border-color); border-radius: var(--bs-btn-border-radius);
+              background-color: var(--bs-btn-bg);}
+        .button_S {--bs-btn-color: #fff;    --bs-btn-bg: #6c757d;    --bs-btn-border-color: #6c757d;    --bs-btn-hover-color: #fff;
+              --bs-btn-hover-bg: #5c636a;    --bs-btn-hover-border-color: #565e64;    --bs-btn-focus-shadow-rgb: 130,138,145;
+              --bs-btn-active-color: #fff;    --bs-btn-active-bg: #565e64;    --bs-btn-active-border-color: #51585e;
+              --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #fff;    --bs-btn-disabled-bg: #6c757d;
+              --bs-btn-disabled-border-color: #6c757d;}
+        .button1 {--bs-btn-color: #fff;     --bs-btn-bg: #dc3545;       --bs-btn-border-color: #dc3545;     --bs-btn-hover-color: #fff;
+                  --bs-btn-hover-bg: #bb2d3b;    --bs-btn-hover-border-color: #b02a37;     --bs-btn-focus-shadow-rgb: 225,83,97;
+                  --bs-btn-active-color: #fff;   --bs-btn-active-bg: #b02a37;    --bs-btn-active-border-color: #a52834;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #fff;
+                  --bs-btn-disabled-bg: #dc3545;    --bs-btn-disabled-border-color: #dc3545;}
+        .button2 {--bs-btn-color: #dc3545;    --bs-btn-border-color: #dc3545;    --bs-btn-hover-color: #fff;    --bs-btn-hover-bg: #dc3545;
+                  --bs-btn-hover-border-color: #dc3545;    --bs-btn-focus-shadow-rgb: 220,53,69;    --bs-btn-active-color: #fff;
+                  --bs-btn-active-bg: #dc3545;    --bs-btn-active-border-color: #dc3545; --bs-border-width: 2px;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #dc3545;
+                  --bs-btn-disabled-bg: transparent;    --bs-btn-disabled-border-color: #dc3545;    --bs-gradient: none;}
+        .button3 {--bs-btn-color: #fff;    --bs-btn-bg: #198754;    --bs-btn-border-color: #198754;    --bs-btn-hover-color: #fff;
+                  --bs-btn-hover-bg: #157347;     --bs-btn-hover-border-color: #146c43;     --bs-btn-focus-shadow-rgb: 60,153,110;
+                  --bs-btn-active-color: #fff;    --bs-btn-active-bg: #146c43;    --bs-btn-active-border-color: #13653f;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #fff;
+                  --bs-btn-disabled-bg: #198754; --bs-btn-disabled-border-color: #198754;}
+        .button4 {--bs-btn-color: #198754;    --bs-btn-border-color: #198754;    --bs-btn-hover-color: #fff;    --bs-btn-hover-bg: #198754;
+                  --bs-btn-hover-border-color: #198754;    --bs-btn-focus-shadow-rgb: 25,135,84;    --bs-btn-active-color: #fff;
+                  --bs-btn-active-bg: #198754;    --bs-btn-active-border-color: #198754;--bs-border-width: 2px;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #198754;
+                  --bs-btn-disabled-bg: transparent;    --bs-btn-disabled-border-color: #198754;    --bs-gradient: none;}
+        </style>
+        <p><a href="/css/tut13.html" class="btn button3" target="_blank">이전 노트</a>
+        <a href="/css/tut15.html" class="btn button3" target="_blank">다음 노트</a>
+        <a href="/htmls/tut1.html" class="btn button1" target="_blank">HTML 노트</a> 
+        <a href="/htmls/html_CSS.html" class="btn button2" target="_blank">HTML+CSS</a>
+        <a href="/htmls/html_Emmet.html" class="btn button2" target="_blank">HTML+Emmet</a>
+        <a href="/htmls/html_tags.html" class="btn button2" target="_blank">HTML+Tags</a><br>
+        <a href="/javascript/j01.html" class="btn btn-success mb-1" target="_blank">자바스크립트 노트</a>  
+        <a href="/python/p01.html" class="btn btn-success mb-1" target="_blank">파이썬 노트</a>   
+        <a href="/css/tut11.html" class="btn button4" target="_blank">CSS 문법</a>
+        <a href="/css/tut12.html" class="btn button_S" target="_blank">색과 배경</a>
+        <a href="/css/tut13.html" class="btn button4" target="_blank">선형 원형 그래디언트 CSS3 배경속성</a>
+        <a href="/css/tut14.html" class="btn button4" target="_blank">텍스트 글꼴 링크 </a>
+        <a href="/css/tut15.html" class="btn button4" target="_blank">글꼴 링크 이미지 스프라이트</a> 
+        <a href="/css/tut16.html" class="btn button4" target="_blank">리스트 테이블</a>
+        <a href="/css/tut17.html" class="btn button4" target="_blank">박스모델 크기 패딩</a> 
+        <a href="/css/tut18.html" class="btn button4" target="_blank">박스모델 테두리 마진 아웃라인</a> 
+        <a href="/css/tut19.html" class="btn button4" target="_blank">Flexible Box 플렉서블 박스 플렉스</a>
+        <a href="/css/tut20.html" class="btn button4" target="_blank">CSS3 테두리 버튼 사용자인터페이스</a> 
+        <a href="/css/tut21.html" class="btn button4" target="_blank">위치 디스플레이 플로트 정렬</a> 
+        <a href="/css/tut22.html" class="btn button4" target="_blank">위치 포지션 선택자 selector</a>
+        <a href="/css/tut23.html" class="btn button4" target="_blank">CSS3 선택자(selector)</a>
+        <a href="/css/tut24.html" class="btn button4" target="_blank">CSS3 transition 애니메이션</a>     
+        <a href="/css/tut25.html" class="btn button4" target="_blank">유사클래스 상태의사클래스 동적의사클래스 </a>
+        <a href="/css/tut26.html" class="btn button4" target="_blank">구조의사클래스</a> 
+        <a href="/css/tut27.html" class="btn button4" target="_blank">의사 요소(pseudo-element)</a>
+        <a href="/css/tut28.html" class="btn button4" target="_blank">CSS 네비게이션바</a>
+        <a href="/css/tut29.html" class="btn button4" target="_blank">CSS form 요소 @규칙</a> 
+        <a href="/css/tut30.html" class="btn button4" target="_blank">bootstrap 활용</a>  
+        <a href="/css/tut31.html" class="btn button4" target="_blank">test several things</a></p>  
+ 
+<hr>    
+
+</div>
+    <h4>CSS 색</h4>
+        <a href="/htmls/tut3.html#컬러" target="_blank">CSS색</a><hr>   
+    <h4>CSS3 색(Color) 표현</h4>
+    <p>CSS3에서 새롭게 추가된 색 표현 방법<br>
+    <p style="background-color:rgba(210,105,30,1);color:white;margin-bottom:5px;">1. RGBA 색상값으로 표현<br>
+    <p style="background-color:hsl(16,100%,66%);color:white;margin-bottom:5px;">2. HSL 색상값으로 표현<br>
+    <p style="background-color:hsla(0,100%,27%,1);color:white;margin-bottom:5px;">3. HSLA 색상값으로 표현<br>
+    <p style="background-color:rgb(255,127,80);opacity:1;color:white;margin-bottom:5px;">4. opacity 속성</p>
+    
+    </div><hr>
+    
+    <h4>CSS2 색</h4>
+    <p>CSS2까지는 색을 표현하기 위해서 다음 방법만을 사용할 수 있었다.<br>
+    1. 색상 이름으로 표현<br>
+    2. RGB 색상값으로 표현<br>
+    3. 16진수 색상값으로 표현<br> 
+    <hr>
+    
+    <h4>CSS3에서 추가된 색상값 및 opacity 속성 지원 버전</h4>
+    <p>CSS3에서 추가된 색상값 및 opacity 속성을 지원하는 주요 웹 브라우저의 버전</p>
+    
+    <table class="tb-1" summary="">
+        <tbody>
+            <tr>
+                <th>속성</th>
+                <th><img alt="ie" class="icon" src="http://www.tcpschool.com/img/icon-ie.png"></th>
+                <th><img alt="chrome" class="icon" src="http://www.tcpschool.com/img/icon-chrome.png"></th>
+                <th><img alt="firefox" class="icon" src="http://www.tcpschool.com/img/icon-firefox.png"></th>
+                <th><img alt="safari" class="icon" src="http://www.tcpschool.com/img/icon-safari.png"></th>
+                <th><img alt="opera" class="icon" src="http://www.tcpschool.com/img/icon-opera.png"></th>
+            </tr>
+            <tr>
+                <td>
+                <p>RGBA 색상값,</p>
+    
+                <p>HSL 색상값,</p>
+    
+                <p>HSLA 색상값</p>
+                </td>
+                <td>9.0</td>
+                <td>4.0</td>
+                <td>3.0</td>
+                <td>3.1</td>
+                <td>10.1</td>
+            </tr>
+            <tr>
+                <td>opacity</td>
+                <td>9.0</td>
+                <td>4.0</td>
+                <td>2.0</td>
+                <td>3.1</td>
+                <td>10.1</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <hr>
+    
+    <h4>RGBA 색상값으로 표현</h4>
+    <p>RGBA 색상값은 RGB 색상값에 알파 채널 값을 더한 색상값이다.<br>
+    알파 채널(alpha channel)이란 색상의 투명도를 나타내는 채널이다.<br>
+    알파 채널 값은 완전한 투명 상태인 0.0부터 투명도가 전혀 없는 1.0 사이의 값을 가진다.</p>
+     
+    <h4>예제</h4>
+    <header>
+    <h2 Id="header_01"> header_01{background-color: rgba(0,255,0,0);}</h2>
+    <h2 Id="header_02"> header_02{background-color: rgba(0,255,0,0);}</h2>
+    <h2 Id="header_03"> header_03{background-color: rgba(0,255,0,0.4);}</h2>
+    <h2 Id="header_04"> header_04{background-color: rgba(0,255,0,0.6);}</h2>
+    <h2 Id="header_05"> header_05{background-color: rgba(0,255,0,0.8);}</h2>
+    <h2 Id="header_06"> header_06{background-color: rgba(0,255,0,1);}</h2>
+    </header>
+    <style>
+        #header_01 {background-color: rgba(0,255,0,0);}
+        #header_02 {background-color: rgba(0,255,0,0.2);}
+        #header_03 {background-color: rgba(0,255,0,0.4);}
+        #header_04 {background-color: rgba(0,255,0,0.6);}
+        #header_05 {background-color: rgba(0,255,0,0.8);}
+        #header_06 {background-color: rgba(0,255,0,1);}
+    </style> 
+    </div><hr>
+    
+    <h4>HSL 색상값으로 표현</h4>
+    <p>HSL 색상값은 빛의 삼원색으로 색을 표현하는 RGB 색상값과는 달리 색상, 채도, 명도를 사용해서 색을 표현한다.<br>
+    HSL 색상값에서 HSL은 각각 색상(Hue), 채도(Saturation), 명도(Lightness)를 의미한다.</p> 
+    
+    <p>색상은 0부터 360 사이의 값을 가지며, 색상환(color wheel)의 각도를 나타낸다.</p> 
+    <p>색상 값이 0 또는 360이면 빨간색(red)이 되며, 120이면 녹색(green), 240이면 파란색(blue)이 된다.</p>
+     
+    <h4>예제</h4>
+    <header>
+    <h2 Id="header_07"> header_07{background-color: hsl(0, 100%, 50%);}</h2>
+    <h2 Id="header_08"> header_08{background-color: hsl(90, 100%, 50%);}</h2>
+    <h2 Id="header_09"> header_09{background-color: hsl(180, 100%, 50%);}</h2>
+    <h2 Id="header_10"> header_10{background-color: hsl(270, 100%, 50%);}</h2>
+    <h2 Id="header_11"> header_11{background-color: hsl(360, 100%, 50%);}</h2> 
+    </header>
+    <style>
+        #header_07 {background-color: hsl(0, 100%, 50%);}
+        #header_08 {background-color: hsl(90, 100%, 50%);}
+        #header_09 {background-color: hsl(180, 100%, 50%);}
+        #header_10 {background-color: hsl(270, 100%, 50%);}
+        #header_11 {background-color: hsl(360, 100%, 50%);}
+    </style> 
+    </div>
+    
+    <p>채도는 0%부터 100% 사이의 값을 가지며, 색상의 연하고 짙은 정도를 나타낸다.<br>
+    채도 값이 0%면 회색이 되고, 100%면 원래 색상이 된다.</p>
+     
+    <h4>예제</h4>
+    <header>
+    <h2 Id="header_12"> header_12{background-color: hsl(0, 0%, 50%);}</h2>
+    <h2 Id="header_13"> header_13{background-color: hsl(0, 20%, 50%);}</h2>
+    <h2 Id="header_14"> header_14 {background-color: hsl(0, 40%, 50%);}</h2>
+    <h2 Id="header_15"> header_15 {background-color: hsl(0, 60%, 50%);}</h2>
+    <h2 Id="header_16"> header_16{background-color: hsl(0, 80%, 50%);}</h2> 
+    <h2 Id="header_17"> header_17{background-color: hsl(0, 100%, 50%);}</h2> 
+    </header>
+    
+    <style>
+        #header_12 {background-color: hsl(0, 0%, 50%);}
+        #header_13 {background-color: hsl(0, 20%, 50%);}
+        #header_14 {background-color: hsl(0, 40%, 50%);}
+        #header_15 {background-color: hsl(0, 60%, 50%);}
+        #header_16 {background-color: hsl(0, 80%, 50%);}
+        #header_17 {background-color: hsl(0, 100%, 50%);}
+    </style>
+    </div>
+    
+    <p>명도는 0%부터 100% 사이의 값을 가지며, 색상의 밝고 어두운 정도를 나타낸다.<br>
+    명도 값이 0%면 검정색이 되고, 50%면 원래 색상, 100%면 흰색이 된다.</p>
+    
+    <h4>예제</h4>
+    <header>
+    <h2 Id="header_18"> header_18 {background-color: hsl(0, 100%, 0%);}</h2>
+    <h2 Id="header_19"> header_19 {background-color: hsl(0, 100%, 20%);}</h2>
+    <h2 Id="header_20"> header_20 {background-color: hsl(0, 100%, 40%);}</h2>
+    <h2 Id="header_21"> header_21 {background-color: hsl(0, 100%, 50%);}</h2>
+    <h2 Id="header_22"> header_22 {background-color: hsl(0, 100%, 60%);}</h2> 
+    <h2 Id="header_23"> header_23 {background-color: hsl(0, 100%, 80%);}</h2>
+    <h2 Id="header_24"> header_24 {background-color: hsl(0, 100%, 100%);}</h2> 
+    </header>
+    <style>
+        #header_18 {background-color: hsl(0, 100%, 0%);}
+        #header_19 {background-color: hsl(0, 100%, 20%);}
+        #header_20 {background-color: hsl(0, 100%, 40%);}
+        #header_21 {background-color: hsl(0, 100%, 50%);}
+        #header_22 {background-color: hsl(0, 100%, 60%);}
+        #header_23 {background-color: hsl(0, 100%, 80%);}
+        #header_24 {background-color: hsl(0, 100%, 100%);}
+    </style> </p></div><hr>
+    
+    <h4>HSLA 색상값으로 표현</h4>
+    <p>HSLA 색상값은 HSL 색상값에 알파 채널 값을 더한 색상값이다.</p>
+    
+    <h4>예제</h4>
+    <header>
+    <h2 Id="header_25"> header_25 {background-color: hsla(0, 100%, 50%, 0);}</h2>
+    <h2 Id="header_26"> header_26 {background-color: hsla(0, 100%, 50%, 0.2);}
+    <h2 Id="header_27"> header_27 {background-color: hsla(0, 100%, 50%, 0.4);}</h2>
+    <h2 Id="header_28"> header_28 {background-color: hsla(0, 100%, 50%, 0.6);}</h2>
+    <h2 Id="header_29"> header_29 {background-color: hsla(0, 100%, 50%, 0.8); </h2>
+    <h2 Id="header_30"> header_30 {background-color: hsla(0, 100%, 50%, 1);}</h2> 
+    </header> 
+    <style>
+        #header_25 {background-color: hsla(0, 100%, 50%, 0);}
+        #header_26 {background-color: hsla(0, 100%, 50%, 0.2);}
+        #header_27 {background-color: hsla(0, 100%, 50%, 0.4);}
+        #header_28 {background-color: hsla(0, 100%, 50%, 0.6);}
+        #header_29 {background-color: hsla(0, 100%, 50%, 0.8);}
+        #header_30 {background-color: hsla(0, 100%, 50%, 1);}
+    </style></p></div><hr>
+    
+    <h4>opacity 속성</h4>
+    <p>opacity 속성은 색상에 대한 투명도를 설정해 준다.<br>
+    opacity 속성값은 완전한 투명 상태인 0.0부터 투명도가 전혀 없는 1.0 사이의 값을 가진다.</p>
+    
+    <h4>예제</h4>
+    <h2 Id="header_31"> header_31 {background-color: rgb(0,255,0); opacity:0}</h2>
+    <h2 Id="header_32"> header_32 {background-color: rgb(0,255,0); opacity:0.2}</h2>
+    <h2 Id="header_33"> header_33 {background-color: rgb(0,255,0); opacity:0.4}</h2>
+    <h2 Id="header_34"> header_34 {background-color: rgb(0,255,0); opacity:0.6}</h2>
+    <h2 Id="header_35"> header_35 {background-color: rgb(0,255,0); opacity:0.8}</h2>
+    <h2 Id="header_36"> header_36 {background-color: rgb(0,255,0); opacity:1}</h2>
+    <style>
+        #header_31 {background-color: rgb(0,255,0); opacity:0}
+        #header_32 {background-color: rgb(0,255,0); opacity:0.2}
+        #header_33 {background-color: rgb(0,255,0); opacity:0.4}
+        #header_34 {background-color: rgb(0,255,0); opacity:0.6}
+        #header_35 {background-color: rgb(0,255,0); opacity:0.8}
+        #header_36 {background-color: rgb(0,255,0); opacity:1}
+    </style>
+    </p></div><hr>
+    
+    <h4>opacity 속성과 알파 채널과의 차이점</h4>
+    <p>위에서 살펴본 opacity 속성과 알파 채널 모두 투명도를 조절한다는 공통점을 가지고 있다.<br>
+    opacity 속성은 투명도를 설정했을 때 설정한 요소의 모든 자식(child) 요소까지 전부 같은 투명도로 설정한다.<br>
+    하지만 알파 채널은 투명도를 설정한 요소에만 투명도를 설정하는 차이점이 존재한다.<br>
+    다음 예제는 opacity 속성과 알파 채널과의 차이점을 보여주는 예제이다.</p>
+    
+    <h4>예제</h4>
+    <h2 Id="para_01">para_01 {background-color: rgb(255,0,0); opacity:0}</h2>
+    <h2 Id="para_06">para_06 {background-color: rgb(255,0,0); opacity:1}</h2>
+    <h2 Id="para_07">para_07 {background-color: rgba(255,0,0,0);}</h2>
+    <h2 Id="para_12">para_12 {background-color: rgba(255,0,0,1);}</h2>
+    <style>
+        #para_01 {background-color: rgb(255,0,0); opacity:0}
+        #para_06 {background-color: rgb(255,0,0); opacity:1}
+        #para_07 {background-color: rgba(255,0,0,0);}
+        #para_12 {background-color: rgba(255,0,0,1);}
+    </style>
+    </div><hr>
+
+
+    <h4>CSS 배경(Background)</h4>
+    <p>웹 페이지뿐만 아니라 HTML 요소는 모두 각자의 배경을 가지고 있다.<br>
+    CSS의 background 속성은 이러한 각 요소의 배경에 다양한 효과를 줄 수 있게 해준다</p>
+    <p>CSS에서 사용할 수 있는 background 속성은 다음과 같다.<br>
+    1. background-color<br>
+    2. background-image<br>
+    3. background-repeat<br>
+    4. background-position<br>
+    5. background-attachment</p>
+    <hr>
+<div class="CSS6">
+    <h4>background-color 속성</h4>
+    <p>background-color 속성은 해당 HTML 요소의 배경색(background color)을 설정한다.<br>  
+    <style>
+        .CSS6 { background-color: lightblue; }
+        .CSS6>h4 { background-color: rgb(255,128,0); }
+        .CSS6>p { background-color: #FFFFCC; }
+    </style>
+    
+    <p>예제</p>
+    &lt;style&gt;<br>
+    body { background-color: lightblue; }<br>
+    h4 { background-color: rgb(255,128,0); }<br>
+    >p { background-color: #FFFFCC; }<br>
+    &lt;/style&gt;<hr></div>
+     
+<div class="CSS7">
+<h4>background-image 속성</h4>
+<p>background-image 속성은 해당 HTML 요소의 배경으로 나타날 배경 이미지(image)를 설정한다.<br>
+설정된 배경 이미지는 기본 설정으로 HTML 요소 전체에 걸쳐 반복되어 나타난다.<br>
+배경 이미지를 사용할 때에는 이미지가 본문의 텍스트를 방해하지 않도록 주의를 기울여야 한다.</p>
+<style>
+    .CSS7 { background-image: url("http://www.tcpschool.com/examples/images/img_background_bad.png"); }
+</style>
+
+<p>나쁜예</p>
+&lt;style&gt;<br>
+    body { background-image: url("http://www.tcpschool.com/examples/images/img_background_bad.png"); }<br>
+&lt;/style&gt; </div>
+   
+<div class="CSS8">
+    <style>
+        .CSS8 { background-image: url("http://www.tcpschool.com/examples/images/img_background_good.png"); }
+    </style>
+    
+    <p>좋은예</p>
+    &lt;style&gt;<br>
+        body { background-image: url("http://www.tcpschool.com/examples/images/img_background_good.png"); }<br>
+    &lt;/style&gt;<hr></div>
+    
+    <h4>background-repeat 속성</h4>
+    <p>배경 이미지는 <span class="bred">기본 설정</span>으로 수평과 수직 방향으로 <span class="bred">모두 반복</span>되어 나타난다.<br>
+
+<div class="CSS9"> 
+    background-repeat 속성을 이용하면 이러한 배경 이미지를 수평이나 수직 방향으로만 반복되도록 설정할 수 있다.<br> 
+    <style>
+        .CSS9 { background-image: url("http://www.tcpschool.com/examples/images/img_man.png"); background-repeat: repeat-x; }
+    </style>
+    
+    <p> 배경이미지 수평 반복 예제</p>
+    &lt;style&gt;<br>
+        body { background-image: url("http://www.tcpschool.com/examples/images/img_man.png"); background-repeat: repeat-x; }<br>
+    &lt;/style&gt;</div>
+
+
+<div class="CSS10">  
+    <style>
+        .CSS10 { background-image: url("http://www.tcpschool.com/examples/images/img_background_bad.png"); background-repeat: repeat-y; }
+    </style>
+    
+    <p>배경 이미지 수직 반복 예제</p>
+    &lt;style&gt;<br>
+        body { background-image: url("http://www.tcpschool.com/examples/images/img_background_bad.png"); background-repeat: repeat-y; }<br>
+    &lt;/style&gt;</div>
+       
+<div class="CSS11">  
+    <p>배경 이미지가 반복되지 않고 한 번만 나타나게 할 수도 있다.<Br>
+    백그라운드-반복 속성에서 repat-x 는 x 축으로만 반복하고 repeat-y는 y축으로만 반복한다</p>
+    
+    <style>
+        .CSS11 { background-image: url("http://www.tcpschool.com/examples/images/img_man.png"); background-repeat: no-repeat; }
+    </style>
+    <p>배경이미지 한번만 나타나는 예제</p> 
+    &lt;style&gt;<br>
+        body { background-image: url("http://www.tcpschool.com/examples/images/img_man.png"); background-repeat: no-repeat; }<br>
+    &lt;/style&gt;<hr></div>
+ <br>
+<p> 배경이미지가 <span class="bred">랜덤하게 변경될 경우,</span> 배경이미지의 명암에 따라 글씨가 선명하거나 흐리게 보일수 있다<br>
+    이경우 배경이미지의  <span class="bred">투명도를 0.5로 낮추면</span> 배경이미지가 변경되어도 글씨의 선명함을 유지할수 있다.  <br>
+    배경이미지 삽입후 아예 글씨가 안보이면 배경이미지를 맨뒤로 보내기 위해 z-index :-1 이라고 설정해준다. </p>
+
+<div class="CSS12">  
+    <h4>background-position 속성</h4>
+    <p>background-position 속성은 반복되지 않는 배경 이미지의 상대 위치(relative position)를 설정한다.</p>    
+    <style>
+        .CSS12 {
+            background-image: url("http://www.tcpschool.com/examples/images/img_man.png");
+            background-repeat: no-repeat;
+            background-position: top right;
+        }
+    </style>
+    
+    <p>예제</p>
+    &lt;style&gt;<br>
+        body{<br>
+            background-image: url("http://www.tcpschool.com/examples/images/img_man.png");<br>
+            background-repeat: no-repeat; <br>
+            background-position: top right; <br>
+    }<br>
+    &lt;/style&gt;<hr></div> 
+    <p>이 속성에서 사용할 수 있는 키워드의 조합은 다음과 같다.<br>
+    <!-- 다중커서 선택 : 여러군데에 같은 내용을 입력할때 alt + 마우스 클릭 하면 된다.  -->
+    1. left top<br>
+    2. left center<br>
+    3. left bottom<br>
+    4. right top<br>
+    5. right center<br>
+    6. right bottom<br>
+    7. center top<br>
+    8. center center<br>
+    9. center bottom<br><hr>
+
+<div class="CSS13">  
+    또한, 퍼센트(%)나 픽셀(px)을 사용하여 상대 위치를 직접 명시할 수도 있다.<br>
+    이때 상대 위치를 결정하는 기준은 해당 요소의 왼쪽 상단(left top)이 된다.<br> 
+
+    https://unsplash.com/ 언스플래쉬 에 접속하여 원하는 아이템을 검색하여 선택된 이미지의 photo ID를 찾은후 <br>
+    htts://source.unsplash.com/{포토ID}/{원하는WIDTHxHEIGHT}입력하면 된다        <br>
+    예를 들어 ttps://unsplash.com/photos/ceITO2rlDgc 여기서 photoID는 ceITO2rlDgc   <br>
+    <style>
+        body{
+            background-image: url("https://source.unsplash.com/random/900x600/?family");
+        /* .CSS13 { */
+            /* background-image: url("http://www.tcpschool.com/examples/images/img_man.png"); */
+            background-repeat: no-repeat;
+            background-position: 900px 150px;
+        }
+    </style>
+    
+    <p>배경 이미지의 상대 위치를 픽셀 단위로 직접 명시한 예제</p>
+    &lt;style&gt;<br>
+        body{<br>
+            background-image: url("http://www.tcpschool.com/examples/images/img_man.png");<br>
+            background-repeat: no-repeat; <br>
+            background-position: 100px 200px; <br>
+    }<br>
+    &lt;/style&gt;<hr></div> 
+    
+<div class="CSS14">  
+    <h4>background-attachment 속성</h4>
+    <p>background-attachment 속성을 사용하여 위치가 설정된 배경 이미지를 해당 위치에 고정시킬 수도 있다.<br>
+    이렇게 고정된 배경 이미지는 스크롤과는 무관하게 화면의 위치에서 이동하지 않는다.</p>
+    <style>
+        .CSS14 {
+            background-image: url("http://www.tcpschool.com/examples/images/img_man.png");
+            background-repeat: no-repeat;
+            background-position: left bottom;
+            background-attachment: fixed;
+        }
+    </style>
+    
+    <p>특정위치에 고정되어 스크롤과 무과하게 이동하지 않는 예제</p>
+    &lt;style&gt;<br>
+        body{<br>
+            background-image: url("http://www.tcpschool.com/examples/images/img_man.png");<br>
+            background-repeat: no-repeat; <br>
+            background-position: left bottom; <br>
+            background-attachment: fixed; <br>
+    }<br>
+    &lt;/style&gt;<hr></div> 
+    
+<div class="CSS15">  
+    <h4>background 속성 한 번에 적용하기</h4> 
+    <style>
+        .CSS15 { background: #FFCCCC url("http://www.tcpschool.com/examples/images/img_man.png") no-repeat left bottom fixed; }
+    </style>
+    <p>한꺼번에 한줄로 스타일을 설정한 예제</p>
+    &lt;style&gt;<br>
+        body { background: #FFCCCC url("http://www.tcpschool.com/examples/images/img_man.png") no-repeat left bottom fixed; }<br>
+    &lt;/style&gt;<hr></div>  
+
+    <h4>CSS background 속성</h4>
+    <table>
+        <thead>
+            <tr>
+                <th style="background-color:lightgray; width: 25%;">속성</th>
+                <th style="background-color:lightgray;">설명</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>background</td>
+                <td>모든 background 속성을 이용한 스타일을 한 줄에 설정할 수 있음.</td>
+            </tr>
+            <tr>
+                <td>background-color</td>
+                <td>HTML 요소의 배경색을 설정함.</td>
+            </tr>
+            <tr>
+                <td>background-image</td>
+                <td>HTML 요소의 배경 이미지를 설정함.</td>
+            </tr>
+            <tr>
+                <td>background-repeat</td>
+                <td>설정된 배경 이미지의 반복 유무를 설정함.</td>
+            </tr>
+            <tr>
+                <td>background-position</td>
+                <td>반복되지 않는 배경 이미지의 상대 위치를 설정함.</td>
+            </tr>
+            <tr>
+                <td>background-attachment</td>
+                <td>배경 이미지를 스크롤과는 무관하게 해당 위치에 고정시킴.</td>
+            </tr>
+        </tbody>
+    </table><hr>               
+</body>
+</html>

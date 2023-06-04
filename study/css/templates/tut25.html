@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 의사(유사)클래스 상태의사클래스 동적의사클래스 </title>
+</head>
+<body> 
+<div>
+    <H2>CSS</H2>  
+    <style>
+        .txtlink {color: green; text-decoration:none; margin-left:20px; font-size:16px;}
+        .txtlink:hover {text-decoration:underline;}        /*마우스 올라가면 밑줄 */        
+        /* .button_S {display:inline-block; background-color:gray; color: #FFFFFF; padding: 14px 25px; text-align: center; text-decoration: none; font-size: 16px; margin-left: 20px; opacity: 0.9; border-radius: 5px;}
+        .button_S:hover {color:white; background-color:lightyellow ; opacity:1.0;}      /*마우스 올라가면 배경색 핑크색 글자 흰색으로 바뀜 
+        .button1 {display:inline-block; background-color:#f44336; color: #FFFFFF; padding: 14px 25px; text-align: center; text-decoration: none; font-size: 16px; margin-left: 20px; opacity: 0.9; border-radius: 5px;}
+        .button1:hover {color:white; background-color:pink; opacity:1.0;}      마우스 올라가면 배경색 핑크색 글자 흰색으로 바뀜 
+        .button2 {background-color: white; color: black; border: 2px solid #f44336; padding: 14px 24px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin-left: 20px;}
+        .button2:hover {background-color: #f44336; color: white;}    /*마우스 올라가면 배경색 및 글자 색 바뀜
+        .button3 {display:inline-block; background-color: #44bb55; color: #FFFFFF; padding: 14px 25px; text-align: center; text-decoration: none; font-size: 16px; margin-left: 20px; opacity: 0.9;border-radius: 5px;}
+        .button3:hover {background-color: #44bb55; color: white;}    마우스 올라가면 배경색 및 글자 색 바뀜 
+        .button4 {background-color: white; color: black; border: 2px solid #44bb55; padding: 14px 24px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin-left: 20px;}
+        .button4:hover {background-color: #44bb55; color: white;}    마우스 올라가면 배경색 및 글자 색 바뀜 */
+        
+        .btn {margin: 4px 0px;--bs-btn-padding-x: 0.75rem;  --bs-btn-padding-y: 0.375rem; --bs-btn-font-family: 'Nanum Gothic', sans-serif; --bs-btn-font-size: 1rem; --bs-btn-font-weight: 400;
+              --bs-btn-line-height: 1.5;    --bs-btn-border-width: var(--bs-border-width);
+              --bs-btn-border-radius: 0.375rem;   --bs-btn-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15),0 1px 1px rgba(0, 0, 0, 0.075);
+              --bs-btn-disabled-opacity: 0.65;    --bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(var(--bs-btn-focus-shadow-rgb), .5);
+              display: inline-block; padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x); font-family: var(--bs-btn-font-family);
+              font-size: var(--bs-btn-font-size); font-weight: var(--bs-btn-font-weight); line-height: var(--bs-btn-line-height); 
+              color: var(--bs-btn-color);         text-align: center;    text-decoration: none;    vertical-align: middle;    cursor: pointer;
+              -webkit-user-select: none;    -moz-user-select: none;      user-select: none;    
+              border: var(--bs-btn-border-width) solid var(--bs-btn-border-color); border-radius: var(--bs-btn-border-radius);
+              background-color: var(--bs-btn-bg);}
+        .button_S {--bs-btn-color: #fff;    --bs-btn-bg: #6c757d;    --bs-btn-border-color: #6c757d;    --bs-btn-hover-color: #fff;
+              --bs-btn-hover-bg: #5c636a;    --bs-btn-hover-border-color: #565e64;    --bs-btn-focus-shadow-rgb: 130,138,145;
+              --bs-btn-active-color: #fff;    --bs-btn-active-bg: #565e64;    --bs-btn-active-border-color: #51585e;
+              --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #fff;    --bs-btn-disabled-bg: #6c757d;
+              --bs-btn-disabled-border-color: #6c757d;}
+        .button1 {--bs-btn-color: #fff;     --bs-btn-bg: #dc3545;       --bs-btn-border-color: #dc3545;     --bs-btn-hover-color: #fff;
+                  --bs-btn-hover-bg: #bb2d3b;    --bs-btn-hover-border-color: #b02a37;     --bs-btn-focus-shadow-rgb: 225,83,97;
+                  --bs-btn-active-color: #fff;   --bs-btn-active-bg: #b02a37;    --bs-btn-active-border-color: #a52834;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #fff;
+                  --bs-btn-disabled-bg: #dc3545;    --bs-btn-disabled-border-color: #dc3545;}
+        .button2 {--bs-btn-color: #dc3545;    --bs-btn-border-color: #dc3545;    --bs-btn-hover-color: #fff;    --bs-btn-hover-bg: #dc3545;
+                  --bs-btn-hover-border-color: #dc3545;    --bs-btn-focus-shadow-rgb: 220,53,69;    --bs-btn-active-color: #fff;
+                  --bs-btn-active-bg: #dc3545;    --bs-btn-active-border-color: #dc3545; --bs-border-width: 2px;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #dc3545;
+                  --bs-btn-disabled-bg: transparent;    --bs-btn-disabled-border-color: #dc3545;    --bs-gradient: none;}
+        .button3 {--bs-btn-color: #fff;    --bs-btn-bg: #198754;    --bs-btn-border-color: #198754;    --bs-btn-hover-color: #fff;
+                  --bs-btn-hover-bg: #157347;     --bs-btn-hover-border-color: #146c43;     --bs-btn-focus-shadow-rgb: 60,153,110;
+                  --bs-btn-active-color: #fff;    --bs-btn-active-bg: #146c43;    --bs-btn-active-border-color: #13653f;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #fff;
+                  --bs-btn-disabled-bg: #198754; --bs-btn-disabled-border-color: #198754;}
+        .button4 {--bs-btn-color: #198754;    --bs-btn-border-color: #198754;    --bs-btn-hover-color: #fff;    --bs-btn-hover-bg: #198754;
+                  --bs-btn-hover-border-color: #198754;    --bs-btn-focus-shadow-rgb: 25,135,84;    --bs-btn-active-color: #fff;
+                  --bs-btn-active-bg: #198754;    --bs-btn-active-border-color: #198754;--bs-border-width: 2px;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #198754;
+                  --bs-btn-disabled-bg: transparent;    --bs-btn-disabled-border-color: #198754;    --bs-gradient: none;}
+        </style>
+        <p><a href="/css/tut13.html" class="btn button3" target="_blank">이전 노트</a>
+        <a href="/css/tut15.html" class="btn button3" target="_blank">다음 노트</a>
+        <a href="/htmls/tut1.html" class="btn button1" target="_blank">HTML 노트</a> 
+        <a href="/htmls/html_CSS.html" class="btn button2" target="_blank">HTML+CSS</a>
+        <a href="/htmls/html_Emmet.html" class="btn button2" target="_blank">HTML+Emmet</a>
+        <a href="/htmls/html_tags.html" class="btn button2" target="_blank">HTML+Tags</a><br>
+        <a href="/javascript/j01.html" class="btn btn-success mb-1" target="_blank">자바스크립트 노트</a>  
+        <a href="/python/p01.html" class="btn btn-success mb-1" target="_blank">파이썬 노트</a>   
+        <a href="/css/tut11.html" class="btn button4" target="_blank">CSS 문법</a>
+        <a href="/css/tut12.html" class="btn button4" target="_blank">색과 배경</a>
+        <a href="/css/tut13.html" class="btn button4" target="_blank">선형 원형 그래디언트 CSS3 배경속성</a>
+        <a href="/css/tut14.html" class="btn button4" target="_blank">텍스트 글꼴 링크 </a>
+        <a href="/css/tut15.html" class="btn button4" target="_blank">글꼴 링크 이미지 스프라이트</a> 
+        <a href="/css/tut16.html" class="btn button4" target="_blank">리스트 테이블</a>
+        <a href="/css/tut17.html" class="btn button4" target="_blank">박스모델 크기 패딩</a> 
+        <a href="/css/tut18.html" class="btn button4" target="_blank">박스모델 테두리 마진 아웃라인</a> 
+        <a href="/css/tut19.html" class="btn button4" target="_blank">Flexible Box 플렉서블 박스 플렉스</a>
+        <a href="/css/tut20.html" class="btn button4" target="_blank">CSS3 테두리 버튼 사용자인터페이스</a> 
+        <a href="/css/tut21.html" class="btn button4" target="_blank">위치 디스플레이 플로트 정렬</a> 
+        <a href="/css/tut22.html" class="btn button4" target="_blank">위치 포지션 선택자 selector</a>
+        <a href="/css/tut23.html" class="btn button4" target="_blank">CSS3 선택자(selector)</a>
+        <a href="/css/tut24.html" class="btn button4" target="_blank">CSS3 transition 애니메이션</a>     
+        <a href="/css/tut25.html" class="btn button_S" target="_blank">유사클래스 상태의사클래스 동적의사클래스 </a>
+        <a href="/css/tut26.html" class="btn button4" target="_blank">구조의사클래스</a> 
+        <a href="/css/tut27.html" class="btn button4" target="_blank">의사 요소(pseudo-element)</a>
+        <a href="/css/tut28.html" class="btn button4" target="_blank">CSS 네비게이션바</a>
+        <a href="/css/tut29.html" class="btn button4" target="_blank">CSS form 요소 @규칙</a> 
+        <a href="/css/tut30.html" class="btn button4" target="_blank">bootstrap 활용</a>  
+        <a href="/css/tut31.html" class="btn button4" target="_blank">test several things</a></p>  
+<hr>    
+
+<div> 
+<h4>의사(유사) 클래스(pseudo-class)</h4>
+	<p>CSS에서 의사 클래스(pseudo-class)는 선택하고자 하는 HTML 요소의 특별한 '상태(state)'를 명시할 때 사용한다.</p>
+
+<a span style="color:#bf4f24">선택자</span><span style="color:#bf4f24">:의사클래스이름</span> {<span style="color:#691c97">속성</span><span style="color:#794938">:</span> <span style="color:#b4371f">속성값</span>;} </a></p> 
+<p>클래스(class)나 아이디(id)에도 의사 클래스(pseudo-class)를 사용할 수 있다.</p> 
+<h5>문법</h5>
+<a span style="color:#bf4f24">선택자</span><span style="color:#bf4f24">.클래스이름:의사클래스이름</span> {<span style="color:#691c97">속성</span><span style="color:#794938">:</span> <span style="color:#b4371f">속성값</span>;} <br>
+<a span style="color:#bf4f24">선택자#아이디</span><span style="color:#bf4f24">이름:의사클래스이름</span> {<span style="color:#691c97">속성</span><span style="color:#794938">:</span> <span style="color:#b4371f">속성값</span>;}</a></p> 
+<p>의사 클래스(pseudo-class)의 이름은 대소문자를 구분하지 않는다. </p>
+
+<hr>
+
+<h4>대표적인 CSS 의사 클래스</h4>
+	<p>CSS에서 자주 사용하는 대표적인 의사 클래스<br>
+	1. 동적 의사 클래스(dynamic pseudo-classes)<br>
+	- :link<br>
+	- :visited<br>
+	- :hover<br>
+	- :active<br>
+	- :focus<br> 
+	2. 상태 의사 클래스(UI element states pseudo-classes)<br>
+	- :checked<br>
+	- :enabled<br>
+	- :disabled<br> 
+	3. 구조 의사 클래스(structural pseudo-classes)<br>
+	- :first-child<br>
+	- :nth-child<br>
+	- :first-of-type<br>
+	- :nth-of-type<br> 
+	4. 기타 의사 클래스<br>
+	- :not<br>
+	- :lang<br> 
+</div><hr>
+
+<div> 
+<h4>CSS 의사 클래스(pseudo classes)</h4>
+<table class="tb-2" summary="">
+	<thead>
+		<tr class="bg">
+			<th style="background-color:lightgray; width: 25%;">속성</th>
+			<th style="background-color:lightgray;">설명</th>	
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>:link</td>
+			<td>사용자가 아직 한 번도 해당 링크를 통해서 연결된 페이지를 방문하지 않은 상태를 모두 선택함. (기본 상태)</td>
+		</tr>
+		<tr>
+			<td>:visited</td>
+			<td>사용자가 한 번이라도 해당 링크를 통해서 연결된 페이지를 방문한 상태를 모두 선택함.</td>
+		</tr>
+		<tr>
+			<td>:hover</td>
+			<td>사용자의 마우스 커서가 링크 위에 올라가 있는 상태를 모두 선택함.</td>
+		</tr>
+		<tr>
+			<td>:active</td>
+			<td>사용자가 마우스로 링크를 클릭하고 있는 상태를 모두 선택함.</td>
+		</tr>
+		<tr>
+			<td>:focus</td>
+			<td>초점이 맞춰진 input 요소를 모두 선택함.</td>
+		</tr>
+		<tr>
+			<td>:checked</td>
+			<td>체크된(checked) 상태의 input 요소를 모두 선택함.</td>
+		</tr>
+		<tr>
+			<td>:enabled</td>
+			<td>사용할 수 있는 input 요소를 모두 선택함.</td>
+		</tr>
+		<tr>
+			<td>:disabled</td>
+			<td>사용할 수 없는 input 요소를 모두 선택함.</td>
+		</tr>
+		<tr>
+			<td>:target</td>
+			<td>현재 활성화된 target 요소를 모두 선택함.</td>
+		</tr>
+		<tr>
+			<td>:in-range</td>
+			<td>특정 범위 내의 값을 가지는 input 요소를 모두 선택함.</td>
+		</tr>
+		<tr>
+			<td>:out-of-range</td>
+			<td>특정 범위를 벗어나는 값을 가지는 input 요소를 모두 선택함.</td>
+		</tr>
+		<tr>
+			<td>:read-only</td>
+			<td>readonly 속성을 가지는 input 요소를 모두 선택함.</td>
+		</tr>
+		<tr>
+			<td>:read-write</td>
+			<td>readonly 속성을 가지지 않는 input 요소를 모두 선택함.</td>
+		</tr>
+		<tr>
+			<td>:required</td>
+			<td>required 속성을 가지는 input 요소를 모두 선택함.</td>
+		</tr>
+		<tr>
+			<td>:optional</td>
+			<td>required 속성을 가지지 않는 input 요소를 모두 선택함.</td>
+		</tr>
+		<tr>
+			<td>:valid</td>
+			<td>유효한 값을 가지는 input 요소를 모두 선택함.</td>
+		</tr>
+		<tr>
+			<td>:invalid</td>
+			<td>유효하지 않은 값을 가지는 input 요소를 모두 선택함.</td>
+		</tr>
+		<tr>
+			<td>:first-child</td>
+			<td>모든 자식(child) 요소 중에서 첫 번째에 위치하는 자식(child) 요소를 모두 선택함.</td>
+		</tr>
+		<tr>
+			<td>:last-child</td>
+			<td>모든 자식(child) 요소 중에서 마지막에 위치하는 자식(child) 요소를 모두 선택함.</td>
+		</tr>
+		<tr>
+			<td>:nth-child</td>
+			<td>모든 자식(child) 요소 중에서 앞에서부터 n번째에 위치하는 자식(child) 요소를 모두 선택함.</td>
+		</tr>
+		<tr>
+			<td>:nth-last-child</td>
+			<td>모든 자식(child) 요소 중에서 뒤에서부터 n번째에 위치하는 자식(child) 요소를 모두 선택함.</td>
+		</tr>
+		<tr>
+			<td>:first-of-type</td>
+			<td>모든 자식(child) 요소 중에서 첫 번째로 등장하는 특정 요소를 모두 선택함.</td>
+		</tr>
+		<tr>
+			<td>:last-of-type</td>
+			<td>모든 자식(child) 요소 중에서 마지막으로 등장하는 특정 요소를 모두 선택함.</td>
+		</tr>
+		<tr>
+			<td>:nth-of-type</td>
+			<td>모든 자식(child) 요소 중에서 n번째로 등장하는 특정 요소를 모두 선택함.</td>
+		</tr>
+		<tr>
+			<td>:nth-last-of-type</td>
+			<td>모든 자식(child) 요소 중에서 뒤에서부터 n번째로 등장하는 특정 요소를 모두 선택함.</td>
+		</tr>
+		<tr>
+			<td>:only-child</td>
+			<td>자식(child) 요소를 단 하나만 가지는 모든 요소의 자식(child) 요소를 선택함.</td>
+		</tr>
+		<tr>
+			<td>:only-of-type</td>
+			<td>자식(child)  요소를 특정 요소 단 하나만 가지는 모든 요소의 자식(child) 요소를 선택함.</td>
+		</tr>
+		<tr>
+			<td>:empty</td>
+			<td>아무런 자식(child) 요소도 가지지 않는 요소를 모두 선택함.</td>
+		</tr>
+		<tr>
+			<td>:root</td>
+			<td>문서의 root 요소를 선택함.</td>
+		</tr>
+		<tr>
+			<td>:not(선택자)</td>
+			<td>모든 선택자와 함께 사용할 수 있으며, 해당 선택자를 반대로 적용함.</td>
+		</tr>
+		<tr>
+			<td>:lang(언어)</td>
+			<td>특정 요소를 언어 설정에 따라 다르게 표현할 때에 사용함.</td>
+		</tr>
+	</tbody>
+</table></div><hr>
+
+<div> 
+<h4>상태 의사 클래스(UI element states pseudo-class)</h4>
+<p>상태 의사 클래스를 사용하면 입력 양식의 상태에 따라 각각의 스타일을 별도로 설정할 수 있다.<br>
+CSS에서 사용할 수 있는 상태 의사 클래스<br>
+- :checked<br>
+- :enabled<br>
+- :disabled</p>
+<hr>
+<h4>:checked</h4>
+<p>:checked는 input 요소 중에서 체크된(checked) 상태의 input 요소를 선택한다.</p>
+<p>예제</p> 
+	
+<div class="radio">
+	<fieldset>
+		<label>
+			<input type="radio" name="contact" value="email" checked />
+			<span>이메일</span>
+		</label>
+		
+		<label>
+			<input type="radio" name="contact" value="phone" />
+			<span>전화</span>
+		</label>
+		
+		<label>
+			<input type="radio" name="contact" value="fax" disabled /> <!-- 선택불가표시-->
+			<span>팩스</span>
+		</label>
+		
+		<label>
+			<input type="radio" name="contact" value="mail" />
+			<span>우편 (팩스는 선택불가항목임)</span>
+		</label>
+		</fieldset>
+</div>
+
+<style>  
+	.radio label {font-size:18px;line-height:2rem; padding:0.2em 0.4em;}
+	.radio span {vertical-align:middle;} 
+	/* appearance : none 은 라디오버튼의 기초속성을 초기화 시킴 */
+	.radio input {vertical-align: middle; appearance: none; border : max(2px, 0.1em) solid gray; border-radius : 50%; width : 1.25em; height : 1.25 em; transition:border 0.5s ease-in-out;}
+	.radio input:checked { border : 0.6em solid tomato;}
+	.radio input:focus-visible { outline-offset: max(2px, 0.1em);outline: max(2px, 0.1em) dotted tomato;}
+	.radio input:hover { box-shadow:0 0 0  max(4px, 0.2em) lightgray; cursor:pointer;}
+	.radio input:disabled {background-color:lightgray; box-shadow:none; opacity:0.7; cursor:non-allowed;}
+	.radio input:disabled + span {opacity:0.7; cursor:non-allowed;}
+</style>  
+
+<h4>:enabled와 :disabled</h4>
+<p>:enabled는 input 요소 중에서 사용할 수 있는 input 요소를 선택한다.<br>
+또한, :disabled는 input 요소 중에서 사용할 수 없는 input 요소를 선택한다.</p>
+<h4>CSS 상태 의사 클래스(UI element states pseudo-class)</h4>
+<table class="tb-2" summary="">
+	<thead>
+		<tr class="bg">
+			<th style="background-color:lightgray; width: 25%;">속성</th>
+			<th style="background-color:lightgray;">설명</th>	
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>:checked</td>
+			<td>체크된(checked) 상태의 input 요소를 모두 선택함.</td>
+		</tr>
+		<tr>
+			<td>:enabled</td>
+			<td>사용할 수 있는 input 요소를 모두 선택함.</td>
+		</tr>
+		<tr>
+			<td>:disabled</td>
+			<td>사용할 수 없는 input 요소를 모두 선택함.</td>
+		</tr>
+	</tbody>
+</table><hr>
+
+<div>    
+<h4>동적 의사 클래스(dynamic pseudo-class)</h4>
+<p>CSS에서 사용할 수 있는 동적 의사 클래스<br>
+- :link<br>
+- :visited<br>
+- :hover<br>
+- :active<br>
+- :focus<br>
+동적 의사 클래스를 사용하면 링크의 상태에 따라 각각의 스타일을 별도로 설정할 수 있다.</p>
+<p>예제</p></div>
+<div class="dynamic"><a href="https://www.w3.org/TR/css3-selectors/#sibling-combinators">링크</a>
+<hr>
+<h4>링크(link)의 상태</h4>
+<p>링크는 총 5가지의 상태를 가지며, 각 상태마다 별도의 스타일을 적용할 수 있다.<br>
+1. link : 링크의 기본 상태이며, 사용자가 아직 한 번도 이 링크를 통해 연결된 페이지를 방문하지 않은 상태<br>
+2. visited : 사용자가 한 번이라도 이 링크를 통해 연결된 페이지를 방문한 상태<br>
+3. hover : 사용자의 마우스 커서가 링크 위에 올라가 있는 상태<br>
+4. active : 사용자가 마우스로 링크를 클릭하고 있는 상태<br>
+5. focus : 키보드나 마우스의 이벤트(event) 또는 다른 형태로 해당 요소가 포커스(focus)를 가지고 있는 상태</p>
+:hover는 반드시 :link와 :visited가 먼저 정의된 후에 정의되어야 정상적으로 동작한다.</div>
+:active는 반드시 :hover가 먼저 정의된 후에 정의되어야 정상적으로 동작한다.</div>
+<p>예제</p>
+<div class="link">
+
+    <form action="/examples/media/request.php">
+        검색할 내용을 입력하세요 :
+        <input type="text" name="search">
+    </form> </div>
+
+<style>
+    .dynamic  a:link {color: orange;}
+    .dynamic  a:visited {color: gray;}
+    .dynamic  a:hover {color: blue;}
+    .dynamic  a:active {color: red;}
+    .dynamic  div:hover { background-color: blue; color: white; }
+    .link input { border: 3px solid deepskyblue; transition: 0.5s; }
+    .link input:focus { border: 3px solid maroon; }
+</style>
+<hr>
+<h4>CSS 동적 의사 클래스(dynamic pseudo-class)</h4>
+<table class="tb-2" summary="">
+	<thead>
+		<tr class="bg">
+            <th style="background-color:lightgray; width: 25%;">속성</th>
+            <th style="background-color:lightgray;">설명</th>			
+        </tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>:link</td>
+			<td>사용자가 아직 한 번도 이 링크를 통해서 연결된 페이지를 방문하지 않은 상태를 선택함. (기본 상태)</td>
+		</tr>
+		<tr>
+			<td>:visited</td>
+			<td>사용자가 한 번이라도 이 링크를 통해서 연결된 페이지를 방문한 상태를 선택함.</td>
+		</tr>
+		<tr>
+			<td>:hover</td>
+			<td>사용자의 마우스 커서가 링크 위에 올라가 있는 상태를 선택함.</td>
+		</tr>
+		<tr>
+			<td>:active</td>
+			<td>사용자가 마우스로 링크를 클릭하고 있는 상태를 선택함.</td>
+		</tr>
+		<tr>
+			<td>:focus</td>
+			<td>포커스를 가지고 있는 input 요소를 모두 선택함.</td>
+		</tr>
+	</tbody>
+</table>
+<hr>   
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>람다표현식</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">   
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">     
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+  <link href="{% static '/css/java.css'%}" rel="stylesheet">   
+</head>
+<body class="ms-3">  
+  <H2><a name="home">Javascript</a></H2>  
+  <p><a href="/javascript/j15.html" class="btn btn-purple mb-1" target="_blank" disabled>이전 노트</a>
+    <a href="/javascript/j17.html" class="btn btn-purple mb-1" target="_blank">다음 노트</a>
+    <a href="/htmls/tut1.html" class="btn btn-danger mb-1" target="_blank">HTML 노트</a> 
+    <a href="/css/tut11.html" class="btn btn-success mb-1" target="_blank">CSS 노트</a> 
+    <a href="/htmls/html_CSS.html" class="btn btn-outline-danger border-2 mb-1" target="_blank">HTML+CSS</a>
+    <a href="/htmls/html_Emmet.html" class="btn btn-outline-danger border-2 mb-1" target="_blank">HTML+Emmet</a>
+    <a href="/htmls/html_tags.html" class="btn btn-outline-danger border-2 mb-1" target="_blank">HTML+Tags</a><br>
+    <a href="/python/p01.html" class="btn btn-warning mb-1" target="_blank">파이썬 노트</a> 
+    <a href="/javascript/j01.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">자바스크립트 개요</a>
+    <a href="/javascript/j02.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">기본타입과 타입변환</a>
+    <a href="/javascript/j03.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">자바스크립트 연산자</a>
+    <a href="/javascript/j04.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">제어문과 배열 </a>
+    <a href="/javascript/j05.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">함수</a> 
+    <a href="/javascript/j06.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">객체</a>      
+    <a href="/javascript/j07.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Number 객체</a> 
+    <a href="/javascript/j08.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Math 객체</a> 
+    <a href="/javascript/j09.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Date 객체</a>     
+    <a href="/javascript/j10.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">String 문자열 객체</a>
+    <a href="/javascript/j11.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Array 배열 객체</a> 
+    <a href="/javascript/j12.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">문서객체모델 DOM</a> 
+    <a href="/javascript/j13.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">브라우저 객체 모델 BOM</a> 
+    <a href="/javascript/j14.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">이벤트와 예외처리</a>
+    <a href="/javascript/j15.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">정규표현식</a>  
+    <a href="/javascript/j16.html" class=" btn btn-secondary mb-1" target="_blank">람다표현식</a>  
+    <a href="/javascript/j17.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Map과 Set, Iterator와 Generator</a> </p> 
+
+
+  <div class="col-md-8 mb-2">
+  <div class="p-3 text-white fs-4 bd-pink-800">람다 표현식(lambda expression)이란?</div>      
+    <p>람다 표현식(lambda expression)이란 간단히 말해 메소드를 하나의 식으로 표현한 것이다.</p>
+    
+  <hr>  
+  <h4 class="text-primary fst-italic">함수를 람다 표현식으로 표현하기</h4>
+<b>lambda 매개변수(들): 식<br>(lambda 매개변수(들): 식)(인수(들))<br></b>
+
+  <p> 먼저 숫자를 받은 뒤 10을 더해서 반환하는 함수 plus_ten을 만들어보자<br>
+    
+  <div class="card text-bg-light mb-3" style="max-width: 50rem;">  
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div> 
+    <p class="card-text" style="padding: 10px 10px;"> 
+        >>> def plus_ten(x):<Br>
+        ...     return x + 10<Br>
+        ...<Br>
+        >>> plus_ten(1)  # 11<Br> 
+        ---------- 람다표현식 ---------- <br>
+        >>> lambda x: x + 10  <br>
+        # &lt;function &lt;lambda> at 0x02C27270> <br>
+        // 실행결과 함수 객체가 나오는데, 이 상태로는 함수를 호출할 수 없다. 람다 표현식을 익명 함수(anonymous function, 이름이 없는 함수)라고 한다 <br><br>
+        ---------- 람다표현식 호출  ---------- <br>
+        >>> plus_ten = lambda x: x + 10  // 익명함수인 람다 표현식을 호출하려면 변수에 할당해줘야 한다 <br>
+        >>> plus_ten(1) # 11<Br> <br>
+        ---------- 람다표현식 호출  ---------- <br>
+        >>> lambda x: x + 10(1)   // # 11 매개변수에 할당하지 않고 괄호안에 (람다 표현식)을 넣고 바로 (인수)를 대입해줘도 된다<br></p></div>
+ 
+  <hr>  
+  <h4 class="text-primary fst-italic">주의 : 람다표현식 안에서는 변수를 만들 수 없다</h4>
+   <p>람다 표현식에서 주의할 점은 람다 표현식 안에서는 새 변수를 만들 수 없다는 점이다. <br>
+    반환값 부분은 변수 없이 식 한 줄로 표현할 수 있어야 한다. <br>
+    만약 변수가 필요한 코드일 경우에는 def로 함수를 작성하는 것이 좋다.<br></p> 
+    
+  <div class="card text-bg-light mb-3" style="max-width: 50rem;">  
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div> 
+    <p class="card-text" style="padding: 10px 10px;"> 
+      >>> (lambda x: y = 10; x + y)(1) <br>
+      SyntaxError: invalid syntax <br></p></div>
+
+    <p>단, 람다 표현식 바깥에 있는 변수는 사용할 수 있다. 
+  
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">  
+      <div class="card-header bd-yellow-100"><h5>예제</h5></div> 
+      <p class="card-text" style="padding: 10px 10px;"> 
+        >>> y = 10 <br>
+        >>> (lambda x: x + y)(1) # 11<br>
+      </p></div>
+
+      <hr>  
+      <h4 class="text-primary fst-italic">람다 표현식을 인수로 사용하기</h4>
+      <p>람다 표현식을 사용하는 이유는 함수의 인수 부분에서 간단하게 함수를 만들기 위해서다. 이런 방식으로 사용하는 대표적인 예가 map이다.<br>
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">  
+        <div class="card-header bd-yellow-100"><h5>예제</h5></div> 
+        <p class="card-text" style="padding: 10px 10px;"> 
+          ---------- 함수를 만들어 map 사용하기  ---------- <br>
+          >>> def plus_ten(x):<br>
+          ...     return x + 10  <br>
+          ...       <br>
+          >>> list(map(plus_ten, [1, 2, 3]))  # [11, 12, 13]         <br><br>
+          ---------- 람다표현식으로 함수를 만들어 map 사용하기  ---------- <br>
+          >>> list(map(lambda x: x + 10, [1, 2, 3]))  # [11, 12, 13]
+               
+</p> </div></div>
+     
+</body>
+</html>

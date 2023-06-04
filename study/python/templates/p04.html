@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>파이썬 불리언타입</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">   
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">     
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <!-- font css -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="{% static '/css/java.css'%}" rel="stylesheet">   
+  <link href="{% static '/css/style.css'%}" rel="stylesheet">     
+</head>
+<body class="ms-3">  
+  <H2 class="coffee_taital" style="text-align:left;"><a name="home">파이썬</a></H2>  
+    <p><a href="/python/p01.html" class="btn btn-warning mb-1" target="_blank">이전 노트</a>
+    <a href="/python/p03.html" class="btn btn-warning mb-1" target="_blank">다음 노트</a>            
+    <a href="/htmls/tut1.html" class="btn btn-danger mb-1" target="_blank">HTML 노트</a> 
+    <a href="/css/tut11.html" class="btn btn-success mb-1" target="_blank">CSS 노트</a> 
+    <a href="/javascript/j01.html" class="btn btn-purple mb-1" target="_blank">Javascript 노트</a>
+     <a href="/python/p01.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">파이썬의 기초</a>
+     <a href="/python/p02.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">변수</a>
+     <a href="/python/p03.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">숫자형타입</a>
+     <a href="/python/p04.html" class=" btn btn-secondary mb-1" target="_blank">불리언타입</a>
+     <a href="/python/p05.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">문자열타입</a>
+     <a href="/python/p06.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">조건문</a>
+     <a href="/python/p07.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">반복문</a>
+     <a href="/python/p08.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">break와 continue</a>
+     <a href="/python/p09.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">리스트 타입</a>
+     <a href="/python/p10.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">튜플 타입</a>
+     <a href="/python/p11.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">세트 타입</a>
+     <a href="/python/p12.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">딕셔녀리 타입</a>
+     <a href="/python/p13.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">함수</a>
+     <a href="/python/p14.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">변수의 유효범위</a>
+     <a href="/python/p15.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">클래스</a>
+     <a href="/python/p16.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">객체</a>
+     <a href="/python/p17.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">상속</a>
+     <a href="/python/p18.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">모듈</a>
+     <a href="/python/p19.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">파일 입출력</a>     
+     <a href="/python/p20.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">예외처리</a> 
+     <a href="/python/p21.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">웹스크래핑1</a>    
+     <a href="/python/p22.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">웹스크래핑2</a>   </p> 
+
+      
+  <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+  <div class="card-header bd-yellow-100"><h4><b>데이터 타입(data-type) : 데이터의 종류</b></h2></div>
+    <p class="card-text" style="padding: 10px 10px;">   
+      # Sequence Types: str(문자열), list(리스트), tuple(튜플), range() <br>
+      # Mapping Type: dict(딕셔너리, 사전)<br>
+      # Set Types: set(집합)<br>
+      # Binary Types: bytes, bytearray, memoryview<br>
+      # Numeric Types: int(정수), float(실수), complex(복소수)<br>
+      # Boolean Type: bool(불리언)  참거짓<br></p></div>
+      
+     <p><table class="table tb-2" id="table1"><thead";><tr><th>TYPES<br></th><th>DATA<br></th><th>Iterable<br>(반복가능)</th><th>mutable<br>(수정가능)</th></tr></thead>
+      <tr><td rowspan="4">Sequence</td><td>str(문자열)<td rowspan="4">O</td><td>X</td></tr>
+      <tr><td>list(리스트)<td>X</td></tr>
+      <tr><td>tuple(튜플)<td>X</td></tr>
+      <tr><td>range()<td>X</td></tr>
+      <tr><td>Mapping</td><td>dict(딕셔너리,사전)<td>O</td><td>O</td></tr>
+      <tr><td>Set</td><td>set(집합)<td>O</td><td>X</td></tr>
+      <tr><td rowspan="3">Binary</td><td>bytes<td rowspan="3">O</td><td>X</td></tr>
+      <tr><td>bytearray<td>X</td></tr>
+      <tr><td>memoryview<td>X</td></tr>
+      <tr><td rowspan="3">Numeric</td><td>int(정수)<td rowspan="3">X</td><td>X</td></tr>
+      <tr><td>float(실수)<td>X</td></tr>
+      <tr><td>complex(복소수)<td>X</td></tr>
+      <tr><td>Boolean Type</td><td>bool(불리언) 참거짓<td>X</td><td>X</td></tr></table></p></div>
+  <style> 
+    #table1 thead {background-color: lightgray;}
+    #table1 th:nth-child(1), #table1 th:nth-child(2), #table1 td:nth-child(1), #table1 td:nth-child(2) {text-align:left; width:20%;}
+    #table1 th:nth-child(3), #table1 th:nth-child(4), #table1 td:nth-child(3), #table1 td:nth-child(4) {text-align:center; width:30%;}
+    #table1 tr:nth-child(3) td:nth-child(2), #table1 tr:nth-child(4) td:nth-child(2), #table1 tr:nth-child(5) td:nth-child(2), 
+    #table1 tr:nth-child(9) td:nth-child(2), #table1 tr:nth-child(10) td:nth-child(2), #table1 tr:nth-child(12) td:nth-child(2), 
+    #table1 tr:nth-child(13) td:nth-child(2) {text-align: center;}
+    #table1 tr {vertical-align:middle;} 
+  </style>
+
+     <div class="col-md-8 mb-2">
+      <div class="p-3 text-white fs-4 bd-pink-800">불리언 타입</div>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">불리언 타입(boolean types) : bool</h2>
+      <p>불리언 타입이란 논리값인 참(True)과 거짓(False) 중 한 가지만을 가질 수 있는 데이터 타입을 의미한다.<br>
+      파이썬에서는 True와 False가 예약어로 미리 지정되어 있기 때문에 첫 문자를 항상 대문자로 사용해야만 한다.<br>
+      C를 비롯한 대부분의 프로그래밍 언어에서 1은 ‘참’을 의미하고 0은 ‘거짓’을 의미한다. 파이썬에서는 이에 더해 데이터의 참과 거짓을 다음과 같이 판단하고 있다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      print(bool(1))# True<br> 
+      print(bool(0))# False  <br> 
+      print(bool(None))     # False<br> 
+      print(bool([]))       # False<br> 
+      print(bool(()))       # False<br> 
+      print(bool({}))       # False<br> 
+      print(bool([1,2,3]))# True  <br> 
+      print(bool(""))       # False<br> 
+      print(bool("python")) # True</p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <span class="fw-bold">실행 결과</span><br>
+      True<br>
+      False<br>
+      False<br>
+      False<br>
+      False<br>
+      False<br>
+      True<br>
+      False<br>
+      True</p></div>
+      <p>문자열이나 리스트, 튜플, 딕셔너리 등이 비어있으면 거짓(False)으로 인식되며, 비어있지 않으면 참(True)으로 인식된다.<br>
+      bool() 함수는 인수로 전달된 데이터의 참과 거짓을 판단하여 반환한다. 이 2가지 값만 가질 수 있음 <br>
+      빈 자료값("", (), {}, [] 등), 숫자 0, None 는 False, 나머지는 True.  조건문과 함께 활용  </p></div> 
+
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">비교 연산자(relational operator)</h2>
+      <p>비교 연산자는 피연산자 사이의 상대적인 크기를 판단하는 연산자로, 왼쪽의 피연산자와 오른쪽의 피연산자를 서로 비교하여 어느 쪽이 더 큰지, 작은지, 또는 같은지를 판단한다.</p>
+      <table class="table" style="width:60%;">
+        <thead>
+          <tr class="bg">
+            <th>비교 연산자</th>
+            <th>설명</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>&lt;</td>
+            <td>왼쪽의 피연산자가 오른쪽의 피연산자보다 작으면 True를 반환함.</td>
+          </tr>
+          <tr>
+            <td>&lt;=</td>
+            <td>왼쪽의 피연산자가 오른쪽의 피연산자보다 작거나 같으면 True를 반환함.</td>
+          </tr>
+          <tr>
+            <td>&gt;</td>
+            <td>왼쪽의 피연산자가 오른쪽의 피연산자보다 크면 True를 반환함.</td>
+          </tr>
+          <tr>
+            <td>&gt;=</td>
+            <td>왼쪽의 피연산자가 오른쪽의 피연산자보다 크거나 같으면 True를 반환함.</td>
+          </tr>
+          <tr>
+            <td>==</td>
+            <td>왼쪽의 피연산자와 오른쪽의 피연산자가 같으면 True를 반환함.</td>
+          </tr>
+          <tr>
+            <td>!=</td>
+            <td>왼쪽의 피연산자와 오른쪽의 피연산자가 같지 않으면 True를 반환함.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>비교 연산자로 연산한 결과는 언제나 불리언 타입으로 반환되므로, True나 False 중 하나의 값이 반환된다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;"> 
+      i = 100<br> 
+      j = 10  <br> 
+      print(i &lt; j)# False<br> 
+      print(i &gt;= j) # True<br> 
+      print(i == j) # False<br> 
+      print(i != j) # True</p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <span class="fw-bold">실행 결과</span><br>
+      False<br>
+      True<br>
+      False<br>
+      True</p></div>
+      </div>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">논리 연산자(logical operator)</h2>
+      <p>논리 연산자는 주어진 논리식을 판단하여, 참(True)과 거짓(False)을 결정하는 연산자이다.</p>
+      <table class="table" style="width:60%;">
+        <thead>
+          <tr class="bg">
+            <th>논리 연산자</th>
+            <th>설명</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>or</td>
+            <td>논리식 중에서 하나라도 True이면 True를 반환함.</td>
+          </tr>
+          <tr>
+            <td>and</td>
+            <td>논리식이 모두 True이면 True를 반환함.</td>
+          </tr>
+          <tr>
+            <td>not</td>
+            <td>논리식의 결과가 True이면 False를, False이면 True를 반환함.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      print((100 &gt; 10) or (30 &lt;= 3)) # True or False -&gt; True<br>
+      print((10 == 10) and (3 != 3)) # True and False -&gt; False<br>
+      print(not (3 &lt;= 3))    # not True -&gt; False</p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <span class="fw-bold">실행 결과</span><br>
+      True<br>
+      False<br>
+      False</p></div>
+      <p>파이썬에서 or 연산자는 첫 번째 논리식의 결과가 False일 때만 두 번째 논리식을 검사한다. 이것은 첫 번째 논리식의 결과가 True이면 두 번째 논리식을 검사하지 않고도 결과가 True임을 바로 알 수 있기 때문이다.</p>
+       
+      <p>또한, and 연산자는 첫 번째 논리식의 결과가 True일 때만 두 번째 논리식을 검사한다. 첫 번째 논리식의 결과가 False이면 두 번째 논리식의 결과와 상관없이 언제나 결과는 False이기 때문이다.<br>
+      다음은 논리 연산자의 모든 결과를 나타내는 진리표(truth table)이다.</p>
+      <table class="table text-center" style="width:60%;">
+        <thead>
+          <tr class="bg">
+            <th style="width: 20%;">A</th>
+            <th style="width: 20%;">B</th>
+            <th style="width: 20%;">A and B</th>
+            <th style="width: 20%;">A or B</th>
+            <th style="width: 20%;">not A</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>True</td>
+            <td>True</td>
+            <td>True</td>
+            <td>True</td>
+            <td>False</td>
+          </tr>
+          <tr>
+            <td>True</td>
+            <td>False</td>
+            <td>False</td>
+            <td>True</td>
+            <td>False</td>
+          </tr>
+          <tr>
+            <td>False</td>
+            <td>True</td>
+            <td>False</td>
+            <td>True</td>
+            <td>True</td>
+          </tr>
+          <tr>
+            <td>False</td>
+            <td>False</td>
+            <td>False</td>
+            <td>False</td>
+            <td>True</td>
+          </tr>
+        </tbody>
+      </table>
+    
+</body>
+</html>

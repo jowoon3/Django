@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3 테두리 버튼 사용자인터페이스 </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <H2>CSS</H2>  
+    <style>
+        .txtlink {color: green; text-decoration:none; margin-left:20px; font-size:16px;}
+        .txtlink:hover {text-decoration:underline;}        /*마우스 올라가면 밑줄 */        
+        /* .button_S {display:inline-block; background-color:gray; color: #FFFFFF; padding: 14px 25px; text-align: center; text-decoration: none; font-size: 16px; margin-left: 20px; opacity: 0.9; border-radius: 5px;}
+        .button_S:hover {color:white; background-color:lightyellow ; opacity:1.0;}      /*마우스 올라가면 배경색 핑크색 글자 흰색으로 바뀜 
+        .button1 {display:inline-block; background-color:#f44336; color: #FFFFFF; padding: 14px 25px; text-align: center; text-decoration: none; font-size: 16px; margin-left: 20px; opacity: 0.9; border-radius: 5px;}
+        .button1:hover {color:white; background-color:pink; opacity:1.0;}      마우스 올라가면 배경색 핑크색 글자 흰색으로 바뀜 
+        .button2 {background-color: white; color: black; border: 2px solid #f44336; padding: 14px 24px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin-left: 20px;}
+        .button2:hover {background-color: #f44336; color: white;}    /*마우스 올라가면 배경색 및 글자 색 바뀜
+        .button3 {display:inline-block; background-color: #44bb55; color: #FFFFFF; padding: 14px 25px; text-align: center; text-decoration: none; font-size: 16px; margin-left: 20px; opacity: 0.9;border-radius: 5px;}
+        .button3:hover {background-color: #44bb55; color: white;}    마우스 올라가면 배경색 및 글자 색 바뀜 
+        .button4 {background-color: white; color: black; border: 2px solid #44bb55; padding: 14px 24px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin-left: 20px;}
+        .button4:hover {background-color: #44bb55; color: white;}    마우스 올라가면 배경색 및 글자 색 바뀜 */
+        
+        .btn {margin: 4px 0px;--bs-btn-padding-x: 0.75rem;  --bs-btn-padding-y: 0.375rem; --bs-btn-font-family: 'Nanum Gothic', sans-serif; --bs-btn-font-size: 1rem; --bs-btn-font-weight: 400;
+              --bs-btn-line-height: 1.5;    --bs-btn-border-width: var(--bs-border-width);
+              --bs-btn-border-radius: 0.375rem;   --bs-btn-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15),0 1px 1px rgba(0, 0, 0, 0.075);
+              --bs-btn-disabled-opacity: 0.65;    --bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(var(--bs-btn-focus-shadow-rgb), .5);
+              display: inline-block; padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x); font-family: var(--bs-btn-font-family);
+              font-size: var(--bs-btn-font-size); font-weight: var(--bs-btn-font-weight); line-height: var(--bs-btn-line-height); 
+              color: var(--bs-btn-color);         text-align: center;    text-decoration: none;    vertical-align: middle;    cursor: pointer;
+              -webkit-user-select: none;    -moz-user-select: none;      user-select: none;    
+              border: var(--bs-btn-border-width) solid var(--bs-btn-border-color); border-radius: var(--bs-btn-border-radius);
+              background-color: var(--bs-btn-bg);}
+        .button_S {--bs-btn-color: #fff;    --bs-btn-bg: #6c757d;    --bs-btn-border-color: #6c757d;    --bs-btn-hover-color: #fff;
+              --bs-btn-hover-bg: #5c636a;    --bs-btn-hover-border-color: #565e64;    --bs-btn-focus-shadow-rgb: 130,138,145;
+              --bs-btn-active-color: #fff;    --bs-btn-active-bg: #565e64;    --bs-btn-active-border-color: #51585e;
+              --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #fff;    --bs-btn-disabled-bg: #6c757d;
+              --bs-btn-disabled-border-color: #6c757d;}
+        .button1 {--bs-btn-color: #fff;     --bs-btn-bg: #dc3545;       --bs-btn-border-color: #dc3545;     --bs-btn-hover-color: #fff;
+                  --bs-btn-hover-bg: #bb2d3b;    --bs-btn-hover-border-color: #b02a37;     --bs-btn-focus-shadow-rgb: 225,83,97;
+                  --bs-btn-active-color: #fff;   --bs-btn-active-bg: #b02a37;    --bs-btn-active-border-color: #a52834;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #fff;
+                  --bs-btn-disabled-bg: #dc3545;    --bs-btn-disabled-border-color: #dc3545;}
+        .button2 {--bs-btn-color: #dc3545;    --bs-btn-border-color: #dc3545;    --bs-btn-hover-color: #fff;    --bs-btn-hover-bg: #dc3545;
+                  --bs-btn-hover-border-color: #dc3545;    --bs-btn-focus-shadow-rgb: 220,53,69;    --bs-btn-active-color: #fff;
+                  --bs-btn-active-bg: #dc3545;    --bs-btn-active-border-color: #dc3545; --bs-border-width: 2px;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #dc3545;
+                  --bs-btn-disabled-bg: transparent;    --bs-btn-disabled-border-color: #dc3545;    --bs-gradient: none;}
+        .button3 {--bs-btn-color: #fff;    --bs-btn-bg: #198754;    --bs-btn-border-color: #198754;    --bs-btn-hover-color: #fff;
+                  --bs-btn-hover-bg: #157347;     --bs-btn-hover-border-color: #146c43;     --bs-btn-focus-shadow-rgb: 60,153,110;
+                  --bs-btn-active-color: #fff;    --bs-btn-active-bg: #146c43;    --bs-btn-active-border-color: #13653f;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #fff;
+                  --bs-btn-disabled-bg: #198754; --bs-btn-disabled-border-color: #198754;}
+        .button4 {--bs-btn-color: #198754;    --bs-btn-border-color: #198754;    --bs-btn-hover-color: #fff;    --bs-btn-hover-bg: #198754;
+                  --bs-btn-hover-border-color: #198754;    --bs-btn-focus-shadow-rgb: 25,135,84;    --bs-btn-active-color: #fff;
+                  --bs-btn-active-bg: #198754;    --bs-btn-active-border-color: #198754;--bs-border-width: 2px;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #198754;
+                  --bs-btn-disabled-bg: transparent;    --bs-btn-disabled-border-color: #198754;    --bs-gradient: none;}
+        </style>
+        <p><a href="/css/tut13.html" class="btn button3" target="_blank">이전 노트</a>
+        <a href="/css/tut15.html" class="btn button3" target="_blank">다음 노트</a>
+        <a href="/htmls/tut1.html" class="btn button1" target="_blank">HTML 노트</a> 
+        <a href="/htmls/html_CSS.html" class="btn button2" target="_blank">HTML+CSS</a>
+        <a href="/htmls/html_Emmet.html" class="btn button2" target="_blank">HTML+Emmet</a>
+        <a href="/htmls/html_tags.html" class="btn button2" target="_blank">HTML+Tags</a><br>
+        <a href="/javascript/j01.html" class="btn btn-success mb-1" target="_blank">자바스크립트 노트</a>  
+        <a href="/python/p01.html" class="btn btn-success mb-1" target="_blank">파이썬 노트</a>   
+        <a href="/css/tut11.html" class="btn button4" target="_blank">CSS 문법</a>
+        <a href="/css/tut12.html" class="btn button4" target="_blank">색과 배경</a>
+        <a href="/css/tut13.html" class="btn button4" target="_blank">선형 원형 그래디언트 CSS3 배경속성</a>
+        <a href="/css/tut14.html" class="btn button4" target="_blank">텍스트 글꼴 링크 </a>
+        <a href="/css/tut15.html" class="btn button4" target="_blank">글꼴 링크 이미지 스프라이트</a> 
+        <a href="/css/tut16.html" class="btn button4" target="_blank">리스트 테이블</a>
+        <a href="/css/tut17.html" class="btn button4" target="_blank">박스모델 크기 패딩</a> 
+        <a href="/css/tut18.html" class="btn button4" target="_blank">박스모델 테두리 마진 아웃라인</a> 
+        <a href="/css/tut19.html" class="btn button4" target="_blank">Flexible Box 플렉서블 박스 플렉스</a>
+        <a href="/css/tut20.html" class="btn button_S" target="_blank">CSS3 테두리 버튼 사용자인터페이스</a> 
+        <a href="/css/tut21.html" class="btn button4" target="_blank">위치 디스플레이 플로트 정렬</a> 
+        <a href="/css/tut22.html" class="btn button4" target="_blank">위치 포지션 선택자 selector</a>
+        <a href="/css/tut23.html" class="btn button4" target="_blank">CSS3 선택자(selector)</a>
+        <a href="/css/tut24.html" class="btn button4" target="_blank">CSS3 transition 애니메이션</a>     
+        <a href="/css/tut25.html" class="btn button4" target="_blank">유사클래스 상태의사클래스 동적의사클래스 </a>
+        <a href="/css/tut26.html" class="btn button4" target="_blank">구조의사클래스</a> 
+        <a href="/css/tut27.html" class="btn button4" target="_blank">의사 요소(pseudo-element)</a>
+        <a href="/css/tut28.html" class="btn button4" target="_blank">CSS 네비게이션바</a>
+        <a href="/css/tut29.html" class="btn button4" target="_blank">CSS form 요소 @규칙</a> 
+        <a href="/css/tut30.html" class="btn button4" target="_blank">bootstrap 활용</a>  
+        <a href="/css/tut31.html" class="btn button4" target="_blank">test several things</a></p>  
+
+    <h4>CSS3 테두리(Border)</h4>
+    <p>CSS3에서는 테두리의 모서리를 둥글게 만들거나, 테두리에 이미지를 사용할 수 있다.</p>
+     
+    <p>CSS3에서 새롭게 추가된 border 속성<br>
+    1. border-radius<br>
+    2. border-top-left-radius<br>
+    3. border-top-right-radius<br>
+    4. border-bottom-right-radius<br>
+    5. border-bottom-left-radius<br>
+    6. border-image<br>
+    7. border-image-source<br>
+    8. border-image-slice<br>
+    9. border-image-width<br>
+    10. border-image-outset<br>
+    11. border-image-repeat</p>
+    
+    <hr>
+    
+    <h4>CSS2 테두리</h4>
+    <p>border 속성은 내용(content)과 패딩(padding) 영역을 둘러싸는 테두리(border)의 스타일을 설정할 수 있게 해준다.<br>
+    CSS2까지는 다음과 같은 border 속성만을 사용할 수 있었다.<br>
+    1. border<br>
+    2. border-style<br>
+    3. border-width<br>
+    4. border-color<br>
+    5. border-top<br>
+    6. border-right<br>
+    7. border-bottom<br>
+    8. border-left</p>
+    
+    <hr>
+    
+    <h4>CSS3 테두리(border) 속성 지원 버전</h4>
+    <p>CSS3 테두리(border) 속성을 지원하는 주요 웹 브라우저의 버전<br>
+    또한, 브라우저별로 벤더 프리픽스(vendor prefix)를 이용해 이 기능을 최초로 지원한 버전도 같이 표기했다.</p>
+    
+    <table class="tb-1" summary="">
+        <tbody>
+            <tr>
+                <th>속성</th>
+                <th><img alt="ie" class="icon" src="http://www.tcpschool.com/img/icon-ie.png"></th>
+                <th><img alt="chrome" class="icon" src="http://www.tcpschool.com/img/icon-chrome.png"></th>
+                <th><img alt="firefox" class="icon" src="http://www.tcpschool.com/img/icon-firefox.png"></th>
+                <th><img alt="safari" class="icon" src="http://www.tcpschool.com/img/icon-safari.png"></th>
+                <th><img alt="opera" class="icon" src="http://www.tcpschool.com/img/icon-opera.png"></th>
+            </tr>
+            <tr><td>border-radius</td>
+                <td>9.0</td>
+                <td><p>5.0</p>    
+                <p>4.0 -webkit-</p></td>
+                <td><p>4.0</p>    
+                <p>3.0 -moz-</p></td>
+                <td><p>5.0</p>
+                <p>3.1 -webkit-</p></td>
+                <td>10.5</td></tr>
+            <tr><td>border-image</td>
+                <td>11.0</td>
+                <td><p>16.0</p>    
+                <p>4.0 -webkit-</p></td>
+                <td><p>15.0</p>    
+                <p>3.5 -moz-</p></td>
+                <td><p>6.0</p>    
+                <p>3.1 -webkit-</p></td>
+                <td><p>15.0</p>    
+                <p>11.0 -o-</p></td>
+            </tr>
+        </tbody>
+    </table> 
+
+    
+    <hr>
+    
+    <h4>border-radius 속성</h4>
+    <p>CSS3에서는 모든 HTML 요소에 border-radius 속성을 설정하여 모서리를 둥글게 만들 수 있다.</p>
+    <style>
+        .css3 #p_01 { border:red 6px solid; height: 150px; width: 200px; border-radius: 25px; }
+        .css3 #div_01 { border:blue 6px solid; height: 150px; width: 200px; border-radius: 25px; }    
+        .css3 #p_02 {background: url("www.tcpschool.com/examples/images/img_background_good.png");    
+            background-position: left top;    
+            background-repeat: repeat;    
+            border-radius: 25px; }
+
+        .css3 #p_03 { border:yellow 6px solid; border-top-left-radius: 20px;
+            border-top-right-radius: 40px;
+            border-bottom-right-radius: 60px;
+            border-bottom-left-radius: 80px;}
+        .css3 #p_04 { border:orange 6px solid; border-radius: 20px 40px 60px 80px; }
+        .css3 #p_05 { border : green 6px dashed ;border-radius: 20px 40px 60px; }
+        .css3 #p_06 { border : tomato 6px dotted; border-radius: 20px 40px; }
+        .css3 #p_07 { border : tomato 6px solid; border-radius: 20px; }
+        .css3 #p_08 {border: red solid 20px;
+            -webkit-border-image: url("http://www.tcpschool.com/lectures/img_css3_pattern.png") 34 round;
+            -moz-border-image: url("http://www.tcpschool.com/lectures/img_css3_pattern.png") 34 round;
+            -o-border-image: url("http://www.tcpschool.com/lectures/img_css3_pattern.png") 34 round;
+            border-image: url("http://www.tcpschool.com/lectures/img_css3_pattern.png") 34 round;}
+
+        .css3 #p_09 {border: blue solid 20px;
+            -webkit-border-image: url("http://www.tcpschool.com/lectures/img_css3_pattern.png")34% stretch;
+            -moz-border-image: url("http://www.tcpschool.com/lectures/img_css3_pattern.png") 34% stretch;
+            -o-border-image: url("http://www.tcpschool.com/lectures/img_css3_pattern.png") 34% stretch;
+            border-image: url("http://www.tcpschool.com/lectures/img_css3_pattern.png") 34% stretch;}
+
+        .css3 #p_10 {border: green solid 20px;
+            -webkit-border-image: url("http://www.tcpschool.com/lectures/img_css3_pattern.png") 34 round stretch;
+            -moz-border-image: url("http://www.tcpschool.com/lectures/img_css3_pattern.png") 34 round stretch;
+            -o-border-image: url("http://www.tcpschool.com/lectures/img_css3_pattern.png") 34 round stretch;
+            border-image: url("http://www.tcpschool.com/lectures/img_css3_pattern.png") 34 round stretch;}
+</style>
+    <h4>예제</h4>
+    <div class="css3"> 
+        <div id="p_01">height: 150px; width: 200px; border-radius: 25px;</div><br>
+        <div id="div_01">height: 150px; width: 200px; border-radius: 25px; </div><br>
+        <div id="p_02">background-position: left top;border-radius: 25px;</div><br>
+
+    <p>border-radius 속성은 실제로 다음 네 가지 속성의 스타일을 한 줄에 설정한 것이다.<br>
+    따라서 다음 속성들을 각각 사용하면 모서리별로 따로 스타일을 설정할 수 있다.<br>
+    1. border-top-left-radius<br>
+    2. border-top-right-radius<br>
+    3. border-bottom-right-radius<br>
+    4. border-bottom-left-radius<br> </p>
+     
+    <h4>모서리별로 다른 크기의 둥근 모서리를 설정하는 예제</h4>     
+        <div id="p_03">border-top-left-radius: 20px; border-top-right-radius: 40px;border-bottom-right-radius: 60px;border-bottom-left-radius: 80px; left top;border-radius: 25px;</div> 
+        <div id="p_04">border-radius: 20px 40px 60px 80px; </div><br>
+        <div id="p_05">border-radius: 20px 40px 60px; </div><br>
+        <div id="p_06">border-radius: 20px 40px; </div><br>
+        <div id="p_07"> border-radius: 20px; </div><br>
+
+    <p>4개의 border-radius 속성값을 가질 때는 top-left, top-right, bottom-right, bottom-left 순으로 설정된다.<br>
+    ex] border-radius: 20px 40px 60px 80px;<br>
+    (위의 예제는 아래 4줄의 코드와 같은 의미를 가지고 있다.)<br><br>
+    border-top-left-radius: 20px;<br>
+    border-top-right-radius: 40px;<br>
+    border-bottom-right-radius: 60px;<br>
+    border-bottom-left-radius: 80px;<br>
+    3개의 border-radius 속성값을 가질 때는 top-left, top-right와 bottom-left, bottom-right 순으로 설정된다.<br>
+    ex] border-radius: 20px 40px 60px;<br>
+    (위의 예제는 아래 4줄의 코드와 같은 의미를 가지고 있다.)<br><br>
+
+    border-top-left-radius: 20px;<br>
+    border-top-right-radius: 40px;<br>
+    border-bottom-right-radius: 60px;<br>
+    border-bottom-left-radius: 40px;<br>
+    2개의 border-radius 속성값을 가질 때는 top-left와 bottom-right, top-right와 bottom-left 순으로 설정된다.<br>
+    ex) border-radius: 20px 40px;<br>
+    (위의 예제는 아래 4줄의 코드와 같은 의미를 가지고 있다.)<br><br>
+
+    border-top-left-radius: 20px;<br>
+    border-top-right-radius: 40px;<br>
+    border-bottom-right-radius: 20px;<br>
+    border-bottom-left-radius: 40px;<br>
+    1개의 border-radius 속성값을 가질 때는 border-radius 속성값이 모두 같은 값으로 설정된다.<br>
+    ex) border-radius: 20px;<br>
+    (위의 예제는 아래 4줄의 코드와 같은 의미를 가지고 있다.)<br><br>
+
+    border-top-left-radius: 20px;<br>
+    border-top-right-radius: 20px;<br>
+    border-bottom-right-radius: 20px;<br>
+    border-bottom-left-radius: 20px;</p>
+    <hr>
+    
+    <h4>border-image 속성</h4>
+    <p>CSS3에서는 요소를 둘러싸는 테두리(border)에 이미지를 사용할 수 있다.<br>
+        border-image 속성은 다음과 같은 순서로 동작한다.<br>
+        1. 테두리(border)로 사용할 이미지를 결정한다.<br>
+        2. 이미지의 어느 부분을 자를 것인지 결정한다.<br>
+        3. 테두리 중간 부분의 이미지 처리를 반복되게 할지 아니면 그냥 늘릴지를 결정한다.<br>
+    우선 테두리로 사용할 이미지를 결정한다.<br>
+        <img alt="pattern image" src="http://www.tcpschool.com/lectures/img_css3_pattern.png" style="width: 100px; height: 103px;"><br>
+        border-image 속성은 설정된 이미지를 바둑판처럼 9조각으로 나눈다.<br>
+        <img alt="lined pattern image" src="http://www.tcpschool.com/lectures/img_css3_pattern_lined.png" style="width: 100px; height: 103px;"><br>
+        그 후에 top, right, bottom, left에 해당하는 영역의 처리를 반복되게 할지 아니면 그냥 늘릴지를 결정하게 된다.<br></p>
+     
+        <h4>round 속성값을 사용하여 테두리 중간 부분의 처리를 반복으로 설정한 예제</h4>
+        <div style="border: red solid 20px; border-image: url('http://www.tcpschool.com/lectures/img_css3_pattern.png') 20 round;"> border: solid 20px; border-image: url("www.tcpschool.com/examples/images/img_css3_pattern.png") 20 round </div><br>    
+        
+        <div id="p_08"> border: solid 20px; border-image: url("www.tcpschool.com/examples/images/img_css3_pattern.png") 34 round </div><br>   
+    <div>border-image 속성을 설정하기 위해서는 <span class="bred">반드시 border 속성이 먼저 설정되어 있어야</span> 한다.</div>
+     
+    <h4>stretch 속성값을 사용하여 테두리 중간 부분의 처리를 늘리는 것으로 설정한 예제</h4> 
+        <div style="border: red solid 20px; border-image: url('http://www.tcpschool.com/lectures/img_css3_pattern.png') 25% stretch;">border: solid 20px; border-image: url("www.tcpschool.com/examples/images/img_css3_pattern.png") 25% stretch</div><br>
+        <div id="p_09">border: solid 20px; border-image: url("www.tcpschool.com/examples/images/img_css3_pattern.png") 34% stretch</div><br>
+     <p>위의 예제에서 볼 수 있듯이 border-image 속성값으로 전달되는 인수의 기본 단위는 %이다.<br> </p>
+    
+    <h4>수직 테두리와 수평 테두리의 처리 방식을 다르게 설정한 예제</h4>   
+        <div id="p_10">border: solid 20px; border-image: url("www.tcpschool.com/examples/images/img_css3_pattern.png") 34 round stretch</div><br>
+    <p>border-image 속성은 실제로 다음 5가지 속성의 스타일을 한 줄에 설정한 것이다.<br>
+    1. border-image-source<br>
+    2. border-image-slice<br>
+    3. border-image-width<br>
+    4. border-image-outset<br>
+    5. border-image-repeat</p>
+</div><hr>
+    
+    <h4>CSS3 border 속성</h4>
+    <table class="tb-2" summary="">
+        <thead>
+            <tr class="bg">
+                <th style="width: 40%;">속성</th>
+                <th>설명</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>border-radius</td>
+                <td>모든 border-radius 속성을 이용한 스타일을 한 줄에 설정할 수 있음.</td>
+            </tr>
+            <tr>
+                <td>border-top-left-radius</td>
+                <td>테두리(border)의 top-left 부분 모서리의 스타일을 설정함.</td>
+            </tr>
+            <tr>
+                <td>border-top-right-radius</td>
+                <td>테두리의 top-right 부분 모서리의 스타일을 설정함.</td>
+            </tr>
+            <tr>
+                <td>border-bottom-right-radius</td>
+                <td>테두리의 bottom-right 부분 모서리의 스타일을 설정함.</td>
+            </tr>
+            <tr>
+                <td>border-bottom-left-radius</td>
+                <td>테두리의 bottom-left 부분 모서리의 스타일을 설정함.</td>
+            </tr>
+            <tr>
+                <td>border-image</td>
+                <td>모든 border-image 속성을 이용한 스타일 설정이 한 줄에 가능함.</td>
+            </tr>
+            <tr>
+                <td>border-image-source</td>
+                <td>테두리로 사용할 이미지를 설정함.</td>
+            </tr>
+            <tr>
+                <td>border-image-slice</td>
+                <td>테두리로 사용할 이미지를 자르는 방법을 설정함.</td>
+            </tr>
+            <tr>
+                <td>border-image-width</td>
+                <td>테두리로 사용할 이미지의 너비를 설정함.</td>
+            </tr>
+            <tr>
+                <td>border-image-outset</td>
+                <td>테두리 영역 너머로 테두리로 사용할 이미지가 얼마만큼 넘어갈지를 설정함.</td>
+            </tr>
+            <tr>
+                <td>border-image-repeat</td>
+                <td>테두리로 사용할 이미지의 중간 부분의 처리를 반복으로 할지 늘릴지를 설정함.</td>
+            </tr>
+        </tbody>
+    </table>    
+    <hr>
+    <h4>CSS3 버튼(button)</h4>
+    <p>CSS를 이용하면 다양한 모양의 버튼을 여러 방식으로 만들 수 있다.<br>
+    CSS에서 버튼은 &lt;button&gt;태그 뿐만 아니라 &lt;a&gt;태그와 &lt;input&gt;태그로도 만들 수 있다.</p> 
+
+    <style>
+        .btn6 { background-color: #87CEEB;    
+            transition-duration: 0.4s; }    
+        .btn6:hover { background-color: #4169E1;    
+            color: white;}    
+        #btn1, #btn2:hover { box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); }
+        .btn1 { opacity: 0.4; cursor:not-allowed; }  
+        .btn2 { background: linear-gradient(darkgrey, lightgray, darkgrey); opacity:0.9;  
+                border: dotted 1px gray; font-size:24px;
+                text-decoration: none;
+                cursor: pointer;
+                float:left; margin:4px;}
+        .btn3 span {display: inline-block; position: relative; transition: 0.5s; align-items: center;}
+        .btn3 span::after {content: " ▶"; color: red; opacity: 0;transition: 0.5s;}
+        .btn3:hover span::after {opacity: 1; right: 0px;}
+
+        .btn4 {background-color: orange; position: relative; height: 70px; width:150px; padding: 15px 30px; border-radius: 4px;
+            margin: 10px; text-align: center; text-decoration: none; font-size: 22px; transition-duration: 0.4s;} 
+        .btn4::after { content: ""; background-color: red; display: block; position: absolute; top: 70px; left: 0;
+                         padding-top: 130%; padding-left: 300%; margin-left: 0; margin-top: -120%;
+                         opacity: 0; transition: all 0.8s;}
+        .btn4:active::after { padding: 0px; margin: 0px; opacity: 1; transition: 0s}   
+        .btn5 { background-color: yellow; font-size:18px; display: inline-block; border: none; outline: none; border-radius: 20px; box-shadow: 0 9px #B0B0B0;} 
+        .btn5:active {background-color: #FF8C00; box-shadow: 0 5px #808080; transform: translateY(4px);} 
+    </style>
+    
+    <div class="content-box s5">button 타입의 input 요소에서 내부에 표시될 문자열은 value 속성값으로 설정할 수 있다.</div>
+    
+    <h4>마우스를 올리면 배경색이 변하는 버튼 예제</h4>  
+    <button class="btn6">button 태그</button>
+    <a href="#" class="btn6">a 태그</a>
+    <input type="button" value="input 태그" class="btn">  
+    
+    <p>위의 예제처럼 transition-duration 속성을 이용하면, 배경색 뿐만 아니라 글자의 색상까지 변경되게 할 수 있다.<br> </p>
+     
+    <h4>그림자 효과를 설정한 버튼 예제</h4> 
+    <button class="btn" id="btn1">button 태그</button><Br>
+    <p>위의 예제처럼 box-shadow 속성을 이용하면, 버튼에 실제와 같은 그림자 효과를 간단히 설정할 수 있다.<br> </p>
+    
+    <h4>버튼을 사용하지 못하도록 설정하는 예제</h4>  
+    <button type="button" onclick="alert('Hello World!')" disabled>클릭해 보세요!</button>
+    <p>disabled 속성을 이용하면, 버튼을 사용하지 못하도록 만들 수 있다.<br>
+        이렇게 사용이 금지된 버튼은 반투명하게 보이게 된다.<br>
+
+    <button class="btn1">disabled 태그 cursor 사용불가 </button> </p>
+    
+    이때 cursor 속성의 속성값을 not-allowed로 설정하면, 사용이 금지된 버튼을 더욱 그럴싸하게 표현할 수 있다.<br>
+
+    <h4>float 속성을 이용하여 버튼으로 메뉴를 만든예제</h4>     
+    <button class="btn2">코딩 이야기</button>
+    <button class="btn2">코딩의 첫걸음</button>
+    <button class="btn2">코딩과 데이터</button>
+    <button class="btn2">데이터와 소통</button>
+    <button class="btn2">자격증 정보</button>
+    <Br><Br><Br>
+    <p>  </p>
+    <hr> 
+    
+    <h4>다양한 형태의 버튼 예제</h4>
+    <p>CSS의 애니메이션(animation) 효과를 이용하면, 버튼에 더욱 다양한 효과를 적용할 수 있다.<br> 
+     
+    <h4>마우스를 올리면 버튼의 표시 내용이 바뀌는 예제</h4>       
+    <button class="btn3"><span>버 튼</span></button><Br>
+    <p>위의 예제에서 '▶'기호는 ::after 선택자를 이용하여 '버튼'이라는 문자열 바로 뒤에 삽입된다.<Br>
+    이때 opacity 속성값을 0으로 설정하여 처음에는 보이지 않다가 <Br>
+    마우스를 버튼 위로 올리면, opacity 속성값이 1로 변경되어 눈에 보이게 되고<Br>
+    이때 0.5초 동안 천천히 opacity 속성값이 변경된다.<Br></p>
+
+    <h4> 버튼을 누르면 버튼 위로 다른 색상이 물결처럼 퍼지는 예제</h4> <br>
+    <button class="btn4">버튼</button><Br><Br>
+
+    위의 예제는 :active 선택자와 ::after 선택자를 이용하여 transition 효과를 설정함으로써 구현하고 있다.
+
+    <h4> 진짜 버튼처럼 누르는 효과를 적용한 버튼 예제 </h4>
+    <button class="btn5"><span>누름효과 버튼 </span></button><Br><Br>
+
+    <p>위의 예제에서는 우선 box-shadow 속성을 이용하여 버튼에 그림자 효과를 설정한다.<br>
+    그 후에 사용자가 버튼을 누르면 :active 선택자와 transform 효과를 이용하여 버튼의 위치를 아래로 살짝 이동시킨다.<br>
+    이렇게 함으로써 버튼이 진짜로 눌리는 듯한 효과를 줄 수 있게 된다.</p>    
+    <hr>  
+    <h4>사용자 인터페이스(user interface, UI)</h4>
+    <p>CSS3에서는 새로운 사용자 인터페이스를 이용하여, 사용자가 요소의 크기나 아웃라인 등을 마음대로 변경할 수 있게 해준다.<br>
+    사용자 인터페이스(user interface)를 위해 제공되는 속성<br>
+    1. resize<br>
+    2. outline-offset<br>
+    3. box-sizing<br>
+    4. nav-index<br>
+    5. nav-left<br>
+    6. nav-right<br>
+    7. nav-up<br>
+    8. nav-down</p>
+    
+    <hr>
+    
+    <h4>CSS3 사용자 인터페이스(user Interface) 지원 버전</h4>
+    <p>CSS3 사용자 인터페이스(user Interface)를 지원하는 주요 웹 브라우저의 버전<br>
+    또한, 브라우저별로 벤더 프리픽스(vendor prefix)를 이용해 이 기능을 최초로 지원한 버전도 같이 표기했다.</p>
+    
+    <table class="tb-1" summary="">
+        <tbody>
+            <tr>
+                <th>속성</th>
+                <th><img alt="ie" class="icon" src="http://www.tcpschool.com/img/icon-ie.png"></th>
+                <th><img alt="chrome" class="icon" src="http://www.tcpschool.com/img/icon-chrome.png"></th>
+                <th><img alt="firefox" class="icon" src="http://www.tcpschool.com/img/icon-firefox.png"></th>
+                <th><img alt="safari" class="icon" src="http://www.tcpschool.com/img/icon-safari.png"></th>
+                <th><img alt="opera" class="icon" src="http://www.tcpschool.com/img/icon-opera.png"></th></tr>
+            <tr><td><p>resize</p</td>
+                <td>지원하지 않음</td>
+                <td><p>4.0</p></td>
+                <td><p>5.0</p>
+                <p>4.0 -moz-</p></td>
+                <td><p>4.0</p></td>
+                <td><p>15.0</p></td></tr>
+            <tr><td>outline-offset</td>
+                <td>지원하지 않음</td>
+                <td>4.0</td>
+                <td><p>5.0</p>    
+                <p>4.0 -moz-</p></td>
+                <td>4.0</td>
+                <td>9.5</td></tr>
+            <tr><td>box-sizing</td>
+                <td>8.0</td>
+                <td><p>10.0</p>    
+                <p>4.0 -webkit-</p></td>
+                <td><p>29.0</p>    
+                <p>2.0 -moz-</p></td>
+                <td><p>5.1</p>    
+                <p>3.2 -webkit-</p></td>
+                <td>9.5</td></tr>
+        </tbody>
+    </table>
+    
+    <hr>
+    <style>
+        .box {border: 3px solid orange; margin: 10px; padding: 20px; width: 300px; overflow:auto; }
+        #width { resize: horizontal; }    
+        #height { resize: vertical; }    
+        #both { resize: both; } 
+        .box1 {width:40%; border: 1px solid blue; outline: 1px solid red; outline-offset: 20px;} 
+        #no_box {border:10px solid green; padding:20px;}
+        #borderbox_box {border:10px solid red; padding: 10px; box-sizing: border-box;}  
+</style>
+    </style>    
+    <h4>resize 속성</h4>
+    <p>resize 속성은 사용자가 해당 요소의 높이나 너비를 변경할 수 있게 해준다.</p>
+
+    <h4>예제</h4>  
+    <div class="box" id="width">버튼너비만 변경</div>
+    <div class="box" id="height">버튼높이만 변경</div>
+    <div class="box" id="both">버튼크기 너비높이 모두 변경</div>
+    <p>위의 예제처럼 resize 속성이 설정된 요소에는 오른쪽 하단에 크기 조절 핸들이 생긴다.<br>
+    이 핸들을 마우스로 드래그해서 사용자가 직접 요소의 크기를 조절할 수 있다.</p>
+    
+    <div class="content-box s5">resize 속성은 익스플로러에서 지원하지 않는다.</div><hr>
+    
+    <h4>outline-offset 속성</h4>
+    <p>outline-offset 속성은 해당 요소의 테두리(border)와 아웃라인(outline) 사이에 공간(offset)을 추가해 준다.<br>
+    아웃라인(outline)과 테두리(border)의 차이<br>
+    1. 아웃라인은 테두리의 바깥쪽에서 요소를 둘러싸고 있는 라인이다.<br>
+    2. 아웃라인은 HTML 요소의 크기에 포함되지 않는다.<br>
+    3. 아웃라인은 사각형이 아닐 수도 있다.<br> </p>
+
+    <h4>outline-offset 속성을 이용하여 아웃라인과 테두리를 확인하는 예제</h4>  
+    <div class="box1">파란 테두리 (border) 빨간 아웃라인 </div> 
+    
+    <div class="content-box s5">outline-offset 속성은 익스플로러에서 지원하지 않는다.</div><hr>
+    
+    <h4>box-sizing 속성</h4>
+    <p>box-sizing 속성은 해당 요소의 너비(width)와 높이(height)에 패딩(padding)과 테두리(border)의 크기까지 포함시킨다.</p> 
+    <h4>예제</h4> 
+
+    <div class="box2" id="no_box">테두리없는 박스</div>
+    <div class="box2" id="borderbox_box">테두리있는 박스</div> 
+    
+    </style>
+    <p>CSS 박스 모델에서 살펴본 HTML 요소의 전체 너비를 구하는 공식<br>
+    width + left padding + right padding + left border + right border + left margin + right margin<br><br>
+    
+    위의 예제에서 첫번째 박스의 전체 너비는 다음과 같이 설정된다.<br>
+    350px + 20px + 20px + 10px + 10px + 10px + 10px = 430px<br><br>
+    반면 box-sizing 속성의 속성값을 border-box로 설정하면, 해당 요소의 총 너비와 높이에 패딩과 테두리의 크기까지 포함해서 설정한다.<br>
+    따라서 두 번째 박스의 전체 너비는 다음과 같이 설정될 것이다.<br>
+    350px + 10px + 10px = 370px<br> </p>
+    <hr>
+    
+    <h4>CSS3 사용자 인터페이스(user Interface) 속성</h4>
+    <table class="tb-2" summary="">
+        <thead>
+            <tr class="bg">
+                <th style="width: 25%;">속성</th>
+                <th>설명</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>resize</td>
+                <td>사용자가 해당 요소의 높이나 너비를 변경할 수 있게 설정함.</td></tr>
+            <tr><td>outline-offset</td>
+                <td>해당 요소의 테두리(border)와 아웃라인(outline) 사이에 공간(offset)을 추가함.</td></tr>
+            <tr><td>box-sizing</td>
+                <td>해당 요소의 총 너비와 높이에 패딩(padding)과 테두리(border)의 너비도 포함시킴.</td></tr>
+            <tr><td>nav-index</td>
+                <td>해당 요소에 대한 순차적인 탐색 순서를 설정함.</td></tr>
+            <tr><td>nav-left</td>
+                <td>화살표 왼쪽 방향키를 누를 때 어디를 탐색할지 설정함.</td></tr>
+            <tr><td>nav-right</td>
+                <td>화살표 오른쪽 방향키를 누를 때 어디를 탐색할지 설정함.</td></tr>
+            <tr><td>nav-up</td>
+                <td>화살표 위쪽 방향키를 누를 때 어디를 탐색할지 설정함.</td></tr>
+            <tr><td>nav-down</td>
+                <td>화살표 아래쪽 방향키를 누를 때 어디를 탐색할지 설정함.</td></tr>
+        </tbody>
+    </table>    
+    <hr> 
+    <h4>다중 칼럼(multi-column) 레이아웃</h4>
+    <p>CSS에서는 신문과 같이 여러 개의 칼럼(column)으로 구성되는 구조를 column 속성을 이용하여 손쉽게 만들 수 있다.<br>
+    다중 칼럼(multi-column)을 위해 제공되는 속성<br>
+    1. columns<br>
+    2. column-count<br>
+    3. column-gap<br>
+    4. column-width<br>
+    5. column-span<br>
+    6. column-fill<br>
+    7. column-rule<br>
+    8. column-rule-style<br>
+    9. column-rule-width<br>
+    10. column-rule-color</p>
+    
+    <hr>
+    
+    <h4>CSS3 다중 칼럼(multi-column) 지원 버전</h4>
+    <p>CSS3 다중 칼럼(multi-column)을 지원하는 주요 웹 브라우저의 버전<br>
+    또한, 브라우저별로 벤더 프리픽스(vendor prefix)를 이용해 이 기능을 최초로 지원한 버전도 같이 표기했다.</p>
+    
+    <table class="tb-1" summary="">
+        <tbody>
+            <tr>
+                <th style="width:150px;">속성</th>
+                <th style="width:90px;"><img alt="ie" class="icon" src="http://www.tcpschool.com/img/icon-ie.png"></th>
+                <th style="width:90px;"><img alt="chrome" class="icon" src="http://www.tcpschool.com/img/icon-chrome.png"></th>
+                <th style="width:120px;"><img alt="firefox" class="icon" src="http://www.tcpschool.com/img/icon-firefox.png"></th>
+                <th style="width:90px;"><img alt="safari" class="icon" src="http://www.tcpschool.com/img/icon-safari.png"></th>
+                <th style="width:140px;"><img alt="opera" class="icon" src="http://www.tcpschool.com/img/icon-opera.png"></th>
+            </tr>
+            <tr><td><p>column-count</p>
+                <p>column-cap</p>
+                <p>column-rule</p>
+                <p>column-rule-color</p>
+                <p>column-rule-style</p>
+                <p>column-rule-width</p>
+                <p>column-width</p></td>
+                <td style="text-align: center;">10.0</td>
+                <td style="text-align: center;"><p>50.0</p>
+                <p>4.0 -webkit-</p></td>
+                <td style="text-align: center;"><p>2.0 -moz-</p></td>
+                <td style="text-align: center;"><p>9.0</p>
+                <p>3.1 -webkit-</p></td>
+                <td style="text-align: center;"><p>37.0</p>
+                <p>15.0 -webkit-</p>
+                <p>11.1</p></td></tr>
+            <tr><td style="text-align: center;">column-span</td>
+                <td style="text-align: center;">10.0</td>
+                <td style="text-align: center;"><p>50.0</p>
+                <p>4.0 -webkit-</p></td>
+                <td style="text-align: center;">지원하지 않음</td>
+                <td style="text-align: center;"><p>9.0</p>
+                <p>3.1 -webkit-</p></td>
+                <td style="text-align: center;"><p>37.0</p>
+                <p>15.0 -webkit-</p>
+                <p>11.1</p></td></tr>
+        </tbody>
+    </table>
+    
+    <hr>
+    <style>
+        #origin {margin: 30px 0; -webkit-column-count: 3; -moz-column-count: 3; column-count: 3; }
+        #gap { margin: 30px 0; column-count: 3;  -webkit-column-gap: 70px; -moz-column-gap: 70px; column-gap: 70px; }
+        #gap1 { margin: 30px 0; column-count: 4;  -webkit-column-width: 150px; -moz-column-width: 150px; column-width: 100px; }
+        #origin1 {margin: 30px 0; -webkit-column-count: 4; -moz-column-count: 4; column-count: 4; }
+        #merge { -webkit-column-span: all; column-span: all; }
+        #line { margin: 30px 0; column-count: 4; column-rule-style: solid; }
+        #line1 {margin: 30px 0; column-count: 4; -webkit-column-rule-style: solid; -moz-column-rule-style: solid; column-rule-style: solid;
+               -webkit-column-rule-width: 5px; -moz-column-rule-width: 5px; column-rule-width: 5px;}
+        #line2 {margin: 30px 0; column-count: 4; -webkit-column-rule-style: solid; -moz-column-rule-style: solid; column-rule-style: solid;
+                -webkit-column-rule-width: 5px; -moz-column-rule-width: 5px; column-rule-width: 5px;
+                -webkit-column-rule-color: #6495ED; -moz-column-rule-color: #6495ED; column-rule-color: #6495ED;}
+        #line3 {margin: 30px 0; column-count: 4; -webkit-column-rule: 5px solid #6495ED;-moz-column-rule: 5px solid #6495ED; column-rule: 5px solid #6495ED;} 
+  
+    </style>
+    <h4>column-count 속성</h4>
+    <p>column-count 속성은 해당 요소를 몇 개의 칼럼(column)으로 나눌지를 설정한다.</p> 
+
+    <div id="origin">
+        <h4>칼럼을 3개로 나누겠어요!</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, facere deleniti. Accusantium, quae quisquam laborum iure non exercitationem? Ex rerum fugit, modi itaque sunt cum harum eaque, quo delectus nesciunt nostrum quos in quae quidem corrupti officiis. Eligendi animi nemo suscipit esse numquam perspiciatis?</p>
+    </div> 
+<hr>
+    <h4>column-gap 속성</h4>
+    <p>column-gap 속성은 칼럼(column) 사이의 간격을 설정한다.</p>
+    <div id="gap">
+        <h4> 위의 예제보다 칼럼 사이의 간격을 늘렸어요!</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus fugit voluptas, cum dolorem cupiditate iusto assumenda. Perspiciatis quam laboriosam facere obcaecati laborum voluptates non sapiente vitae impedit ipsum itaque quasi enim sit perferendis eos dolor expedita, voluptate rerum neque magnam suscipit harum ipsa. Iusto!</p>
+    </div>
+    <hr>
+    <h4>column-width 속성</h4>    
+    <p>column-width 속성은 칼럼의 너비를 설정한다.<br>
+    웹 브라우저는 설정한 너비의 칼럼을 만든 후, 나머지 영역을 동일하게 나누어 칼럼 사이의 간격으로 자동 설정한다.</p> 
+    <div id="origin">
+        <h4>column-count 속성으로 칼럼 간의 간격을 설정했어요!</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus fugit voluptas, cum dolorem cupiditate iusto assumenda. Perspiciatis quam laboriosam facere obcaecati laborum voluptates non sapiente vitae impedit ipsum itaque quasi enim sit perferendis eos dolor expedita, voluptate rerum neque magnam suscipit harum ipsa. Iusto!</p>
+    </div>
+    <div id="gap1">
+        <h4>column-width 속성으로 칼럼의 너비를 설정했어요</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate eum blanditiis in molestias assumenda eaque delectus officia minus nulla sunt, perferendis, voluptates nobis nihil aspernatur magnam magni id similique corporis! Dolorem consectetur fuga dicta similique soluta distinctio placeat, fugiat deserunt pariatur, nam corporis quis.</p>
+    </div>
+    <hr>    
+    <h4>column-span 속성</h4>
+    <p>column-span 속성은 해당 요소가 몇 개의 칼럼을 병합하여 표현할지를 설정한다.</p>
+    <h4>예제</h4>
+    <div id="origin1">
+       <h4>원래 네개의 칼럼으로 나누었던 모습</h4>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio laudantium harum eaque dolorum dolore voluptates odit eveniet non. Delectus nemo, incidunt nostrum placeat ea distinctio autem vero eum eaque ipsam voluptatibus, tempore eos eius asperiores quaerat consequuntur nam! Dolorem iste dignissimos suscipit minus quod.</p>
+    </div>
+    <div class="merge">
+        <h4>h4 요소의 모든 칼럼을 병합했어요!</h4>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio laudantium harum eaque dolorum dolore voluptates odit eveniet non. Delectus nemo, incidunt nostrum placeat ea distinctio autem vero eum eaque ipsam voluptatibus, tempore eos eius asperiores quaerat consequuntur nam! Dolorem iste dignissimos suscipit minus quod.</p>
+    </div>
+    <div>column-count 속성은 파이어폭스와 익스플로러 9와 그 이전 버전에서 지원하지 않는다.</div><hr> 
+
+    <h4>column-rule-style 속성</h4>
+    <p>column-rule-style 속성은 칼럼 사이에 들어갈 라인의 스타일을 설정한다.</p>
+    <h4>예제</h4>
+    <div id="origin1">
+       <h4>원래 네개의 칼럼으로 나누었던 모습</h4>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio laudantium harum eaque dolorum dolore voluptates odit eveniet non. Delectus nemo, incidunt nostrum placeat ea distinctio autem vero eum eaque ipsam voluptatibus, tempore eos eius asperiores quaerat consequuntur nam! Dolorem iste dignissimos suscipit minus quod.</p>
+    </div>
+    <div id="line">
+       <h4>column-rule-style 속성으로 칼럼 사이에 들어갈 라인의 스타일을 solid로 정의한 모습</h4>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio laudantium harum eaque dolorum dolore voluptates odit eveniet non. Delectus nemo, incidunt nostrum placeat ea distinctio autem vero eum eaque ipsam voluptatibus, tempore eos eius asperiores quaerat consequuntur nam! Dolorem iste dignissimos suscipit minus quod.</p>
+    </div>
+
+    <hr>
+    <h4>column-rule-width 속성</h4>
+    <p>column-rule-width 속성은 칼럼 사이에 들어갈 라인의 두께를 설정한다.</p>
+     
+    <h4>예제</h4> 
+    <div id="origin1">
+       <h4>원래 네개의 칼럼으로 나누었던 모습</h4>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio laudantium harum eaque dolorum dolore voluptates odit eveniet non. Delectus nemo, incidunt nostrum placeat ea distinctio autem vero eum eaque ipsam voluptatibus, tempore eos eius asperiores quaerat consequuntur nam! Dolorem iste dignissimos suscipit minus quod.</p>
+    </div>
+    <div id="line1">
+       <h4>column-rule-width 속성으로 칼럼 사이에 들어갈 라인의 두께를 정의한 모습</h4>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio laudantium harum eaque dolorum dolore voluptates odit eveniet non. Delectus nemo, incidunt nostrum placeat ea distinctio autem vero eum eaque ipsam voluptatibus, tempore eos eius asperiores quaerat consequuntur nam! Dolorem iste dignissimos suscipit minus quod.</p>
+    </div>
+    <hr>   
+    <h4>column-rule-color 속성</h4>
+    <p>column-rule-color 속성은 칼럼 사이에 들어갈 라인의 색상을 설정한다.</p>
+     
+    <h4>예제</h4> 
+    <div id="origin1">
+       <h4>원래 네개의 칼럼으로 나누었던 모습</h4>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio laudantium harum eaque dolorum dolore voluptates odit eveniet non. Delectus nemo, incidunt nostrum placeat ea distinctio autem vero eum eaque ipsam voluptatibus, tempore eos eius asperiores quaerat consequuntur nam! Dolorem iste dignissimos suscipit minus quod.</p>
+    </div>
+    <div id="line2">
+       <h4>column-rule-color 속성으로 칼럼 사이에 들어갈 라인의 색상을 정의한 모습</h4>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio laudantium harum eaque dolorum dolore voluptates odit eveniet non. Delectus nemo, incidunt nostrum placeat ea distinctio autem vero eum eaque ipsam voluptatibus, tempore eos eius asperiores quaerat consequuntur nam! Dolorem iste dignissimos suscipit minus quod.</p>
+    </div>
+    <hr>   
+    <h4>column-rule 속성</h4>
+    <p>모든 columns-rule 속성을 이용한 스타일을 한 줄에 설정할 수 있다.</p>
+
+    <h4>예제</h4> 
+    <div id="origin1">
+       <h4>원래 네개의 칼럼으로 나누었던 모습</h4>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio laudantium harum eaque dolorum dolore voluptates odit eveniet non. Delectus nemo, incidunt nostrum placeat ea distinctio autem vero eum eaque ipsam voluptatibus, tempore eos eius asperiores quaerat consequuntur nam! Dolorem iste dignissimos suscipit minus quod.</p>
+    </div> 
+    <div id="line3">
+       <h4>column-rule 속성으로 칼럼 사이에 들어갈 라인의 모든 스타일을 적용한 모습!</h4>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio laudantium harum eaque dolorum dolore voluptates odit eveniet non. Delectus nemo, incidunt nostrum placeat ea distinctio autem vero eum eaque ipsam voluptatibus, tempore eos eius asperiores quaerat consequuntur nam! Dolorem iste dignissimos suscipit minus quod.</p>
+    </div> 
+    <hr>   
+    <h4>CSS3 다중 칼럼(multi-column) 속성</h4>
+    <table class="tb-2" summary="">
+        <thead>
+            <tr class="bg">
+                <th style="width: 25%;">속성</th>
+                <th>설명</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>columns</td>
+                <td>모든 columns 속성을 이용한 스타일을 한 줄에 설정할 수 있음.</td>
+            </tr>
+            <tr>
+                <td>column-count</td>
+                <td>해당 요소를 몇 개의 칼럼(column)으로 나눌지를 설정함.</td>
+            </tr>
+            <tr>
+                <td>column-gap</td>
+                <td>칼럼 사이의 간격을 설정함.</td>
+            </tr>
+            <tr>
+                <td>column-width</td>
+                <td>칼럼의 너비를 설정함.</td>
+            </tr>
+            <tr>
+                <td>column-span</td>
+                <td>해당 요소가 몇 개의 칼럼(column)을 병합해서 표현할지를 설정함.</td>
+            </tr>
+            <tr>
+                <td>column-fill</td>
+                <td>칼럼을 어떻게 채울지 설정함.</td>
+            </tr>
+            <tr>
+                <td>column-rule</td>
+                <td>모든 columns 속성을 이용한 스타일을 한 줄에 설정할 수 있음.</td>
+            </tr>
+            <tr>
+                <td>column-rule-style</td>
+                <td>칼럼 사이에 들어갈 라인의 스타일을 설정함.</td>
+            </tr>
+            <tr>
+                <td>column-rule-width</td>
+                <td>칼럼 사이에 들어갈 라인의 두께를 설정함.</td>
+            </tr>
+            <tr>
+                <td>column-rule-color</td>
+                <td>칼럼 사이에 들어갈 라인의 색상을 설정함.</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <hr>  
+                  
+</body>
+</html>

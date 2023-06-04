@@ -1,0 +1,18 @@
+/* Error: Undefined variable.
+ *    ,
+ * 17 |   --bd-pink-rgb: #{to-rgb($pink-500)};
+ *    |                           ^^^^^^^^^
+ *    '
+ *   bootstrap\_variables.scss 17:27  @import
+ *   sass-test.scss 2:9               root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined variable.\a    \2577 \a 17 \2502    --bd-pink-rgb: #{to-rgb($pink-500)};\a    \2502                            ^^^^^^^^^\a    \2575 \a   bootstrap\\_variables.scss 17:27  @import\a   sass-test.scss 2:9               root stylesheet";
+}

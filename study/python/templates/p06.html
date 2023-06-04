@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>파이썬 조건문</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">   
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">     
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <!-- font css -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="{% static '/css/java.css'%}" rel="stylesheet">   
+  <link href="{% static '/css/style.css'%}" rel="stylesheet">     
+</head>
+<body class="ms-3">  
+  <H2 class="coffee_taital" style="text-align:left;"><a name="home">파이썬</a></H2>  
+    <p><a href="/python/p01.html" class="btn btn-warning mb-1" target="_blank">이전 노트</a>
+      <a href="/python/p03.html" class="btn btn-warning mb-1" target="_blank">다음 노트</a>            
+      <a href="/htmls/tut1.html" class="btn btn-danger mb-1" target="_blank">HTML 노트</a> 
+      <a href="/css/tut11.html" class="btn btn-success mb-1" target="_blank">CSS 노트</a> 
+      <a href="/javascript/j01.html" class="btn btn-purple mb-1" target="_blank">Javascript 노트</a>
+     <a href="/python/p01.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">파이썬의 기초</a>
+     <a href="/python/p02.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">변수</a>
+     <a href="/python/p03.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">숫자형타입</a>
+     <a href="/python/p04.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">불리언타입</a>
+     <a href="/python/p05.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">문자열타입</a>
+     <a href="/python/p06.html" class=" btn btn-secondary mb-1" target="_blank">조건문</a>
+     <a href="/python/p07.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">반복문</a>
+     <a href="/python/p08.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">break와 continue</a>
+     <a href="/python/p09.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">리스트 타입</a>
+     <a href="/python/p10.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">튜플 타입</a>
+     <a href="/python/p11.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">세트 타입</a>
+     <a href="/python/p12.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">딕셔녀리 타입</a>
+     <a href="/python/p13.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">함수</a>
+     <a href="/python/p14.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">변수의 유효범위</a>
+     <a href="/python/p15.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">클래스</a>
+     <a href="/python/p16.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">객체</a>
+     <a href="/python/p17.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">상속</a>
+     <a href="/python/p18.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">모듈</a>
+     <a href="/python/p19.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">파일 입출력</a>     
+     <a href="/python/p20.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">예외처리</a>    
+     <a href="/python/p21.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">웹스크래핑1</a>    
+     <a href="/python/p22.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">웹스크래핑2</a>   </p> 
+
+     <div class="col-md-8 mb-2">
+      <div class="p-3 text-white fs-4 bd-pink-800">조건문</div>
+
+      <p>제어문<br>
+   1. 조건문 : if / elif / else<br>
+   2. 반복문 : while / for<br><br>
+
+1. 조건문<br>
+  1] if문 구조<br>
+    if와 else를 사용하여 참과 거짓을 판단하는 문장임<br>
+    조건이 참이면 if문의 블록을 실행하고, 조건문이 거짓이면 else문의 블록을 수행함 <br>
+    if문은 else문 없이 독립적으로 사용 가능<br>
+    if나 else문 아래 수행하는 명령문은 탭으로 들여쓰기함<br> <br>
+
+  2] 비교연산자, 논리연산자<br>
+    비교연산자(&lt;, >, ==, !=, >=, &lt;=) : 크다, 작다, 같거나 크다, 같거나 작다, 같지 않다, 같다 비교 참 True 또는 거짓 False로 결과<br>
+    논리연산자(or, and, not) :<br>
+    or : 하나라도 참이면 참<br>
+    and : 모두가 참이여야지만 참<br>
+    not : 거짓일 때 참<br><br> 
+
+    [논리 연산자] : and , or , not <br>
+    x and y:	x와 y 모두 참이어야 참<br>
+    x or y: x와 y 둘 중에 하나만 참이어도 참<br>
+    not x: x의 반대 값 (x가 참이면 -> 거짓 / 거짓이면 -> 참)<br><br>
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+            # 조건문 if 비교 연산자<br>
+            a = 3<br>
+            b = 6<br>
+            print(a>b) # False<br>
+            print(a&lt;b) # True<br>
+            print(a==b) # False<br>
+            print(a!=b) # True<br>
+            print(a>=b) # False<br>
+            print(a&lt;=b) # True<br><br>
+            # 예시1<br>
+            money = 2000<br>
+            if money >= 3000:<br>
+                print("택시를 타고 가라")<br>
+            else:<br>
+                print("걸어가라") # 실행 : 걸어가라<br><br>
+            
+            #  조건문 if 논리 연산자 <br>
+            money = 2000<br>
+            card = True<br><br>
+            if money >= 3000 or card:<br>
+                print("택시를 타고 가라") # 실행 : 택시타고가라<br>
+            else:<br>
+                print("걸어가라")<br><br>
+
+            print("True and True:", True and True)<br>
+            print("True and False:", True and False)<br>
+            print("False and False:", False and False)<br><br>
+
+            print("True or False:", True or False)<br>
+            print("True or True:", True or True)<br>
+            print("False or False:", False or False)<br><br>
+
+            print("not True:", not True)<br>
+            print("not False:", not False)<br>
+ 
+            print("1 and 0:", 1 and 0) # 0 <br>
+            print("1 and '':", 1 and '')<br>
+            print("'ABC' and '':", 'ABC' and '') <Br>
+            print("1 and None:", 1 and None) # None. 아무것도 없다는 것을 나타내는 자료형 <br>
+            print("1 or 0:", 1 or 0) # 1 <br>
+            print("1 and 1:", 1 and 1) # 1 <br>
+            print("1 or 1:", 1 or 1) # 1 <br>
+            print("0 and 0:", 0 and 0) # 0 <br>
+            print("0 or 0:", 0 or 0) # 0 <br>
+            print("not 1:", not 1) # False. 0, None, 비어있는 값은 False로 해석  <Br>
+            print("not 0:", not 0) # True.  0, None, 비어있는 값을 제외한 모든 값은 True <br></p></div></p></div> 
+
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">조건문(conditional statements)</h2>
+      <p>다음 그림은 ‘달면 삼키고 쓰면 뱉는다.’는 속담을 순서도(flow chart)로 작성해 본 것이다.<br>
+      <img alt="if" src="http://www.tcpschool.com/lectures/img_python_10_conditional.jpg" style="width: 350px; height: 328px;"><br>
+      순서도에 따르면 조건인 맛(taste)에 따라 달면 삼키고, 달지 않으면 뱉는 서로 다른 행동을 취하게 된다.<br>
+      이처럼 조건문이란 주어진 조건식의 결과에 따라 다른 명령을 수행하도록 프로그램의 흐름을 제어하는 명령문을 의미한다.</p>
+
+      <p>if 문 순서도<br>
+      <img alt="if" src="http://www.tcpschool.com/lectures/img_js_if.png" style="width: 350px; height: 328px;"><br>
+      if / else 문 순서도<br>
+      <img alt="if" src="http://www.tcpschool.com/lectures/img_js_else.png" style="width: 350px; height: 328px;"><br>
+      if / else if / else 문<br>
+      <img alt="if" src="http://www.tcpschool.com/lectures/img_js_elseif.png" style="width: 350px; height: 328px;"></p> 
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">if-else 문</h2>
+      <p>파이썬에서는 조건 분기를 표현하기 위해 if-else문을 사용한다.<br>
+      <span class="fw-bold">문법</span><br>
+      if 조건식:<br>
+          조건식의 결과가 참(True)일 때만 실행되는 명령문<br>
+      else:<br>
+          조건식의 결과가 거짓(False)일 때만 실행되는 명령문<br><br>
+      if-else 문은 if 키워드 뒤에 위치한 조건식의 결과에 따라 실행되는 명령문이 달라진다.<br>
+      조건식의 결과가 참(True)인 경우에는 if 문 바로 다음의 명령문들이 실행되며, else 문 다음의 명령문들은 실행되지 않는다.<br>
+      반대로 조건식의 결과가 거짓(False)인 경우에는 else 문 바로 다음의 명령문들이 실행되며, if 문 바로 다음의 명령문들은 실행되지 않는다<br>
+      파이썬에서 블록(block)은 콜론(:)으로 시작하여 동일한 들여쓰기(indentation) 구간을 의미하므로, if 키워드와 else 키워드의 맨 끝에도 반드시 콜론(:)을 삽입해야 한다.<br>
+      if 문은 단독으로도 사용할 수 있지만, else 문은 반드시 if 문과 함께 사용해야 한다.<br></p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      con = "sweet"  <br>
+      if con == "sweet":<br>
+          print("삼키다")<br>
+      else:<br>
+          print("뱉는다")</p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <b>실행 결과</b><br>
+      삼키다</p>
+      </div></div>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">if-elif-else 문</h2>
+      <p>if-else 문만으로는 우리가 실제로 구현해야 하는 복잡한 조건들을 제대로 표현하는 것이 매우 힘들고 어렵다.<br>
+      다음은 if-else 문을 사용하여 계절에 따라 서로 다른 문자열을 출력하도록 하는 예제이다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      season = "summer"  <br>
+      if season == "spring":<br>
+          print("봄이 왔네요!")<br>
+      else:<br>
+          if season == "summer":<br>
+              print("여름에는 더워요~")<br>
+          else:<br>
+              if season == "fall":<br>
+                  print("가을은 독서의 계절!")<br>
+              else:<br>
+                  if season == "winter":<br>
+                      print("겨울에는 눈이 와요~")</p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <b>실행 결과</b><br>
+      여름에는 더워요~<br></p></div></div>
+
+      <p>위와 같이 단순한 질문을 코드로 표현하는 것에도 총 4개의 if-else 문을 중첩해서 사용해야 했으며, 이에 따라 블록 자체도 매우 복잡해져 코드의 가독성 또한 현저히 안 좋아졌다.<br>
+      이러한 불편함을 해소하기 위해 파이썬에서는 if와 else 이외에도 elif라는 키워드를 별도로 제공하고 있다.</p> 
+      <p>elif 키워드는 else if의 줄임말로 else 문과 또 다른 if 문을 하나로 합쳐놓은 역할을 한다.<br><br>
+      <span class="fw-bold">문법</span><br>
+      if 조건식1:<br>
+          조건식1의 결과가 참(True)일 때만 실행되는 명령문<br>
+      elif 조건식2:<br>
+          조건식2의 결과가 참(True)일 때만 실행되는 명령문<br>
+      else:<br>
+          조건식1, 2의 결과가 모두 거짓(False)일 때만 실행되는 명령문<br><br>
+      elif 문도 else 문과 마찬가지로 반드시 if 문과 함께 사용해야 한다.<br>
+      앞서 살펴본 예제를 elif 문을 사용하여 다시 구현하면 다음과 같다.</p></div></div>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      season = "winter"  <br>
+      if season == "spring":<br>
+          print("봄이 왔네요!")<br>
+      elif season == "summer":<br>
+          print("여름에는 더워요~")<br>
+      elif season == "fall":<br>
+          print("가을은 독서의 계절!")<br>
+      elif season == "winter":<br>
+          print("겨울에는 눈이 와요~")</p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+        <span class="fw-bold">실행 결과</span><br>
+      겨울에는 눈이 와요~<br></p></div></div>
+
+      <p>이처럼 elif 문을 사용하면 코드가 훨씬 간결해지며 가독성 또한 높아진다. 이러한 elif 문은 하나의 if 문내에서 개수에 상관없이 사용할 수 있다.<br>
+      대부분의 프로그래밍 언어에서 제공하는 또 다른 조건문인 switch-case 문을 파이썬에서는 별도로 제공하지 않는다.<br>
+      파이썬에서는 switch-case 문 대신 elif 문을 사용하도록 권고하고 있다.</p> </div></div>
+ 
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">조건문 x in something, x not in something</h2>
+      <p># x in something, x not in something <br>
+        # something(리스트,튜플,문자열)에 x의 포함여부 bool값으로 돌려줌<br>
+        
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+
+        str_1 = "python"<br>
+        print("p" in str_1) # True<br>
+        print("z" not in str_1) # True<br><br>
+        # 리스트 예시<br>
+        list_1 = [1,2,3,4,5]<br>
+        print(1 in list_1) # True<br>
+        print(6 not in list_1) # True<br><br>
+        # 튜플 예시<br>
+        tuple_1 = ("a", "b", "c")<br>
+        print("a" in tuple_1) # True<br>
+        print("d" not in tuple_1) # True<br><br>
+        # 리스트 예시<br>
+        pocket = ['paper', 'cellphone', 'money']<br>
+        if 'money' in pocket: # pocket 리스트에 mone가 있으면 참<br>
+            print("택시를 타고 가라") # 실행 : 택시를 타고 가라<br>
+        else:<br>
+            print("걸어가라")<br></p></div>
+
+
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">pass 키워드로 아무 일도 하지 않기</h2>
+      <p>조건문에서는 상황에 따라 어떠한 명령문도 수행하지 않고 그냥 넘어가야할 경우가 생길 수 있다.<br>
+      다른 프로그래밍 언어에서는 이와 같은 경우 조건문 내부에 아무런 명령문도 명시하지 않으면 되지만, 파이썬에서는 조건문 내부에 명령문이 하나라도 존재하지 않으면 에러가 발생한다.</p> 
+      <p>따라서 파이썬에서는 이런 경우 사용할 수 있도록 pass라는 키워드를 별도로 제공하고 있다. pass 키워드는 다른 어떤 동작도 수행하지 않는다.</p>
+       
+      <p>다음 예제는 온도가 26도 미만이면 아무런 동작도 수행하지 않지만, 26도 이상이면 특정 문자열을 출력하는 예제이다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      temp = 18  <br>
+      if temp &lt; 26:<br>
+          pass<br>
+      else:<br>
+          print("에어컨을 켠다.")<br><br>
+    # if문에서 아무것도 하지 않도록 하고 싶을 때 : pass<br>
+    pocket = ['paper', 'money', 'cellphone']<br>
+    if 'money' in pocket: # pocket 리스트에 money가 있으면 아무것도 하지 않음<br>
+        pass<br>
+    else:<br>
+        print("카드를 꺼내라")<br> </p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+        <span class="fw-bold">실행 결과</span><br>
+       위의 예제에서 4번 라인의 pass 문을 삭제하면 IndentationError 에러가 발생하는 것을 확인할 수 있다.<br></p></div></div>
+      
+      <p>물론 위와 같은 예제는 다음과 같이 하나의 if 문을 사용해서 작성하는 것이 훨씬 더 효과적이지만 pass 키워드의 이해를 돕기 위해 작성된 예제로만 이해하는게 좋다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      temp = 18  <br>
+      if temp &gt; 26:<br>
+          print("에어컨을 켠다.")</p>
+      </div></div>
+
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">조건문 간소화, 조건부 표현식</h2>
+      <p> 조건문 간소화<br>
+        &nbsp;&nbsp;&nbsp;조건문에서 실행될 body가 한 줄인 경우, 줄바꿈을 하지 않고 간략하게 표현할 수 있음 <br>
+        조건부 표현식(Conditional Expression) : if ~ else문을 한줄에 작성할 수 있음 <br><br>
+
+        <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+          <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+            <p class="card-text" style="padding: 10px 10px;">                
+                # if & else로만 조건문 생성 : 길다<br>
+                pocket = ['paper', 'handphone']<br>
+                card = True<br>
+                if 'money' in pocket:<br>
+                    print("택시를 타고가라")<br>
+                else:<br>
+                    if card:<br>
+                        print("택시를 타고가라") # 실행 : 택시를 타고 가라<br>
+                    else:<br>
+                        print("걸어가라")<br><br>
+                # elif문을 통해 위에 조건문 표현 : 똑같이 작동함<br>
+                pocket = ['paper', 'cellphone']<br>
+                card = True<br>
+                if 'money' in pocket:<br>
+                    print("택시를 타고가라")<br>
+                elif card:<br>
+                    print("택시를 타고가라") # 실행 : 택시를 타고 가라<br>
+                else:<br>
+                    print("걸어가라")<br><br>
+
+                # if문 간결하게 표현(if문 한줄로 표현)<br>
+                pocket = ['paper', 'money', 'cellphone']<br>
+                if 'money' in pocket: pass   # 실행 : pass(아무것도 안함)<br>
+                else: print("카드를 꺼내라")<br><br>
+
+                # 조건부 표현식 : 참인 경우 실행할 것 if 조건문 else 거짓일 경우 실행할 것<br>
+                score = 100<br>
+                if score >= 60:<br>
+                    message = "success"<br>
+                else:<br>
+                    message = "failure"<br><br>
+                # 위 if문 조건부 표현식으로 변환<br>
+                message = "success" if score >= 60 else "failure"<br><br>
+                ----------------<Br>
+                score = 90 <Br>
+                if score > 80: result = "Success"<Br>
+                else: result = "Fail"<Br>
+                print(result) # Success<Br><Br>
+
+                score = 85<Br>
+                result = "Succes" if score >= 70 else "Fail"<Br>
+                print(result) # Success<Br></p></div>
+
+
+    <hr>
+    <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">조건문 부등호</h2>
+    <p> 조건문에서의 부등호<br>    
+    Python은 다른 언어와 차별점으로 조건문 안에서 수학의 부등식을 그대로 사용할 수 있음<br>   
+    예를 들어, x > 0 and x &lt; 20을 Python에서는 0 &lt; x &lt; 20으로 쓸 수 있음<br>   
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">                
+              # Python에서는 수학 부등식도 사용 가능<Br>
+                y = 15<Br>
+                if 0  &lt; y  &lt; 20:<Br>
+                print("y는 0 이상 20 미만의 수 입니다.") # y는 0 이상 20 미만의 수 입니다.<Br></p></div>
+</body>
+</html>

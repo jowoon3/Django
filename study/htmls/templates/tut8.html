@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 레이아웃(Layout)</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div>
+    <H2>HTML</H2>  
+    <style>
+        .txtlink {color: green; text-decoration:none; margin-left:20px; font-size:16px;}
+        .txtlink:hover {text-decoration:underline;}        /*마우스 올라가면 밑줄 */        
+        /* .button_S {display:inline-block; background-color:gray; color: #FFFFFF; padding: 14px 25px; text-align: center; text-decoration: none; font-size: 16px; margin-left: 20px; opacity: 0.9; border-radius: 5px;}
+        .button_S:hover {color:white; background-color:lightyellow ; opacity:1.0;}      /*마우스 올라가면 배경색 핑크색 글자 흰색으로 바뀜 
+        .button1 {display:inline-block; background-color:#f44336; color: #FFFFFF; padding: 14px 25px; text-align: center; text-decoration: none; font-size: 16px; margin-left: 20px; opacity: 0.9; border-radius: 5px;}
+        .button1:hover {color:white; background-color:pink; opacity:1.0;}      마우스 올라가면 배경색 핑크색 글자 흰색으로 바뀜 
+        .button2 {background-color: white; color: black; border: 2px solid #f44336; padding: 14px 24px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin-left: 20px;}
+        .button2:hover {background-color: #f44336; color: white;}    /*마우스 올라가면 배경색 및 글자 색 바뀜
+        .button3 {display:inline-block; background-color: #44bb55; color: #FFFFFF; padding: 14px 25px; text-align: center; text-decoration: none; font-size: 16px; margin-left: 20px; opacity: 0.9;border-radius: 5px;}
+        .button3:hover {background-color: #44bb55; color: white;}    마우스 올라가면 배경색 및 글자 색 바뀜 
+        .button4 {background-color: white; color: black; border: 2px solid #44bb55; padding: 14px 24px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin-left: 20px;}
+        .button4:hover {background-color: #44bb55; color: white;}    마우스 올라가면 배경색 및 글자 색 바뀜 */
+        
+        .btn {margin: 4px 0px;--bs-btn-padding-x: 0.75rem;  --bs-btn-padding-y: 0.375rem; --bs-btn-font-family: 'Nanum Gothic', sans-serif; --bs-btn-font-size: 1rem; --bs-btn-font-weight: 400;
+              --bs-btn-line-height: 1.5;    --bs-btn-border-width: var(--bs-border-width);
+              --bs-btn-border-radius: 0.375rem;   --bs-btn-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15),0 1px 1px rgba(0, 0, 0, 0.075);
+              --bs-btn-disabled-opacity: 0.65;    --bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(var(--bs-btn-focus-shadow-rgb), .5);
+              display: inline-block; padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x); font-family: var(--bs-btn-font-family);
+              font-size: var(--bs-btn-font-size); font-weight: var(--bs-btn-font-weight); line-height: var(--bs-btn-line-height); 
+              color: var(--bs-btn-color);         text-align: center;    text-decoration: none;    vertical-align: middle;    cursor: pointer;
+              -webkit-user-select: none;    -moz-user-select: none;      user-select: none;    
+              border: var(--bs-btn-border-width) solid var(--bs-btn-border-color); border-radius: var(--bs-btn-border-radius);
+              background-color: var(--bs-btn-bg);}
+        .button_S {--bs-btn-color: #fff;    --bs-btn-bg: #6c757d;    --bs-btn-border-color: #6c757d;    --bs-btn-hover-color: #fff;
+              --bs-btn-hover-bg: #5c636a;    --bs-btn-hover-border-color: #565e64;    --bs-btn-focus-shadow-rgb: 130,138,145;
+              --bs-btn-active-color: #fff;    --bs-btn-active-bg: #565e64;    --bs-btn-active-border-color: #51585e;
+              --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #fff;    --bs-btn-disabled-bg: #6c757d;
+              --bs-btn-disabled-border-color: #6c757d;}
+        .button1 {--bs-btn-color: #fff;     --bs-btn-bg: #dc3545;       --bs-btn-border-color: #dc3545;     --bs-btn-hover-color: #fff;
+                  --bs-btn-hover-bg: #bb2d3b;    --bs-btn-hover-border-color: #b02a37;     --bs-btn-focus-shadow-rgb: 225,83,97;
+                  --bs-btn-active-color: #fff;   --bs-btn-active-bg: #b02a37;    --bs-btn-active-border-color: #a52834;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #fff;
+                  --bs-btn-disabled-bg: #dc3545;    --bs-btn-disabled-border-color: #dc3545;}
+        .button2 {--bs-btn-color: #dc3545;    --bs-btn-border-color: #dc3545;    --bs-btn-hover-color: #fff;    --bs-btn-hover-bg: #dc3545;
+                  --bs-btn-hover-border-color: #dc3545;    --bs-btn-focus-shadow-rgb: 220,53,69;    --bs-btn-active-color: #fff;
+                  --bs-btn-active-bg: #dc3545;    --bs-btn-active-border-color: #dc3545; --bs-border-width: 2px;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #dc3545;
+                  --bs-btn-disabled-bg: transparent;    --bs-btn-disabled-border-color: #dc3545;    --bs-gradient: none;}
+        .button3 {--bs-btn-color: #fff;    --bs-btn-bg: #198754;    --bs-btn-border-color: #198754;    --bs-btn-hover-color: #fff;
+                  --bs-btn-hover-bg: #157347;     --bs-btn-hover-border-color: #146c43;     --bs-btn-focus-shadow-rgb: 60,153,110;
+                  --bs-btn-active-color: #fff;    --bs-btn-active-bg: #146c43;    --bs-btn-active-border-color: #13653f;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #fff;
+                  --bs-btn-disabled-bg: #198754; --bs-btn-disabled-border-color: #198754;}
+        .button4 {--bs-btn-color: #198754;    --bs-btn-border-color: #198754;    --bs-btn-hover-color: #fff;    --bs-btn-hover-bg: #198754;
+                  --bs-btn-hover-border-color: #198754;    --bs-btn-focus-shadow-rgb: 25,135,84;    --bs-btn-active-color: #fff;
+                  --bs-btn-active-bg: #198754;    --bs-btn-active-border-color: #198754;--bs-border-width: 2px;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #198754;
+                  --bs-btn-disabled-bg: transparent;    --bs-btn-disabled-border-color: #198754;    --bs-gradient: none;}
+        </style>
+        <p><a href="/htmls/tut7.html" class="btn button1" target="_blank">이전 노트</a>
+        <a href="/htmls/tut9.html" class="btn button1" target="_blank">다음 노트</a>
+        <a href="/css/tut11.html" class="btn button3" target="_blank">CSS 노트</a> 
+        <a href="/htmls/html_CSS.html" class="btn button2" target="_blank">HTML+CSS</a>
+        <a href="/htmls/html_Emmet.html" class="btn button2" target="_blank">HTML+Emmet</a>
+        <a href="/htmls/html_tags.html" class="btn button2" target="_blank">HTML+Tags</a> <br> 
+        <a href="/javascript/j01.html" class="btn button3" target="_blank">자바스크립트 노트</a> 
+        <a href="/python/p01.html" class="btn button3" target="_blank">파이썬 노트</a> 
+        <a href="/htmls/tut1.html" class="btn button2" target="_blank">기본구조</a> 
+        <a href="/htmls/tut2.html" class="btn button2" target="_blank">서식(Format)</a>
+        <a href="/htmls/tut3.html" class="btn button2" target="_blank">스타일(Style)</a>
+        <a href="/htmls/tut4.html" class="btn button2" target="_blank">Heading, Links and Images</a>
+        <a href="/htmls/tut5.html" class="btn button2" target="_blank">Table and Lists</a>
+        <a href="/htmls/tut6.html" class="btn button2" target="_blank">요소 블록 인라인</a>
+        <a href="/htmls/tut7.html" class="btn button2" target="_blank">폼(Forms)</a>
+        <a href="/htmls/tut8.html" class="btn button_S" target="_blank">레이아웃(Layout)</a>
+        <a href="/htmls/tut9.html" class="btn button2" target="_blank">input 요소</a></p>
+    <hr>
+</div>   
+    <h4>HTML 레이아웃(Layout)</h4>
+
+    <p>레이아웃(layout)이란 특정 공간에 여러 구성 요소를 보기 좋게 효과적으로 배치하는 작업을 말한다.<br>
+    웹 페이지의 레이아웃은 웹 사이트의 외관을 결정짓는 매우 중요한 요소입니다.</p>
+      
+    <p>1. div 요소를 이용한 레이아웃<br>
+    2. HTML5 레이아웃<br>
+    3. table 요소를 이용한 레이아웃</p><hr>
+    
+    <h4 style="color:blue">div 요소를 이용한 레이아웃</h4>
+    
+    <p>div 요소는 CSS 스타일을 손쉽게 적용할 수 있어, 레이아웃을 작성하는데 자주 사용된다.</p>
+     
+    <p>예제</p> 
+    <div id="header"><h2>Header 영역</h2></div>
+    <div id="nav"><h2>Nav 영역</h2></div>
+    <div id="section"><p>Section 영역</p></div>
+    <div id="footer"><h2>Footer 영역</h2></div> <hr>  
+
+    <h4>HTML5 레이아웃</h4>
+    
+    <p>HTML5에서는 웹 페이지의 레이아웃만을 위한 <span style="color:red">의미(semantic) 요소가 제공</span> 된다.</p>
+    
+    <p style="color:blue"></p>>HTML5 레이아웃만을 위한 의미(semantic) 요소</p>
+    <table class="tb-1" summary="">
+        <thead>
+            <tr>
+                <th>의미 요소</th>
+                <th>설명</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>&lt;header&gt;</td>
+                <td>HTML 문서나 섹션(section) 부분에 대한 헤더(header)를 정의함.</td>
+            </tr>
+            <tr>
+                <td>&lt;nav&gt;</td>
+                <td>HTML 문서의 탐색 링크를 정의함.</td>
+            </tr>
+            <tr>
+                <td>&lt;section&gt;</td>
+                <td>HTML 문서에서 섹션(section) 부분을 정의함.</td>
+            </tr>
+            <tr>
+                <td>&lt;article&gt;</td>
+                <td>HTML 문서에서 독립적인 하나의 글(article) 부분을 정의함.</td>
+            </tr>
+            <tr>
+                <td>&lt;aside&gt;</td>
+                <td>HTML 문서에서 페이지 부분 이외의 콘텐츠(content)를 정의함. </td>
+            </tr>
+            <tr>
+                <td>&lt;footer&gt;</td>
+                <td>HTML 문서나 섹션(section) 부분에 대한 푸터(footer)를 정의함.</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <p>예제</p>
+    <header><h2>Header 영역</h2></header>
+    <nav><h2>Nav 영역</h2></nav>
+    <section><p>Section 영역</p></section>
+    <footer><h2>Footer 영역</h2></footer>
+    <h4>table 요소를 이용한 레이아웃</h4>
+    
+    <p> 오래전에 table 요소를 이용하여 레이아웃을 작성했으나 애초에 table 요소는 레이아웃을 만들기 위해 설계된 요소가 아니어서 수정하기 어려워 현재는 거의 사용하지 않는다. </p>
+    
+    <p>예제</p> 
+    <table width="100%" style="text-align:center; border:none">
+        <tr>
+            <td colspan="2" style="background-color:lightgrey"><h2>Header 영역</h2></td>
+        </tr>
+        <tr>
+            <td style="background-color:#339999; color:white; width:20%"><h2>Nav 영역</h2></td>
+            <td style="height:200px; text-align:left"><p>Section 영역</p></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="background-color:#FFCC00"><h2>Footer 영역</h2></td>
+        </tr>
+    </table>
+    </div>   
+</body>
+</html>

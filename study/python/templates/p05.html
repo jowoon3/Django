@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>파이썬 문자열타입</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">   
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">     
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <!-- font css -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="{% static '/css/java.css'%}" rel="stylesheet">   
+  <link href="{% static '/css/style.css'%}" rel="stylesheet">     
+</head>
+<body class="ms-3">  
+  <H2 class="coffee_taital" style="text-align:left;"><a name="home">파이썬</a></H2>  
+    <p><a href="/python/p01.html" class="btn btn-warning mb-1" target="_blank">이전 노트</a>
+      <a href="/python/p03.html" class="btn btn-warning mb-1" target="_blank">다음 노트</a>            
+      <a href="/htmls/tut1.html" class="btn btn-danger mb-1" target="_blank">HTML 노트</a> 
+      <a href="/css/tut11.html" class="btn btn-success mb-1" target="_blank">CSS 노트</a> 
+      <a href="/javascript/j01.html" class="btn btn-purple mb-1" target="_blank">Javascript 노트</a>
+     <a href="/python/p01.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">파이썬의 기초</a>
+     <a href="/python/p02.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">변수</a>
+     <a href="/python/p03.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">숫자형타입</a>
+     <a href="/python/p04.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">불리언타입</a>
+     <a href="/python/p05.html" class=" btn btn-secondary mb-1" target="_blank">문자열타입</a>
+     <a href="/python/p06.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">조건문</a>
+     <a href="/python/p07.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">반복문</a>
+     <a href="/python/p08.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">break와 continue</a>
+     <a href="/python/p09.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">리스트 타입</a>
+     <a href="/python/p10.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">튜플 타입</a>
+     <a href="/python/p11.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">세트 타입</a>
+     <a href="/python/p12.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">딕셔녀리 타입</a>
+     <a href="/python/p13.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">함수</a>
+     <a href="/python/p14.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">변수의 유효범위</a>
+     <a href="/python/p15.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">클래스</a>
+     <a href="/python/p16.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">객체</a>
+     <a href="/python/p17.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">상속</a>
+     <a href="/python/p18.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">모듈</a>
+     <a href="/python/p19.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">파일 입출력</a>     
+     <a href="/python/p20.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">예외처리</a>    
+     <a href="/python/p21.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">웹스크래핑1</a>    
+     <a href="/python/p22.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">웹스크래핑2</a>   </p> 
+
+  <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+  <div class="card-header bd-yellow-100"><h4><b>데이터 타입(data-type) : 데이터의 종류</b></h2></div>
+    <p class="card-text" style="padding: 10px 10px;">   
+      # Sequence Types: str(문자열), list(리스트), tuple(튜플), range() <br>
+      # Mapping Type: dict(딕셔너리, 사전)<br>
+      # Set Types: set(집합)<br>
+      # Binary Types: bytes, bytearray, memoryview<br>
+      # Numeric Types: int(정수), float(실수), complex(복소수)<br>
+      # Boolean Type: bool(불리언)  참거짓<br></p></div>
+      
+      <p><table class="table tb-2" id="table1"><thead";><tr><th>TYPES<br></th><th>DATA<br></th><th>Iterable<br>(반복가능)</th><th>mutable<br>(수정가능)</th></tr></thead>
+      <tr><td rowspan="4">Sequence</td><td>str(문자열)<td rowspan="4">O</td><td>X</td></tr>
+      <tr><td>list(리스트)<td>X</td></tr>
+      <tr><td>tuple(튜플)<td>X</td></tr>
+      <tr><td>range()<td>X</td></tr>
+      <tr><td>Mapping</td><td>dict(딕셔너리,사전)<td>O</td><td>O</td></tr>
+      <tr><td>Set</td><td>set(집합)<td>O</td><td>X</td></tr>
+      <tr><td rowspan="3">Binary</td><td>bytes<td rowspan="3">O</td><td>X</td></tr>
+      <tr><td>bytearray<td>X</td></tr>
+      <tr><td>memoryview<td>X</td></tr>
+      <tr><td rowspan="3">Numeric</td><td>int(정수)<td rowspan="3">X</td><td>X</td></tr>
+      <tr><td>float(실수)<td>X</td></tr>
+      <tr><td>complex(복소수)<td>X</td></tr>
+      <tr><td>Boolean Type</td><td>bool(불리언) 참거짓<td>X</td><td>X</td></tr></table></p></div>
+  <style> 
+    #table1 thead {background-color: lightgray;}
+    #table1 th:nth-child(1), #table1 th:nth-child(2), #table1 td:nth-child(1), #table1 td:nth-child(2) {text-align:left; width:20%;}
+    #table1 th:nth-child(3), #table1 th:nth-child(4), #table1 td:nth-child(3), #table1 td:nth-child(4) {text-align:center; width:30%;}
+    #table1 tr:nth-child(3) td:nth-child(2), #table1 tr:nth-child(4) td:nth-child(2), #table1 tr:nth-child(5) td:nth-child(2), 
+    #table1 tr:nth-child(9) td:nth-child(2), #table1 tr:nth-child(10) td:nth-child(2), #table1 tr:nth-child(12) td:nth-child(2), 
+    #table1 tr:nth-child(13) td:nth-child(2) {text-align: center;}
+    #table1 tr {vertical-align:middle;} 
+  </style>
+  
+     <div class="col-md-8 mb-2">
+      <div class="p-3 text-white fs-4 bd-pink-800">문자열 타입</div></div>
+      <p>문자열(String)이란 문자, 단어 등으로 구성된 문자들의 집합을 의미함  <br>
+   문자형은 문자를 다룰 수 있는 다양한 추가, 삽입, 수정, 삭제 기능을 제공함<br>
+   길이 구하기, 인덱싱, 슬라이싱, 갯수 세기, 위치 찾기, 삽입, 대체하기, 나누기 등..<br>
+  <span class="text-primary">리스트, 튜플, 세트 와 함께 sequence type이라고 한다</span></p>
+
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">문자열 타입(text sequence types) : str</h2>
+      <p>문자열(string)이란 문자로 이루어진 데이터의 집합을 의미하며, 파이썬에서는 다음과 같이 다양한 방법으로 문자열을 표현할 수 있다.<br>
+      1. 큰따옴표(" ")로 감싸기<br>
+      2. 작은따옴표(' ')로 감싸기<br>
+      3. 큰따옴표 3개(""" """)로 감싸기<br>
+      4. 작은따옴표 3개(''' ''')로 감싸기</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      print("파이썬")<br>
+      print('Python')  <br>
+      print("내 이름은 '홍길동'이야!")<br>
+      print('내 이름은 "홍길동"이야!')<br>
+      print("Python's is favorite food is pizza") //문자열에 '를 포함시키고 싶을 때 : 큰따옴표("")로 묶어줌<br>
+      print('"Hi, Dave" he says.') // 문자열에 "를 포함시키고 싶을 때 : 작음따옴표('')로 묶어줌 <br>
+      print('Python\'s favorite food is perl') // 문자열에 작은따옴표(')를 포함시키고 싶을 때 : 왼쪽에 <span class="text-danger">\(역슬래쉬)</span><br>  
+      print("\"Python is very easy.\" he says.") // 문자열에 큰따옴표(")를 포함시키고 싶을 때 : 왼쪽에 \(역슬래쉬)<br>  
+      print("Life is too short\nYou need python.") // 줄 바꿈 위한 이스케이프코드(\n) 삽입하기 </p>      
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <b>실행 결과</b><br>
+      파이썬<br>
+      Python<br>
+      내 이름은 '홍길동'이야!<br>
+      내 이름은 "홍길동"이야!<br>
+      Python's is favorite food is pizza<br>
+      "Hi, Dave" he says.<br>
+      Python's favorite food is perl<br>
+      "Python is very easy." he says.<br>
+      # Life is too short<br>
+      # You need python.<br>
+    </p> </div></div>
+
+      <p>위의 예제처럼 큰따옴표와 작은따옴표의 용법상 차이는 전혀 없으며, 이 두 가지 따옴표를 모두 사용하는 이유는 4번과 5번 라인처럼 문자열 내에서 <br>
+        따옴표를 정확히 표현하기 위함이다. 하지만 따옴표가 등장하는 순서에 따라 정확하게 사용하지 않으면 예상치 못한 문제가 발생할 수 있으므로, <br>
+         그 사용에 주의를 기울여야 한다.<br>
+      § 정상적인 문자열 : "그녀는 ‘당신이 너무 멋져요!’라고 말했어."<br>
+      § 잘못된 문자열 : "그녀는 ‘당신이 너무 멋져요!"라고 말했어.’<br>
+      위의 잘못된 문자열에 대해 파이썬은 ["그녀는 ‘당신이 너무 멋져요!"]까지 만을 정상적인 문자열로 인식하고, 나머지 부분인 [라고 말했어.’]는 정상적인 문자열로 <br>
+      인식하지 못해 에러를 발생시킬 것이다.</p>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">여러 줄의 문자열 표현하기</h2>
+      <p>큰따옴표나 작은따옴표 3개를 연속해서 사용하면 여러 줄의 문자열을 그대로 표현할 수 있다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      print("""큰따옴표 3개는 <br>
+      여러 줄의 문자열을 표현할 때 <br>
+      사용한다.""")  <br>
+      print('''작은따옴표 3개도 <br>
+      여러 줄의 문자열을 표현할 때 <br>
+      사용한다.''')  <br>
+      print('여러 줄의 문자열을\n'<br>
+      '개행문자를 사용하여 표현하는 것이\n'<br>
+      '소스코드의 가독성은 더 좋다.')</p></div>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <b>실행 결과</b><br>
+      큰따옴표 3개는<br>
+      여러 줄의 문자열을<br>
+      표현할 때 사용한다.<br>
+      작은따옴표 3개도<br>
+      여러 줄의 문자열을<br>
+      표현할 때 사용한다.<br>
+      여러 줄의 문자열을<br>
+      개행문자를 사용하여 표현하는 것이<br>
+      소스코드의 가독성은 더 좋다.</p></div>
+      <p>위 예제의 9번과 10번 라인에 사용된 줄바꿈 문자(‘\n’)는 출력 시 문자열의 라인을 다음 라인으로 바꿔주는 역할을 하며, <br>
+        이를 사용함으로써 따옴표 3개를 사용하는 표현보다 좀 더 출력 결과와 비슷한 형태로 코드를 작성할 수 있다.</p>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">문자열끼리의 연산</h2>
+      <p>파이썬에서는 숫자처럼 문자열끼리 서로 더하거나 문자열에 숫자를 곱할 수도 있다. 문자열끼리의 더하기(+) 연산은 <br>
+        두 문자열을 서로 연결시켜주며, 문자열과 정수의 곱하기(*) 연산은 해당 문자열을 정수배만큼 반복해서 연결해 준다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      i = "파이썬 " <br>
+      j = "문자열"  <br>
+      print(i + j)  <br>
+      print(i * 3)  <br> 
+      print("자장면" + " " + "탕수육" + " " + "물만두")</p>
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <b>실행 결과</b><br>
+      파이썬 문자열<br>
+      파이썬 파이썬 파이썬<br>
+      자장면 탕수육 물만두</p>
+      </div></div>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">문자열에서 문자 선택하기</h2>
+      <p>문자열은 문자들의 연속된 집합이라고 볼 수 있다. 따라서 파이썬에서는 문자열 내에서 특정 위치의 문자를 손쉽게 선택할 수 있도록 <br>
+        다음 예제와 같이 문자열을 문자들의 배열로 다룰 수 있게 해준다.</p>
+     <style>
+      #table01 td {
+        text-align: center;
+        width:30px;
+        font-style: italic;
+        line-height: 1.5em;
+      }
+     </style>
+      <table id="table01"><tr><td>파</td><td>이</td><td>썬</td><td>으</td><td>로</td><td> </td><td>코</td><td>딩</td><td>을</td><td> </td><td>배</td><td>우</td><td>자</td><td>!</td></tr>
+        <tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td></tr>
+        <tr><td>-14</td><td>-13</td><td>-12</td><td>-11</td><td>-10</td><td>-9</td><td>-8</td><td>-7</td><td>-6</td><td>-5</td><td>-4</td><td>-3</td><td>-2</td><td>-1</td></tr>
+      </table>
+<br>
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      py = "파이썬으로 코딩을 배우자!"  <br>
+      print(py[0])<br>
+      print(py[6])<br>
+      print(py[-1])<br>
+      print(len(py))</p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <b>실행 결과</b><br>
+      파<br>
+      코<br>
+      !<br>
+      14</p></div></div>
+      <p>위 예제의 3번 라인처럼 문자열의 첫 번째 문자의 인덱스(index)는 0부터 시작해서 1씩 증가되며, 이때 띄어쓰기(white space)도 하나의 문자로 취급된다. <br>
+        파이썬에서는 음의 인덱스도 지원하며, 음의 인덱스는 문자열의 마지막 문자를 -1로 놓고 역순으로 증가하게 된다.<br>
+        대부분의 프로그래밍 언어에서는 한글과 영문자의 크기가 서로 다르게 취급되는데, 파이썬에서는 한글과 영문자의 크기를 동일하게 취급한다.</p>
+      </div>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">문자열 추출하기, 자르기 (슬라이싱 slicing)</h2>
+      <p>문자열을 다루다보면 문자열의 일부분만을 사용하거나 문자열의 일부만을 변경해야 할 경우가 생긴다. <br>
+        이러한 경우 손쉽게 처리할 수 있도록 파이썬에서는 문자열의 일부분을 잘라 반환해주는 문자열 슬라이싱(slicing)을 지원하고 있다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      py = "우리집 강아지 이름은 멍멍이이다."  <br>
+      print(py[4])<br>
+      print(py[4:7])<br>
+      print(py[:4])<br>
+      print(py[4:])<br>
+      print(py[0:5])   //  [x:y] x부터 y전까지 문자열을 뽑아옴(끝 번호 포함 안함)<br>
+      print(py[-11:-6])  <br>
+      print(py[6:11])   <br>
+      print(py[6:-1])   <br>
+      print(py[:5])    // 시작번과 끝번을 지정하지 않으면 가장 처음, 가장 마지막 인덱스를 가리킨다.<br>
+      print(py[6:])   <br>
+      print(py[6:11:2])  // step 을 지정 해 정해준간격만큼 띄어서 가져올 수 있다. 6~11전까지 2의 간격만큼 띄어서  </p> 
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <b>실행 결과</b><br>
+      강<br>
+      강아지<br>
+      우리집 <br>
+      강아지 이름은 멍멍이이다.<br>
+      18 <br>
+      <br>
+      우리집 강<br>
+       이름은 <br>
+      지 이름은<br>
+      지 이름은 멍멍이이다<br>
+      우리집 강<br>
+      지 이름은 멍멍이이다.<br>
+      지이은 </p> </div></div>
+      <p>위 예제의 4번 라인처럼 콜론(:)기호를 사용하면 문자열의 일부분만을 자를 수 있으며, 이때 콜론의 앞쪽에 위치한 인덱스부터 <br>
+        콜론의 뒤쪽에 위치한 인덱스 바로 앞 문자까지를 반환한다. 이처럼 콜론의 앞쪽에 위치한 인덱스는 곧바로 시작 인덱스가 되지만,<br>
+         콜론의 뒤쪽에 위치한 인덱스는 해당 인덱스에서 1을 뺀 인덱스가 마지막 인덱스가 된다.<br>
+         또한, 시작 인덱스나 종료 인덱스 중 하나를 생략하면 손쉽고 빠르게 부분 문자열을 생성할 수 있다.</p>
+
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">특정 문자의 개수 및 위치</h2>
+      <p><span class="text-danger fw-bold">count() 함수</span>는 해당 문자열에 인수로 전달받은 문자가 모두 몇 개 포함되어 있는지를 확인하여 반환한다.<br>
+      또한, <span class="text-danger fw-bold">find()나 index() 함수</span>를 사용하면, 해당 문자열에 인수로 전달받은 문자가 처음으로 등장하는 인덱스(index)를 알 수 있다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+          py = "python programming"  <br>
+          print(py.count('p'))  <br>
+          print(py.find('o')) # 찾고싶은 문자가 여러 개일때 맨 처음에 찾은 인덱스를 반환<br>
+          print(py.rfind('o')) # 찾고싶은 문자가 여러 개일때 맨 마지막에 찾은 인덱스를 반환<br>
+          print(py.index('o'))   <br>
+          print(py.find('z')) # 없으면 -1 반환 <br>
+          # print(py.index('z')) # 없으면 오류발생 </p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <b>실행 결과</b><br>
+      2<br>
+      4<br>
+      9<br>
+      4<br>
+      -1<br>
+      ValueError 강제종료</p> </div></div>
+      
+      <p>위 예제의 5번과 6번 라인에서 find()와 index() 함수의 결과는 동일하게 4로 출력된다.<br>
+        이 두 함수의 차이점은 바로 8번과 9번 라인처럼 해당 문자열에 포함되어 있지 않은 문자를 검색할 때 나타난다. <br>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      # 문자열 개수세기 문자위치 알려주기  <br>
+      <span class="fw-bold"># 문자 갯수 세기(count)<br></b></span>
+      count_str = "lalalalalballlballballballllblblblblaaaa"<br>
+      print(count_str.count("l")) # 20 -> count_str 중 l의 갯수를 가져옴<br><br>
+
+      <span class="fw-bold"># 위치 알려주기(find)<br></b></span>
+      find_str = "python!"<br>
+      print(find_str.find("!")) # 6 -> !표가 6번째 자리에 위치함<br>
+      print(find_str.find("a")) # -1 -> a가 find_str안에 없음<br></p> </div>
+
+      <p>find() 함수는 해당 문자열에 전달받은 문자가 포함되어 있지 않으면 -1을 반환하지만, index() 함수는 ValueError를 발생시키며 프로그램을 강제 종료한다.<br>
+      따라서 index() 함수를 사용할 때는 반드시 전달받은 문자가 해당 문자열에 포함되어 있는지를 먼저 확인하고 사용해야 한다.</p>
+
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">문자열의 삽입</h2> 
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;"> 
+          join_str = "python"  //문자열 삽입(join) <br>
+          print(".".join(join_str)) <br>
+          print("-".join(join_str)) </p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <b>실행 결과</b><br>
+      p.y.t.h.o.n<br>
+      p-y-t-h-o-n</p></div>  </div>  
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;"> 
+          <span class="fw-bold">#  문자열 길이 삽입, 공백지우기 문자열바꾸기 <br>
+          # 문자열 삽입(join) <br></span>
+          join_str = "python" <br>
+          print(".".join(join_str)) # p.y.t.h.o.n <br>
+          print("-".join(join_str)) # p-y-t-h-o-n <br><br>
+         #  공백지우기 : 양쪽 공백 지우기(strip) / 왼쪽 공백 지우기(lstrip) / 오른쪽 공백 지우기(rstrip) <br> 
+          a = "     hi    " <br>
+          print(a.strip())  # hi <br><br>
+          <span class="fw-bold">#  문자열 바꾸기(replace) <br></span>
+          a = "Life is too short" <br>
+          print(a.replace("short", "long")) # Life is too long  </p></div>
+
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">문자열의 대소문자 변환</h2>
+      <p><span class="text-danger fw-bold">upper() 함수</span>는 문자열의 모든 문자를 대문자로 변환해주며, <span class="text-danger fw-bold">lower() 함수</span>는 문자열의 모든 문자를 소문자로 변환시켜 준다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+            <span class="fw-bold">#  소문자를 대문자로 바꾸기(upper) <br></span>
+              a = "hi" <br>
+              print(a.upper())  <br>
+              ## 대문자 혹은 소문자인지 확인하기 위해 a.isupper() 또는 a.islower()를 사용할수 있다 <br><br>
+            <span class="fw-bold">#  대문자를 소문자로 바꾸기(lower) #python <br></span>
+              a = "PYTHON" <br>
+              print(a.lower()) <br><br> 
+              py = "Python"  <br>
+              print(py.upper())<br>
+              print(py.lower())  <br>
+              print(py)<br>     <br>
+            <span class="fw-bold">#  대문자는 소문자로 소문자는 대문자로  바꾸기(swapcase)  <br></span>
+              s = "BlockDMask"<br>
+              print(s.swapcase())<br></p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <span class="fw-bold">실행 결과</span><br>
+          HI
+          python
+          PYTHON<br>
+          python<br>
+          Python<br>
+          bLOCKdmask</p></div></div>
+
+      <p>위 예제의 6번 라인의 실행결과를 보면 원본 문자열은 변하지 않았음을 확인할 수 있다. <br>
+        이처럼 지금까지 살펴본 문자열 함수들은 모두 원본 문자열 그 자체를 변환하는 것이 아니라, 변환된 새로운 문자열을 생성하여 반환해 주는 것이다.</p>
+
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">문자열의 변경 capitalize, title</h2>
+      <p><span class="text-danger fw-bold">capitalize() 함수</span>는  첫 문자만 대문자로 변경하고 나머지 문자열은 모두 소문자로 변환해주며, <br>
+        <span class="text-danger fw-bold">title() 함수</span>는 각 단어의 앞 문자를 대문자로 바꿔주고 다른 문자들은 소문자로 변경시켜 준다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+            <span class="fw-bold">#  capitalize vs title <br></span>
+            s1 = "this is my blog. 123 456" <br>
+            s2 = "THIS IS MY BLOG. 123 456" <br>
+            print(s1.capitalize()) # This is my blog. 123 456 <br>
+            print(s1.title()) # This Is My Blog. 123 456 <br> 
+            print(s2.capitalize()) # This is my blog. 123 456 <br>
+            print(s2.title()) # This Is My Blog. 123 456 <br>  </p></div>
+
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">문자열 공백 지우기</h2>
+      <p>공백지우기 : 양쪽 공백 지우기<span class="text-danger fw-bold">(strip)</span> / 왼쪽 공백 지우기<span class="text-danger fw-bold">(lstrip)</span> / 오른쪽 공백 지우기<span class="text-danger fw-bold">(rstrip)</span></p>
+      
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">            
+      a = "&nbsp;&nbsp;&nbsp;&nbsp;     hi    &nbsp;&nbsp;&nbsp;&nbsp;"<br>
+      print(a.strip())  <br>
+      
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+        <b>실행 결과</b><br> 
+        hi</p></div></p></div>
+
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">문자열 변경하기</h2>
+      <p><span class="text-danger fw-bold">replace() 함수</span>는 첫 번째 인수로 전달된 문자열을 해당 문자열에서 찾아 두 번째 인수로 전달된 문자열로 변경해 준다. 이때 해당 문자열에서 첫 번째 인수로 전달된 문자열을 찾을 수 없으면, 원본 문자열을 그대로 반환한다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      py = "파이썬 공부는 너무 재밌어요!"  <br>
+      print(py.replace("파이썬", "자바"))<br>
+      print(py)</p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <b>실행 결과</b><br>
+      자바 공부는 너무 재밌어요!<br>
+      파이썬 공부는 너무 재밌어요!</p>
+      </div></div>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">문자열 나누기</h2>
+      <p><span class="text-danger fw-bold">split() 함수</span>는 전달받은 문자를 기준으로 해당 문자열을 여러 개의 부분 문자열로 나누어 하나의 리스트로 반환한다.<br>
+        # 문자열 자르기 split 함수. 문자열을 일정한 규칙으로 잘라서 리스트로 만들어 주는 함수<br>
+        # 문자열.split(sep='구분자', maxsplit=분할횟수) sep=, maxsplit= 은 생략가능<br>
+        # 문자열.split('구분자') ()안에 있는 구분자를 기준으로 해서 문자열을 나눈 후 나눠진 값을 리스트 넣어줌<br>
+        # 문자열.split()      </p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      py = "파이썬 공부는 너무 재밌어요!"  <br>
+      print(py.split(' '))<br>
+      print(py.split())  <br>
+      print(py)</p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <b>실행 결과</b><br>
+      ['파이썬', '공부는', '너무', '재밌어요!']<br>
+      ['파이썬', '공부는', '너무', '재밌어요!']<br>
+      파이썬 공부는 너무 재밌어요!</p></div></div>
+      <p>위 예제의 3번 라인에서는 문자열 py를 띄어쓰기를 기준으로 나누고 있다. 또한, 4번 라인처럼 split() 함수에 아무런 인수도 전달하지 않으면, 자동으로 띄어쓰기나 탭 문자, 줄바꿈 문자 등과 같은 공백(white space)을 기준으로 문자열을 나누게 된다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+            <b> # 문자열 자르기 split <br>
+# 문자열 자르기 split 함수. 문자열을 일정한 규칙으로 잘라서 리스트로 만들어 주는 함수<br>
+# 문자열.split(sep='구분자', maxsplit=분할횟수) sep=, maxsplit= 은 생략가능 <br>
+# 문자열.split('구분자', 분할횟수)<br>
+# 문자열.split('구분자') ()안에 있는 구분자를 기준으로 해서 문자열을 나눈 후 나눠진 값을 리스트 넣어줌<br>
+# 문자열.split()</b><br><br>
+
+a = "Life is too short"<br>
+print(a.split()) # ['Life', 'is', 'too', 'short']<br>
+b = "a:b:c:d"<br>
+print(b.split(":")) # ['a', 'b', 'c', 'd']<br><br>
+
+s = "aa.bb.cc.dd.ee.ff.gg"<br>
+r0 = s.split()<br>
+r1 = s.split('.')<br>
+r2 = s.split('dd.')<br>
+r3 = s.split(sep='.')<br><br>
+
+print(f's                : {s}')<br>
+print(f"s.split()        : {r0}")<br>
+print(f"s.split('.')     : {r1}")<br>
+print(f"s.split('dd.')   : {r2}")<br>
+print(f"s.split(sep='.') : {r3}")<br><br>
+<b> # split, 인덱싱을 합치면<br>
+print(f"s.split(sep='.')[0] : {r3[0]}")<br>
+
+</body>
+</html>

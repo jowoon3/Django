@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>파이썬 튜플 타입</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">   
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">     
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <!-- font css -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="{% static '/css/java.css'%}" rel="stylesheet">   
+  <link href="{% static '/css/style.css'%}" rel="stylesheet">     
+</head>
+<body class="ms-3">  
+  <H2 class="coffee_taital" style="text-align:left;"><a name="home">파이썬</a></H2>  
+    <p><a href="/python/p01.html" class="btn btn-warning mb-1" target="_blank">이전 노트</a>
+      <a href="/python/p03.html" class="btn btn-warning mb-1" target="_blank">다음 노트</a>            
+      <a href="/htmls/tut1.html" class="btn btn-danger mb-1" target="_blank">HTML 노트</a> 
+      <a href="/css/tut11.html" class="btn btn-success mb-1" target="_blank">CSS 노트</a> 
+      <a href="/javascript/j01.html" class="btn btn-purple mb-1" target="_blank">Javascript 노트</a>
+     <a href="/python/p01.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">파이썬의 기초</a>
+     <a href="/python/p02.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">변수</a>
+     <a href="/python/p03.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">숫자형타입</a>
+     <a href="/python/p04.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">불리언타입</a>
+     <a href="/python/p05.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">문자열타입</a>
+     <a href="/python/p06.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">조건문</a>
+     <a href="/python/p07.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">반복문</a>
+     <a href="/python/p08.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">break와 continue</a>
+     <a href="/python/p09.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">리스트 타입</a>
+     <a href="/python/p10.html" class=" btn btn-secondary mb-1" target="_blank">튜플 타입</a>
+     <a href="/python/p11.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">세트 타입</a>
+     <a href="/python/p12.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">딕셔녀리 타입</a>
+     <a href="/python/p13.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">함수</a>
+     <a href="/python/p14.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">변수의 유효범위</a>
+     <a href="/python/p15.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">클래스</a>
+     <a href="/python/p16.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">객체</a>
+     <a href="/python/p17.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">상속</a>
+     <a href="/python/p18.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">모듈</a>
+     <a href="/python/p19.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">파일 입출력</a>     
+     <a href="/python/p20.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">예외처리</a>    
+     <a href="/python/p21.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">웹스크래핑1</a>    
+     <a href="/python/p22.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">웹스크래핑2</a>   </p> 
+
+
+  <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+  <div class="card-header bd-yellow-100"><h4><b>데이터 타입(data-type) : 데이터의 종류</b></h2></div>
+    <p class="card-text" style="padding: 10px 10px;">   
+      # Sequence Types: str(문자열), list(리스트), tuple(튜플), range() <br>
+      # Mapping Type: dict(딕셔너리, 사전)<br>
+      # Set Types: set(집합)<br>
+      # Binary Types: bytes, bytearray, memoryview<br>
+      # Numeric Types: int(정수), float(실수), complex(복소수)<br>
+      # Boolean Type: bool(불리언)  참거짓<br></p></div>
+      
+      <p><table class="table tb-2" id="table1"><thead";><tr><th>TYPES<br></th><th>DATA<br></th><th>Iterable<br>(반복가능)</th><th>mutable<br>(수정가능)</th></tr></thead>
+      <tr><td rowspan="4">Sequence</td><td>str(문자열)<td rowspan="4">O</td><td>X</td></tr>
+      <tr><td>list(리스트)<td>X</td></tr>
+      <tr><td>tuple(튜플)<td>X</td></tr>
+      <tr><td>range()<td>X</td></tr>
+      <tr><td>Mapping</td><td>dict(딕셔너리,사전)<td>O</td><td>O</td></tr>
+      <tr><td>Set</td><td>set(집합)<td>O</td><td>X</td></tr>
+      <tr><td rowspan="3">Binary</td><td>bytes<td rowspan="3">O</td><td>X</td></tr>
+      <tr><td>bytearray<td>X</td></tr>
+      <tr><td>memoryview<td>X</td></tr>
+      <tr><td rowspan="3">Numeric</td><td>int(정수)<td rowspan="3">X</td><td>X</td></tr>
+      <tr><td>float(실수)<td>X</td></tr>
+      <tr><td>complex(복소수)<td>X</td></tr>
+      <tr><td>Boolean Type</td><td>bool(불리언) 참거짓<td>X</td><td>X</td></tr></table></p></div>
+  <style> 
+    #table1 thead {background-color: lightgray;}
+    #table1 th:nth-child(1), #table1 th:nth-child(2), #table1 td:nth-child(1), #table1 td:nth-child(2) {text-align:left; width:20%;}
+    #table1 th:nth-child(3), #table1 th:nth-child(4), #table1 td:nth-child(3), #table1 td:nth-child(4) {text-align:center; width:30%;}
+    #table1 tr:nth-child(3) td:nth-child(2), #table1 tr:nth-child(4) td:nth-child(2), #table1 tr:nth-child(5) td:nth-child(2), 
+    #table1 tr:nth-child(9) td:nth-child(2), #table1 tr:nth-child(10) td:nth-child(2), #table1 tr:nth-child(12) td:nth-child(2), 
+    #table1 tr:nth-child(13) td:nth-child(2) {text-align: center;}
+    #table1 tr {vertical-align:middle;} 
+  </style>
+  
+     <div class="col-md-8 mb-2">
+      <div class="p-3 text-white fs-4 bd-pink-800">튜플 타입</div>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">튜플(tuple)</h2>
+      <p>파이썬에서 튜플은 여러 개의 데이터를 하나로 묶는데 사용된다.<br>
+      이러한 튜플은 리스트(list)와 거의 비슷하지만 다음과 같은 점에서 서로 다르다.<br>
+      1. 리스트는 요소의 생성, 삭제, 수정이 가능하지만 튜플은 그 값을 바꿀 수 없다. (immutable type)<br> 
+      &nbsp;&nbsp;&nbsp;다만, 튜플은 인덱싱, 슬라이싱, 더하기, 곱하기, 길이구하기 처럼 기본적인 것은 가능하다.<br>
+      &nbsp;&nbsp;&nbsp;덧셈은 튜플끼리도 가능하지만, 곱셈은 튜플에 숫자를 곱해서만 가능(튜플끼리 곱셈 안된다)하다.<br>
+      &nbsp;&nbsp;&nbsp;또한 튜플이 1개의 값을 갖고 있다면 값 뒤에 콤마(,)를 찍어줘야하고, ()를 생략해도 가능하다<br><br>
+      2. 튜플은 리스트와 같은 데이터 타입에 비해 그 실행 속도가 빠른다.<br>
+      3. 리스트는 []로 감싸지만, 튜플은 ()로 감싼다<br>  <br>
+      따라서 프로그램이 실행되는 동안 그 값을 일정하게 유지해야만 하는 데이터는 튜플로 작성하는 것이 성능이 좋으며, <br>
+      도중에 그 값이 변경되거나 변경될지도 모르는 데이터는 리스트로 작성하는 것이 좋다.<br>
+      아무런 요소도 저장하고 있지 않은 튜플을 빈 튜플(empty tuple)이라고 부르며, 파이썬에서는 ()로 표현한다.<br><br>
+      <span class="text-danger fw-bold">## 튜플 순서O, 중복O, 수정X,삭제X ##</span><br><br>
+    </p></div>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">튜플 선언하기</h2>
+      <p>튜플은 리스트와 마찬가지로 요소(element)를 쉼표(,)로 구분하지만, 대괄호 대신 소괄호(())로 감싸거나 아예 감싸지 않고 선언한다.</p>
+      <p class="fw-bold">문법
+      튜플명 = (요소1, 요소2, 요소3, ...)<br>
+      또는<br>
+      튜플명 = 요소1, 요소2, 요소3, ...</p>
+      </div>
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100"><p class="fw-bold">예제</p></div>
+          <p class="card-text" style="padding: 10px 10px;">
+      tuple1 = (1, 2, 3)<br>
+      tuple2 = 1, 2, 3  <br>
+      tuple3 = (1,)<br>
+      tuple4 = (1)  <br>
+      print(tuple1)<br>
+      print(tuple2)  <br>
+      print(tuple3)<br>
+      print(tuple4)</p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <span class="fw-bold">실행 결과</span><br>
+      (1, 2, 3)<br>
+      (1, 2, 3)<br>
+      (1,)<br>
+      1</p></div></div>
+      <p>위 예제의 2번 라인처럼 파이썬에서는 소괄호(())를 사용하지 않아도 자동으로 튜플로 인식된다.<br>
+      그리고 4번 라인처럼 하나의 요소만을 가지는 튜플은 반드시 쉼표(,)를 포함해야만 제대로 튜플로 인식된다. 만약 하나의 요소만을 가지는 튜플에서 쉼표를 생략하게 되면, 파이썬 프로그램은 해당 데이터를 튜플이 아닌 그냥 하나의 데이터로만 인식하게 된다.</p>
+      
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100"><p class="fw-bold">예제</p></div>
+          <p class="card-text" style="padding: 10px 10px;">
+          # 튜플 기본<br>
+          tuple1 = ()<br>
+          tuple2 = (1,)<br>
+          tuple3 = (1, 2, 3)<br>
+          tuple4 = 1, 2, 3<br>
+          tuple5 = ("a", "b", ("ab", "cd", ("xyz",)))<br>
+          tuple6 = (10, 100, 'Pen', 'Cap', 'Plate')<br>
+          tuple7 = (10, 100, ('Pen', 'Cap', 'Plate'))<br>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+          print(tuple1)  # ()<br>
+          print(tuple2)  # (1,)<br>
+          print(tuple3)  # (1, 2, 3)<br>
+          print(tuple4)  # (1, 2, 3)<br>
+          print(tuple5)  # ('a', 'b', ('ab', 'cd', ('xyz',)))<br>
+          print(tuple6)  # (10, 100, 'Pen', 'Cap', 'Plate')<br>
+          print(tuple7)  # (10, 100, ('Pen', 'Cap', 'Plate'))<br></p></div></p></div>
+
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">튜플 사용하기</h2>
+      <p>파이썬에서 튜플의 사용 방법은 그 값을 변경할 수 없다는 점을 제외하면 리스트를 사용하는 방법과 같다. 단, 값을 변경할 수 없기 때문에 요소를 추가하거나 삭제, 삽입, 추출하는 동작 등은 수행할 수 없다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100"><p class="fw-bold">예제</p></div>
+          <p class="card-text" style="padding: 10px 10px;">
+      tuple1 = (1, 2, 3)<br>
+      tuple2 = tuple(["원", "투", "쓰리"])<br><br>
+      <span class="fw-bold"># 튜플 요소 선택하기<br></span>
+      print(tuple1[0])<br>
+      print(tuple2[-1])  <br><br>
+      <span class="fw-bold"># 튜플 자르기<br></span>
+      print(tuple1[1:])<br>
+      print(tuple2[:2])  <br><br>
+      <span class="fw-bold"># 튜플끼리의 연산<br></span>
+      print(tuple1 + tuple2)<br>
+      print(tuple1 * 2)</p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+        <span class="fw-bold">실행 결과</span><br>
+      1<br>
+      쓰리<br>
+      (2, 3)<br>
+      ('원', '투')<br>
+      (1, 2, 3, '원', '투', '쓰리')<br>
+      (1, 2, 3, 1, 2, 3)</p></div></div>
+      <p>위 예제의 1번과 2번 라인처럼 파이썬에서 튜플 타입의 데이터는 소괄호를 사용하거나 tuple() 함수를 사용해서 선언할 수 있다.<br> 이때 tuple() 함수의 인수로는 순환할 수 있는 객체(iterable object)만을 사용할 수 있다.</p>
+      
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100"><p class="fw-bold">예제</p></div>
+          <p class="card-text" style="padding: 10px 10px;">
+        <span class="fw-bold"># 튜플 함수. 인덱싱과 요소개수구하기</span><br>
+        a2 = (5, 2, 3, 1, 4)<br>
+        print('\na : ', a2.index(5)) # a :  0<br>
+        print('a : ', a2.count(4)) # a :  1<br><br>
+        
+        <span class="fw-bold"># 튜플 인덱싱하기</span><br>
+        tuple5 = ("a", "b", ("ab", "cd", ("xyz",))) # ('ab', 'cd', ('xyz',))<br>
+        print(tuple5[2]) # ('ab', 'cd', ('xyz',))  # ('b', ('ab', 'cd', ('xyz',)))<br><br>
+        
+        <span class="fw-bold"># 튜플 슬라이싱하기</span><br>
+        tuple5 = ("a", "b", ("ab", "cd", ("xyz",)))<br>
+        print(tuple5[1:])  # ('b', ('ab', 'cd', ('xyz',)))<br><br>
+
+        <span class="fw-bold"># 튜플 연산. 튜플을 연산하면 하나의 튜플로 합쳐진다.</span><br>
+        print('c + d : ', c + d)<br>
+        # c + d :  [4, ['a', 'b', 'c'], 'b', 'c', 3, 4, 10, 100, 'Pen', 'Cap', 'Plate']<br><br>
+        print('c * 3 : ', c * 3)<br>
+        # c * 3 :  [4, ['a', 'b', 'c'], 'b', 'c', 3, 4, 4, ['a', 'b', 'c'], 'b', 'c', 3, 4, 4, ['a', 'b', 'c'], 'b', 'c', 3, 4]<br><br>
+        print("'hi' + c[0] : ", 'hi' + str(c[0]))<br>
+        #'hi' + c[0] :  hi4<br><br>        
+        
+        <span class="fw-bold"># 튜플 더하기</span><br>
+        tuple3 = (1, 2, 3)<br>
+        tuple4 = 1, 2, 3<br>
+        print(tuple3 + tuple4) # (1, 2, 3, 1, 2, 3)  <br><br>
+        
+        <span class="fw-bold"># 튜플 곱하기</span><br>
+        tuple3 = (1, 2, 3)<br>
+        print(tuple3 * 3) # (1, 2, 3, 1, 2, 3, 1, 2, 3)<br><br>
+        
+        <span class="fw-bold"># 튜플 길이 구하기(len)</span><br>
+        tuple5 = ("a", "b", ("ab", "cd", ("xyz",)))<br>
+        print(len(tuple5))  # 3 -> ("ab", "cd", ("xyz",))<br>
+        print(len(tuple5[2][2]))  # 1 -> ("xyz",)  <br><br></p></div>
+
+        <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+          <div class="card-header bd-yellow-100"><p class="fw-bold">예제</p></div>
+            <p class="card-text" style="padding: 10px 10px;">
+          <span class="fw-bold"># 튜플값 활용 : 변수값 스왑</span><br> 
+# 다른 언어들은 두변수의 값을 서로 바꾸기 위해서는 임시변수 temp등을 만들어 옮겨서 다시 넣어줘야함<br>
+# 튜플은 x,y = y,x로 간단하게 가능<br><br>
+x = 3<br>
+y = 9<br>
+x, y = y, x<Br><br>
+print(x)  # 9<br>
+print(y)  # 3<br></p></div>
+
+
+      <p>또한, 튜플 타입에 한해 다음에 소개할 패킹(packing)을 이용하여 튜플을 선언할 수도 있다.</p>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">패킹(packing)과 언패킹(unpacking)</h2>
+      <p>여러 타입의 데이터를 하나의 튜플이나 리스트로 묶어 선언하는 것을 패킹(packing)이라 하며, 하나의 튜플이나 리스트의 요소들을 여러 개의 변수에 나누어 대입하는 것을 언패킹(unpacking)이라 한다.<br>
+      이러한 언패킹은 파이썬만의 독특한 문법으로 코드를 작성할 때 매우 유용하게 사용할 수 있다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100"><p class="fw-bold">예제</p></div>
+          <p class="card-text" style="padding: 10px 10px;">
+      # 패킹(packing)<br>
+      tuple1 = 10, "열", True  <br><br>
+      # 언패킹(unpacking)<br>
+      a, b, c = tuple1<br>
+      # a, b, c, d = tuple1<br>
+      # a, b = tuple1 <br>
+      print(a)<br>
+      print(b)<br>
+      print(c)  <br>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+        <span class="fw-bold">실행 결과</span><br>
+      10<br>
+      열<br>
+      True</p></div></p></div>
+      <p>위 예제의 2번 라인처럼 별도로 소괄호(())를 사용하지 않더라도 둘 이상의 데이터가 쉼표로 연결되어 있으면, 파이썬은 자동으로 해당 데이터들을 하나의 튜플로 패킹(packing)해 준다.<br>
+      또한, 5번 라인처럼 둘 이상의 변수에 튜플의 각 요소들을 한 번에 언패킹(unpacking)할 수도 있다.</p>
+       
+      <p>하지만 6번이나 7번 라인처럼 언패킹을 위한 변수의 개수가 튜플이나 리스트의 길이와 다를 경우에는 ValueError가 발생한다. 따라서 언패킹을 할 때는 언제나 변수의 개수와 튜플이나 리스트의 길이가 일치하는지를 확인해야만 한다.</p>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">특정 요소의 포함 여부</h2>
+      <p>튜플이나 리스트, 세트 등에 어느 특정 요소가 포함되어 있는지를 확인하려면 in 키워드를 사용할 수 있다.<br>
+      in 키워드를 사용한 결과 해당 데이터에 특정 요소가 포함되어 있으면 참(True)를 반환하고, 포함되어 있지 않으면 거짓(False)를 반환한다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100"><p class="fw-bold">예제</p></div>
+          <p class="card-text" style="padding: 10px 10px;">
+      tuple1 = 10, "열", True  <br>
+      print(10 in tuple1)<br>
+      print("아홉" in tuple1)<br>
+      print("아홉" not in tuple1)</p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+        <span class="fw-bold">실행 결과</span><br>
+      True<br>
+      False<br>
+      True</p></div></div>
+      <p>위 예제의 5번 라인처럼 in 키워드 앞에 not를 붙여서 사용하면, in 키워드와는 반대로 특정 요소가 포함되어 있지 않으면 참(True)를 반환하고 포함되어 있으면 거짓(False)를 반환하게 된다.</p>
+
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">공통 시퀀스 연산 (list, tuple, range) </h2>
+
+      <table class="tb-2">  
+        <thead>
+        <tr style="text-align:center;background-color:lightgray; border-bottom: 1px solid lightgray"><th style="width:40%">연산</th>
+        <th>결과</th> 
+        </tr>
+        </thead>
+        <tbody>
+        <tr style="border-bottom: 1px solid lightgray"><td><code><span>x</span> <span>in</span> <span>s</span></code></td>
+        <td><em>s</em> 의 항목 중 하나가 <em>x</em> 와 같으면 <code><span>True</span></code>, 그렇지 않으면 <code><span>False</span></code></td> 
+        </tr>
+        <tr style="border-bottom: 1px solid lightgray"><td><code><span>x</span> <span>not</span> <span>in</span> <span>s</span></code></td>
+        <td><em>s</em> 의 항목 중 하나가 <em>x</em> 와 같으면 <code><span>False</span></code>, 그렇지 않으면 <code><span>True</span></code></td> 
+        </tr>
+        <tr style="border-bottom: 1px solid lightgray"><td><code><span>s</span> <span>+</span> <span>t</span></code></td>
+        <td><em>s</em> 와 <em>t</em> 의 이어 붙이기</td> 
+        </tr>
+        <tr style="border-bottom: 1px solid lightgray"><td><code><span>s</span> <span>*</span> <span>n</span></code> 또는 <code><span>n</span> <span>*</span> <span>s</span></code></td>
+        <td><em>s</em> 를 그 자신에 <em>n</em> 번 더하는 것과 같습니다</td> 
+        </tr>
+        <tr style="border-bottom: 1px solid lightgray"><td><code><span>s[i]</span></code></td>
+        <td><em>s</em> 의 <em>i</em> 번째 항목, 0에서 시작합니다</td> 
+        </tr>
+        <tr style="border-bottom: 1px solid lightgray"><td><code><span>s[i:j]</span></code></td>
+        <td><em>s</em> 의 <em>i</em> 에서 <em>j</em> 까지의 슬라이스</td> 
+        </tr>
+        <tr style="border-bottom: 1px solid lightgray"><td><code><span>s[i:j:k]</span></code></td>
+        <td><em>s</em> 의 <em>i</em> 에서 <em>j</em> 까지 스텝 <em>k</em> 의 슬라이스</td> 
+        </tr>
+        <tr style="border-bottom: 1px solid lightgray"><td><code><span>len(s)</span></code></td>
+        <td><em>s</em> 의 길이</td> 
+        </tr>
+        <tr style="border-bottom: 1px solid lightgray"><td><code><span>min(s)</span></code></td>
+        <td><em>s</em> 의 가장 작은 항목</td> 
+        </tr>
+        <tr style="border-bottom: 1px solid lightgray"><td><code><span>max(s)</span></code></td>
+        <td><em>s</em> 의 가장 큰 항목</td> 
+        </tr>
+        <tr style="border-bottom: 1px solid lightgray"><td><code><span>s.index(x[,</span> <span>i[,</span> <span>j]])</span></code></td>
+        <td>(인덱스 <em>i</em> 또는 그 이후에, 인덱스 <em>j</em> 전에 등장하는) <em>s</em> 의 첫 번째 <em>x</em> 의 인덱스</td> 
+        </tr>
+        <tr style="border-bottom: 1px solid lightgray"><td><code><span>s.count(x)</span></code></td>
+        <td><em>s</em> 등장하는 <em>x</em> 의 총수</td> 
+        </tr>
+        </tbody>
+        </table>
+
+        <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">가변 시퀀스 연산 (list) </h2>
+
+        <table class="tb-2"> 
+          <thead>
+          <tr style="text-align:center;background-color:lightgray; border-bottom: 1px solid lightgray"><th style="width:40%">연산</th>
+          <th>결과</th> 
+          </tr>
+          </thead>
+          <tbody>
+          <tr style="border-bottom: 1px solid lightgray"><td><code><span>s[i]</span> <span>=</span> <span>x</span></code></td>
+          <td><em>s</em> 의 항목 <em>i</em> 를 <em>x</em> 로 대체합니다</td> 
+          </tr>
+          <tr style="border-bottom: 1px solid lightgray"><td><code><span>s[i:j]</span> <span>=</span> <span>t</span></code></td>
+          <td><em>i</em> 에서 <em>j</em> 까지의 <em>s</em> 슬라이스가 이터러블 <em>t</em> 의 내용으로 대체됩니다</td> 
+          </tr>
+          <tr style="border-bottom: 1px solid lightgray"><td><code><span>del</span> <span>s[i:j]</span></code></td>
+          <td><code><span>s[i:j]</span> <span>=</span> <span>[]</span></code> 와 같습니다</td> 
+          </tr>
+          <tr style="border-bottom: 1px solid lightgray"><td><code><span>s[i:j:k]</span> <span>=</span> <span>t</span></code></td>
+          <td><code><span>s[i:j:k]</span></code> 의 항목들이 <em>t</em> 의 항목들로 대체됩니다</td> 
+          </tr>
+          <tr style="border-bottom: 1px solid lightgray"><td><code><span>del</span> <span>s[i:j:k]</span></code></td>
+          <td>리스트에서 <code><span>s[i:j:k]</span></code> 의 항목들을 제거합니다</td> 
+          </tr>
+          <tr style="border-bottom: 1px solid lightgray"><td><code><span>s.append(x)</span></code></td>
+          <td>시퀀스의 끝에 <em>x</em> 를 추가합니다 (<code><span>s[len(s):len(s)]</span> <span>=</span> <span>[x]</span></code> 와 같습니다)</td> 
+          </tr>
+          <tr style="border-bottom: 1px solid lightgray"><td><code><span>s.clear()</span></code></td>
+          <td><em>s</em> 에서 모든 항목을 제거합니다 (<code><span>del</span> <span>s[:]</span></code> 와 같습니다)</td>
+          </tr>
+          <tr style="border-bottom: 1px solid lightgray"><td><code><span>s.copy()</span></code></td>
+          <td><em>s</em> 의 얕은 복사본을 만듭니다 (<code><span>s[:]</span></code> 와 같습니다)</td> 
+          </tr>
+          <tr style="border-bottom: 1px solid lightgray"><td><code><span>s.extend(t)</span></code> 또는 <code><span>s</span> <span>+=</span> <span>t</span></code></td>
+          <td><em>t</em> 의 내용으로 <em>s</em> 를 확장합니다 (대부분 <code><span>s[len(s):len(s)]</span> <span>=</span> <span>t</span></code> 와 같습니다)</td> 
+          </tr>
+          <tr style="border-bottom: 1px solid lightgray"><td><code><span>s</span> <span>*=</span> <span>n</span></code></td>
+          <td>내용이 <em>n</em> 번 반복되도록 <em>s</em> 를 갱신합니다</td> 
+          </tr>
+          <tr style="border-bottom: 1px solid lightgray"><td><code><span>s.insert(i,</span> <span>x)</span></code></td>
+          <td><em>x</em> 를 <em>s</em> 의 <em>i</em> 로 주어진 인덱스에 삽입합니다 (<code><span>s[i:i]</span> <span>=</span> <span>[x]</span></code> 와 같습니다)</td> 
+          </tr>
+          <tr style="border-bottom: 1px solid lightgray"><td><code><span>s.pop()</span></code> or <code><span>s.pop(i)</span></code></td>
+          <td><em>i</em> 에 있는 항목을 꺼냄과 동시에 <em>s</em> 에서 제거합니다</td> 
+          </tr>
+          <tr style="border-bottom: 1px solid lightgray"><td><code><span>s.remove(x)</span></code></td>
+          <td><code><span>s[i]</span></code> 가 <em>x</em> 와 같은 첫 번째 항목을 <em>s</em> 에서 제거합니다</td> 
+          </tr>
+          <tr style="border-bottom: 1px solid lightgray"><td><code><span>s.reverse()</span></code></td>
+          <td>제자리에서 <em>s</em> 의 항목들의 순서를 뒤집습니다</td> 
+          </tr>
+          </tbody>
+          </table>
+          
+</body>
+</html>

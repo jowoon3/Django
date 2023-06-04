@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>파이썬 세트 타입</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">   
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">     
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <!-- font css -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="{% static '/css/java.css'%}" rel="stylesheet">   
+  <link href="{% static '/css/style.css'%}" rel="stylesheet">     
+</head>
+<body class="ms-3">  
+  <H2 class="coffee_taital" style="text-align:left;"><a name="home">파이썬</a></H2>  
+    <p><a href="/python/p01.html" class="btn btn-warning mb-1" target="_blank">이전 노트</a>
+      <a href="/python/p03.html" class="btn btn-warning mb-1" target="_blank">다음 노트</a>            
+      <a href="/htmls/tut1.html" class="btn btn-danger mb-1" target="_blank">HTML 노트</a> 
+      <a href="/css/tut11.html" class="btn btn-success mb-1" target="_blank">CSS 노트</a> 
+      <a href="/javascript/j01.html" class="btn btn-purple mb-1" target="_blank">Javascript 노트</a>
+     <a href="/python/p01.html" class=" btn btn-secondary mb-1" target="_blank">파이썬의 기초</a>
+     <a href="/python/p02.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">변수</a>
+     <a href="/python/p03.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">숫자형타입</a>
+     <a href="/python/p04.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">불리언타입</a>
+     <a href="/python/p05.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">문자열타입</a>
+     <a href="/python/p06.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">조건문</a>
+     <a href="/python/p07.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">반복문</a>
+     <a href="/python/p08.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">break와 continue</a>
+     <a href="/python/p09.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">리스트 타입</a>
+     <a href="/python/p10.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">튜플 타입</a>
+     <a href="/python/p11.html" class=" btn btn-secondary mb-1" target="_blank">세트 타입</a>
+     <a href="/python/p12.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">딕셔녀리 타입</a>
+     <a href="/python/p13.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">함수</a>
+     <a href="/python/p14.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">변수의 유효범위</a>
+     <a href="/python/p15.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">클래스</a>
+     <a href="/python/p16.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">객체</a>
+     <a href="/python/p17.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">상속</a>
+     <a href="/python/p18.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">모듈</a>
+     <a href="/python/p19.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">파일 입출력</a>     
+     <a href="/python/p20.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">예외처리</a>    
+     <a href="/python/p21.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">웹스크래핑1</a>    
+     <a href="/python/p22.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">웹스크래핑2</a>   </p> 
+
+
+  <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+  <div class="card-header bd-yellow-100"><h4><b>데이터 타입(data-type) : 데이터의 종류</b></h2></div>
+    <p class="card-text" style="padding: 10px 10px;">   
+      # Sequence Types: str(문자열), list(리스트), tuple(튜플), range() <br>
+      # Mapping Type: dict(딕셔너리, 사전)<br>
+      # Set Types: set(집합)<br>
+      # Binary Types: bytes, bytearray, memoryview<br>
+      # Numeric Types: int(정수), float(실수), complex(복소수)<br>
+      # Boolean Type: bool(불리언)  참거짓<br></p></div>
+      
+      <p><table class="table tb-2" id="table1"><thead";><tr><th>TYPES<br></th><th>DATA<br></th><th>Iterable<br>(반복가능)</th><th>mutable<br>(수정가능)</th></tr></thead>
+      <tr><td rowspan="4">Sequence</td><td>str(문자열)<td rowspan="4">O</td><td>X</td></tr>
+      <tr><td>list(리스트)<td>X</td></tr>
+      <tr><td>tuple(튜플)<td>X</td></tr>
+      <tr><td>range()<td>X</td></tr>
+      <tr><td>Mapping</td><td>dict(딕셔너리,사전)<td>O</td><td>O</td></tr>
+      <tr><td>Set</td><td>set(집합)<td>O</td><td>X</td></tr>
+      <tr><td rowspan="3">Binary</td><td>bytes<td rowspan="3">O</td><td>X</td></tr>
+      <tr><td>bytearray<td>X</td></tr>
+      <tr><td>memoryview<td>X</td></tr>
+      <tr><td rowspan="3">Numeric</td><td>int(정수)<td rowspan="3">X</td><td>X</td></tr>
+      <tr><td>float(실수)<td>X</td></tr>
+      <tr><td>complex(복소수)<td>X</td></tr>
+      <tr><td>Boolean Type</td><td>bool(불리언) 참거짓<td>X</td><td>X</td></tr></table></p></div>
+  <style> 
+    #table1 thead {background-color: lightgray;}
+    #table1 th:nth-child(1), #table1 th:nth-child(2), #table1 td:nth-child(1), #table1 td:nth-child(2) {text-align:left; width:20%;}
+    #table1 th:nth-child(3), #table1 th:nth-child(4), #table1 td:nth-child(3), #table1 td:nth-child(4) {text-align:center; width:30%;}
+    #table1 tr:nth-child(3) td:nth-child(2), #table1 tr:nth-child(4) td:nth-child(2), #table1 tr:nth-child(5) td:nth-child(2), 
+    #table1 tr:nth-child(9) td:nth-child(2), #table1 tr:nth-child(10) td:nth-child(2), #table1 tr:nth-child(12) td:nth-child(2), 
+    #table1 tr:nth-child(13) td:nth-child(2) {text-align: center;}
+    #table1 tr {vertical-align:middle;} 
+  </style>
+  
+     <div class="col-md-8 mb-2">
+      <div class="p-3 text-white fs-4 bd-pink-800">세트 타입</div>      
+      <p>집합 자료형은 set 키워드를 사용해 만들 수 있다. 비어있는 집합 : set() <br>
+      집합은 <span class="text-danger fw-bold">중복을 허용하지 않기 때문에 </span>집합으로 변환시켰을 때 중복된 값은 제거된다(종종 중복을 없애는 필터 기능으로 사용됨) <br>
+      집합은 <span class="text-danger fw-bold">순서가 없기 때문에</span> 저장된 값을 인덱싱으로 접근 불가 <br>
+      집합에서 인덱싱으로 저장된 값을 저장하기 위해서는 자료형을 리스트나 튜플로 변환 후 제어해야 한다 <br>
+      집합은 교집합, 합집합, 차집합을 구하는데 이용한다 <br></p>
+
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">세트(set)</h2>
+      <p>파이썬의 세트는 우리가 수학에서 자주 접한 개념인 집합과 같은 개념으로, 하나의 포대 안에 모든 데이터를 몰아서 저장하는 것으로 쉽게 이해해 볼 수 있다.<br>
+         따라서 세트 타입에서는 각 요소들의 순서를 매길 수 없으며, 중복된 값 또한 허용하지 않는다.<br>
+        세트는 중괄호({})로 감싸서 선언하며, 세트 안의 요소(element)들은 쉼표(,)로 구분한다.<br>
+        또한, 파이썬 내장 함수인 set() 함수를 사용하면 문자열과 같이 순환할 수 있는 객체(iterable object)를 세트로 변환할 수 있다.<br>
+        파이썬에서 순환할 수 있는 객체(iterable object)란 저장된 요소를 하나씩 차례대로 반환할 수 있는 객체를 의미하며, 대표적으로 리스트, 튜플, 문자열 등이 있다.<br></div> 
+      <p><span class="fw-bold">문법<br> 
+      세트명 = {요소1, 요소2, 요소3, ...}</p></span>
+      </div>
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+          set1 = {1, 2, 3}<br>
+          set2 = set("Python")<br>
+          set3 = set("Hello")  <br> <br>
+          print(set1)<br>
+          print(set2)<br>
+          print(set3)</p>
+        <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+          <span class="fw-bold">실행 결과</span><br> 
+          {1, 2, 3}<br>
+          {'P', 'y', 'h', 'n', 'o', 't'}<br>
+          {'l', 'e', 'o', 'H'}<br></p></div></div>
+          <p>위의 예제의 출력 결과는 실행결과 버튼을 누를 때마다 다르게 변할 것이다. 이것은 파이썬의 세트가 요소들 사이의 순서는 신경 쓰지 않기 때문이다.<br>
+          또한, 7번 라인에서 ‘Hello' 문자열에 포함된 두 개의 'l'문자 중 하나만이 세트의 요소로 포함된 것처럼 파이썬에서 순환할 수 있는 객체를 세트로 변환할 때는 자동으로 중복된 값이 제거된다.</p>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">빈 세트(empty set)</h2>
+      <p>아무런 요소도 저장하고 있지 않은 집합을 빈 세트(empty set)라고 한다.<br>
+      파이썬에서는 빈 세트를 나타낼 때 리스트나 튜플처럼 단순히 중괄호({})만을 사용해서는 안 된다. <br>
+      만약 빈 세트를 나타내기 위해 중괄호({})만을 사용하게 되면, 파이썬 프로그램은 이를 빈 세트가 아닌 빈 딕셔너리로 잘못 인식할 것이다.<br>
+      따라서 파이썬에서 빈 세트는 중괄호가 아닌 set() 함수를 통해서만 선언할 수 있다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+            set1 = {}<br>
+            <span class="text-danger fw-bold">set2 = set()  <br></span>
+            print(type(set1))<br>
+            print(type(set2))</p>
+ 
+        <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+          <span class="fw-bold">실행 결과</span><br> 
+            &lt;class 'dict'&gt;<br>
+            &lt;class 'set'&gt;<br></p></div></div>
+            <p>파이썬 내장 함수인 type() 함수는 인수로 전달받은 객체의 데이터 타입을 반환하는 함수이다. 따라서 단순히 중괄호({})만을 사용하여 선언할 경우에는 딕셔너리 타입으로 선언됨을 확인할 수 있다.</p>
+      
+    <hr>
+    <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">세트에 요소 추가하거나 제거하기</h2>
+    <p>add() 함수는 전달된 인수를 해당 세트의 요소로 추가하고, remove() 함수는 해당 세트에서 전달된 인수를 찾아 제거한다.<br>
+    여러 개의 요소를 한 번에 추가하려면 update() 함수를 사용하면 되며, 이때 인수로는 순환할 수 있는 객체(iterable object) 타입만을 전달할 수 있다.</p>
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+        <p class="card-text" style="padding: 10px 10px;">
+          set1 = {1, 2, 3}  <br>
+          set1.add(4)<br>
+          print(set1)  <br><br>
+          set1.update((5, 6))<br>
+          print(set1)  <br><br>
+          set1.remove(2)<br>
+          print(set1)  </p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+        <span class="fw-bold">실행 결과</span><br> 
+    {1, 2, 3, 4}<br>
+    {1, 2, 3, 4, 5, 6}<br>
+    {1, 3, 4, 5, 6}</p></div>
+    </div>
+
+       
+    <hr>
+    <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">세트를 리스트 튜플로 변환시키기</h2>
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+    <p class="card-text" style="padding: 10px 10px;">
+      # 집합에서 인덱싱을 할 수 없기 때문에 요소값을 추출하려면 리스트나 튜플로 변환시킨 후 제어함<br>
+      s1 = set([1,2,3,1,2,3])<br>
+      s2 = set("Hello")<br><br>
+      list_s1 = list(s1) # 리스트 변환<br>
+      list_s2 = list(s2) # 리스트 변환<br><br>
+      print(list_s1) # [1, 2, 3]<br>
+      print(list_s2) # ['e', 'o', 'H', 'l']<br>
+      print(list_s1[1]) # 2<br>
+      print(list_s2[1]) # H -> 계속 값이 바뀜,, 리스트로 바뀌는 과정에서 순서가 랜덤으로 위치함   <br></p></div>   
+          
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">집합 연산</h2>
+      <p>파이썬의 세트 타입은 수학에서 다루는 집합과 매우 비슷하게 동작한다. <br>
+        따라서 파이썬에서는 합집합, 교집합, 차집합, 여집합 등 다양한 집합 연산을 세트 타입을 활용하여 매우 손쉽게 구현할 수 있다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+          set1 = {1, 2, 3, 4, 5}<br>
+          set2 = set((1, 3, 5, 7, 9))  <br><br>
+          print(set1)<br>
+          print(set2)  <br>
+          print(set1 | set2) # 합집합<br>
+          print(set1 &amp; set2) # 교집합<br>
+          print(set1 - set2) # 차집합<br>
+          print(set1 ^ set2) # 여집합 = 합집합 - 교집합</p> 
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+        <span class="fw-bold">실행 결과</span><br>  
+          {1, 2, 3, 4, 5}<br>
+          {1, 3, 5, 7, 9}<br>
+          {1, 2, 3, 4, 5, 7, 9}<br>
+          {1, 3, 5}<br>
+          {2, 4}<br>
+          {2, 4, 7, 9}<br></p></div></div>
+          위 예제의 1번과 2번 라인처럼 파이썬에서 세트 타입의 데이터는 중괄호를 사용하거나 set() 함수를 사용해서 선언할 수 있다. 이때 set() 함수의 인수로는 순환할 수 있는 객체(iterable object)만을 사용할 수 있다.</p>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">#  Set 교집합, 합집합, 차집합 구하기</h2><p> 
+        <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+        <p class="card-text" style="padding: 10px 10px;">
+          s3 = set([1, 2, 3, 4, 5, 6])<br>
+          s4 = set([4, 5, 6, 7, 8, 9])<br><br>
+          <span class="fw-bold"># 교집합 : 교집합은 집간 간 공통으로 있는 요소를 추출함<br></span>
+          print(s3&s4) # {4, 5, 6}<br>
+          print(s3.intersection(s4)) # {4, 5, 6}<br><br>
+          <span class="fw-bold"># 합집합 : 중복없이 집간 간 요소들을 모두 합침<br></span>
+          print(s3|s4) # {1, 2, 3, 4, 5, 6, 7, 8, 9}<br>
+          print(s3.union(s4)) # {1, 2, 3, 4, 5, 6, 7, 8, 9}<br><br>
+          <span class="fw-bold"># 차집합 : 집합 간의 뺄셈<br></span>
+          print(s3-s4) # {1, 2, 3}<br>
+          print(s3.difference(s4)) # {1, 2, 3}<br><br></p></div>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">#  Set 집합 추가하기, 여러개 추가하기, 값제거</h2><p> 
+        <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+          <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+          <span class="fw-bold"># 집합 관련된 함수들<br>
+          # 값 1개 추가하기(add) : 1개만 가능<br></span>
+          s5 = set([1,2,3])<br>
+          s5.add(4)<br>
+          print(s5) # {1, 2, 3, 4}<br><br>
+          <span class="fw-bold"># 값 여러개 추가하기(update)<br></span>
+          s6 = set([1,2,3])<br>
+          s6.update([4,5,6])<br>
+          print(s6) # {1, 2, 3, 4, 5, 6}<br><br>
+          <span class="fw-bold"># 특정 값 제거(remove)<br></span>
+          s7 = set([1,2,3])<br>
+          s7.remove(3)<br>
+          print(s7) # {1, 2}<br><br>
+          <span class="fw-bold">#  set 활용 : 중복없음, 집합 연산<br></span>
+          data1 = {"apple", "samsung", "lg"}<br>
+          data2 = {"samsung", "lg", "MS"}<br>
+          print(data1&data2) # {'lg', 'samsung'} -> 교집합<br>
+          print(data1|data2) # {'lg', 'MS', 'apple', 'samsung'} ->합집합<br>
+          print(data1-data2) # {'apple'} -> 차집합<br>
+          print(data1^data2) # {'MS', 'apple'} -> 합집합-교집합<br><br>
+          <span class="fw-bold"># 중복 없애기<br></span>
+          data_list = ["apple", "samsung", "lg", "samsung", "lg", "MS", "dell", "HP", "dell", "HP", "samsung"]<br>
+          # {'dell', 'samsung', 'MS', 'lg', 'HP', 'apple'}<br></p></div>
+
+</body>
+</html>

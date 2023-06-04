@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Math 객체</title>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">   
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">     
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+  <link href="{% static '/css/java.css'%}" rel="stylesheet">   
+</head>
+<body class="ms-3">  
+  <H2><a name="home">Javascript</a></H2>  
+      <p><a href="/javascript/j07.html" class="btn btn-purple mb-1" target="_blank">이전 노트</a>
+      <a href="/javascript/j09.html" class="btn btn-purple mb-1" target="_blank">다음 노트</a>
+      <a href="/htmls/tut1.html" class="btn btn-danger mb-1" target="_blank">HTML 노트</a> 
+      <a href="/css/tut11.html" class="btn btn-success mb-1" target="_blank">CSS 노트</a> 
+      <a href="/htmls/html_CSS.html" class="btn btn-outline-danger border-2 mb-1" target="_blank">HTML+CSS</a>
+      <a href="/htmls/html_Emmet.html" class="btn btn-outline-danger border-2 mb-1" target="_blank">HTML+Emmet</a>
+      <a href="/htmls/html_tags.html" class="btn btn-outline-danger border-2 mb-1" target="_blank">HTML+Tags</a><br>
+      <a href="/python/p01.html" class="btn btn-warning mb-1" target="_blank">파이썬 노트</a> 
+      <a href="/javascript/j01.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">자바스크립트 개요</a>
+      <a href="/javascript/j02.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">기본타입과 타입변환</a>
+      <a href="/javascript/j03.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">자바스크립트 연산자</a>
+      <a href="/javascript/j04.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">제어문과 배열 </a>
+      <a href="/javascript/j05.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">함수</a> 
+      <a href="/javascript/j06.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">객체</a>
+      <a href="/javascript/j07.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Number 객체</a> 
+      <a href="/javascript/j08.html" class=" btn btn-secondary mb-1" target="_blank">Math 객체</a> 
+      <a href="/javascript/j09.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Date 객체</a>     
+      <a href="/javascript/j10.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">String 문자열 객체</a>
+      <a href="/javascript/j11.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Array 배열 객체</a> 
+      <a href="/javascript/j12.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">문서객체모델 DOM</a> 
+      <a href="/javascript/j13.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">브라우저 객체 모델 BOM</a> 
+      <a href="/javascript/j14.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">이벤트와 예외처리</a>
+      <a href="/javascript/j15.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">정규표현식</a> 
+      <a href="/javascript/j16.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">람다표현식</a> 
+      <a href="/javascript/j17.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Map과 Set, Iterator와 Generator</a> </p> 
+
+      <hr><div class="col-md-8 mb-2">
+        <div class="p-3 text-white fs-4 bd-pink-800">표준 객체(Standard Object)</div></div>     
+        <hr><p>자바스크립트에서 표준 객체(standard object)는 다른 객체의 기초가 되는 핵심적인 객체이다.<br>
+        자주 사용되는 대표적인 자바스크립트 표준 객체는 다음과 같다.<br>
+        1. Number 객체<br>
+        2. Math 객체<br>
+        3. Date 객체<br>
+        4. String 객체<br>
+        5. Array 객체</p></div><br>
+
+
+    <hr><div class="col-md-8 mb-2">
+    <div class="p-3 text-white fs-4 bd-pink-800">Math 객체</div></div>
+    
+    <p>Math 객체는 수학에서 자주 사용하는 상수와 함수들을 미리 구현해 놓은 자바스크립트 표준 내장 객체이다.<br>
+    Math 객체는 다른 전역 객체와는 달리 생성자(constructor)가 존재하지 않는다.<br>
+    따라서 따로 인스턴스를 생성하지 않아도 Math 객체의 모든 메소드나 프로퍼티를 바로 사용할 수 있다.</p>
+    
+    <hr><div class="col-md-8 mb-2">
+    <div class="p-3 text-white fs-4 bd-pink-800">Math 메소드</div></div>
+    
+    <p>자바스크립트는 웹 페이지에서 수학적 작업을 손쉽게 할 수 있도록 다양한 Math 메소드를 제공하고 있다.<br>
+    가장 많이 사용되는 대표적인 Math 메소드는 다음과 같다.<br>
+   <span class="text-bg-warning">1. Math.min()</span><br>
+   <span class="text-bg-warning">2. Math.max()</span><br>
+   <span class="text-bg-warning">3. Math.random()</span><br>
+   <span class="text-bg-warning">4. Math.round()</span><br>
+   <span class="text-bg-warning">5. Math.floor()</span><br>
+   <span class="text-bg-warning">6. Math.ceil()</span><br>
+   <span class="text-bg-warning">7. Math.sin()</span><br>
+    대부분의 Math 메소드는 웹 브라우저마다 다른 결괏값을 얻을 가능성이 높다.<br>
+    심지어 같은 자바스크립트 인터프리터라도 운영체제가 다르면 다른 결괏값을 반환할 수 있다.<br>
+    따라서 <span class="text-danger fw-bold">아주 정확한 결괏값이 필요한 작업</span>에는 Math 메소드는 <span class="text-danger fw-bold">사용하지 않는</span> 것이 좋다.</p>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">Math.min() 메소드</h4>
+    
+    <p>Math.min() 메소드는 인수로 전달받은 값 중에서 가장 작은 수를 반환한다.<br>
+    인수가 전달되지 않으면 Infinity를 반환하며, 인수 중에 비교할 수 없는 값이 포함되어 있으면 NaN을 반환한다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#691c97">Math</span>.<span style="color:#693a17">min</span>();                              <span style="color:#5a525f;font-style:italic">// Infinity</span><br>
+    <span style="color:#691c97">Math</span>.<span style="color:#693a17">min</span>(<span style="color:#811f24;font-weight:700">1</span>, <span style="color:#811f24;font-weight:700">10</span>, <span style="color:#794938">-</span><span style="color:#811f24;font-weight:700">100</span>, <span style="color:#794938">-</span><span style="color:#811f24;font-weight:700">10</span>, <span style="color:#811f24;font-weight:700">1000</span>, <span style="color:#811f24;font-weight:700">0</span>);     <span style="color:#5a525f;font-style:italic">// -100</span><br>
+    <span style="color:#691c97">Math</span>.<span style="color:#693a17">min</span>(<span style="color:#811f24;font-weight:700">1</span>, <span style="color:#811f24;font-weight:700">10</span>, <span style="color:#794938">-</span><span style="color:#811f24;font-weight:700">100</span>, <span style="color:#794938">-</span><span style="color:#811f24;font-weight:700">10</span>, <span style="color:#0b6125">"-1000"</span>, <span style="color:#811f24;font-weight:700">0</span>);  <span style="color:#5a525f;font-style:italic">// -1000</span><br>
+    <span style="color:#691c97">Math</span>.<span style="color:#693a17">min</span>(<span style="color:#811f24;font-weight:700">1</span>, <span style="color:#811f24;font-weight:700">10</span>, <span style="color:#794938">-</span><span style="color:#811f24;font-weight:700">100</span>, <span style="color:#794938">-</span><span style="color:#811f24;font-weight:700">10</span>, <span style="color:#0b6125">"문자열"</span>, <span style="color:#811f24;font-weight:700">0</span>); <span style="color:#5a525f;font-style:italic">// NaN</span></p></div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">Math.max() 메소드</h4>
+    
+    <p>Math.max() 메소드는 인수로 전달받은 값 중에서 가장 큰 수를 반환한다.<br>
+    인수가 전달되지 않으면 -Infinity를 반환하며, 인수 중에  <span class="text-danger fw-bold">비교할 수 없는 값</span>이 포함되어 있으면  <span class="text-danger fw-bold">NaN을 반환</span>한다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#691c97">Math</span>.<span style="color:#693a17">max</span>();                              <span style="color:#5a525f;font-style:italic">// -Infinity</span><br>
+    <span style="color:#691c97">Math</span>.<span style="color:#693a17">max</span>(<span style="color:#811f24;font-weight:700">1</span>, <span style="color:#811f24;font-weight:700">10</span>, <span style="color:#794938">-</span><span style="color:#811f24;font-weight:700">100</span>, <span style="color:#794938">-</span><span style="color:#811f24;font-weight:700">10</span>, <span style="color:#811f24;font-weight:700">100</span>, <span style="color:#811f24;font-weight:700">0</span>);      <span style="color:#5a525f;font-style:italic">// 100</span><br>
+    <span style="color:#691c97">Math</span>.<span style="color:#693a17">max</span>(<span style="color:#811f24;font-weight:700">1</span>, <span style="color:#811f24;font-weight:700">10</span>, <span style="color:#794938">-</span><span style="color:#811f24;font-weight:700">100</span>, <span style="color:#794938">-</span><span style="color:#811f24;font-weight:700">10</span>, <span style="color:#0b6125">"1000"</span>, <span style="color:#811f24;font-weight:700">0</span>);   <span style="color:#5a525f;font-style:italic">// 1000</span><br>
+    <span style="color:#691c97">Math</span>.<span style="color:#693a17">max</span>(<span style="color:#811f24;font-weight:700">1</span>, <span style="color:#811f24;font-weight:700">10</span>, <span style="color:#794938">-</span><span style="color:#811f24;font-weight:700">100</span>, <span style="color:#794938">-</span><span style="color:#811f24;font-weight:700">10</span>, <span style="color:#0b6125">"문자열"</span>, <span style="color:#811f24;font-weight:700">0</span>); <span style="color:#5a525f;font-style:italic">// NaN</span></p></div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">Math.random() 메소드</h4>
+    
+    <p>Math.random() 메소드는 0~1 (1은 미포함) 구간에서 부동소수점의 난수를 생성한다.<br>
+      정수인 난수를 새성하기 위해서는 Math.round(반올림), Math.ceil(올림), Math.floor(내림) 함수를 함께 사용한다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+      document.write(Math.random() + "&lt;br>");  // 0~1 사이 (1은 미포함) 실수 <br>
+      document.write(Math.floor(Math.random())+ "&lt;br>"); // 소수점 첫번째자리 내림해서 0  <br>
+      document.write(Math.floor(Math.random() * 10) + "&lt;br>"); <br>// 0~9.9999 를 소수점 첫번째자리 내림 1~9 정수  <br>
+      document.write(Math.floor(Math.random() * 11) + "&lt;br>"); <br>// 0~10.99999 를 소수점 첫번째자리 내림 1~10 정수 <br>
+      document.write(Math.floor(Math.random() * 100) + "&lt;br>"); <br>// 0~99.99999 를 소수점 첫번째자리 내림 1~99 정수 <br><br>
+      //최소, 최대값을 지정하고 싶을때는 Math.random()*(max-min + 1) + min 으로 계산한다 <br>
+      document.write(Math.floor(Math.random() * 4) + 2); <br>// 2와 5 사이 난수 Math.floor(Math.random() * (5 - 2 + 1)) + 2<br><br></p></div>
+
+     <div id="changebg">
+      <h1 style="line-height: 18; padding:20px 30px; background-color:rgba(255,255,255,0.6); border-radius:10px; box-shadow:1px 2px 2px #222;">문서를 다시 불러오세요.</h1></div><br>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100"><h5>예제 : 배경바꾸기</h5></div>
+      <p class="card-text" style="padding: 10px 10px;"> 
+        let chbg = function() {<br>
+          const bg_1="https://source.unsplash.com/7SxSkCvVM1U/1920x1280";<br>
+          const bg_2="https://source.unsplash.com/YtKJSO98grM/1920x1280";<br>
+          const bg_3="https://source.unsplash.com/w8JiSVyjy-8/1920x1280";<br>
+          const bg_4="https://cdn.pixabay.com/photo/2020/12/14/11/18/cat-5830643_960_720.jpg";<br>
+          const bg_5="https://cdn.pixabay.com/photo/2021/04/29/11/40/big-ben-6216420_960_720.jpg";<br>
+          const back = document.querySelector("#changebg");  <br>
+          const no = Math.floor(Math.random()*5)+1;<br>
+          const img = eval(`bg_${no}`);   <br>
+            // eval 함수를 사용하지 않으면 이미지경로가 아니라 (bg_1 , bg_2 ~) 이렇게 문자열을 불러옴. <br>
+            // eval 함수는 문자열에서 변수 이름으로 실제 이미지 경로를 가져옵니다.<br>
+          back.style.backgroundImage = `url(${img})`;  // background-image아님. backgroundImage : " 이러면 안됨. url(`bg_${no}`) 이라고 하면 안됨<br>
+          }<br>
+    window.addEventListener("load", chbg());  <br>
+    //load 니까 &lt;div>인 back.addEventListener이 아니라 window.addEventListener 여야 함. <br>
+    //window로 하면 처음에 로드되었을때 애초 설정한 배경이미지를 가져온후 chbg 메소드를 부른다.<br>
+    //document.addEventListener 을 사용하면 애초 설정한 배경이미지를 가져오기 전에 로드하자마자 chbg 메소드를 부른다 <br><br>
+
+    // 아니면 변수선언 대신     const bglist =[bg_1, bg_2, bg_3, bg_4, bg_5]; 를 넣고 다음과 같이 수정해주면 된다. <br>
+    back.style.backgroundImage = `url(${bglist[no]})`;   <br>
+
+    </p></div><br>
+
+    <div id="lifetime">
+      <h1>내가 살아온 시간</h1> 
+      <form>
+        <label>생년월일 <input type="text" id="year">년 </label>
+        <label><input type="text" id="month">월 </label>
+        <label><input type="text" id="date">일 </label>
+        <button type="button" id="bttn06">계산</button>
+      </form>
+    
+      <div id="result02">	
+        <p id="current01"></p>		
+        <p id="days" class="accent"></p>
+        <p id="hours" class="accent"></p>						
+      </div>
+    </div>
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100"><h5>예제 : 살아온날 계산하기</h5></div>
+      <p class="card-text" style="padding: 10px 10px;">         
+      const bttn06 = document.querySelector("#bttn06"); <br>
+      function lifecal() { <br>
+        const today02 = new Date(); <br>
+        const year01 = document.querySelector("#year");    <br>
+        const month01 = document.querySelector("#month");    <br>
+        const date01 = document.querySelector("#date");<br>
+        const current01 = document.querySelector("#current01");<br>
+        const days01 = document.querySelector("#days");<br>
+        const hours01 = document.querySelector("#hours");<br>
+
+        const birthday = new Date(`${year01.value}-${month01.value}-${date01.value}`);<br>
+
+        current01.innerText =`${today02.getFullYear()}년 ${today02.getMonth()}월 ${today02.getDate()}일 ${today02.getHours()}시 ${today02.getMinutes()}분 현재`<br>
+        days01.innerText=`날짜로는 ${Math.round((today02-birthday)/(1000*60*60*24))}일이 흐르고`<br>
+        hours01.innerText=`시간으로는 ${Math.round((today02-birthday)/(1000*60*60))}시간이 흘렀습니다.`<br>
+      }<br>
+      bttn06.addEventListener("click", lifecal)  <br>
+      // today02.getMonth 로 하면 안된다 () 를 꼭 넣어줘야 한다. <br>
+
+
+    </p></div><br>
+
+    <div id="contest">
+      <h1>당첨자 발표</h1>
+      <form>
+        <label>전체 <input type="text" id="seed">명 중에서</label>
+        <label><input type="text" id="total01">명 뽑기</label>
+        <button type="submit" id="raffle">추첨</button>
+        <button type="reset" id="clear01">지우기</button>
+      </form>
+      <div id="result03"></div>
+    </div>
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100"><h5>예제 : 이벤트당첨자 뽑기</h5></div>
+      <p class="card-text" style="padding: 10px 10px;">         
+        const raffle = document.querySelector("#raffle");  <br>
+        const clear01 = document.querySelector("#clear01"); <br>
+        <br>    
+        function drawWinners() { <br>
+        const seed =  document.querySelector("#seed");  <br>
+        const total01 = document.querySelector("#total01");     <br>
+        const result03 = document.querySelector("#result03");    <br><br>
+        let winner = "당첨자 : ";<br> 
+        //이 구문을 for 문 내부에 넣었더니 i 가 반복될때마다 winner가 초기화된다.  아예 drawWinners 메소드 전에 선언하면 <br>
+        추첨할때마다 당첨자가 초기화되지 않고 누적된다. 그러므로 메소드내부 for문 이전에 선언해줘야한다 <br>
+        for (let i=0; i < total01.value; i++) {  <br> 
+          winner = `${winner} ${Math.floor(Math.random()*seed.value) +1}번,`; };<br>
+        // 추첨 횟수 = 반복문 횟수 , 추첨대상자수 = 랜덤함수의 범위 <br> 
+    
+        result03.innerText = winners.slice(0, -1); // 마지막 쉼표 제거 <br>
+        result03.classList.add("show") ;         <br>
+        }        <br>
+        raffle.addEventListener("click", drawWinners)   <br> <br>   
+        clear01.addEventListener("click", function() {<br>
+        const seed =  document.querySelector("#seed");   <br>
+        const total01 = document.querySelector("#total01");  <br>
+        const result03 = document.querySelector("#result03");  <br>
+        seed.value ="";<br>
+        total01.value="";<br>
+        result03.innerText="";<br>
+        result03.classList.remove("show") ; <br>
+            })   <br>
+    </p></div><br>
+
+      <span style="color:#a71d5d;font-style:italic">var</span> min <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">10</span>, max <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">20</span>;<br>
+    <span style="color:#691c97">Math</span>.<span style="color:#693a17">random</span>();                     <span style="color:#5a525f;font-style:italic">// [0, 1)</span><br>
+    <span style="color:#691c97">Math</span>.<span style="color:#693a17">random</span>() <span style="color:#794938">*</span> (max <span style="color:#794938">-</span> min) <span style="color:#794938">+</span> min; <span style="color:#5a525f;font-style:italic">// [min, max)</span><br>
+    
+    '['기호는 '크거나 같은'을 나타내며, ']'기호는 '작거나 같은'을 나타내는 기호이다.<br>
+    또한, '('기호는 '보다 큰'을 나타내며, ')'기호는 '보다 작은'을 나타내는 기호이다.<br>
+    
+    //난수 생성 함수 <br>
+    function rand(min, max) { <br>
+      return Math.floor(Math.random() * (max - min + 1)) + min; <br>
+    }<br>
+    
+    document.writeln(rand(1, 3)); <br>
+    document.writeln(rand(77, 88)); <br></p></div>
+
+    <hr>
+    <h4 class="text-primary fst-italic">Math.round() 메소드</h4>
+    
+    <p>Math.round() 메소드는 인수로 전달받은 값을 소수점 첫 번째 자리에서 반올림하여 그 결괏값을 반환한다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#691c97">Math</span>.<span style="color:#693a17">round</span>(<span style="color:#811f24;font-weight:700">10.49</span>);  <span style="color:#5a525f;font-style:italic">// 10</span><br>
+    <span style="color:#691c97">Math</span>.<span style="color:#693a17">round</span>(<span style="color:#811f24;font-weight:700">10.5</span>);   <span style="color:#5a525f;font-style:italic">// 11</span><br>
+    <span style="color:#691c97">Math</span>.<span style="color:#693a17">round</span>(<span style="color:#794938">-</span><span style="color:#811f24;font-weight:700">10.5</span>);  <span style="color:#5a525f;font-style:italic">// -10</span><br>
+    <span style="color:#691c97">Math</span>.<span style="color:#693a17">round</span>(<span style="color:#794938">-</span><span style="color:#811f24;font-weight:700">10.51</span>); <span style="color:#5a525f;font-style:italic">// -11</span></p></div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">Math.floor() 메소드</h4>
+    
+    <p>Math.floor() 메소드는 인수로 전달받은 값을 소수점 첫 번째 자리에서 내림하여 그 결괏값을 반환한다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#691c97">Math</span>.<span style="color:#693a17">floor</span>(<span style="color:#811f24;font-weight:700">10.95</span>);  <span style="color:#5a525f;font-style:italic">// 10</span><br>
+    <span style="color:#691c97">Math</span>.<span style="color:#693a17">floor</span>(<span style="color:#811f24;font-weight:700">11.01</span>);  <span style="color:#5a525f;font-style:italic">// 11</span><br>
+    <span style="color:#691c97">Math</span>.<span style="color:#693a17">floor</span>(<span style="color:#794938">-</span><span style="color:#811f24;font-weight:700">10.95</span>); <span style="color:#5a525f;font-style:italic">// -11</span><br>
+    <span style="color:#691c97">Math</span>.<span style="color:#693a17">floor</span>(<span style="color:#794938">-</span><span style="color:#811f24;font-weight:700">11.01</span>); <span style="color:#5a525f;font-style:italic">// -12</span></p></div>
+    <hr>
+    <h4 class="text-primary fst-italic">Math.ceil() 메소드</h4>
+    
+    <p>Math.ceil() 메소드는 인수로 전달받은 값을 소수점 첫 번째 자리에서 올림하여 그 결괏값을 반환한다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#691c97">Math</span>.<span style="color:#693a17">ceil</span>(<span style="color:#811f24;font-weight:700">10.95</span>);  <span style="color:#5a525f;font-style:italic">// 11</span><br>
+    <span style="color:#691c97">Math</span>.<span style="color:#693a17">ceil</span>(<span style="color:#811f24;font-weight:700">11.01</span>);  <span style="color:#5a525f;font-style:italic">// 12</span><br>
+    <span style="color:#691c97">Math</span>.<span style="color:#693a17">ceil</span>(<span style="color:#811f24;font-weight:700">11</span>);     <span style="color:#5a525f;font-style:italic">// 11</span><br>
+    <span style="color:#691c97">Math</span>.<span style="color:#693a17">ceil</span>(<span style="color:#794938">-</span><span style="color:#811f24;font-weight:700">10.95</span>); <span style="color:#5a525f;font-style:italic">// -10</span><br>
+    <span style="color:#691c97">Math</span>.<span style="color:#693a17">ceil</span>(<span style="color:#794938">-</span><span style="color:#811f24;font-weight:700">11.01</span>); <span style="color:#5a525f;font-style:italic">// -11</span></p></div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">Math.sin() 메소드</h4>
+    
+    <p>Math.sin() 메소드는 인수로 전달받은 값의 사인(sine) 함숫값을 반환한다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <p> <br>
+    <span style="color:#691c97">Math</span>.<span style="color:#693a17">sin</span>(<span style="color:#811f24;font-weight:700">0</span>);           <span style="color:#5a525f;font-style:italic">// 0</span><br>
+    <span style="color:#691c97">Math</span>.<span style="color:#693a17">sin</span>(<span style="color:#691c97">Math</span>.<span style="color:#b4371f">PI</span> / <span style="color:#811f24;font-weight:700">2</span>); <span style="color:#5a525f;font-style:italic">// 1</span><br>
+      <br></div>
+    자바스크립트에서 제공하는 삼각 함수에 관한 모든 메소드는 각도의 단위로 라디안(radian)을 사용한다.<br>
+    이때 라디안 단위와 60분법 단위를 서로 변환하기 위해서는 다음과 같은 공식을 사용한다.</p>
+    <p>라디안값 <span style="color:#794938">=</span> 60분법값 <span style="color:#794938">*</span> (<span style="color:#691c97">Math</span>.<span style="color:#b4371f">PI</span> / <span style="color:#811f24;font-weight:700">180</span>)</p>
+    </div>
+    Math.PI는 수학에서 사용하는 파이(π)값을 나타내는 자바스크립트 상수이다.<br>
+    따라서 대략적인 값으로 3.145159를 나타낸다.</div><br>
+    
+    <button id="btn_08" onClick="circlefx()">원의 넓이와 둘레구하기</button><br><br>
+
+    <div id="result01"class="cardshadow"></div><br>
+ 
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100"><h5>원의 넓이와 둘레구하기 </h5></div>
+      <p class="card-text" style="padding: 10px 10px;"> 
+        let circlefx = function() {<br>
+          function area(r) {   <br>
+            return Math.PI * r * r;<br>
+          }<br>
+          function circum(r) {<br>
+            return 2 * Math.PI * r;<br>
+          }<br>
+          const radius = prompt("반지름의 크기는?")<br>
+          const result01 = document.querySelector("#result01");<br>
+          
+          result01.innerText =`반지름 : ${radius},<br>
+          원의 넓이 : ${area(radius).toFixed(3)},<br>
+          원의 둘레 : ${circum(radius).toFixed(3)}` }<br>
+    </p></div>
+
+    <hr>
+    <h4 class="text-primary fst-italic">자바스크립트 Math 메소드</h4>
+    
+    <table class="table" style="width: 50%;">
+      <thead class="table-light">
+    <tr class="table-warning">
+    <th style="width: 30%;">메소드</th>
+    <th style="width: 50%;">설명</th>
+    </tr>
+      </thead>
+      <tbody>
+    <tr>
+    <td>Math.min(x, y, ...)</td>
+    <td>인수로 전달받은 값 중에서 가장 작은 수를 반환함.</td>
+    </tr>
+    <tr>
+    <td>Math.max(x, y, ...)</td>
+    <td>인수로 전달받은 값 중에서 가장 큰 수를 반환함.</td>
+    </tr>
+    <tr>
+    <td>Math.random()</td>
+    <td>0보다 크거나 같고 1보다 작은 랜덤 숫자(random number)를 반환함.</td>
+    </tr>
+    <tr>
+    <td>Math.round(x)</td>
+    <td>x를 소수점 첫 번째 자리에서 반올림하여 그 결과를 반환함.</td>
+    </tr>
+    <tr>
+    <td>Math.floor(x)</td>
+    <td>x와 같거나 작은 수 중에서 가장 큰 정수를 반환함.</td>
+    </tr>
+    <tr>
+    <td>Math.ceil(x)</td>
+    <td>x와 같거나 큰 수 중에서 가장 작은 정수를 반환함.</td>
+    </tr>
+    <tr>
+    <td>Math.abs(x)</td>
+    <td>x의 절댓값을 반환함.</td>
+    </tr>
+    <tr>
+    <td>Math.cbrt(x)</td>
+    <td>x의 세제곱근을 반환함.</td>
+    </tr>
+    <tr>
+    <td>Math.sqrt(x)</td>
+    <td>x의 제곱근을 반환함.</td>
+    </tr>
+    <tr>
+    <td>Math.clz32(x)</td>
+    <td>x을 32비트 이진수로 변환한 후, 0이 아닌 비트의 개수를 반환함.    </td>
+    </tr>
+    <tr>
+    <td>Math.exp(x)</td>
+    <td>e<sup>x </sup>의 값을 반환함. (e : 오일러의 수)</td>
+    </tr>
+    <tr>
+    <td>Math.expm1(x)</td>
+    <td>1 - e<sup>x </sup>의 값을 반환함.</td>
+    </tr>
+    <tr>
+    <td>Math.fround(x)</td>
+    <td>x와 가장 근접한 32비트 부동 소수점 수(single precision float)를 반환함.</td>
+    </tr>
+    <tr>
+    <td>Math.hypot(x, y, ...)</td>
+    <td>인수로 전달받은 값들을 각각 제곱한 후 더한 총합의 제곱근을 반환함.</td>
+    </tr>
+    <tr>
+    <td>Math.imul(x, y)</td>
+    <td>인수로 전달받은 두 값의 32비트 곱셈의 결과를 반환함.</td>
+    </tr>
+    <tr>
+    <td>Math.log(x)</td>
+    <td>x의 자연로그 값을 반환함. (ln x)</td>
+    </tr>
+    <tr>
+    <td>Math.log1p(x)</td>
+    <td>ln(1 + x)의 값을 반환함.</td>
+    </tr>
+    <tr>
+    <td>Math.log10(x)</td>
+    <td>x의 10을 밑으로 가지는 로그 값을 반환함.</td>
+    </tr>
+    <tr>
+    <td>Math.log2(x)</td>
+    <td>x의 2를 밑으로 가지는 로그 값을 반환함.</td>
+    </tr>
+    <tr>
+    <td>Math.pow(x, y)</td>
+    <td>x의 y승을 반환함.</td>
+    </tr>
+    <tr>
+    <td>Math.sign(x)</td>
+    <td>x의 부호 값을 반환함.</td>
+    </tr>
+    <tr>
+    <td>Math.trunc(x)</td>
+    <td>x의 모든 소수 부분을 삭제하고 정수 부분만을 반환함.</td>
+    </tr>
+    <tr>
+    <td>Math.sin(x), Math.cos(x), Math.tan(x),Math.asin(x), Math.acos(x), Math.atan(x), Math.asinh(x), Math.acosh(x), Math.atanh(x), Math.atan2(x)    </td>
+    <td>x의 해당 삼각 함숫값을 반환함.</td>
+    </tr>
+      </tbody>
+    </table>
+    
+    <hr><div class="col-md-8 mb-2">
+    <div class="p-3 text-white fs-4 bd-pink-800">자바스크립트 Math 프로퍼티</div></div>
+    
+    <p>자바스크립트는 수학에서 사용하는 다양한 상수들을 Math 프로퍼티를 이용해 제공하고 있다.</p>
+    
+    <table class="table" style="width: 50%;">
+      <thead class="table-light">
+    <tr class="table-warning">
+    <th style="width: 20%;">프로퍼티</th>
+    <th style="width: 65%;">설명</th>
+    <th style="width: 15%;">대략값</th>
+    </tr>
+      </thead>
+      <tbody>
+    <tr>
+    <td>Math.E</td>
+    <td>오일러의 수(Euler's constant)라고 불리며, 자연로그(natural logarithms)의 밑(base) 값</td>
+    <td>2.718</td>
+    </tr>
+    <tr>
+    <td>Math.LN2</td>
+    <td>2의 자연로그 값</td>
+    <td>0.693</td>
+    </tr>
+    <tr>
+    <td>Math.LN10</td>
+    <td>10의 자연로그 값</td>
+    <td>2.303</td>
+    </tr>
+    <tr>
+    <td>Math.LOG2E</td>
+    <td>오일러 수(e)의 밑 값이 2인 로그 값</td>
+    <td>1.443</td>
+    </tr>
+    <tr>
+    <td>Math.LOG10E</td>
+    <td>오일러 수(e)의 밑 값이 10인 로그 값</td>
+    <td>0.434</td>
+    </tr>
+    <tr>
+    <td>Math.PI</td>
+    <td>원의 원주를 지름으로 나눈 비율(원주율) 값</td>
+    <td>3.14159</td>
+    </tr>
+    <tr>
+    <td>Math.SQRT1_2</td>
+    <td>2의 제곱근의 역수 값</td>
+    <td>0.707</td>
+    </tr>
+    <tr>
+    <td>Math.SQRT2</td>
+    <td>2의 제곱근 값</td>
+    <td>1.414</td>
+    </tr>
+      </tbody>
+    </table>
+
+<style>
+  #changebg {
+    background-image:url("https://source.unsplash.com/7SxSkCvVM1U/1920x1280");
+    background-repeat:no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size:cover;
+  }
+         
+  #lifetime {width:600px; margin:20px auto; display:flex; flex-direction: column; justify-content: center; align-items: center; }
+  #lifetime h1 {font-size:1.5rem; }    
+  #lifetime form { width:100%; margin-top:50px;  padding-left:50px; }
+  #lifetime label {margin-right:20px;}
+  #lifetime input[type="text"] {	width:60px;	height:30px; text-align:center; margin-right:10px; border:none; border-bottom:1px solid #ccc; }
+  #bttn06 {padding:10px 20px;}
+  #result02 { margin-top:50px;width:300px; border:1px solid #ccc; padding:20px; }
+  #result02 p {font-size:0.9rem; line-height:2; }
+  #result02 .accent { font-size:1.2em;font-weight: bold;}
+
+  #contest { width:800px; margin:20px auto; display:flex; flex-direction: column; justify-content: center; align-items: center; }
+  #contest h1 {font-size:2rem; }
+  #contest input[type="text"] { width:60px; height:30px;	text-align:center; margin-right:10px; }
+  #raffle { padding:10px 20px; }
+  #clear01 { padding:10px 20px; }
+  .show { margin-top:40px; border:1px solid black; padding:10px; background:#eee;}
+
+</style>
+<script> 
+let circlefx = function() {
+  function area(r) {   
+    return Math.PI * r * r;
+  }
+  function circum(r) {
+    return 2 * Math.PI * r;
+  }
+  const radius = prompt("반지름의 크기는?")
+  const result01 = document.querySelector("#result01");
+  
+  result01.innerText =`반지름 : ${radius},
+  원의 넓이 : ${area(radius).toFixed(3)},
+  원의 둘레 : ${circum(radius).toFixed(3)}` }
+
+  function changeBg() {
+    const bg_1="https://source.unsplash.com/7SxSkCvVM1U/1920x1280";
+    const bg_2="https://source.unsplash.com/YtKJSO98grM/1920x1280";
+    const bg_3="https://source.unsplash.com/w8JiSVyjy-8/1920x1280";
+    const bg_4="https://cdn.pixabay.com/photo/2020/12/14/11/18/cat-5830643_960_720.jpg";
+    const bg_5="https://cdn.pixabay.com/photo/2021/04/29/11/40/big-ben-6216420_960_720.jpg";
+    const back = document.querySelector("#changebg");
+    const no = Math.floor(Math.random()*5)+1;
+    const img =eval(`bg_${no}`);
+    back.style.backgroundImage = `url(${img})`;
+    } 
+  window.addEventListener("load", changeBg()); 
+
+    const bttn06 = document.querySelector("#bttn06"); 
+    function lifecal() { 
+      const today02 = new Date(); 
+      const year01 = document.querySelector("#year");    
+      const month01 = document.querySelector("#month");    
+      const date01 = document.querySelector("#date");
+      const current01 = document.querySelector("#current01");
+      const days01 = document.querySelector("#days");
+      const hours01 = document.querySelector("#hours");
+
+      const birthday = new Date(`${year01.value}-${month01.value}-${date01.value}`);
+
+      current01.innerText =`${today02.getFullYear()}년 ${today02.getMonth()}월 ${today02.getDate()}일 ${today02.getHours()}시 ${today02.getMinutes()}분 현재`
+      days01.innerText=`날짜로는 ${Math.round((today02-birthday)/(1000*60*60*24))}일이 흐르고`
+      hours01.innerText=`시간으로는 ${Math.round((today02-birthday)/(1000*60*60))}시간이 흘렀습니다.`
+    }
+    bttn06.addEventListener("click", lifecal)  
+
+    const raffle = document.querySelector("#raffle");  
+    const clear01 = document.querySelector("#clear01"); 
+
+    function drawWinners(e) { 
+    e.preventDefault();
+    let winner = "당첨자 : ";
+    const seed =  document.querySelector("#seed");  
+    const total01 = document.querySelector("#total01");     
+    const result03 = document.querySelector("#result03");    
+
+    for (let i=0; i < total01.value; i++) {
+      winner += `${Math.round(Math.random()*seed.value) +1}번, `; };
+
+    result03.innerText = winner.slice(0, -2); // 마지막 쉼표와 공백 제거
+    result03.classList.add("show") ;         
+    }        
+
+    raffle.addEventListener("click", drawWinners);   
+
+    clear01.addEventListener("click", function() {
+    const seed =  document.querySelector("#seed");   
+    const total01 = document.querySelector("#total01");  
+    const result03 = document.querySelector("#result03");  
+    seed.value ="";
+    total01.value="";
+    result03.innerText="";
+    result03.classList.remove("show") ; 
+        })   
+  
+
+</script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>파이썬 예외처리</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">   
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">     
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <!-- font css -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="{% static '/css/java.css'%}" rel="stylesheet">   
+  <link href="{% static '/css/style.css'%}" rel="stylesheet">     
+</head>
+<body class="ms-3">  
+  <H2 class="coffee_taital" style="text-align:left;"><a name="home">파이썬</a></H2>  
+    <p><a href="/python/p01.html" class="btn btn-warning mb-1" target="_blank">이전 노트</a>
+      <a href="/python/p03.html" class="btn btn-warning mb-1" target="_blank">다음 노트</a>            
+      <a href="/htmls/tut1.html" class="btn btn-danger mb-1" target="_blank">HTML 노트</a> 
+      <a href="/css/tut11.html" class="btn btn-success mb-1" target="_blank">CSS 노트</a> 
+      <a href="/javascript/j01.html" class="btn btn-purple mb-1" target="_blank">Javascript 노트</a>
+     <a href="/python/p01.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">파이썬의 기초</a>
+     <a href="/python/p02.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">변수</a>
+     <a href="/python/p03.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">숫자형타입</a>
+     <a href="/python/p04.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">불리언타입</a>
+     <a href="/python/p05.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">문자열타입</a>
+     <a href="/python/p06.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">조건문</a>
+     <a href="/python/p07.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">반복문</a>
+     <a href="/python/p08.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">break와 continue</a>
+     <a href="/python/p09.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">리스트 타입</a>
+     <a href="/python/p10.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">튜플 타입</a>
+     <a href="/python/p11.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">세트 타입</a>
+     <a href="/python/p12.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">딕셔녀리 타입</a>
+     <a href="/python/p13.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">함수</a>
+     <a href="/python/p14.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">변수의 유효범위</a>
+     <a href="/python/p15.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">클래스</a>
+     <a href="/python/p16.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">객체</a>
+     <a href="/python/p17.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">상속</a>
+     <a href="/python/p18.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">모듈</a>
+     <a href="/python/p19.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">파일 입출력</a>     
+     <a href="/python/p20.html" class=" btn btn-secondary mb-1" target="_blank">예외처리</a>   
+     <a href="/python/p21.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">웹스크래핑1</a>    
+     <a href="/python/p22.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">웹스크래핑2</a>   </p> 
+
+     <div class="col-md-8 mb-2">
+      <div class="p-3 text-white fs-4 bd-pink-800">예외 처리</div>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">예외 처리(exception handling)</h2>
+      <p>프로그래밍을 배우다 보면 생각지도 못한 여러가지 오류가 발생하는 것을 경험할 수 있을 것이다.<br>
+      이렇게 발생하는 오류는 크게 다음과 같이 두 가지로 구분할 수 있다.<br>
+      1. 문법 오류(syntax errors)<br>
+      2. 예외(exceptions)<br>
+      문법 오류(syntax errors)는 여러분이 프로그래밍을 배우는 과정에서 가장 많이 경험하게 될 오류일 것이다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      while True<br>
+          print('안녕하세요!')</p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <span class="fw-bold">실행 결과</span><br>
+      File "D:/test.py", line 1<br>
+          while True<br>
+                   ^<br>
+      SyntaxError: invalid syntax</p></div></div>
+
+      <p>위와 같이 문법 오류가 발생하면 파서(parser)는 오류가 발생한 라인과 함께 그 대략적인 위치까지도 ‘^’ 기호를 이용하여 알려준다.<br>
+      위의 예제에서는 while 문의 가장 마지막에 콜론(:)을 빠뜨렸기 때문에 문법 오류가 발생하였다.</p> 
+      <p>이와 같은 문법 오류는 대부분 파서가 그 원인까지도 함께 알려주므로, 쉽게 수정할 수 있다.<br>
+      다음으로 예외(exception)란 프로그램을 작성한 후 실행하는 도중에 오류가 발생하여 실행되고 있던 프로그램이 중지되는 것을 가리킨다<br>
+      아무리 문법적인 오류가 나지 않도록 프로그램 코드를 작성했다고 하더라도 프로그램이 실행되는 도중 수많은 원인들에 의해 예외 상황이 발생할 수 있다.<br>
+      예를 들어, 다음 예제와 같이 어떤 숫자를 0으로 나누려고 한다면, 문법적으로는 맞겠지만 0으로 나눈 것 때문에 ZeroDivisionError가 발생하여 예외가 발생할 것이다.</p>
+      
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      &gt;&gt;&gt; 3 / 0<br>
+      Traceback (most recent call last):<br>
+        File "&lt;pyshell#2&gt;", line 1, in &lt;module&gt;<br>
+          3 / 0<br>
+      ZeroDivisionError: division by zero</p></div> 
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">try, except 문</h2>
+      <p>이렇게 발생한 예외 상황을 처리할 수 있도록 프로그램의 흐름을 바꾸는 행위를 예외 처리(exception handling)라고 부른다.<br>
+      파이썬에서는 발생한 예외를 유연하게 처리할 수 있도록 try, except 문이라는 예외 처리 구문을 제공한다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      try:<br>
+          예외가 발생할 가능성이 있는 코드<br>
+      except [ 처리할 예외명 [ as 에러 메시지 변수 ]]:<br>
+          try 절에서 발생한 예외를 처리할 코드<br>
+      [ else: ]<br>
+          try 절에서 예외가 발생하지 않았을 경우에만 실행될 코드<br>
+      [ finally: ]<br>
+          try 절이 실행되고 나면 언제나 마지막에 실행될 코드</p></div>
+
+      <p>우선 try 블록으로 예외가 발생할 가능성이 있는 프로그램 코드를 감쌉니다.<br>
+      만약 try 블록에서 예외가 발생하면, 프로그램은 발생한 예외와 일치하는 except 절을 순서대로 찾기 시작한다.<br>
+      except 절은 여러 개를 동시에 사용할 수 있으며, except 절 뒤에 처리할 예외명을 생략하면 발생한 예외의 종류에 상관없이 예외가 발생하면 무조건 해당 except 절이 실행된다.</p> 
+      <p>또한, as 키워드를 사용하여 발생한 예외가 출력하는 에러 메시지를 변수에 따로 저장하여 사용할 수도 있다.</p> 
+      위와 같은 문법 설명에서 사용되는 대괄호([])는 해당 구문을 반드시 사용할 필요 없이 생략할 수도 있다는 의미이다.</div>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">try, except 문의 동작 순서</h2>
+      <p>파이썬에서 try, except 문은 다음과 같은 순서대로 동작하게 된다.<br>
+      1. try 블록에 포함된 코드가 순서대로 실행된다.<br>
+      2. 이때 예외가 발생하지 않으면, except 절은 실행되지 않고 try, except 문은 그대로 종료된다.<br>
+      3. 만약 try 블록을 실행하는 동안 예외가 발생했다면, 곧바로 발생한 예외명과 except 절에 명시한 예외명이 같은지를 순서대로 확인하게 된다.<br>
+      3-1. 만약 발생한 예외명과 명시된 예외명이 같다면, 해당 except 절이 실행되고 프로그램의 흐름은 try, except 문 다음으로 넘어갑니다.<br>
+      3-2. 만약 발생한 예외명과 명시된 예외명이 같지 않는다면, 다음 except 절을 계속해서 확인한다.<br>
+      3-2-1. 만약 발생한 예외명과 명시된 예외명이 같은 except 절을 찾지 못했다면, 해당 try, except 문보다 더 바깥쪽에 위치한 try, except 문의 except 절들까지 확인하게 된다.<br>
+      3-2-2. 그래도 발생한 예외명과 명시된 예외명이 같은 except 절을 찾을 수 없었다면, 에러 메시지를 출력하고 프로그램은 강제 종료된다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      try:<br>
+          3 / 0<br>
+      except IndexError as e:<br>
+          print("인덱스가 안맞아요!", e)<br>
+      except ZeroDivisionError as e:<br>
+          print("0으로 나누면 안돼요!", e)  <br>
+      print("프로그램이 정상적으로 종료된다!")</p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <span class="fw-bold">실행 결과</span><br>
+      0으로 나누면 안돼요! division by zero<br>
+      프로그램이 정상적으로 종료된다!</p></div>
+      <p>위 예제의 try 블록에 포함된 코드에서는 숫자를 0으로 나누려고 하므로, ZeroDivisionError가 발생한다.<br>
+      try 절에서 예외가 발생했으므로, 우선 가장 가까운 3번 라인의 except 절을 확인한다.</p>  
+      <p>발생한 예외는 ZeroDivisionError이지만 3번 라인의 except 절에 명시된 예외는 IndexError이므로, 다음 except 절을 확인하게 된다.</p> 
+      <p>5번 라인의 except 절이 ZeroDivisionError를 처리할 수 있으므로, 해당 except 절이 실행되며 try, except 문은 정상적으로 종료된다.<br>
+      따라서 8번 라인의 print() 함수도 정상적으로 출력된다.<br>
+      이때 5번과 6번 라인을 주석 처리한 후 다시 실행해 보면, ZeroDivisionError를 처리할 수 있는 except 절이 존재하지 않으므로 프로그램은 강제 종료되고 8번 라인의 print() 함수는 실행되지 않는 것을 확인할 수 있을 것이다.</p>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">else 절과 finally 절</h2>
+      <p>else 절은 try 블록에서 예외가 발생하지 않았을 경우에만 실행되며, 반드시 마지막 except 절 바로 다음에 위치해야 한다.<br>
+      파이썬에서 else 절은 생략할 수 있다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      try:<br>
+          pass<br>
+      except IndexError:<br>
+          print("인덱스가 안맞아요!")<br>
+      except ZeroDivisionError:<br>
+          print("0으로 나누면 안돼요!")<br>
+      else:<br>
+          print("예외가 발생하지 않았어요!")  <br>
+      print("프로그램이 정상적으로 종료된다!")</p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <span class="fw-bold">실행 결과</span><br>
+      예외가 발생하지 않았어요!<br>
+      프로그램이 정상적으로 종료된다!</p></div>
+
+      <p>위의 예제에서는 try 블록에서 예외가 발생하지 않았기 때문에 else 절이 실행되며 10번 라인의 print() 함수까지 정상적으로 실행되는 것을 확인할 수 있다.<br>
+      finally 절은 try 블록이 실행되고 나면 예외 발생 여부와 상관없이 언제나 실행되며, else 절과 마찬가지로 생략할 수 있다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      try:<br>
+          3 / 0<br>
+      except IndexError:<br>
+          print("인덱스가 안맞아요!")<br>
+      except ZeroDivisionError:<br>
+          print("0으로 나누면 안돼요!")<br>
+      finally:<br>
+          print("예외에 상관없이 언제나 실행되요!")  <br>
+      print("프로그램이 정상적으로 종료된다!")</p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <span class="fw-bold">실행 결과</span><br>
+      0으로 나누면 안돼요!<br>
+      예외에 상관없이 언제나 실행되요!<br>
+      프로그램이 정상적으로 종료된다!</p></div>
+      <p>위 예제의 try 블록에서는 ZeroDivisionError가 발생하므로 else 절은 실행되지 않겠지만, finally 절은 예외 발생 여부와 상관없이 실행되는 것을 확인할 수 있다.</p>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">예외 발생시키기</h2>
+      <p>파이썬에서는 사용자가 raise 키워드를 사용하여 예외를 강제로 발생시킬 수 있다.<br>
+      예를 들어, 부모 클래스를 상속받는 자식 클래스에서 부모 클래스의 어떤 메소드는 반드시 구현하도록 만들고 싶다면, NotImplementedError를 사용하여 이를 강제할 수 있다.</p>
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      class Bird:<br>
+          def birdsong(self):<br>
+              raise NotImplementedError<br>
+              <br>
+      class Chicken(Bird):<br>
+          pass<br>
+          <br>
+      my_chicken = Chicken()<br>
+      my_chicken.birdsong()</p></div>
+
+      <p>위의 예제를 실행하면 NotImplementedError가 발생하고 프로그램이 강제 종료된다.<br>
+      이는 자식 클래스인 Chicken 클래스에서 부모 클래스의 birdsong() 메소드를 구현하지 않아서 raise 키워드에 의해 NotImplementedError가 강제로 발생되었기 때문이다.<br>
+      따라서 다음 예제처럼 부모 클래스의 birdsong() 메소드를 Chicken 클래스에서 오버라이딩해야만 NotImplementedError가 발생하지 않는 것을 확인할 수 있다.</p>
+      
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      class Bird:<br>
+          def birdsong(self):<br>
+              raise NotImplementedError    <br>
+              <br>
+      class Chicken(Bird):<br>
+          def birdsong(self):<br>
+              print("짹짹")    <br>
+              <br>
+      my_chicken = Chicken()<br>
+      my_chicken.birdsong()</p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <span class="fw-bold">실행 결과</span><br>
+      짹짹</p>
+      </div>
+            
+</body>
+</html>

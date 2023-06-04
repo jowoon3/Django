@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map 객체와 Set객체, Iterator와 Generator</title>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">   
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">     
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+  <link href="{% static '/css/java.css'%}" rel="stylesheet">   
+</head>
+<body class="ms-3">  
+  <H2><a name="home">Javascript</a></H2>  
+  <p><a href="/javascript/j15.html" class="btn btn-purple mb-1" target="_blank">이전 노트</a>
+    <a href="/javascript/j16.html" class="btn btn-purple mb-1" target="_blank" disabled>다음 노트</a>
+    <a href="/htmls/tut1.html" class="btn btn-danger mb-1" target="_blank">HTML 노트</a> 
+    <a href="/css/tut11.html" class="btn btn-success mb-1" target="_blank">CSS 노트</a> 
+    <a href="/htmls/html_CSS.html" class="btn btn-outline-danger border-2 mb-1" target="_blank">HTML+CSS</a>
+    <a href="/htmls/html_Emmet.html" class="btn btn-outline-danger border-2 mb-1" target="_blank">HTML+Emmet</a>
+    <a href="/htmls/html_tags.html" class="btn btn-outline-danger border-2 mb-1" target="_blank">HTML+Tags</a><br>
+    <a href="/python/p01.html" class="btn btn-warning mb-1" target="_blank">파이썬 노트</a> 
+    <a href="/javascript/j01.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">자바스크립트 개요</a>
+    <a href="/javascript/j02.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">기본타입과 타입변환</a>
+    <a href="/javascript/j03.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">자바스크립트 연산자</a>
+    <a href="/javascript/j04.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">제어문과 배열 </a>
+    <a href="/javascript/j05.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">함수</a> 
+    <a href="/javascript/j06.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">객체</a>      
+    <a href="/javascript/j07.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Number 객체</a> 
+    <a href="/javascript/j08.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Math 객체</a> 
+    <a href="/javascript/j09.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Date 객체</a>     
+    <a href="/javascript/j10.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">String 문자열 객체</a>
+    <a href="/javascript/j11.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Array 배열 객체</a> 
+    <a href="/javascript/j12.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">문서객체모델 DOM</a> 
+    <a href="/javascript/j13.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">브라우저 객체 모델 BOM</a> 
+    <a href="/javascript/j14.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">이벤트와 예외처리</a>
+    <a href="/javascript/j15.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">정규표현식</a> 
+    <a href="/javascript/j16.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">람다표현식</a> 
+    <a href="/javascript/j17.html" class=" btn btn-secondary mb-1" target="_blank">Map 객체와 Set객체, Iterator와 Generator</a> </p> 
+
+    
+<hr><div class="col-md-8 mb-2">
+  <div class="p-3 text-white fs-4 bd-pink-800"> 구조 분해 할당 </div>      </div>  
+
+  <p>자료의 구조를 분해해서 변수에 할당하는 기능</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100"><h5>배열 구조 분해 할당</h5></div>
+      <p class="card-text" style="padding: 10px 10px;"> 
+      const fruits =["사과", "베"]<br>
+      let apple =fruits[0]<br>
+      let pear=fruits[1]<br>
+      => 이 식을 이렇게 변형할수 있다<br>
+      let [apple, pear] = fruits <br>
+</p></div>
+<div class="card text-bg-light mb-3" style="max-width: 50rem;">
+  <div class="card-header bd-yellow-100"><h5>일부 값만 배열구조 분해 할당</h5></div>
+  <p class="card-text" style="padding: 10px 10px;"> 
+let [spring, ,fall,] = ["봄", "여름", "가을", "겨울"]<br>
+</p></div>
+<div class="card text-bg-light mb-3" style="max-width: 50rem;">
+  <div class="card-header bd-yellow-100"><h5>배열의 두 변수의 값 교환하기</h5></div>
+  <p class="card-text" style="padding: 10px 10px;"> 
+    let x = 10<br>
+    let y = 20<br>
+    [x, y] = [y,x] <br>
+  </p></div>
+     
+  <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>객체 구조 분해 할당</h5></div>
+    <p class="card-text" style="padding: 10px 10px;"> 
+const member = {<br>
+&nbsp;&nbsp;name : "kim",<br>
+&nbsp;&nbsp;age : 25
+}<br>
+let {name, age} = member // 배열의 []와 달리 객체는 {}을 사용한다<br>
+//let {name1, age1} ~ 라고 작성하면 안된다. 변수할당할때 객체의 name을 변수이름으로 해야 인식한다<br> 
+// 결과적으로 name 변수에 kim, age 변수에 25라는 값이 할당되었다 <br>
+</p></div>
+
+<div class="card text-bg-light mb-3" style="max-width: 50rem;">
+<div class="card-header bd-yellow-100"><h5>객체의 변수이름 변경</h5></div>
+<p class="card-text" style="padding: 10px 10px;"> 
+위의 내용대로 객체의 고유name과 다른 명칭의 변수에 값을 할당하고 싶으면<br>
+let {name : name1, age : age1} 이라고 작성하면 객체 name 프로퍼티 값은 name1 변수에, age프로퍼티 값은 age1 변수에 할당된다<br>
+//여기서 주의할것은 name = name1 이 아니라  <span class="text-danger fw-bold text-bg-warning">name : name1 이다. </span><br>
+</p></div>
+<div class="card text-bg-light mb-3" style="max-width: 50rem;">
+<div class="card-header bd-yellow-100"><h5>복잡한 객체 구조 분해하기</h5></div>
+<p class="card-text" style="padding: 10px 10px;"> 
+const student = {<br>
+  name : "도레미",<br>
+  score {<br>
+    history : 85,<br>
+    science : 94<br>
+  },<br>
+  friends : ["kim", "Lee", "Park"] <br>
+}<br><br>
+let {name, score : {history, science}, friends : [f1, f2, f3]} = student <br>
+// 이 한줄로 name, history, science, f1, f2, f3 변수에 student 객체의 값들을 할당함 <br>
+
+</p></div> 
+
+<hr><div class="col-md-8 mb-2" id="map">
+  <div class="p-3 text-white fs-4 bd-pink-800"> 배열을 변형하는 메소드 : Map(맵)과 Set(셋) </div>      </div>  
+
+<p>* 객체 : 키가 있는 프로퍼티 집합을 순서없이 저장 <br>
+* 배열 : 인덱스가 있는 값 집합을 순서대로 저장 </p>
+
+<div class="col-md-8 mb-2">
+<div class="p-3 text-white fs-4 bd-pink-800"> Map(맵) 객체</div>      </div>
+
+  맵은 "키"와 "값"이 하나의 쌍으로 이루어졌고 여러개의 프로퍼티를 가지고 있는 자료 형태로 객체와 비슷하다 <br>
+  객체의 프로퍼티 "키"는 문자열과 심볼만 사용할수 있는데 반해 맵의 프로퍼티 "키"는 숫자, 문자열, 불린등 모든 자료형 가능 <br>
+  순서가 없는 객체와 달리 맵은 순서대로 접근이 가능<br><br>
+
+  <span class="text-danger fw-bold"> map()과 Map()는 각각 다른 것</span>이다 <br>
+  map()은 기존 배열을 변경하지 않은채 배열의 각 요소를 변환하여 새로운 배열을 생성하여 반환한다. ~.map(콜백함수) 는 map 메소드<br>
+  Map()은 키-값 쌍을 저장하는 데이터 구조인 Map 객체를 생성하는 생성자 함수이다. map.메소드... 는 Map 객체 <br>
+
+
+<div class="card text-bg-light mb-3" style="max-width: 50rem;">
+<div class="card-header bd-yellow-100"><h5> 맵메소드 </h5></div>
+  <p class="card-text p-3">
+  let number = [1,2,3,4,5]
+  let newNumbers = numbers.map(number => number *2);  //배열 numbers의 요소인 number를 인수로 하는 콜백함수 실행
+  newNumbers
+  </p>  </div></div>
+<hr>
+<h4 class="text-primary fst-italic">맵 객체 생성</h4>
+
+<p> 객체의 생성을 {}를 이용했지만 맵은 크게 두가지 방법이 있다 <br>
+1] new map()<br>
+&nbsp;&nbsp;&nbsp;set(키, 값)<br>
+2] new Map([키1,값1],[키2,값2],[키3,값3],[키4,값4])<br>
+
+</p>
+<p><b>맵 주요 메소드와 프로퍼티</b></p>
+* new Map() : 맵을 만든다.  // Map객체를 만들때 new map() 이러면 안됨 <br>
+* map.set(key, value) : key를 이용해 value를 저장한다.<br>
+* map.get(key) :``key`에 해당하는 값을 반환한다. key가 존재하지 않으면 undefined를 반환<br>
+* map.has(key) : key가 존재하면 true, 존재하지 않으면 false를 반환<br>
+* map.delete(key) : key에 해당하는 값을 삭제<br>
+* map.clear() : 맵 안의 모든 요소를 제거<br>
+* map.size : 요소의 개수를 반환<br>
+
+<div class="card text-bg-light mb-3" style="max-width: 50rem;">
+<div class="card-header bd-yellow-100"><h5>맵의 메소드</h5></div>
+<p class="card-text" style="padding: 10px 10px;">  
+let map = new Map();<br><br>
+
+map.set('1', 'str1');   // 문자형 키<br>
+map.set(1, 'num1');     // 숫자형 키<br>
+map.set(true, 'bool1'); // 불린형 키<br><br>
+
+// 객체는 키를 문자형으로 변환했지만 맵은 키의 타입을 변환시키지 않고 *그대로 유지*한다. <br>
+alert( map.get(1)   ); // 'num1'  참고 객체는 obj["key"]로 호출 했지만 map.get(key) 로 호출해야 한다<br>
+alert( map.get('1') ); // 'str1'<br>
+alert( map.size ); //<br>
+</p></div>
+<br>
+<hr>
+<h4 class="text-primary fst-italic">맵의 요소에 반복 작업하기</h4>
+<p>* map.keys() : 각 요소의 키를 모은 반복 가능한(iterable, 이터러블) 객체를 반환한다.<br>
+* map.values() : 각 요소의 값을 모은 이터러블 객체를 반환한다.<br>
+* map.entries() :요소의 [키, 값]을 한 쌍으로 하는 이터러블 객체를 반환한다.<br>
+* 이 이터러블 객체는 for..of반복문과 forEach반복문 사용이 가능하다.<br>
+</p>
+ 
+<div class="card-card-bg-light-mb-3" style="max-width: 50rem;">
+<div class="card-header-bd-yellow-100"><h5> </h5></div>
+<p class="card-text p-3">
+  let recipeMap = new Map([  // map이 아니라 Map 이다 <br>
+  ['cucumber', 500],<br>
+  ['tomatoes', 350],<br>
+  ['onion',    50]<br>
+]); <br>
+  
+  for (let vegetable of recipeMap.keys()) {  // 키(vegetable) 를 하나씩 호출<br>
+    alert(vegetable); // cucumber, tomatoes, onion<br>
+  }  <br>
+  for (let amount of recipeMap.values()) {// 값(amount)을 하나씩 호출<br>
+    alert(amount); // 500, 350, 50<br>
+  } <br>
+  
+  for (let entry of recipeMap) { // recipeMap.entries()와 동일. [키, 값] 쌍을 하나씩 호출<br>
+    alert(entry); // cucumber,500 ...<br>
+  }<br>
+
+</p></div>
+
+<hr><div class="col-md-8 mb-2">
+<div class="p-3 text-white fs-4 bd-pink-800"> 셋(set)객체</div>      </div>   
+
+<p>셋은 키 없이 여러개의 값을 모아 놓아 배열과 같지만, <span class="text-danger fw-bold">값이 중복되지 않는다</span>는것이 배열과 다르다 <br>
+set객체는 요소의 순서에 의미가 없어 인덱스로 요소에 접근할수 없다<br>
+이러한 set 객체는 수학적 집합 교집합 합집합 여집합등을 구현하기 위한 자료구조이다</p>  
+
+<hr>
+<h4 class="text-primary fst-italic">set객체의 생성</h4>
+
+<div class="card text-bg-light mb-3" style="max-width: 50rem;">
+<div class="card-header bd-yellow-100"><h5>예제</h5></div>
+<p class="card-text" style="padding: 10px 10px;">
+  const set = new Set();  // set이 아니라 Set이다<br>
+  console.log(set); // Set(0) {}<br><br>
+  
+  const set1 = new Set([1, 2, 3, 3]);<br>
+  console.log(set1); // Set(3) {1, 2, 3}<br><br>
+  
+  const set2 = new Set('hello');<br>
+  console.log(set2); // Set(4) {"h", "e", "l", "o"}<br><br>
+
+  // 배열의 중복 요소 제거<br>
+  const uniq = array => array.filter((v, i, self) => self.indexOf(v) === i);<br>
+  console.log(uniq([2, 1, 2, 3, 4, 3, 4])); // [2, 1, 3, 4]<br><br>
+
+  // Set을 사용한 배열의 중복 요소 제거<br>
+  const uniq = array => [...new Set(array)];<br>
+  console.log(uniq([2, 1, 2, 3, 4, 3, 4])); // [2, 1, 3, 4]<br>
+  </p></div>
+
+  <p><b>셋(set) 주요 메소드와 프로퍼티</b></p>
+  * new Set() : 셋(set) 을 만든다. set이 아니라 Set이다<br>
+  * set.add(value) : 셋(set)에 value를 추가한다.<br>
+  * set.has(value) : 셋(set)에 value가 존재하면 true, 존재하지 않으면 false를 반환<br>
+  * set.delete(value) : 셋(set)에서 해당하는 값을 삭제<br>
+  * set.clear() : 셋(set) 안의 모든 요소를 제거<br>
+  * set.size : 셋(set) 요소의 개수를 반환<br></p>
+
+<body>
+<div id="container09" style="width:400px; margin:20px auto;">
+  <h1>신청 과목</h1>    
+  <ul style="list-style: none;">
+    <li style="font-size:1rem; line-height: 2;">member1 : HTML, CSS</li>
+    <li style="font-size:1rem; line-height: 2;">member2 : CSS, 자바스크립트, 리액트</li>
+    <li style="font-size:1rem; line-height: 2;">member3 : 자바스크립트, 타입스크립트</li>
+  </ul>
+  <hr style="width:100%; border:1px dotted #222;">
+  <h2>최종 신청 과목</h2>
+  <button id="bttn08">결과</button>
+  <div id="result08" class="fs-4 lh-lg"></div>
+</div>
+
+  <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+  <div class="card-header bd-yellow-100"><h5>예제 : 개설요청과목 정리 </h5></div>
+  <p class="card-text" style="padding: 10px 10px;">
+    function setting() { 
+    const member1 = ["HTML", "CSS"];
+    const member2 = ["CSS", "자바스크립트", "리액트"];
+    const member3 = ["자바스크립트", "타입스크립트"];
+    const result08 = document.querySelector("#result08");
+
+    const subjects = new Set([...member1, member2, member3]);
+    let setresult="";
+    for (let subject in subjects) setresult += `${subject}<br>`;
+    result08.innerHTML = setresult;
+    }
+
+    const bttn08 = document.querySelector("#bttn08");
+    bttn08.addEventListener("click", setting)
+
+    <br><br> </p></div>
+   
+    
+<hr><div class="col-md-8 mb-2">
+  <div class="p-3 text-white fs-4 bd-pink-800"> 이터러블(iterable) 객체 </div>      </div>  
+<p> 이터러블 객체는 "순서대로 처리할수 있는" 객체를 말한다. <br>
+문자열, 배열, Map 객체, Set 객체가 이에 해당된다.<br><br>
+<h4 class="text-primary-fst-italic">이터러블(iterable) 객체의 특징</h4>
+<ul><li>for...of반복문</li><li>전개연산자...</li><li>구조 분해 할당</li></ul><Br><br>
+
+<hr><div class="col-md-8 mb-2">
+  <div class="p-3 text-white fs-4 bd-pink-800"> 이터레이터(iterator) 객체 </div>      </div>  
+<p> 이터레이터 객체는 이터러블 객체(iterable)에 symbol.iterator 메소드를 실행하여 나온 객체다. <br>
+  이터레이터 객체는 next()메소드가 있고 next() 메소드는 value와 done 프로퍼티가 있는 객체를 반환한다<br>
+
+<hr><div class="col-md-8 mb-2">
+  <div class="p-3 text-white fs-4 bd-pink-800"> 제너레이터(generator) 메소드 </div>      </div>  
+<p> 제너레이터 메소드는 이터러블(iterable)하지 않은 <span class="text-danger-fw-bold">일반 객체를</span><br>
+  이터레이터 객체로 만들고 이 객체에는 next()메소드가 있고 next() 메소드는 value와 done 프로퍼티가 있는 객체를 반환한다<br> <br>
+  <b>function* 제너레이터함수명() {<br>
+    ... <br>
+    yield<br>
+  }</b><br><br>
+
+  객체명 = 제너레이터함수명() 으로 선언하면 된다 ;
+
+  <div id="container10" class="cont flex-wrap">
+    <h3><b>경강선 노선</b></h3>
+    <button class="btn btn-secondary my-4" id="bttn09" style="width:150px;">다음역</button>  
+    <div id="result09" class="cardshadow"></div><br></div>
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+      <p class="card-text" style="padding: 10px 10px;">
+        const bttn08 = document.querySelector("#bttn08");<br>
+        bttn08.addEventListener("click", setting)      <br>
+  
+        const bttn09 = document.querySelector("#bttn09");<br>
+        const result09 = document.querySelector("#result09");<br>
+        const stat = ["판교", "이매", "삼도", "경기광주", "초월", "곤지암", "신둔도예촌", "이천", "부발", "세종대왕릉", "여주"]; (1)<br>
+        let stations = stat[Symbol.iterator](); (2)<br>
+        //(1), (2)를<br>
+        // function* stat() {yield "판교"; yield "이매"; yield "삼도"; yield "경기광주"; yield "초월"; yield "곤지암"; yield "신둔도예촌"; yield "이천"; yield "부발"; yield "세종대왕릉"; yield "여주"}<br>
+        // let stations = stat(); 이렇게 작성할수도 있다<br>
+        
+        bttn09.addEventListener("click", () => {<br>
+          current = stations.next();<br>
+          if (current.done !== true) {result09.innerText = `${current.value}`;}    <br>
+            else {result09.innerText = "종점";<br>
+            bttn09.setAttribute("disabled", "disabled");}}); <br>
+</p></div> 
+
+<h5>Lecture 클래스 수강생 리스트</h5> 
+<p>강사가 있으면 멤버 배열에서 첫번째 이름은 강사명 변수로, 나머지 이름은 학생변수로 저장하고 <br>
+강사가 없으면 멤버 배열 모두 학생 변수에 구조 분해 할당한다</p>
+<button class="btn btn-secondary my-4" id="bttn10" style="width:150px;">1번 강의실</button>  
+<button class="btn btn-secondary my-4" id="bttn11" style="width:150px;">2번 강의실</button>  
+<div id="result10" class="cardshadow"></div><br></div>
+</p>
+
+<div class="card text-bg-light mb-3" style="max-width: 50rem;">
+  <div class="card-header bd-yellow-100"><h5>예제 : 수강생 리스트</h5></div>
+  <p class="card-text" style="padding: 10px 10px;">
+    class Lecture { <br>
+      constructor(hasTutor, lectID, members) {<br>
+        this.hasTutor = hasTutor;<br>
+        this.lectID = lectID;<br>
+        this.members = members;<br>
+      }<br>
+    }<br>
+    const bttn10 = document.querySelector("#bttn10");      <br>
+    const bttn11 = document.querySelector("#bttn11");<br>
+    const result10 = document.querySelector("#result10");<br>
+
+    let class1 = new Lecture(false, 'L001', ["Ahn", "Han", "Park"]);<br>
+    let class2 = new Lecture(true, 'L002', ["Lee", "Choi", "Kim"]);<br>
+
+    function getStudents(room) {  <br>
+      let {hasTutor, lectID, members} = room; //여기서 room의 변수명 members에 members 배열이 저장된다<br>
+      let tutor , students;  //변수 선언<br>
+      hasTutor? [tutor, ...students] = members : [...students] = members; <br>
+      // 여기서는 members 배열요소들을 각 변수에 할당하기 위해 [ ]배열 표시를 사용했다 {} 하면 안됨   <br>
+      return students;<br>
+    }  <br>
+    bttn10.addEventListener("click", () => result10.innerText = `강의 : ${class1.lectID}, 수강생 : ${getStudents(class1)}`);   <br>   
+    bttn11.addEventListener("click", () => result10.innerText = `강의 : ${class2.lectID}, 수강생 : ${getStudents(class2)}`);  <br>
+    // 여기서 ("click", result~~)를 직접 입력하면 안됨. 단순 함수 호출이 아니라 화살표 함수를 사용하여 함수 객체를 전달해야 한다 <br></p></div>
+
+    <div id="container11" class="cont">
+      <h1>로또 번호 생성기</h1>   
+      <button id="bttn12" class="p-1 fs-3" style="width:200px;">클릭</button> 
+      <div id="result12" class="p-1 fs-1 text-danger"></div>
+    </div></p></p>
+
+    
+<div class="card text-bg-light mb-3" style="max-width: 50rem;">
+  <div class="card-header bd-yellow-100"><h5>예제 : 중복 안되도록 복권당첨</h5></div>
+  <p class="card-text" style="padding: 10px 10px;">
+    bttn12.addEventListener("click", () => {<br>
+      numbers = new Set();<br>
+      for (let i=1; i<= 6; i++ ) {<br>
+        numbers.add(Math.round((Math.random())*44 +1));   //numbers라고 하는 중복이 안되는 set객체에 랜덤값(1-45) 6개를 추출하여<br>
+      result12.innerText =`${[...numbers]} `;  // set 함수를 배열에 담아 ${}에 넣으면 배열 요소사이에 ","가 붙는다 <br>
+      }})<br>
+    </div></p></p>
+  
+<script>
+    function setting() { 
+      const member1 = ["HTML", "CSS"];
+      const member2 = ["CSS", "자바스크립트", "리액트"];
+      const member3 = ["자바스크립트", "타입스크립트"];
+      const result08 = document.querySelector("#result08");
+
+      const subjects = new Set([...member1, ...member2, ...member3]);
+      let setresult="";
+      subjects.forEach(subject => setresult += subject + "<br>" )
+      result08.innerHTML = setresult;
+    }
+      const bttn08 = document.querySelector("#bttn08");
+      bttn08.addEventListener("click", setting)      
+
+      const bttn09 = document.querySelector("#bttn09");
+      const result09 = document.querySelector("#result09");
+      const stat = ["판교", "이매", "삼도", "경기광주", "초월", "곤지암", "신둔도예촌", "이천", "부발", "세종대왕릉", "여주"];
+      let stations = stat[Symbol.iterator](); 
+      
+      bttn09.addEventListener("click", () => {
+        current = stations.next();
+        if (current.done !== true) {result09.innerText = `${current.value}`;}    
+          else {result09.innerText = "종점";
+          bttn09.setAttribute("disabled", "disabled");}}); 
+
+ 
+      class Lecture {
+        constructor(hasTutor, lectID, members) {
+          this.hasTutor = hasTutor;
+          this.lectID = lectID;
+          this.members = members;
+        }
+      }
+      const bttn10 = document.querySelector("#bttn10");      
+      const bttn11 = document.querySelector("#bttn11");
+      const result10 = document.querySelector("#result10");
+
+      let class1 = new Lecture(false, 'L001', ["Ahn", "Han", "Park"]);
+      let class2 = new Lecture(true, 'L002', ["Lee", "Choi", "Kim"]);
+
+      function getStudents(room) {
+        let {hasTutor, lectID, members} = room;
+        let tutor , students;//변수 선언
+        hasTutor? [tutor, ...students] = members : [...students] = members;  
+        return students;
+      }  
+      bttn10.addEventListener("click", () => result10.innerText = `강의 : ${class1.lectID}, 수강생 : ${getStudents(class1)}`);      
+      bttn11.addEventListener("click", () => result10.innerText = `강의 : ${class2.lectID}, 수강생 : ${getStudents(class2)}`);   
+ 
+    const bttn12 = document.querySelector("#bttn12");
+    const result12 = document.querySelector("#result12"); 
+ 
+    
+    bttn12.addEventListener("click", () => {
+      numbers = new Set();
+      for (let i=1; i<= 6; i++ ) {
+        numbers.add(Math.round((Math.random())*44 +1));
+      result12.innerText =`${[...numbers]} `; 
+      }})
+    
+ </script>
+  
+</body>
+</html>

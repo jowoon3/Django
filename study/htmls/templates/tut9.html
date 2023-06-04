@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML input 요소의 속성</title>
+</head>
+<body>
+<div>
+    <H2>HTML</H2>  
+    <style>
+        .txtlink {color: green; text-decoration:none; margin-left:20px; font-size:16px;}
+        .txtlink:hover {text-decoration:underline;}        /*마우스 올라가면 밑줄 */        
+        /* .button_S {display:inline-block; background-color:gray; color: #FFFFFF; padding: 14px 25px; text-align: center; text-decoration: none; font-size: 16px; margin-left: 20px; opacity: 0.9; border-radius: 5px;}
+        .button_S:hover {color:white; background-color:lightyellow ; opacity:1.0;}      /*마우스 올라가면 배경색 핑크색 글자 흰색으로 바뀜 
+        .button1 {display:inline-block; background-color:#f44336; color: #FFFFFF; padding: 14px 25px; text-align: center; text-decoration: none; font-size: 16px; margin-left: 20px; opacity: 0.9; border-radius: 5px;}
+        .button1:hover {color:white; background-color:pink; opacity:1.0;}      마우스 올라가면 배경색 핑크색 글자 흰색으로 바뀜 
+        .button2 {background-color: white; color: black; border: 2px solid #f44336; padding: 14px 24px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin-left: 20px;}
+        .button2:hover {background-color: #f44336; color: white;}    /*마우스 올라가면 배경색 및 글자 색 바뀜
+        .button3 {display:inline-block; background-color: #44bb55; color: #FFFFFF; padding: 14px 25px; text-align: center; text-decoration: none; font-size: 16px; margin-left: 20px; opacity: 0.9;border-radius: 5px;}
+        .button3:hover {background-color: #44bb55; color: white;}    마우스 올라가면 배경색 및 글자 색 바뀜 
+        .button4 {background-color: white; color: black; border: 2px solid #44bb55; padding: 14px 24px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin-left: 20px;}
+        .button4:hover {background-color: #44bb55; color: white;}    마우스 올라가면 배경색 및 글자 색 바뀜 */
+        
+        .btn {margin: 4px 0px;--bs-btn-padding-x: 0.75rem;  --bs-btn-padding-y: 0.375rem; --bs-btn-font-family: 'Nanum Gothic', sans-serif; --bs-btn-font-size: 1rem; --bs-btn-font-weight: 400;
+              --bs-btn-line-height: 1.5;    --bs-btn-border-width: var(--bs-border-width);
+              --bs-btn-border-radius: 0.375rem;   --bs-btn-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15),0 1px 1px rgba(0, 0, 0, 0.075);
+              --bs-btn-disabled-opacity: 0.65;    --bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(var(--bs-btn-focus-shadow-rgb), .5);
+              display: inline-block; padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x); font-family: var(--bs-btn-font-family);
+              font-size: var(--bs-btn-font-size); font-weight: var(--bs-btn-font-weight); line-height: var(--bs-btn-line-height); 
+              color: var(--bs-btn-color);         text-align: center;    text-decoration: none;    vertical-align: middle;    cursor: pointer;
+              -webkit-user-select: none;    -moz-user-select: none;      user-select: none;    
+              border: var(--bs-btn-border-width) solid var(--bs-btn-border-color); border-radius: var(--bs-btn-border-radius);
+              background-color: var(--bs-btn-bg);}
+        .button_S {--bs-btn-color: #fff;    --bs-btn-bg: #6c757d;    --bs-btn-border-color: #6c757d;    --bs-btn-hover-color: #fff;
+              --bs-btn-hover-bg: #5c636a;    --bs-btn-hover-border-color: #565e64;    --bs-btn-focus-shadow-rgb: 130,138,145;
+              --bs-btn-active-color: #fff;    --bs-btn-active-bg: #565e64;    --bs-btn-active-border-color: #51585e;
+              --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #fff;    --bs-btn-disabled-bg: #6c757d;
+              --bs-btn-disabled-border-color: #6c757d;}
+        .button1 {--bs-btn-color: #fff;     --bs-btn-bg: #dc3545;       --bs-btn-border-color: #dc3545;     --bs-btn-hover-color: #fff;
+                  --bs-btn-hover-bg: #bb2d3b;    --bs-btn-hover-border-color: #b02a37;     --bs-btn-focus-shadow-rgb: 225,83,97;
+                  --bs-btn-active-color: #fff;   --bs-btn-active-bg: #b02a37;    --bs-btn-active-border-color: #a52834;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #fff;
+                  --bs-btn-disabled-bg: #dc3545;    --bs-btn-disabled-border-color: #dc3545;}
+        .button2 {--bs-btn-color: #dc3545;    --bs-btn-border-color: #dc3545;    --bs-btn-hover-color: #fff;    --bs-btn-hover-bg: #dc3545;
+                  --bs-btn-hover-border-color: #dc3545;    --bs-btn-focus-shadow-rgb: 220,53,69;    --bs-btn-active-color: #fff;
+                  --bs-btn-active-bg: #dc3545;    --bs-btn-active-border-color: #dc3545; --bs-border-width: 2px;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #dc3545;
+                  --bs-btn-disabled-bg: transparent;    --bs-btn-disabled-border-color: #dc3545;    --bs-gradient: none;}
+        .button3 {--bs-btn-color: #fff;    --bs-btn-bg: #198754;    --bs-btn-border-color: #198754;    --bs-btn-hover-color: #fff;
+                  --bs-btn-hover-bg: #157347;     --bs-btn-hover-border-color: #146c43;     --bs-btn-focus-shadow-rgb: 60,153,110;
+                  --bs-btn-active-color: #fff;    --bs-btn-active-bg: #146c43;    --bs-btn-active-border-color: #13653f;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #fff;
+                  --bs-btn-disabled-bg: #198754; --bs-btn-disabled-border-color: #198754;}
+        .button4 {--bs-btn-color: #198754;    --bs-btn-border-color: #198754;    --bs-btn-hover-color: #fff;    --bs-btn-hover-bg: #198754;
+                  --bs-btn-hover-border-color: #198754;    --bs-btn-focus-shadow-rgb: 25,135,84;    --bs-btn-active-color: #fff;
+                  --bs-btn-active-bg: #198754;    --bs-btn-active-border-color: #198754;--bs-border-width: 2px;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #198754;
+                  --bs-btn-disabled-bg: transparent;    --bs-btn-disabled-border-color: #198754;    --bs-gradient: none;}
+        </style>
+        <p><a href="/htmls/tut8.html" class="btn button1" target="_blank">이전 노트</a>
+        <a href="/htmls/tut9.html" class="btn button1" target="_blank">다음 노트</a>
+        <a href="/css/tut11.html" class="btn button3" target="_blank">CSS 노트</a> 
+        <a href="/htmls/html_CSS.html" class="btn button2" target="_blank">HTML+CSS</a>
+        <a href="/htmls/html_Emmet.html" class="btn button2" target="_blank">HTML+Emmet</a>
+        <a href="/htmls/html_tags.html" class="btn button2" target="_blank">HTML+Tags</a> <br> 
+        <a href="/javascript/j01.html" class="btn button3" target="_blank">자바스크립트 노트</a> 
+        <a href="/python/p01.html" class="btn button3" target="_blank">파이썬 노트</a> 
+        <a href="/htmls/tut1.html" class="btn button2" target="_blank">기본구조</a> 
+        <a href="/htmls/tut2.html" class="btn button2" target="_blank">서식(Format)</a>
+        <a href="/htmls/tut3.html" class="btn button2" target="_blank">스타일(Style)</a>
+        <a href="/htmls/tut4.html" class="btn button2" target="_blank">Heading, Links and Images</a>
+        <a href="/htmls/tut5.html" class="btn button2" target="_blank">Table and Lists</a>
+        <a href="/htmls/tut6.html" class="btn button2" target="_blank">요소 블록 인라인</a>
+        <a href="/htmls/tut7.html" class="btn button2" target="_blank">폼(Forms)</a>
+        <a href="/htmls/tut8.html" class="btn button2" target="_blank">레이아웃(Layout)</a>
+        <a href="/htmls/tut9.html" class="btn button_S" target="_blank">input 요소</a></p>
+    <hr>
+</div>   
+    <h4>input 요소의 속성</h4>
+
+    <p>input 요소의 여러 속성을 사용하면 사용자가 입력하는 방식을 더욱 다양하게 제어할 수 있다.</p><hr>
+    
+    <h4>value 속성</h4>
+    <p>value 속성은 input 요소의 입력 필드(input field)에 나타나는 초깃값을 설정한다.</p>
+    
+    <p>예제</p>
+    <form>
+        이름 : <br><input type="text" name="student_name"><br>
+        학번 : <br><input type="text" name="student_id"><br>
+        학과 : <br><input type="text" name="department" value="컴퓨터공학과"><br>
+    </form><hr>
+    
+    <h4>readonly 속성</h4>
+    
+    <p>readonly 속성은 사용자가 입력 필드를 볼 수는 있으나, 수정할 수는 없도록 설정한다.<br>
+    disabled 속성과 다른 점은 전송 버튼(submit)을 누르면 초깃값이 서버로 전송된다는 점이다.</p>
+    
+    <p>예제</p>
+    <form>
+        이름 : <br><input type="text" name="student_name"><br>
+        학번 : <br><input type="text" name="student_id"><br>
+        학과 : <br><input type="text" name="department" value="컴퓨터공학과" readonly><br>
+    </form>
+     </div><hr>
+    
+    <h4>disabled 속성</h4>
+    <p>disabled 속성은 사용자가 입력 필드를 아예 사용할 수 없도록 설정한다.<br>
+    disabled 속성이 설정된 입력 필드는 사용할 수도 없고, 클릭할 수도 없다.<br>
+    또한, readonly 속성과는 달리 전송 버튼(submit)을 눌러도 초깃값이 서버로 전송되지 않다.</p>
+    
+    <p>예제</p>
+    <form>
+        이름 : <br><input type="text" name="student_name"><br>
+        학번 : <br><input type="text" name="student_id"><br>
+        학과 : <br><input type="text" name="department" value="컴퓨터공학과" disabled><br>
+    </form><hr>
+    
+    <h4>maxlength 속성</h4>
+    
+    <p>maxlength 속성은 입력 필드에 입력할 수 있는 문자의 최대 길이(length)를 설정한다.</p>
+    
+    <p>예제</p>
+    <form>
+        이름 : <br><input type="text" name="student_name" value="홍길동" maxlength="10"><br>
+        학번 : <br><input type="text" name="student_id"><br>
+    </form><hr>
+    
+    <h4>size 속성</h4>
+    
+    <p>size 속성은 입력 필드에 보여지는 input 요소의 크기(size)를 설정한다.<br>
+    maxlength 속성과는 달리 입력 필드가 한 번에 보여줄 수 있는 문자의 최대 개수만을 의미한다.<br>
+    따라서 입력될 수 있는 문자의 최대 길이는 <b>maxlength 속성값에 따라 달라지며, size 속성과는 전혀 무관하다.</b></p>
+    
+    <p>예제</p>
+    <form>
+        이름 : <br><input type="text" name="student_name" value="홍길동" size="30"><br>
+        학번 : <br><input type="text" name="student_id"><br>
+    </form><hr>
+    </div>    
+</body>
+</html>

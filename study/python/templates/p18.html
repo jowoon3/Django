@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>파이썬 모듈</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">   
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">     
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <!-- font css -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="{% static '/css/java.css'%}" rel="stylesheet">   
+  <link href="{% static '/css/style.css'%}" rel="stylesheet">     
+</head>
+<body class="ms-3">  
+  <H2 class="coffee_taital" style="text-align:left;"><a name="home">파이썬</a></H2>  
+    <p><a href="/python/p01.html" class="btn btn-warning mb-1" target="_blank">이전 노트</a>
+      <a href="/python/p03.html" class="btn btn-warning mb-1" target="_blank">다음 노트</a>            
+      <a href="/htmls/tut1.html" class="btn btn-danger mb-1" target="_blank">HTML 노트</a> 
+      <a href="/css/tut11.html" class="btn btn-success mb-1" target="_blank">CSS 노트</a> 
+      <a href="/javascript/j01.html" class="btn btn-purple mb-1" target="_blank">Javascript 노트</a>
+     <a href="/python/p01.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">파이썬의 기초</a>
+     <a href="/python/p02.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">변수</a>
+     <a href="/python/p03.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">숫자형타입</a>
+     <a href="/python/p04.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">불리언타입</a>
+     <a href="/python/p05.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">문자열타입</a>
+     <a href="/python/p06.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">조건문</a>
+     <a href="/python/p07.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">반복문</a>
+     <a href="/python/p08.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">break와 continue</a>
+     <a href="/python/p09.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">리스트 타입</a>
+     <a href="/python/p10.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">튜플 타입</a>
+     <a href="/python/p11.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">세트 타입</a>
+     <a href="/python/p12.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">딕셔녀리 타입</a>
+     <a href="/python/p13.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">함수</a>
+     <a href="/python/p14.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">변수의 유효범위</a>
+     <a href="/python/p15.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">클래스</a>
+     <a href="/python/p16.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">객체</a>
+     <a href="/python/p17.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">상속</a>
+     <a href="/python/p18.html" class=" btn btn-secondary mb-1" target="_blank">모듈</a>
+     <a href="/python/p19.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">파일 입출력</a>     
+     <a href="/python/p20.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">예외처리</a>    
+     <a href="/python/p21.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">웹스크래핑1</a>    
+     <a href="/python/p22.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">웹스크래핑2</a>   </p> 
+
+
+     <div class="col-md-8 mb-2">
+      <div class="p-3 text-white fs-4 bd-pink-800">모듈</div>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">모듈(module)</h2>
+      <p>프로그램을 개발하다보면 프로그램의 크기가 커짐에 따라 개발이나 유지보수를 위해 소스 파일을 여러 개로 나눠야 할 수도 있다.<br>
+      또한, 한 번 정의해서 사용한 편리한 함수를 다른 프로그램에서 또다시 정의하지 않고 곧바로 사용하고 싶어질 수도 있다.<br>
+      이를 위해 파이썬에서는 한 번 정의했던 변수나 함수, 클래스 등을 다른 파이썬 프로그램에서도 손쉽게 불러와 사용할 수 있도록 하나의 파일로 모아놓는 방법을 제공하며, 이것을 모듈(module)이라고 부른다.<br>
+      모듈은 파이썬 프로그램에서 사용할 수 있는 여러 정의들과 실행 가능한 구문들을 담고 있는 하나의 파이썬 파일(.py)로써, 파이썬에서 기본적으로 제공하는 모듈뿐만 아니라 다른 사람이 만든 모듈을 사용하거나 자신이 직접 새로운 모듈을 작성하여 사용할 수도 있다.</p>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">모듈 불러오기</h2>
+      <p>파이썬에서는 import 문을 사용하여 다음과 같이 세 가지 방식으로 모듈을 불러올 수 있다.</p>
+      <h5>문법</h5>
+      1. import 모듈명<br>
+      2. from 모듈명 import *<br>
+      3. from 모듈명 import 함수명 또는 클래스명<br>
+      이러한 import 문은 코드의 어느 위치에서라도 사용할 수 있지만, 통상적으로 코드의 맨 앞에 위치하는 것이 가장 좋다.<br>
+      첫 번째와 두 번째 방법은 모두 해당 모듈 전체를 불러옵니다.<br>
+      첫 번째 방법은 모듈에 포함된 변수나 함수를 사용할 때마다 매번 모듈명과 함께 닷(.) 연산자를 사용해야 하지만, 두 번째 방법은 변수명이나 함수명만으로도 간편하게 사용할 수 있다.</p>
+  
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      import math  </p>
+      print(math.pi)</p>
+      print(math.pow(2, 2))  </p>
+      from math import *  </p>
+      print(pi)</p>
+      print(pow(2, 2))</p>
+  
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <span class="fw-bold">실행 결과</span><br>
+      3.141592653589793<br>
+      4.0<br>
+      3.141592653589793<br>
+      4.0<br>
+      위의 예제에서는 파이썬에서 기본적으로 제공하는 수학 관련 모듈인 math 모듈을 임포트해서 사용하고 있다.<br>
+      이때 프로그램 내에서 math 모듈을 사용하려면 언제나 모듈명인 math와 닷(.) 연산자까지 함께 사용해야만 한다.</p> 
+      <p>만약 모듈명을 함께 사용하지 않으면, 파이썬은 해당 변수나 함수가 정의되어 있지 않는다고 판단하여 NameError를 발생시킬 것이다.</p> 
+      <p>하지만 다음 예제처럼 두 번째 방법을 사용하여 모듈을 임포트하면 모듈명을 사용하지 않고 변수명이나 함수명만으로 간단하게 사용할 수 있다.</p>
+  
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      e = "내가 정의한 변수 e"</p>
+      print(e)  </p>
+      from math import *</p>
+      print(e)</p>
+  
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <span class="fw-bold">실행 결과</span><br>
+      내가 정의한 변수 e<br>
+      2.718281828459045<br>
+      마지막으로 세 번째 방법은 모듈 전체가 아닌 해당 모듈 내에서 특정 변수나 함수, 클래스만을 불러오고자 할 때 사용한다.<br>
+      얼핏 생각하기에 두 번째 방법을 사용하면 굳이 세 번째 방법은 사용할 필요가 없다고 느껴질 수도 있다.</p>
+        
+      <p>하지만 두 번째 방법은 프로그램에서 정의한 변수명과 불러온 모듈에 포함된 변수명이 겹치는 경우에 다음과 같이 의도치 않은 결과를 가져올 수 있다.</p>
+  
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      e = "내가 정의한 변수 e"</p>
+      print(e)  </p>
+      from math import *</p>
+      print(e)</p>
+      print(pi)</p>
+  
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <span class="fw-bold">실행 결과</span><br>
+      내가 정의한 변수 e<br>
+      2.718281828459045<br>
+      3.141592653589793<br>
+      위의 예제는 수학에서 자주 사용하는 원주율(pi, 3.141592...) 값을 사용하기 위해 math 모듈을 전부 불러온 예제이다.<br>
+      그리고 1번 라인에서는 문자열 변수 e를 선언하고 있다.<br>
+      하지만 math 모듈을 임포트한 다음인 5번 라인부터는 1번 라인에서 정의한 변수 e에는 접근할 수 없게 된다.<br>
+      그 이유는 불러온 math 모듈에 이미 수학에서 자주 사용되는 오일러의 수(e, 2.71828...)가 같은 이름의 변수 e로 포함되어 있기 때문이다.</p> 
+      <p>그 결과 5번 라인에서 변수 e의 값을 출력하면, 직접 선언한 문자열이 아닌 오일러의 수가 출력됨을 확인할 수 있다.</p> 
+      <p>이처럼 두 번째 방법은 불러온 모듈을 매우 손쉽게 사용할 수 있도록 해주지만, 사용자가 직접 정의한 변수나 함수와 이름이 겹칠 가능성이 언제나 존재한다.<br>
+      따라서 이와 같은 상황을 피하기 위해 import 문을 언제나 코드의 맨 앞에 위치시키거나, 다음 예제와 같이 필요한 변수나 함수만을 불러와 사용하는 것이 좋다.</p>
+  
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      e = "내가 정의한 변수 e"</p>
+      print(e)  </p>
+      from math import pi</p>
+      print(e)</p>
+      print(pi)</p>
+  
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <span class="fw-bold">실행 결과</span><br>
+      내가 정의한 변수 e<br>
+      내가 정의한 변수 e<br>
+      3.141592653589793<br>
+      이처럼 모듈을 불러와 사용할 때에는 상황에 맞는 적절한 방법을 선택할 필요가 있다.</p>
+  
+     
+      
+</body>
+</html>

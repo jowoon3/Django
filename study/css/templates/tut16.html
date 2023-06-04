@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 리스트 테이블</title>
+</head>
+<body>  
+<div> 
+    <H2>CSS</H2>  
+    <style>
+        .txtlink {color: green; text-decoration:none; margin-left:20px; font-size:16px;}
+        .txtlink:hover {text-decoration:underline;}        /*마우스 올라가면 밑줄 */        
+        /* .button_S {display:inline-block; background-color:gray; color: #FFFFFF; padding: 14px 25px; text-align: center; text-decoration: none; font-size: 16px; margin-left: 20px; opacity: 0.9; border-radius: 5px;}
+        .button_S:hover {color:white; background-color:lightyellow ; opacity:1.0;}      /*마우스 올라가면 배경색 핑크색 글자 흰색으로 바뀜 
+        .button1 {display:inline-block; background-color:#f44336; color: #FFFFFF; padding: 14px 25px; text-align: center; text-decoration: none; font-size: 16px; margin-left: 20px; opacity: 0.9; border-radius: 5px;}
+        .button1:hover {color:white; background-color:pink; opacity:1.0;}      마우스 올라가면 배경색 핑크색 글자 흰색으로 바뀜 
+        .button2 {background-color: white; color: black; border: 2px solid #f44336; padding: 14px 24px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin-left: 20px;}
+        .button2:hover {background-color: #f44336; color: white;}    /*마우스 올라가면 배경색 및 글자 색 바뀜
+        .button3 {display:inline-block; background-color: #44bb55; color: #FFFFFF; padding: 14px 25px; text-align: center; text-decoration: none; font-size: 16px; margin-left: 20px; opacity: 0.9;border-radius: 5px;}
+        .button3:hover {background-color: #44bb55; color: white;}    마우스 올라가면 배경색 및 글자 색 바뀜 
+        .button4 {background-color: white; color: black; border: 2px solid #44bb55; padding: 14px 24px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin-left: 20px;}
+        .button4:hover {background-color: #44bb55; color: white;}    마우스 올라가면 배경색 및 글자 색 바뀜 */
+        
+        .btn {margin: 4px 0px;--bs-btn-padding-x: 0.75rem;  --bs-btn-padding-y: 0.375rem; --bs-btn-font-family: 'Nanum Gothic', sans-serif; --bs-btn-font-size: 1rem; --bs-btn-font-weight: 400;
+              --bs-btn-line-height: 1.5;    --bs-btn-border-width: var(--bs-border-width);
+              --bs-btn-border-radius: 0.375rem;   --bs-btn-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15),0 1px 1px rgba(0, 0, 0, 0.075);
+              --bs-btn-disabled-opacity: 0.65;    --bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(var(--bs-btn-focus-shadow-rgb), .5);
+              display: inline-block; padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x); font-family: var(--bs-btn-font-family);
+              font-size: var(--bs-btn-font-size); font-weight: var(--bs-btn-font-weight); line-height: var(--bs-btn-line-height); 
+              color: var(--bs-btn-color);         text-align: center;    text-decoration: none;    vertical-align: middle;    cursor: pointer;
+              -webkit-user-select: none;    -moz-user-select: none;      user-select: none;    
+              border: var(--bs-btn-border-width) solid var(--bs-btn-border-color); border-radius: var(--bs-btn-border-radius);
+              background-color: var(--bs-btn-bg);}
+        .button_S {--bs-btn-color: #fff;    --bs-btn-bg: #6c757d;    --bs-btn-border-color: #6c757d;    --bs-btn-hover-color: #fff;
+              --bs-btn-hover-bg: #5c636a;    --bs-btn-hover-border-color: #565e64;    --bs-btn-focus-shadow-rgb: 130,138,145;
+              --bs-btn-active-color: #fff;    --bs-btn-active-bg: #565e64;    --bs-btn-active-border-color: #51585e;
+              --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #fff;    --bs-btn-disabled-bg: #6c757d;
+              --bs-btn-disabled-border-color: #6c757d;}
+        .button1 {--bs-btn-color: #fff;     --bs-btn-bg: #dc3545;       --bs-btn-border-color: #dc3545;     --bs-btn-hover-color: #fff;
+                  --bs-btn-hover-bg: #bb2d3b;    --bs-btn-hover-border-color: #b02a37;     --bs-btn-focus-shadow-rgb: 225,83,97;
+                  --bs-btn-active-color: #fff;   --bs-btn-active-bg: #b02a37;    --bs-btn-active-border-color: #a52834;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #fff;
+                  --bs-btn-disabled-bg: #dc3545;    --bs-btn-disabled-border-color: #dc3545;}
+        .button2 {--bs-btn-color: #dc3545;    --bs-btn-border-color: #dc3545;    --bs-btn-hover-color: #fff;    --bs-btn-hover-bg: #dc3545;
+                  --bs-btn-hover-border-color: #dc3545;    --bs-btn-focus-shadow-rgb: 220,53,69;    --bs-btn-active-color: #fff;
+                  --bs-btn-active-bg: #dc3545;    --bs-btn-active-border-color: #dc3545; --bs-border-width: 2px;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #dc3545;
+                  --bs-btn-disabled-bg: transparent;    --bs-btn-disabled-border-color: #dc3545;    --bs-gradient: none;}
+        .button3 {--bs-btn-color: #fff;    --bs-btn-bg: #198754;    --bs-btn-border-color: #198754;    --bs-btn-hover-color: #fff;
+                  --bs-btn-hover-bg: #157347;     --bs-btn-hover-border-color: #146c43;     --bs-btn-focus-shadow-rgb: 60,153,110;
+                  --bs-btn-active-color: #fff;    --bs-btn-active-bg: #146c43;    --bs-btn-active-border-color: #13653f;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #fff;
+                  --bs-btn-disabled-bg: #198754; --bs-btn-disabled-border-color: #198754;}
+        .button4 {--bs-btn-color: #198754;    --bs-btn-border-color: #198754;    --bs-btn-hover-color: #fff;    --bs-btn-hover-bg: #198754;
+                  --bs-btn-hover-border-color: #198754;    --bs-btn-focus-shadow-rgb: 25,135,84;    --bs-btn-active-color: #fff;
+                  --bs-btn-active-bg: #198754;    --bs-btn-active-border-color: #198754;--bs-border-width: 2px;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #198754;
+                  --bs-btn-disabled-bg: transparent;    --bs-btn-disabled-border-color: #198754;    --bs-gradient: none;}
+        </style>
+        <p><a href="/css/tut13.html" class="btn button3" target="_blank">이전 노트</a>
+        <a href="/css/tut15.html" class="btn button3" target="_blank">다음 노트</a>
+        <a href="/htmls/tut1.html" class="btn button1" target="_blank">HTML 노트</a> 
+        <a href="/htmls/html_CSS.html" class="btn button2" target="_blank">HTML+CSS</a>
+        <a href="/htmls/html_Emmet.html" class="btn button2" target="_blank">HTML+Emmet</a>
+        <a href="/htmls/html_tags.html" class="btn button2" target="_blank">HTML+Tags</a><br>
+        <a href="/javascript/j01.html" class="btn btn-success mb-1" target="_blank">자바스크립트 노트</a>  
+        <a href="/python/p01.html" class="btn btn-success mb-1" target="_blank">파이썬 노트</a>   
+        <a href="/css/tut11.html" class="btn button4" target="_blank">CSS 문법</a>
+        <a href="/css/tut12.html" class="btn button4" target="_blank">색과 배경</a>
+        <a href="/css/tut13.html" class="btn button4" target="_blank">선형 원형 그래디언트 CSS3 배경속성</a>
+        <a href="/css/tut14.html" class="btn button4" target="_blank">텍스트 글꼴 링크 </a>
+        <a href="/css/tut15.html" class="btn button4" target="_blank">글꼴 링크 이미지 스프라이트</a> 
+        <a href="/css/tut16.html" class="btn button_S" target="_blank">리스트 테이블</a>
+        <a href="/css/tut17.html" class="btn button4" target="_blank">박스모델 크기 패딩</a> 
+        <a href="/css/tut18.html" class="btn button4" target="_blank">박스모델 테두리 마진 아웃라인</a> 
+        <a href="/css/tut19.html" class="btn button4" target="_blank">Flexible Box 플렉서블 박스 플렉스</a>
+        <a href="/css/tut20.html" class="btn button4" target="_blank">CSS3 테두리 버튼 사용자인터페이스</a> 
+        <a href="/css/tut21.html" class="btn button4" target="_blank">위치 디스플레이 플로트 정렬</a> 
+        <a href="/css/tut22.html" class="btn button4" target="_blank">위치 포지션 선택자 selector</a>
+        <a href="/css/tut23.html" class="btn button4" target="_blank">CSS3 선택자(selector)</a>
+        <a href="/css/tut24.html" class="btn button4" target="_blank">CSS3 transition 애니메이션</a>     
+        <a href="/css/tut25.html" class="btn button4" target="_blank">유사클래스 상태의사클래스 동적의사클래스 </a>
+        <a href="/css/tut26.html" class="btn button4" target="_blank">구조의사클래스</a> 
+        <a href="/css/tut27.html" class="btn button4" target="_blank">의사 요소(pseudo-element)</a>
+        <a href="/css/tut28.html" class="btn button4" target="_blank">CSS 네비게이션바</a>
+        <a href="/css/tut29.html" class="btn button4" target="_blank">CSS form 요소 @규칙</a> 
+        <a href="/css/tut30.html" class="btn button4" target="_blank">bootstrap 활용</a>  
+        <a href="/css/tut31.html" class="btn button4" target="_blank">test several things</a></p>  
+ 
+
+<hr>    
+</div>
+
+<div class="LIST1"> 
+    <h4>CSS 리스트(List)</h4>
+    <p>CSS를 이용하면 리스트에 다양한 효과를 적용할 수 있다.</p>
+    <ol>
+        <li>순서가 없는 리스트(unordered list)</li>
+        <li>순서가 있는 리스트(ordered list)</li>
+        <li>정의 리스트(definition list)</li>
+    </ol>
+</div> 
+
+    <h4>CSS에서 사용할 수 있는 list-style 속성</h4>
+    1. list-style-type<br>
+    2. list-style-image<br>
+    3. list-style-position</p><hr>
+    <style>
+        .LIST1>ol {width:25%;font-size:15px;margin:0 20px;padding:20px;background:#D2691E;color:green}
+        .LIST1>ol li {list-style-type:upper-roman;margin:5px;background:#DEB887;}
+        #circle {list-style-type:circle}
+        #square {list-style-type:square}
+        #upperalpha  {list-style-type:upper-alpha;text-transform:uppercase}
+        #lowerroman  {list-style-type:lower-roman;text-transform:lowercase}
+        #lowergreek  {list-style-type:lower-greek;text-transform:capitalize}
+        #lowerlatin  {list-style-type:lower-latin}
+        .LIST2>ul>li {list-style-type:upper-roman;margin:5px;background:#DEB887;}
+</style>
+<div class="LIST2"> 
+    <h4>list-style-type 속성</h4>
+    <p>리스트 요소의 앞에 위치하는 숫자나 기호를 마커(marker)라고 한다.<br>
+    list-style-type 속성을 이용하면 리스트에 다양한 마커(marker)를 적용할 수 있다.</p>
+
+    <a href="/htmls/tut5.html#CSS마커" target="_blank">html 리스트 마커</a><hr>  
+
+    <p>예제</p> 
+    <ul id="circle"> 
+        <li>수박</li>
+        <li>참외</li>
+    </ul>
+    <ul id="square">
+        <li>사과</li>
+        <li>멜론</li>
+    </ul>      
+    <ol>
+        <li id="upperalpha">An Apple is good</li>
+        <li id="lowerroman">I like Melon</li>
+        <li id="lowerroman">We bought a Banana </li>
+        <li id="lowergreek">This corn soup tastes good</li>
+    </ol>
+    <style>
+            .LIST1>ol {width:25%;font-size:15px;margin:0 20px;padding:20px;background:#D2691E;color:green}
+            .LIST1>ol li {list-style-type:upper-roman;margin:5px;background:#DEB887;}
+            #circle {list-style-type:circle}
+            #square {list-style-type:square}
+            #upperalpha  {list-style-type:upper-alpha;text-transform:uppercase}
+            #lowerroman  {list-style-type:lower-roman;text-transform:lowercase}
+            #lowergreek  {list-style-type:lower-greek;text-transform:capitalize}
+            #lowerlatin  {list-style-type:lower-latin}
+            .LIST2>ul>li {list-style-type:upper-roman;margin:5px;background:#DEB887;}
+    </style>
+    <p>&lt;<span style="color:#bf4f24">style</span>&gt;<br>
+    <a class="textarea"><span style="color:#bf4f24">    </span><span style="color:#bf4f24">.circle</span> { <span style="color:#691c97">list-style-type</span><span style="color:#794938">:</span> <span style="color:#b4371f">circle</span>; }<br>
+    <a class="textarea"><span style="color:#bf4f24">    .square</span> { <span style="color:#691c97">list-style-type</span><span style="color:#794938">:</span> <span style="color:#b4371f">square</span>; }<br>
+    <a class="textarea"><span style="color:#bf4f24">    .upperAlpha</span> { <span style="color:#691c97">list-style-type</span><span style="color:#794938">:</span> <span style="color:#b4371f">upper-alpha</span>; }<br>
+    <a class="textarea"><span style="color:#bf4f24">    .lowerRoman</span> { <span style="color:#691c97">list-style-type</span><span style="color:#794938">:</span> <span style="color:#b4371f">lower-roman</span>; }<br>
+    &lt;/<span style="color:#bf4f24">style</span>&gt;<br> 
+    </div><hr>
+
+<h4>list-style-image 속성</h4>
+    <p>list-style-image 속성을 이용하면 마커(marker)로 자신만의 이미지를 사용할 수 있다.</p>
+    <p>예제</p>
+    <p>&lt;<span style="color:#bf4f24">style</span>&gt;<br>
+    <a class="textarea"><span style="color:#bf4f24">    .imageMarker</span> { <span style="color:#691c97">list-style-image</span><span style="color:#794938">:</span> <span style="color:#693a17">url</span>(<span style="color:#0b6125">"/examples/images/img_list_marker.png"</span>); }<br>
+    &lt;/<span style="color:#bf4f24">style</span>&gt;</p>    <hr> 
+
+<h4>list-style-position 속성</h4>
+    <p>list-style-position 속성을 이용하면 리스트 요소의 위치를 설정할 수 있다.<br>
+    list-style-position 속성의 기본 속성값은 outside로 설정되어 있다. (아웃사이드가 눈에 이뻐보임)</p>
+    <p>예제</p>
+    <P>&lt;<span style="color:#bf4f24">style</span>&gt;<BR>
+    <a class="textarea"><span style="color:#bf4f24">    .outside</span> { <span style="color:#691c97">list-style-position</span><span style="color:#794938">:</span> <span style="color:#b4371f">outside</span>; }<br>
+    <a class="textarea"><span style="color:#bf4f24">    .inside</span> { <span style="color:#691c97">list-style-position</span><span style="color:#794938">:</span> <span style="color:#b4371f">inside</span>; }<br>
+    &lt;/<span style="color:#bf4f24">style</span>&gt;</p> 
+
+    <img src="https://www.codingfactory.net/wp-content/uploads/css-property-list-style-position-01.png" alt="sorry. images is not ready"> 
+<hr>    
+
+<h4>list-style 속성 한 번에 적용하기</h4>
+    <p>위에서 언급한 모든 list-style 속성을 이용한 스타일을 한 줄에 설정할 수 있다.</p>
+    <p>예제</p>
+    <p>&lt;<span style="color:#bf4f24">style</span>&gt;<br>
+    <a class="textarea"><span style="color:#bf4f24">    ul</span> { <span style="color:#691c97">list-style</span><span style="color:#794938">:</span> <span style="color:#b4371f">square</span> <span style="color:#b4371f">inside</span> <span style="color:#693a17">url</span>(<span style="color:#0b6125">"/examples/images/img_list_marker.png"</span>); }<Br>
+    &lt;/<span style="color:#bf4f24">style</span>&gt;</p> 
+    <hr>
+
+<div class="LIST3"> 
+    <h4>리스트에 배경색 적용</h4>
+    <p>CSS를 사용하면 리스트 전체뿐만 아니라 리스트 요소별로도 각각의 배경색을 설정할 수 있다.</p>
+    <p>예제</p> 
+    <ul> 여름에 먹는 과일
+        <li>수박</li>
+        <li>참외</li>
+    </ul>
+    <ul> 
+        <li>사과</li>
+        <li>멜론</li>
+    </ul>      
+</div>
+ <B><span style="color:red">스타일은 div 외부에서 설정해야 함</span></B><br>
+    &lt;<span style="color:#bf4f24">style</span>&gt;<br>
+    <a class="textarea"><span style="color:#bf4f24">    ul</span> { <span style="color:#691c97">background</span><span style="color:#794938">:</span> <span style="color:#811f24;font-weight:700">#D2691E</span>; <span style="color:#691c97">padding</span><span style="color:#794938">:</span> <span style="color:#811f24;font-weight:700">15<span style="color:#794938">px</span></span>; }<br>
+    <a class="textarea"><span style="color:#bf4f24">    ol</span> { <span style="color:#691c97">background</span><span style="color:#794938">:</span> <span style="color:#811f24;font-weight:700">#6495ED</span>; <span style="color:#691c97">padding</span><span style="color:#794938">:</span> <span style="color:#811f24;font-weight:700">15<span style="color:#794938">px</span></span>; }<br>
+    <a class="textarea"><span style="color:#bf4f24">    ul</span> <span style="color:#bf4f24">li</span> { <span style="color:#691c97">background</span><span style="color:#794938">:</span> <span style="color:#811f24;font-weight:700">#DEB887</span>; <span style="color:#691c97">margin</span><span style="color:#794938">:</span> <span style="color:#811f24;font-weight:700">5<span style="color:#794938">px</span></span>; }<br>
+    <a class="textarea"><span style="color:#bf4f24">    ol</span> <span style="color:#bf4f24">li</span> { <span style="color:#691c97">background</span><span style="color:#794938">:</span> <span style="color:#811f24;font-weight:700">#00FFFF</span>; <span style="color:#691c97">margin-left</span><span style="color:#794938">:</span> <span style="color:#811f24;font-weight:700">15<span style="color:#794938">px</span></span>; }<br>
+    &lt;/<span style="color:#bf4f24">style</span>&gt;<br></p>
+    <style>
+        .LIST3>ul {background: #D2691E; padding: 15px; color:white;font-weight:700; list-style-type:disc} 
+        .LIST3>ul li {background: #DEB887; margin: 5px; } 
+    </style>  <hr>
+
+<div class="LIST4"> 
+    <h4>CSS list-style 속성</h4>
+    <table class="tb-2" summary="">
+        <thead>
+            <tr class="bg">
+                <th style="background-color:lightgray; width: 25%;">속성</th>
+                <th style="background-color:lightgray;">설명</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>list-style</td>
+                <td>모든 list-style 속성을 이용한 스타일을 한 줄에 설정할 수 있음.</td>
+            </tr>
+            <tr>
+                <td>list-style-type</td>
+                <td>리스트 요소의 마커(marker)를 설정함.</td>
+            </tr>
+            <tr>
+                <td>list-style-image</td>
+                <td>리스트 요소의 마커로 사용할 이미지를 설정함.</td>
+            </tr>
+            <tr>
+                <td>list-style-position</td>
+                <td>리스트 요소의 위치를 설정함.</td>
+            </tr>
+        </tbody>
+    </table><hr>
+
+<h3>CSS 테이블(Table)</h3> 
+<div style="width:50%;border:2px solid #3b6c9b"> 
+<p>  CSS를 이용하면 다양한 형태의 테이블을 만들 수 있다.</p>
+<table style="border-collapse:collapse;font-size:15px;text-align:center;">
+	<tbody>
+		<tr style="height:50px;border-bottom:2px solid #CD5C5C;background-color:#F3F3F3;padding:10px;">
+			<td style="width:30%;">border</td>
+			<td style="width:37%;">border-collapse</td>
+			<td style="width:33%;">border-spacing</td>
+		</tr>
+		<tr style="height:50px;border-bottom:2px solid #CD5C5C;padding:10px;">
+			<td style="width:30%;">caption-side</td>
+			<td style="width:37%;">empty-cells</td>
+			<td style="width:33%;">table-layout</td>
+		</tr>
+	</tbody>
+</table></div>
+
+<p>테이블에 다음 속성을 사용하여 CSS 스타일을 적용할 수 있다.<br>
+1. border<br>
+2. border-collapse<br>
+3. border-spacing<br>
+4. caption-side<br>
+5. empty-cells<br>
+6. table-layout</p><hr>
+
+<h4>border 속성</h4>
+<p>border 속성으로 테이블의 테두리(border)를 설정할 수 있다.<br>
+이 속성을 명시하지 않으면 해당 테이블은 기본 설정으로 <B><span style="color:red">빈 테두리</span></b>를 가지게 된다.</p>
+
+<table style="border: 2px solid orange;text-align:center;">
+    <tbody>
+		<tr style="height:50px;border:2px solid #CD5C5C;background-color:#F3F3F3;padding:10px;">
+            <td style="border: 2px solid orange;width:50%;">테이블예제</td>		
+    </tr>
+    </tbody>
+</table>   
+
+    <p>예제에서 테이블의 테두리(border)가 두 줄씩 나타나는 이유는 &lt;th&gt;태그와 &lt;td&gt;태그가 각각 자신만의 테두리를 가지고 있기 때문<br>
+    위와 같이 두 줄로 표현되는 테두리를 한 줄로 설정하려면 border-collapse 속성을 사용해야 한다.</p>    <hr>
+
+<h4>border-collapse 속성</h4>
+    <p>border-collapse 속성값을 collapse로 설정하면 해당 테이블의 테두리는 한 줄로 표현된다.<br>
+    이 속성을 명시하지 않으면 해당 테이블은 기본 설정으로 테이블 요소별 테두리를 모두 표현하게 된다.</p>
+    <p>예제</p>
+    <table style="border-collapse:collapse;border: 2px solid orange;text-align:center;">
+    <tbody>
+		<tr style="height:50px;border:2px solid #CD5C5C;background-color:#F3F3F3;padding:10px;">
+            <td style="border: 2px solid orange;width:50%;">테이블예제</td>		
+    </tr>
+    </tbody>
+</table>    
+    <h4>border-spacing 속성</h4>
+<div class="space">
+    <p>border-spacing 속성은 테이블 요소(th, td)간의 여백을 설정해 준다</p>
+    <p>예제</p>
+    <table>        
+        <thead>
+            <tr>
+                <th style="width: 25%;">border</th>
+                <th>border-collapse</th>
+                <th>border-spacing</th>
+            </tr>
+        </thead>
+        <tbody> 
+            <tr>
+                <td>caption-side</td>
+                <td>empty-cells</td>
+                <td>table-layout</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+    <p>&lt;<span style="color:#bf4f24">style</span>&gt;</p>
+    <a span style="color:#bf4f24">    <span style="color:#691c97">{ width:</span><span style="color:#811f24;font-weight:700"> 50%;</span><span style="color:#691c97"> border:</span><span style="color:#794938;font-weight:700">2px solid #3b6c9b}</span></a><br>
+    <a span style="color:#bf4f24">    table</span> <span style="color:#691c97"></span>{border-collapse:</span><span style="color:#811f24;font-weight:700">  seperate;</span><span style="color:#691c97"> border-spacing:</span><span style="color:#794938;font-weight:700"> 5px 10px;</span><span style="color:#691c97">  font-weight:</span><span style="color:#794938;font-weight:700"> bold;</span><span style="color:#691c97"></span> font-size:</span><span style="color:#794938;font-weight:700"> 15px;</span><span style="color:#691c97"> text-align:</span><span style="color:#794938;font-weight:700"> center}</span></a><br>
+    <a span style="color:#bf4f24">    table>thead>tr</span><span style="color:#691c97"></span> {background-color:</span><span style="color:#811f24;font-weight:700"> lightgray;</span><span style="color:#691c97"> height:</span><span style="color:#794938;font-weight:700"> 50px;</span><span style="color:#691c97"> border-bottom:</span><span style="color:#794938;font-weight:700"> 2px solid #CD5C5C;</span><span style="color:#691c97"></span> padding:</span><span style="color:#794938;font-weight:700"> 10p}</span></a><br>
+    <a span style="color:#bf4f24">    table>tbody>tr</span><span style="color:#691c97"></span> {width:</span><span style="color:#811f24;font-weight:700"> 33%;}</span></a><br>
+    &lt;/<span style="color:#bf4f24">style</span>&gt;<br> 
+
+    <style> 
+        .space {width:50%;border:2px solid #3b6c9b}
+        .space>table {border-collapse: seperate; border-spacing: 5px 10px; font-weight:bold; font-size:15px; text-align:center}    
+        .space>table>thead>tr {background-color:lightgray;height:50px;border-bottom:2px solid #CD5C5C;padding:10p} 
+        .space>table>tbody>tr {width:33%;}
+    </style>
+</div><hr>
+
+<h4>text-align 속성</h4>
+<p>text-align 속성은 테이블 요소(th, td) 내부에서 텍스트의 수평 방향 정렬을 설정한다.<br>
+&lt;th&gt;태그 내부는 가운데 정렬이, &lt;td&gt;태그 내부는 왼쪽 정렬이 기본 설정</p>
+<p>예제</p>
+<table style="border-collapse: collapse; width: 100%;border: 1px solid black;">
+    <tbody>
+		<tr style=" border: 1px solid black;text-align: left;">테이블예제
+            <td style=" border: 1px solid black; text-align:center;">텍스트얼라인</td>		
+    </tr>
+    </tbody>
+</table>    
+&lt;<span style="color:#bf4f24">style</span>&gt;</p>
+<a span style="color:#bf4f24">    table</span>, <span style="color:#bf4f24">th</span>, <span style="color:#bf4f24">td</span> { <span style="color:#691c97">border</span><span style="color:#794938">:</span> <span style="color:#811f24;font-weight:700">1<span style="color:#794938">px</span></span> <span style="color:#b4371f">solid</span> <span style="color:#b4371f">black</span>; }</a><br>
+<a span style="color:#bf4f24">    table</span> { <span style="color:#691c97">border-collapse</span><span style="color:#794938">:</span> <span style="color:#b4371f">collapse</span>; <span style="color:#691c97">width</span><span style="color:#794938">:</span> <span style="color:#811f24;font-weight:700">100<span style="color:#794938">%</span></span>; }</a><br>
+<a span style="color:#bf4f24">    th</span> { <span style="color:#691c97">text-align</span><span style="color:#794938">:</span> <span style="color:#b4371f">left</span>; }</a><br>
+<a span style="color:#bf4f24">    td</span> { <span style="color:#691c97">text-align</span><span style="color:#794938">:</span> <span style="color:#b4371f">center</span>; }</a><br>
+&lt;/<span style="color:#bf4f24">style</span>&gt;<br> <hr>
+
+<h4>vertical-align 속성</h4>
+<p>vertical-align 속성은 테이블 요소(th, td) 내부에서 텍스트의 수직 방향 정렬을 설정한다.<br>
+&lt;th&gt;태그와 &lt;td&gt;태그 모두 가운데 정렬이 기본 설정</p>
+<p>예제</p>
+<table style="border-collapse: collapse; width: 100%; border: 1px solid black;">
+    <tbody>
+		<tr style=" border: 1px solid black;vertical-align: top; height: 50px;">테이블예제
+            <td style=" border: 1px solid black; vertical-align: bottom; height: 50px;">버티컬얼라인</td>		
+    </tr>
+    </tbody>
+</table>  
+
+&lt;<span style="color:#bf4f24">style</span>&gt;<br>
+<a span style="color:#bf4f24">    table</span>, <span style="color:#bf4f24">th</span>, <span style="color:#bf4f24">td</span> { <span style="color:#691c97">border</span><span style="color:#794938">:</span> <span style="color:#811f24;font-weight:700">1<span style="color:#794938">px</span></span> <span style="color:#b4371f">solid</span> <span style="color:#b4371f">black</span>; }</a><br>
+<a span style="color:#bf4f24">    table</span> { <span style="color:#691c97">border-collapse</span><span style="color:#794938">:</span> <span style="color:#b4371f">collapse</span>; <span style="color:#691c97">width</span><span style="color:#794938">:</span> <span style="color:#811f24;font-weight:700">100<span style="color:#794938">%</span></span>; }</a><br>
+<a span style="color:#bf4f24">    th</span> { <span style="color:#691c97">vertical-align</span><span style="color:#794938">:</span> <span style="color:#b4371f">top</span>; <span style="color:#691c97">height</span><span style="color:#794938">:</span> <span style="color:#811f24;font-weight:700">50<span style="color:#794938">px</span></span>; }</a><br>
+<a span style="color:#bf4f24">    td</span> { <span style="color:#691c97">vertical-align</span><span style="color:#794938">:</span> <span style="color:#b4371f">bottom</span>; <span style="color:#691c97">height</span><span style="color:#794938">:</span> <span style="color:#811f24;font-weight:700">50<span style="color:#794938">px</span></span>; }</a><br>
+&lt;/<span style="color:#bf4f24">style</span>&gt;<br>
+
+<h4>다양한 형태의 테이블 예제</h4>
+<p>CSS를 이용하면 HTML 기본 테이블을 훨씬 더 다양한 모습으로 설정할 수 있다.<br>
+
+    <B><p> 1. &lt;th&gt;태그와 &lt;td&gt;태그에 border-bottom 속성을 사용하여 수평 나눔선만으로 만든 테이블</p></B> 
+    <table style="border-collapse: collapse; width: 50%;">
+        <tbody>
+        <tr>
+            <th style="padding: 10px; border-bottom: 1px solid red">테이블예제</th>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border-bottom: 1px solid red; text-align:center">수평나눔선만</td>
+        </tr>		 
+        </tbody>
+    </table>
+    &lt;<span style="color:#bf4f24">style</span>&gt;<br>
+    <a span style="color:#bf4f24">    table</span> { <span style="color:#691c97">border-collapse</span><span style="color:#794938">:</span> <span style="color:#b4371f">collapse</span>; <span style="color:#691c97">width</span><span style="color:#794938">:</span> <span style="color:#811f24;font-weight:700">100<span style="color:#794938">%</span></span>; }</a><br>
+    <a span style="color:#bf4f24">    th</span>, <span style="color:#bf4f24">td</span> { <span style="color:#691c97">padding</span><span style="color:#794938">:</span> <span style="color:#811f24;font-weight:700">10<span style="color:#794938">px</span></span>; <span style="color:#691c97">border-bottom</span><span style="color:#794938">:</span> <span style="color:#811f24;font-weight:700">1<span style="color:#794938">px</span></span> <span style="color:#b4371f">solid</span> <span style="color:#811f24;font-weight:700">#CD5C5C</span>; }</a><br>
+    &lt;/<span style="color:#bf4f24">style</span>&gt;<br>  
+  
+    <B><p>2. :hover 선택자를 이용하여 &lt;tr&gt;태그에 마우스를 올리면 행 전체가 하이라이트 되도록 만든 테이블</p></B>
+    <table style="border-collapse: collapse; width: 50%;"> 
+        <tbody>
+        <tr class="HOVER">
+            <th style="padding: 10px; border-bottom: 1px solid black">테이블예제</th>
+        </tr>
+        <tr class="HOVER">
+            <td style="padding: 10px; border-bottom: 1px solid black; text-align:center">hover 이용</td>
+        </tr>		 
+        </tbody>
+    </table>
+
+    &lt;<span style="color:#bf4f24">style</span>&gt;<br>
+    <a span style="color:#bf4f24">    table</span> { <span style="color:#691c97">border-collapse</span><span style="color:#794938">:</span> <span style="color:#b4371f">collapse</span>; <span style="color:#691c97">width</span><span style="color:#794938">:</span> <span style="color:#811f24;font-weight:700">100<span style="color:#794938">%</span></span>; }</a><br>
+    <a span style="color:#bf4f24">    th</span>, <span style="color:#bf4f24">td</span> { <span style="color:#691c97">padding</span><span style="color:#794938">:</span> <span style="color:#811f24;font-weight:700">10<span style="color:#794938">px</span></span>; <span style="color:#691c97">border-bottom</span><span style="color:#794938">:</span> <span style="color:#811f24;font-weight:700">1<span style="color:#794938">px</span></span> <span style="color:#b4371f">solid</span> <span style="color:#811f24;font-weight:700">#CD5C5C</span>; }</a><br>
+    <a span style="color:#bf4f24">    tr:hover</span> { <span style="color:#691c97">background-color</span><span style="color:#794938">:</span> <span style="color:#811f24;font-weight:700">#F5F5F5</span>; }</p>
+    &lt;/<span style="color:#bf4f24">style</span>&gt;<br></a>  
+    <p>:hover 는 CSS 동적 의사 클래스에서 더 자세히 다룬다<br>
+
+    <B><p>3. background-color 속성과 :nth-child 선택자를 사용하여 얼룩무늬 효과를 설정한 테이블</p></b> 
+    <table class="TBL_CHILD" style="border-collapse: collapse; width: 30%;">  
+        <tr>
+            <th>여름 과일</th> 
+        </tr>
+        <tr>
+            <td>수박</td>
+        </tr>
+        <tr> 
+            <td>참외</td>
+        </tr>
+        <tr> 
+            <td>딸기</td>
+        </tr>
+        <tr>     
+            <td>포도</td>   
+    </table>
+
+    &lt;<span style="color:#bf4f24">style</span>&gt;<br>
+    <a span style="color:#bf4f24">    table</span> { <span style="color:#691c97">border-collapse</span><span style="color:#794938">:</span> <span style="color:#b4371f">collapse</span>; <span style="color:#691c97">width</span><span style="color:#794938">:</span> <span style="color:#811f24;font-weight:700">100<span style="color:#794938">%</span></span>; }</a><br>
+    <a span style="color:#bf4f24">    th</span>, <span style="color:#bf4f24">td</span> { <span style="color:#691c97">padding</span><span style="color:#794938">:</span> <span style="color:#811f24;font-weight:700">10<span style="color:#794938">px</span></span>; }</a><br>
+    <a span style="color:#bf4f24">    tr:nth-child</span>(odd) { <span style="color:#691c97">background-color</span><span style="color:#794938">:</span> <span style="color:#811f24;font-weight:700">#F3F3F3</span>; }</a><br>
+    &lt;/<span style="color:#bf4f24">style</span>&gt;<br></p>  
+    <p>:nth-child 는 CSS 구조 의사 클래스에서 자세히 다룬다.<br>
+<hr>
+    <style> 
+        .HOVER:hover {background-color:lightgray}
+        .TBL_CHILD td {text-align: center;}
+        .TBL_CHILD tr:nth-child(odd) { background-color: lightgray; }
+    </style>
+
+<div>
+<h4>CSS table 속성</h4>
+<table class="tb-2" summary="">
+	<thead>
+		<tr>
+                <th style="background-color:lightgray; width: 25%;">속성</th>
+                <th style="background-color:lightgray;">설명</th>		
+</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>border</td>
+			<td>모든 border 속성을 이용한 스타일을 한 줄에 설정할 수 있음.</td>
+		</tr>
+		<tr>
+			<td>border-collapse</td>
+			<td>테이블의 테두리를 한 줄로 나타낼지를 설정함.</td>
+		</tr>
+		<tr>
+			<td>border-spacing</td>
+			<td>테이블 요소(th, td)간의 여백을 설정함.</td>
+		</tr>
+		<tr>
+			<td>caption-side</td>
+			<td>테이블의 캡션(caption)을 설정함.</td>
+		</tr>
+		<tr>
+			<td>empty-cells</td>
+			<td>테이블 내의 빈 셀(cell)들의 테두리 및 배경색을 표현할지 안 할지를 설정함.</td>
+		</tr>
+		<tr>
+			<td>table-layout</td>
+			<td>테이블에 사용되는 레이아웃 알고리즘을 설정함.</td>
+		</tr>
+	</tbody>
+</table></div><hr>  
+
+</body>
+</html>

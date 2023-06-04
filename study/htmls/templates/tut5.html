@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table and Lists</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body> 
+    <div>
+        <H2>HTML</H2>  
+        <style>
+        .txtlink {color: green; text-decoration:none; margin-left:20px; font-size:16px;}
+        .txtlink:hover {text-decoration:underline;}        /*마우스 올라가면 밑줄 */  
+        
+        .btn {margin: 4px 0px;--bs-btn-padding-x: 0.75rem;  --bs-btn-padding-y: 0.375rem; --bs-btn-font-family: 'Nanum Gothic', sans-serif; --bs-btn-font-size: 1rem; --bs-btn-font-weight: 400;
+              --bs-btn-line-height: 1.5;    --bs-btn-border-width: var(--bs-border-width);
+              --bs-btn-border-radius: 0.375rem;   --bs-btn-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15),0 1px 1px rgba(0, 0, 0, 0.075);
+              --bs-btn-disabled-opacity: 0.65;    --bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(var(--bs-btn-focus-shadow-rgb), .5);
+              display: inline-block; padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x); font-family: var(--bs-btn-font-family);
+              font-size: var(--bs-btn-font-size); font-weight: var(--bs-btn-font-weight); line-height: var(--bs-btn-line-height); 
+              color: var(--bs-btn-color);         text-align: center;    text-decoration: none;    vertical-align: middle;    cursor: pointer;
+              -webkit-user-select: none;    -moz-user-select: none;      user-select: none;    
+              border: var(--bs-btn-border-width) solid var(--bs-btn-border-color); border-radius: var(--bs-btn-border-radius);
+              background-color: var(--bs-btn-bg);}
+        .button_S {--bs-btn-color: #fff;    --bs-btn-bg: #6c757d;    --bs-btn-border-color: #6c757d;    --bs-btn-hover-color: #fff;
+              --bs-btn-hover-bg: #5c636a;    --bs-btn-hover-border-color: #565e64;    --bs-btn-focus-shadow-rgb: 130,138,145;
+              --bs-btn-active-color: #fff;    --bs-btn-active-bg: #565e64;    --bs-btn-active-border-color: #51585e;
+              --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #fff;    --bs-btn-disabled-bg: #6c757d;
+              --bs-btn-disabled-border-color: #6c757d;}
+        .button1 {--bs-btn-color: #fff;     --bs-btn-bg: #dc3545;       --bs-btn-border-color: #dc3545;     --bs-btn-hover-color: #fff;
+                  --bs-btn-hover-bg: #bb2d3b;    --bs-btn-hover-border-color: #b02a37;     --bs-btn-focus-shadow-rgb: 225,83,97;
+                  --bs-btn-active-color: #fff;   --bs-btn-active-bg: #b02a37;    --bs-btn-active-border-color: #a52834;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #fff;
+                  --bs-btn-disabled-bg: #dc3545;    --bs-btn-disabled-border-color: #dc3545;}
+        .button2 {--bs-btn-color: #dc3545;    --bs-btn-border-color: #dc3545;    --bs-btn-hover-color: #fff;    --bs-btn-hover-bg: #dc3545;
+                  --bs-btn-hover-border-color: #dc3545;    --bs-btn-focus-shadow-rgb: 220,53,69;    --bs-btn-active-color: #fff;
+                  --bs-btn-active-bg: #dc3545;    --bs-btn-active-border-color: #dc3545; --bs-border-width: 2px;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #dc3545;
+                  --bs-btn-disabled-bg: transparent;    --bs-btn-disabled-border-color: #dc3545;    --bs-gradient: none;}
+        .button3 {--bs-btn-color: #fff;    --bs-btn-bg: #198754;    --bs-btn-border-color: #198754;    --bs-btn-hover-color: #fff;
+                  --bs-btn-hover-bg: #157347;     --bs-btn-hover-border-color: #146c43;     --bs-btn-focus-shadow-rgb: 60,153,110;
+                  --bs-btn-active-color: #fff;    --bs-btn-active-bg: #146c43;    --bs-btn-active-border-color: #13653f;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #fff;
+                  --bs-btn-disabled-bg: #198754; --bs-btn-disabled-border-color: #198754;}
+        .button4 {--bs-btn-color: #198754;    --bs-btn-border-color: #198754;    --bs-btn-hover-color: #fff;    --bs-btn-hover-bg: #198754;
+                  --bs-btn-hover-border-color: #198754;    --bs-btn-focus-shadow-rgb: 25,135,84;    --bs-btn-active-color: #fff;
+                  --bs-btn-active-bg: #198754;    --bs-btn-active-border-color: #198754;--bs-border-width: 2px;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #198754;
+                  --bs-btn-disabled-bg: transparent;    --bs-btn-disabled-border-color: #198754;    --bs-gradient: none;}
+            </style>
+            <p><a href="/htmls/tut1.html" class="btn button1" target="_blank">이전 노트</a>
+            <a href="/htmls/tut3.html" class="btn button1" target="_blank">다음 노트</a>
+            <a href="/css/tut11.html" class="btn button3" target="_blank">CSS 노트</a> 
+            <a href="/htmls/html_CSS.html" class="btn button2" target="_blank">HTML+CSS</a>
+            <a href="/htmls/html_Emmet.html" class="btn button2" target="_blank">HTML+Emmet</a>
+            <a href="/htmls/html_tags.html" class="btn button2" target="_blank">HTML+Tags</a><br>
+            <a href="/javascript/j01.html" class="btn button3" target="_blank">자바스크립트 노트</a> 
+            <a href="/python/p01.html" class="btn button3" target="_blank">파이썬 노트</a> 
+            <a href="/htmls/tut1.html" class="btn button2" target="_blank">기본구조</a> 
+            <a href="/htmls/tut2.html" class="btn button2" target="_blank">서식(Format)</a>
+            <a href="/htmls/tut3.html" class="btn button2" target="_blank">스타일(Style)</a>
+            <a href="/htmls/tut4.html" class="btn button2" target="_blank">Heading, Links and Images</a>
+            <a href="/htmls/tut5.html" class="btn button_S" target="_blank">Table and Lists</a>
+            <a href="/htmls/tut6.html" class="btn button2" target="_blank">요소 블록 인라인</a>
+            <a href="/htmls/tut7.html" class="btn button2" target="_blank">폼(Forms)</a>
+            <a href="/htmls/tut8.html" class="btn button2" target="_blank">레이아웃(Layout)</a>
+            <a href="/htmls/tut9.html" class="btn button2" target="_blank">input 요소</a></p>       <hr>
+    </div>    
+        <H3>HTML Table and Lists</H3>    
+<ul type="circle"> 
+    <!-- <ul type="disc | circle | square"></ul> -->
+    <li> This is the first item of my unordered list</li>
+    <li> This is the second item of my unordered list</li>
+    <li> This is the third item of my unordered list</li>
+    <ul type="square">
+        <li>Other item one</li>
+        <li>Other item two</li>
+        <li>Other item three</li> 
+    </ul>
+</ul>
+<ol type="A"> 
+    <!-- <ol type="1 | a | A | i | I"></ol> -->
+    <li> This is the first item of my ordered list</li>
+    <li> This is the second item of my ordered list</li>
+    <li> This is the third item of my ordered list</li>
+
+</ol>
+<div>
+    
+<h4>HTML 리스트(List)</h4>
+
+<p>리스트(list)란 여러 요소들을 일렬로 나열한 목록이나 명단을 말한다.</p>
+ 
+<p>1. 순서가 없는 리스트(<span class="em15">U</span>nordered <span class="em15">L</span>ist)<br>
+2. 순서가 있는 리스트(<span class="em15">O</span>rdered <span class="em15">L</span>ist)<br>
+3. 정의 리스트(<span class="em15">D</span>efinition <span class="em15">L</span>ist)</p><hr>
+
+<h4>순서가 없는 리스트(<span class="em15">UL</span>)</h4>
+<p>순서가 없는 리스트는 &lt;ul&gt;태그로 시작하며, 여기에 포함되는 각각의 리스트 요소는 &lt;li&gt;태그로 시작한다.</p>
+
+<p>각각의 리스트 요소 앞에는 기본 마커(marker)로 검정색의 작은 원(bullet)이 위치한다.</p> 
+<ul>
+    <li>사과</li>
+    <li>멜론</li>
+    <li>바나나</li>
+</ul>
+
+<p>CSS의 list-style-type 속성을 사용하면 리스트 요소 앞에 위치하는 마커(marker)를 다른 모양으로 변경할 수 있다.</p> 
+
+<p>- disc : 검정색 작은 원 모양 (기본설정)<br>
+- circle : 흰색 작은 원 모양<br>
+- square : 사각형 모양<br>  
+
+<ul style="list-style-type: circle">
+    <li>수박</li>
+    <li>참외</li>
+    <li>옥수수</li>
+</ul>
+<ul style="list-style-type: square">
+</ul>
+
+<h4>순서가 있는 리스트(<span class="em15">OL</span>)</h4>
+
+<p>순서가 있는 리스트는 &lt;ol&gt;태그로 시작하며, 여기에 포함되는 각각의 리스트 요소는 &lt;li&gt;태그로 시작한다.<br>
+각각의 리스트 요소 앞에는 기본 마커로 아라비아 숫자가 위치한다.</p>
+ 
+<ol>
+    <li>사과</li>
+    <li>멜론</li>
+    <li>바나나</li>
+</ol>
+ 
+<a name="CSS마커"></a>
+<p>CSS의 list-style-type 속성을 사용하면 리스트 요소 앞에 위치하는 마커(marker)를 다른 모양으로 변경할 수 있다.</p> 
+
+<p>- decimal : 숫자 (기본설정)<br>
+- upper-alpha : 영문 대문자<br>
+- lower-alpha : 영문 소문자<br>
+- upper-roman : 로마 숫자 대문자<br>
+- lower-roman : 로마 숫자 소문자<br> </p> 
+ 
+<ol style="list-style-type: upper-alpha">
+    <li>수박</li>
+    <li>참외</li>
+    <li>옥수수</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+    ...
+</ol>
+<ol style="list-style-type: upper-roman">
+    ...
+</ol>
+<ol style="list-style-type: lower-roman">
+    ...
+</ol></p><hr>
+
+<h4>정의 리스트(description list)</h4>
+
+<p>정의 리스트(description list)는 용어와 그에 대한 정의를 모아놓은 리스트로 &lt;dl&gt;태그로 시작한다.</p>
+
+<p>&lt;dt&gt;태그에는 용어의 이름이 들어가고, &lt;dd&gt;태그에는 해당 용어에 대한 정의를 기술한다.</p>
+ 
+<dl>
+    <dt>호박</dt>
+    <dd>- 박과의 한해살이 덩굴성 채소</dd>
+    <dt>상추</dt>
+    <dd>- 국화과의 한해살이 또는 두해살이풀</dd>
+</dl>
+</div>
+<h4>HTML 테이블(Table)</h4>
+
+<p>테이블(Table)이란 여러 종류의 데이터(data)를 보기 좋게 정리하여 보여주는 표이다.</p>
+
+<p>HTML에서는 &lt;table&gt;태그를 사용하여 표를 작성한다.</p>
+
+<p>1. &lt;tr&gt;태그는 테이블에서 열을 구분해 준다. table row<br>
+
+2. &lt;th&gt;태그는각 열의 제목을 나타내며, 모든 내용은 자동으로 굵은 글씨에 가운데 정렬이 된다. table header cells<br>
+
+3. &lt;td&gt;태그는 테이블의 열을 각각의 셀(cell)로 나누어 준다. table divide</p>
+순서는 table > tr (첫째행) > 제목줄인 첫째행의 열나눔 th > tr (둘째행) > 열구분해서 데이터입력 td <br>
+보통 tr(행)은 배경스타일을 설정하고 th와 td (열)은 글자 스타일과 경계선을 설정한다. <br><Br>
+ <table style="width:50%; border: 1px solid black">
+    <tr style="background-color:lightgrey;">
+        <th style="border: 1px solid black">참치</th>
+        <th style="border: 1px solid black">고래</th>      
+    </tr>
+    <tr>
+        <td style="border: 1px solid black">상어</td>
+        <td style="border: 1px solid black">문어</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid black">오징어</td>
+        <td style="border: 1px solid black">고등어</td>
+    </tr>
+</table>
+
+<p>CSS의 border 속성을 이용하여 테이블에 테두리를 표현할 수 있다.<br>
+border 속성값을 따로 명시하지 않으면, 해당 테이블은 빈 테두리를 가지게 된다</p>
+ 
+<h4>예제</h4> 
+ 
+<p> 테이블의 테두리(border)가 두 줄씩 나타나는 이유는 &lt;table&gt;태그와 &lt;th&gt;태그, &lt;td&gt;태그가 모두 자신만의 테두리를 가지고 있기 때문이다.<br>
+위와 같이 두 줄로 표현되는 테두리를 한 줄로 설정하려면 border-collapse 속성값을 collapse로 설정하면 된다 </p> 
+
+
+<h4>테이블의 열 합치기</h4>
+<p>colspan 속성을 사용해 테이블의 열(column)을 합칠 수 있다.</p>
+ <table class="tb-1">
+    <tr>
+        <td>참치</td>
+        <td colspan="2">고래</td>        
+    </tr>
+    <tr>
+        <td>상어</td>
+        <td>문어</td>        
+        <td>꽁치</td>
+    </tr>
+</table>
+
+<h4>테이블의 행 합치기</h4>
+<p>rowspan 속성을 사용하면 테이블의 행(row)을 합칠 수 있다.</p>
+<table class="tb-1" style="width:100%">
+    <tr>
+        <td>상어</td>
+        <td rowspan="2">문어</td>        
+        <td>꽁치</td>
+    </tr>
+    <tr>
+        <td>고등어</td>        
+        <td>돌고래</td>
+    </tr>
+</table><hr>
+
+<h4>테이블의 열과 행 합치기</h4>
+<p>colspan 속성과 rowspan 속성을 함께 사용하면, 더욱 복잡한 테이블도 표현할 수 있다.</p>
+<table class="tb-1" style="width:40%; overflow:auto;">
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+    </tr>
+    <tr>
+        <td colspan="6">1행 6개열을 한셀로 합치기</td>
+    </tr>
+    <tr>
+        <td colspan="6">2행 6개열을 한셀로 합치기</td>
+    </tr>
+    <tr>
+        <td rowspan="3">3행 1열 3개행을 한셀로 합치기</td>
+        <td rowspan="3">3행 2열 3개행을 한셀로 합치기</td>
+        <td colspan="2">3행 3열 2개열을 한셀로 합치기</td>
+        <td>3행 4열</td>
+        <td>3행 5열</td>
+    </tr>
+    <tr>
+        <td colspan="3">4행 3열 3개열을 한셀로 합치기</td>
+        <td>4행 5열 </td>
+    </tr>
+    <tr>
+        <td colspan="4">5행 3열 나머지열 한셀로 합치기</td>
+    </tr>
+</table><hr> 
+
+<h4>테이블의 캡션(caption) 설정</h4>
+
+<p>&lt;caption&gt;태그를 사용하면 테이블 상단에 제목이나 짧은 설명을 붙일 수 있다.</p>
+<table class="tb-1" style="width:100%">
+    <caption>해양 생물</caption>
+    <tr>
+        <td>참치</td>
+        <td>고래</td>
+        <td>날치</td>    
+    </tr>
+</table><hr>
+</div> 
+</body>
+</html>

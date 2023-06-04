@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number 객체</title>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">   
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">     
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+  <link href="{% static '/css/java.css'%}" rel="stylesheet">   
+</head>
+<body class="ms-3">  
+  <H2><a name="home">Javascript</a></H2>  
+      <p><a href="/javascript/j06.html" class="btn btn-purple mb-1" target="_blank">이전 노트</a>
+      <a href="/javascript/j08.html" class="btn btn-purple mb-1" target="_blank">다음 노트</a>
+      <a href="/htmls/tut1.html" class="btn btn-danger mb-1" target="_blank">HTML 노트</a> 
+      <a href="/css/tut11.html" class="btn btn-success mb-1" target="_blank">CSS 노트</a> 
+      <a href="/htmls/html_CSS.html" class="btn btn-outline-danger border-2 mb-1" target="_blank">HTML+CSS</a>
+      <a href="/htmls/html_Emmet.html" class="btn btn-outline-danger border-2 mb-1" target="_blank">HTML+Emmet</a>
+      <a href="/htmls/html_tags.html" class="btn btn-outline-danger border-2 mb-1" target="_blank">HTML+Tags</a><br>
+      <a href="/python/p01.html" class="btn btn-warning mb-1" target="_blank">파이썬 노트</a> 
+      <a href="/javascript/j01.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">자바스크립트 개요</a>
+      <a href="/javascript/j02.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">기본타입과 타입변환</a>
+      <a href="/javascript/j03.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">자바스크립트 연산자</a>
+      <a href="/javascript/j04.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">제어문과 배열 </a>
+      <a href="/javascript/j05.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">함수</a> 
+      <a href="/javascript/j06.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">객체</a>      
+      <a href="/javascript/j07.html" class=" btn btn-secondary mb-1" target="_blank">Number 객체</a> 
+      <a href="/javascript/j08.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Math 객체</a> 
+      <a href="/javascript/j09.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Date 객체</a>     
+      <a href="/javascript/j10.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">String 문자열 객체</a>
+      <a href="/javascript/j11.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Array 배열 객체</a> 
+      <a href="/javascript/j12.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">문서객체모델 DOM</a> 
+      <a href="/javascript/j13.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">브라우저 객체 모델 BOM</a> 
+      <a href="/javascript/j14.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">이벤트와 예외처리</a>
+      <a href="/javascript/j15.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">정규표현식</a> 
+      <a href="/javascript/j16.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">람다표현식</a> 
+      <a href="/javascript/j17.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Map과 Set, Iterator와 Generator</a> </p> 
+
+    <hr><div class="col-md-8 mb-2">
+    <div class="p-3 text-white fs-4 bd-pink-800">표준 객체(Standard Object)</div></div>     
+    <hr><p>자바스크립트에서 표준 객체(standard object)는 다른 객체의 기초가 되는 핵심적인 객체이다.<br>
+    자주 사용되는 대표적인 자바스크립트 표준 객체는 다음과 같다.<br>
+    1. Number 객체<br>
+    2. Math 객체<br>
+    3. Date 객체<br>
+    4. String 객체<br>
+    5. Array 객체</p></div><br>
+    
+ 
+    <hr><div class="col-md-8 mb-2">
+    <div class="p-3 text-white fs-4 bd-pink-800">Number 객체</div></div>
+    
+    <p>자바스크립트에서 숫자는 보통 숫자 리터럴을 사용하여 표현한다.<br>
+    하지만 수를 나타낼 때 new 연산자를 사용하여 명시적으로 Number 객체를 생성할 수도 있다.<br>
+    이러한 Number 객체는 숫자 값을 감싸고 있는 래퍼(wrapper) 객체이다.</p>
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> x <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">100</span>;             <span style="color:#5a525f;font-style:italic">// 숫자 리터럴</span><br>
+    <span style="color:#a71d5d;font-style:italic">var</span> y <span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">Number</span>(<span style="color:#811f24;font-weight:700">100</span>); <span style="color:#5a525f;font-style:italic">// Number 객체</span><br>
+    x;                       <span style="color:#5a525f;font-style:italic">// 100</span><br>
+    y;                       <span style="color:#5a525f;font-style:italic">// 100</span><br>
+    <span style="color:#794938">typeof</span> x;                <span style="color:#5a525f;font-style:italic">// number 타입</span><br>
+    <span style="color:#794938">typeof</span> y;                <span style="color:#5a525f;font-style:italic">// object 타입</span><br>
+    동등 연산자(==)는 리터럴 값과 객체의 값이 같으면 true를 반환한다.<br>
+    하지만 일치 연산자(===)는 숫자 리터럴과 Number 객체의 타입이 다르므로, 언제나 false를 반환한다.</p></div>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> x <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">100</span>;             <span style="color:#5a525f;font-style:italic">// 숫자 리터럴 100</span><br>
+    <span style="color:#a71d5d;font-style:italic">var</span> y <span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">Number</span>(<span style="color:#811f24;font-weight:700">100</span>); <span style="color:#5a525f;font-style:italic">// Number 객체 100</span><br>
+    x <span style="color:#794938">==</span> y;                  <span style="color:#5a525f;font-style:italic">// 값이 같으므로 true</span><br>
+    x <span style="color:#794938">===</span> y;                 <span style="color:#5a525f;font-style:italic">// 서로 다른 객체이므로 false</span><br>
+    new 연산자를 사용하여 객체를 생성할 때에는 매우 많은 추가 연산을 해야만 한다.<br>
+    따라서 가능한 숫자 리터럴을 사용하여 수를 표현하고, Number 객체는 래퍼 객체로만 활용하는 것이 좋다.</p></div>
+    </div>
+    
+    <hr><div class="col-md-8 mb-2">
+    <div class="p-3 text-white fs-4 bd-pink-800">Number 메소드</div></div>
+    
+    <p>Number 메소드는 Number 객체에 정의되어 있는 숫자와 관련된 작업을 할 때 사용하는 메소드이다.<br>
+    가장 많이 사용되는 대표적인 Number 메소드는 다음과 같다.<br>
+    1. Number<span class="text-brown text-bg-warning">.parseFloat()<br></span>
+    2. Number<span class="text-brown text-bg-warning">.parseInt()<br> </span>
+    3. Number<span class="text-brown text-bg-warning">.isNaN()<br></span>
+    4. Number<span class="text-brown text-bg-warning">.isFinite()<br></span>
+    5. Number<span class="text-brown text-bg-warning">.isInteger()<br></span>
+    6. Number<span class="text-brown text-bg-warning">.isSafeInteger()</p></span>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">Number.parseFloat() 메소드</h4>
+    
+    <p>Number.parseFloat() 메소드는 문자열을 파싱(parsing)하여, 문자열에 포함된 숫자 부분을 실수 형태로 반환한다.문자열에 여러 개의 숫자가 존재하면, 그중에서 첫 번째 숫자만을 실수 형태로 반환한다.<br>
+    이 메소드는 전역 함수인 parseFloat() 함수와 완전히 같은 동작을 수행한다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#691c97">Number</span>.<span style="color:#693a17">parseFloat</span>(<span style="color:#0b6125">"12"</span>);         <span style="color:#5a525f;font-style:italic">// 12</span><br>
+    <span style="color:#691c97">Number</span>.<span style="color:#693a17">parseFloat</span>(<span style="color:#0b6125">"12.34"</span>);      <span style="color:#5a525f;font-style:italic">// 12.34</span><br>
+    <span style="color:#691c97">Number</span>.<span style="color:#693a17">parseFloat</span>(<span style="color:#0b6125">"12문자열"</span>);   <span style="color:#5a525f;font-style:italic">// 12</span><br>
+    <span style="color:#691c97">Number</span>.<span style="color:#693a17">parseFloat</span>(<span style="color:#0b6125">"12 34 56"</span>);   <span style="color:#5a525f;font-style:italic">// 12</span><br>
+    <span style="color:#691c97">Number</span>.<span style="color:#693a17">parseFloat</span>(<span style="color:#0b6125">"문자열 56"</span>)); <span style="color:#5a525f;font-style:italic">// NaN</span></p></div>
+    이 메소드는 사파리와 익스플로러에서 지원하지 않는다.</div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">Number.parseInt() 메소드</h4>
+    
+    <p>Number.parseInt() 메소드는 문자열을 파싱하여, 문자열에 포함된 숫자 부분을 정수 형태로 반환한다.<br>
+    문자열에 여러 개의 숫자가 존재하면, 그중에서 첫 번째 숫자만을 정수 형태로 반환한다.<br>
+    이 메소드는 전역 함수인 parseInt() 함수와 완전히 같은 동작을 수행한다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#691c97">Number</span>.<span style="color:#693a17">parseInt</span>(<span style="color:#0b6125">"12"</span>);         <span style="color:#5a525f;font-style:italic">// 12</span><br>
+    <span style="color:#691c97">Number</span>.<span style="color:#693a17">parseInt</span>(<span style="color:#0b6125">"12.34"</span>);      <span style="color:#5a525f;font-style:italic">// 12</span><br>
+    <span style="color:#691c97">Number</span>.<span style="color:#693a17">parseInt</span>(<span style="color:#0b6125">"12문자열"</span>);   <span style="color:#5a525f;font-style:italic">// 12</span><br>
+    <span style="color:#691c97">Number</span>.<span style="color:#693a17">parseInt</span>(<span style="color:#0b6125">"12 34 56"</span>);   <span style="color:#5a525f;font-style:italic">// 12</span><br>
+    <span style="color:#691c97">Number</span>.<span style="color:#693a17">parseInt</span>(<span style="color:#0b6125">"문자열 56"</span>)); <span style="color:#5a525f;font-style:italic">// NaN</span></p></div>
+    이 메소드는 사파리와 익스플로러에서 지원하지 않는다.</div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">Number.isNaN() 메소드</h4>
+    
+    <p>Number.isNaN() 메소드는 전달된 값이 NaN인지 아닌지를 검사한다.<br>
+    이 메소드는 전역 함수인 isNaN() 함수가 가지고 있던 숫자로의 강제 변환에 따라 발생하는 문제를 더는 겪지 않게 해준다.<br>
+    이 메소드는 오직 숫자인 값에서만 동작하며, 그 값이 NaN인 경우에만 true를 반환한다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#691c97">Number</span>.<span style="color:#693a17">isNaN</span>(<span style="color:#811f24;font-weight:700">NaN</span>);       <span style="color:#5a525f;font-style:italic">// true</span><br>
+    <span style="color:#691c97">Number</span>.<span style="color:#693a17">isNaN</span>(<span style="color:#811f24;font-weight:700">0</span> / <span style="color:#811f24;font-weight:700">0</span>);     <span style="color:#5a525f;font-style:italic">// true</span><br><br>
+    <span style="color:#5a525f;font-style:italic">// 다음은 전역 함수인 isNaN()에서 잘못된 결과를 반환하는 예제임.</span><br>
+    <span style="color:#693a17">isNaN</span>(<span style="color:#0b6125">"NaN"</span>);            <span style="color:#5a525f;font-style:italic">// true</span><br>
+    <span style="color:#693a17">isNaN</span>(<span style="color:#811f24;font-weight:700">undefined</span>);        <span style="color:#5a525f;font-style:italic">// true</span><br>
+    <span style="color:#693a17">isNaN</span>(<span style="color:#0b6125">"문자열"</span>);         <span style="color:#5a525f;font-style:italic">// true</span><br><br>
+    <span style="color:#5a525f;font-style:italic">// Number.isNaN() 메소드에서 맞는 결과를 반환하고 있음.</span><br>
+    <span style="color:#691c97">Number</span>.<span style="color:#693a17">isNaN</span>(<span style="color:#0b6125">"NaN"</span>);     <span style="color:#5a525f;font-style:italic">// false</span><br>
+    <span style="color:#691c97">Number</span>.<span style="color:#693a17">isNaN</span>(<span style="color:#811f24;font-weight:700">undefined</span>); <span style="color:#5a525f;font-style:italic">// false</span><br>
+    <span style="color:#691c97">Number</span>.<span style="color:#693a17">isNaN</span>(<span style="color:#0b6125">"문자열"</span>);  <span style="color:#5a525f;font-style:italic">// false</span></p></div>
+    이 메소드는 익스플로러에서 지원하지 않는다.</div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">Number.isFinite() 메소드</h4>
+    
+    <p>Number.isFinite() 메소드는 전달된 값이 유한한 수인지 아닌지를 검사한다.<br>
+    이 메소드는 전역 함수인 isFinite() 함수처럼 전달된 값을 숫자로 강제 변환하지 않는다.<br>
+    이 메소드는 오직 셀 수 있는 값에서만 동작하며, 그 값이 유한한 경우에만 true를 반환한다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#691c97">Number</span>.<span style="color:#693a17">isFinite</span>(<span style="color:#811f24;font-weight:700">0</span>);        <span style="color:#5a525f;font-style:italic">// true</span><br>
+    <span style="color:#691c97">Number</span>.<span style="color:#693a17">isFinite</span>(3e45);     <span style="color:#5a525f;font-style:italic">// true</span><br>
+    <span style="color:#691c97">Number</span>.<span style="color:#693a17">isFinite</span>(<span style="color:#811f24;font-weight:700">Infinity</span>); <span style="color:#5a525f;font-style:italic">// false</span><br>
+    <span style="color:#691c97">Number</span>.<span style="color:#693a17">isFinite</span>(<span style="color:#811f24;font-weight:700">NaN</span>);      <span style="color:#5a525f;font-style:italic">// false</span><br>
+    <span style="color:#5a525f;font-style:italic">// 다음은 전역 함수인 isFinite()에서 잘못된 결과를 반환하는 예제임.</span><br>
+    <span style="color:#693a17">isFinite</span>(<span style="color:#0b6125">"0"</span>);             <span style="color:#5a525f;font-style:italic">// true</span><br>
+    <span style="color:#693a17">isFinite</span>(<span style="color:#811f24;font-weight:700">null</span>);            <span style="color:#5a525f;font-style:italic">// true</span><br>
+    <span style="color:#5a525f;font-style:italic">// Number.isFinite() 메소드에서는 맞는 결과를 반환하고 있음.</span><br>
+    <span style="color:#691c97">Number</span>.<span style="color:#693a17">isFinite</span>(<span style="color:#0b6125">"0"</span>);      <span style="color:#5a525f;font-style:italic">// false</span><br>
+    <span style="color:#691c97">Number</span>.<span style="color:#693a17">isFinite</span>(<span style="color:#811f24;font-weight:700">null</span>);     <span style="color:#5a525f;font-style:italic">// false</span></p></div>
+    이 메소드는 익스플로러에서 지원하지 않는다.</div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">Number.isInteger() 메소드</h4>
+    
+    <p>Number.isInteger() 메소드는 전달된 값이 정수인지 아닌지를 검사한다.<br>
+    전달된 값이 정수이면 true를 반환하며, 정수가 아니거나 NaN, Infinity와 같은 값은 모두 false를 반환한다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#691c97">Number</span>.isInteger(<span style="color:#811f24;font-weight:700">0</span>);        <span style="color:#5a525f;font-style:italic">// true</span><br>
+    <span style="color:#691c97">Number</span>.isInteger(<span style="color:#794938">-</span><span style="color:#811f24;font-weight:700">100</span>);     <span style="color:#5a525f;font-style:italic">// true</span><br>
+    <span style="color:#691c97">Number</span>.isInteger(<span style="color:#811f24;font-weight:700">0.1</span>);      <span style="color:#5a525f;font-style:italic">// false</span><br>
+    <span style="color:#691c97">Number</span>.isInteger(<span style="color:#0b6125">"문자열"</span>); <span style="color:#5a525f;font-style:italic">// false</span><br>
+    <span style="color:#691c97">Number</span>.isInteger(<span style="color:#811f24;font-weight:700">Infinity</span>); <span style="color:#5a525f;font-style:italic">// false</span><br>
+    <span style="color:#691c97">Number</span>.isInteger(<span style="color:#811f24;font-weight:700">true</span>);     <span style="color:#5a525f;font-style:italic">// false</span></p></div>
+    이 메소드는 사파리와 익스플로러에서 지원하지 않는다.</div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">Number.isSafeInteger() 메소드</h4>
+    
+    <p>Number.isSafeInteger() 메소드는 전달된 값이 안전한 정수(safe integer)인지 아닌지를 검사한다.<br>
+    안전한 정수(safe integer)란 IEEE 754 국제 표준에서 정의한 64비트 부동 소수점 수로 정확히 표현되는 정수를 의미한다.<br>
+    <span class="text-danger fw-bold">-(2<sup>53</sup> - 1)부터 (2<sup>53</sup> - 1)까지의 모든 정수 </span>가 안전한 정수에 포함된다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#691c97">Number</span>.isSafeInteger(<span style="color:#811f24;font-weight:700">10</span>);                  <span style="color:#5a525f;font-style:italic">// true</span><br>
+    <span style="color:#691c97">Number</span>.isSafeInteger(<span style="color:#691c97">Math</span>.<span style="color:#693a17">pow</span>(<span style="color:#811f24;font-weight:700">2</span>, <span style="color:#811f24;font-weight:700">53</span>) <span style="color:#794938">-</span> <span style="color:#811f24;font-weight:700">1</span>); <span style="color:#5a525f;font-style:italic">// true</span><br>
+    <span style="color:#691c97">Number</span>.isSafeInteger(<span style="color:#691c97">Math</span>.<span style="color:#693a17">pow</span>(<span style="color:#811f24;font-weight:700">2</span>, <span style="color:#811f24;font-weight:700">53</span>));     <span style="color:#5a525f;font-style:italic">// false</span><br>
+    <span style="color:#691c97">Number</span>.isSafeInteger(<span style="color:#811f24;font-weight:700">Infinity</span>);            <span style="color:#5a525f;font-style:italic">// false</span><br>
+    <span style="color:#691c97">Number</span>.isSafeInteger(<span style="color:#811f24;font-weight:700">NaN</span>);                 <span style="color:#5a525f;font-style:italic">// false</span><br>
+    <span style="color:#691c97">Number</span>.isSafeInteger(<span style="color:#811f24;font-weight:700">3.14</span>);                <span style="color:#5a525f;font-style:italic">// false</span></p></div>
+    <div class="content-box s2">Math.pow()는 거듭제곱 연산을 수행하는 Math 객체의 메소드이다.<br>
+    예를 들어 Math.pow(2, 53)은 2<sup>53</sup>을 반환한다.</div>
+    
+    <div class="content-box s4">이 메소드는 사파리와 익스플로러에서 지원하지 않는다.</div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">자바스크립트 Number 메소드</h4>
+    
+    <table class="table" style="width: 50%;">
+      <thead class="table-light">
+    <tr class="bg">
+    <th>메소드</th>
+    <th>설명</th>
+    </tr>
+      </thead>
+      <tbody>
+    <tr>
+    <td>Number.parseFloat()    </td>
+    <td>문자열을 파싱하여, 문자열에 포함된 숫자 부분을 실수 형태로 반환함.</td>
+    </tr>
+    <tr>
+    <td>Number.parseInt()    </td>
+    <td>문자열을 파싱하여, 문자열에 포함된 숫자 부분을 정수 형태로 반환함.</td>
+    </tr>
+    <tr>
+    <td>Number.isNaN()    </td>
+    <td>전달된 값이 NaN인지 아닌지를 검사함.</td>
+    </tr>
+    <tr>
+    <td>Number.isFinite()    </td>
+    <td>전달된 값이 유한한 수인지 아닌지를 검사함.</td>
+    </tr>
+    <tr>
+    <td>Number.isInteger()    </td>
+    <td>전달된 값이 정수인지 아닌지를 검사함.</td>
+    </tr>
+    <tr>
+    <td>Number.isSafeInteger()    </td>
+    <td>전달된 값이 안전한 정수(safe integer)인지 아닌지를 검사함.</td>
+    </tr>
+      </tbody>
+    </table>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">Number.prototype 메소드</h4>
+    
+    <p>모든 Number 인스턴스는 Number.prototype으로부터 메소드와 프로퍼티를 상속받다.<br>
+    가장 많이 사용되는 대표적인 Number.prototype 메소드는 다음과 같다.<br>
+    1. Number.prototype<span class="text-brown text-bg-warning">.toExponential()<br></span>
+    2. Number.prototype<span class="text-brown text-bg-warning">.toFixed()<br></span>
+    3. Number.prototype<span class="text-brown text-bg-warning">.toPrecision()<br></span>
+    4. Number.prototype<span class="text-brown text-bg-warning">.toString()<br></span>
+    5. Number.prototype<span class="text-brown text-bg-warning">.valueOf()</p></span>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">toExponential() 메소드</h4>
+    
+    <p>이 메소드는 Number 인스턴스의 값을 지수 표기법으로 변환한 후, 그 값을 문자열로 반환한다.<br>
+    이때 전달받은 값은 지수 표기법에서 소수 부분의 자릿수로 사용된다.</p>
+    <h5>원형</h5>
+    
+    <p>numObj.toExponential([소수부분의자릿수])</p>
+    </div>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> num <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">12.3456</span>;       <span style="color:#5a525f;font-style:italic">// Number 인스턴스를 생성함.</span><br>
+    num.toExponential();     <span style="color:#5a525f;font-style:italic">// 1.23456e+1</span><br>
+    num.toExponential(<span style="color:#811f24;font-weight:700">2</span>);    <span style="color:#5a525f;font-style:italic">// 1.23e+1</span><br>
+    num.toExponential(<span style="color:#811f24;font-weight:700">4</span>);    <span style="color:#5a525f;font-style:italic">// 1.2346e+1</span><br>
+    <span style="color:#811f24;font-weight:700">12.3456</span>.toExponential(); <span style="color:#5a525f;font-style:italic">// 1.23456e+1</span></p></div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">toFixed() 메소드</h4>
+    
+    <p>이 메소드는 Number 인스턴스의 소수 부분 자릿수를 전달받은 값으로 고정한 후, 그 값을 문자열로 반환한다.</p>
+    <h5>원형</h5>
+    
+    <p>numObj.toFixed([소수부분의자릿수])</p>
+    </div>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> num <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">3.14159265</span>;  <span style="color:#5a525f;font-style:italic">// Number 인스턴스를 생성함.</span><br>
+    num.toFixed();         <span style="color:#5a525f;font-style:italic">// 3</span><br>
+    num.toFixed(<span style="color:#811f24;font-weight:700">2</span>);        <span style="color:#5a525f;font-style:italic">// 3.14</span><br>
+    num.toFixed(<span style="color:#811f24;font-weight:700">4</span>);        <span style="color:#5a525f;font-style:italic">// 3.1416</span><br>
+    <span style="color:#811f24;font-weight:700">3.14159265</span>.toFixed(<span style="color:#811f24;font-weight:700">6</span>); <span style="color:#5a525f;font-style:italic">// 3.141593</span></p></div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">toPrecision() 메소드</h4>
+    
+    <p>이 메소드는 Number 인스턴스의 가수와 소수 부분을 합친 자릿수를 전달받은 값으로 고정한 후, 그 값을 문자열로 반환한다.</p>
+    <h5>원형</h5>
+    
+    <p>numObj.toPrecision([전체자릿수])</p>
+    </div>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> num <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">3.14159265</span>;      <span style="color:#5a525f;font-style:italic">// Number 인스턴스를 생성함.</span><br>
+    num.toPrecision();         <span style="color:#5a525f;font-style:italic">// 3.14159265</span><br>
+    num.toPrecision(<span style="color:#811f24;font-weight:700">2</span>);        <span style="color:#5a525f;font-style:italic">// 3.1</span><br>
+    num.toPrecision(<span style="color:#811f24;font-weight:700">4</span>);        <span style="color:#5a525f;font-style:italic">// 3.142</span><br>
+    <span style="color:#811f24;font-weight:700">3.14159265</span>.toPrecision(<span style="color:#811f24;font-weight:700">6</span>); <span style="color:#5a525f;font-style:italic">// 3.14159</span></p></div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">toString() 메소드</h4>
+    
+    <p>이 메소드는 Number 인스턴스의 값을 문자열로 반환한다.<br>
+    전달받은 값에 해당하는 진법으로 우선 값을 변환한 후, 그 값을 문자열로 반환한다.</p>
+    <h5>원형</h5>
+    
+    <p>numObj.<span style="color:#693a17">toString</span><span class="text-danger fw-bold">([진법])</span></p>
+    </div>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> num <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">255</span>;       <span style="color:#5a525f;font-style:italic">// Number 인스턴스를 생성함.</span><br>
+    num.<span style="color:#693a17">toString</span>();      <span style="color:#5a525f;font-style:italic">// 255</span><br>
+    (<span style="color:#811f24;font-weight:700">255</span>).<span style="color:#693a17">toString</span>();    <span style="color:#5a525f;font-style:italic">// 255</span><br>
+    (<span style="color:#811f24;font-weight:700">3.14</span>).<span style="color:#693a17">toString</span>();   <span style="color:#5a525f;font-style:italic">// 3.14</span><br>
+    num.<span style="color:#693a17">toString</span>(<span style="color:#811f24;font-weight:700">2</span>);     <span style="color:#5a525f;font-style:italic">// 11111111</span><br>
+    (<span style="color:#811f24;font-weight:700">100</span>).<span style="color:#693a17">toString</span>(<span style="color:#811f24;font-weight:700">16</span>);  <span style="color:#5a525f;font-style:italic">// 64</span><br>
+    (<span style="color:#794938">-</span><span style="color:#811f24;font-weight:700">0xff</span>).<span style="color:#693a17">toString</span>(<span style="color:#811f24;font-weight:700">2</span>); <span style="color:#5a525f;font-style:italic">// -11111111</span></p></div>
+    숫자 리터럴에 toString() 메소드를 사용할 때에는 반드시 괄호(())를 사용하여 숫자 리터럴을 감싸줘야 한다.<br>
+    그렇지 않으면 자바스크립트는 SyntaxError를 발생한 후, 프로그램을 중지시킬 것이다.</div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">valueOf() 메소드</h4>
+    
+    <p>이 메소드는 Number 인스턴스가 가지고 있는 값을 반환한다.</p>
+    <h5>원형</h5>
+    
+    <p>numObj.<span style="color:#693a17">valueOf</span>()</p>
+    </div>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> numObj <span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">Number</span>(<span style="color:#811f24;font-weight:700">123</span>); <span style="color:#5a525f;font-style:italic">// 123의 값을 가지는 Number 인스턴스를 생성함.</span><br>
+    <span style="color:#794938">typeof</span> numObj;                <span style="color:#5a525f;font-style:italic">// object</span><br>
+    <span style="color:#a71d5d;font-style:italic">var</span> num <span style="color:#794938">=</span> numObj.<span style="color:#693a17">valueOf</span>();<br>
+    num;                          <span style="color:#5a525f;font-style:italic">// 123</span><br>
+    <span style="color:#794938">typeof</span> num;                   <span style="color:#5a525f;font-style:italic">// number</span></p></div>
+    <hr>
+    <h4 class="text-primary fst-italic">자바스크립트 Number.prototype 메소드</h4>
+    
+    <table class="table" style="width: 50%;">
+      <thead class="table-light">
+    <tr class="table-warning">
+    <th>메소드</th>
+    <th>설명</th>
+    </tr>
+      </thead>
+      <tbody>
+    <tr>
+    <td>toExponential()    </td>
+    <td>Number 인스턴스를 지수 표기법으로 변환한 후, 그 값을 문자열로 반환함.</td>
+    </tr>
+    <tr>
+    <td>toFixed()    </td>
+    <td>Number 인스턴스의 소수 부분 자릿수를 전달받은 값으로 고정한 후, 그 값을 문자열로 반환함.</td>
+    </tr>
+    <tr>
+    <td>toPrecision()    </td>
+    <td>Number 인스턴스의 가수와 소수 부분의 합친 자릿수를 전달받은 값으로 고정한 후, 그 값을 문자열로 반환함.</td>
+    </tr>
+    <tr>
+    <td>toString()    </td>
+    <td>Number 인스턴스의 값을 문자열로 반환함.</td>
+    </tr>
+    <tr>
+    <td>valueOf()    </td>
+    <td>Number 인스턴스가 가지고 있는 값을 반환함.</td>
+    </tr>
+      </tbody>
+    </table>
+    
+<style>
+
+</style>
+<script>
+</script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>파이썬 객체</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">   
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">     
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <!-- font css -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="{% static '/css/java.css'%}" rel="stylesheet">   
+  <link href="{% static '/css/style.css'%}" rel="stylesheet">     
+</head>
+<body class="ms-3">  
+  <H2 class="coffee_taital" style="text-align:left;"><a name="home">파이썬</a></H2>  
+    <p><a href="/python/p01.html" class="btn btn-warning mb-1" target="_blank">이전 노트</a>
+      <a href="/python/p03.html" class="btn btn-warning mb-1" target="_blank">다음 노트</a>            
+      <a href="/htmls/tut1.html" class="btn btn-danger mb-1" target="_blank">HTML 노트</a> 
+      <a href="/css/tut11.html" class="btn btn-success mb-1" target="_blank">CSS 노트</a> 
+      <a href="/javascript/j01.html" class="btn btn-purple mb-1" target="_blank">Javascript 노트</a>
+     <a href="/python/p01.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">파이썬의 기초</a>
+     <a href="/python/p02.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">변수</a>
+     <a href="/python/p03.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">숫자형타입</a>
+     <a href="/python/p04.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">불리언타입</a>
+     <a href="/python/p05.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">문자열타입</a>
+     <a href="/python/p06.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">조건문</a>
+     <a href="/python/p07.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">반복문</a>
+     <a href="/python/p08.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">break와 continue</a>
+     <a href="/python/p09.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">리스트 타입</a>
+     <a href="/python/p10.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">튜플 타입</a>
+     <a href="/python/p11.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">세트 타입</a>
+     <a href="/python/p12.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">딕셔녀리 타입</a>
+     <a href="/python/p13.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">함수</a>
+     <a href="/python/p14.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">변수의 유효범위</a>
+     <a href="/python/p15.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">클래스</a>
+     <a href="/python/p16.html" class=" btn btn-secondary mb-1" target="_blank">객체</a>
+     <a href="/python/p17.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">상속</a>
+     <a href="/python/p18.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">모듈</a>
+     <a href="/python/p19.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">파일 입출력</a>     
+     <a href="/python/p20.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">예외처리</a>    
+     <a href="/python/p21.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">웹스크래핑1</a>    
+     <a href="/python/p22.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">웹스크래핑2</a>   </p> 
+
+     <div class="col-md-8 mb-2">
+      <div class="p-3 text-white fs-4 bd-pink-800">클래스의 활용</div>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">초기화 메소드(initialize method)</h2>
+      <h5>예제</h5>
+      class Dog:</p>
+          def setInfo(self, name):</p>
+              self.name = name</p>
+          def bark(self):</p>
+              print(self.name + "가 멍멍하고 짖는다.")</p>
+       </p>
+      my_dog = Dog()</p>
+      my_dog.bark()</p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <span class="fw-bold">실행 결과</span><br>
+      AttributeError: 'Dog' object has no attribute 'name'<br>
+      위의 예제를 실행해 보면 AttributeError가 발생하며 name이라는 이름의 변수가 없다는 에러 메시지를 출력하는 것을 확인할 수 있다.<br>
+      왜냐하면 Dog 클래스의 my_dog 인스턴스가 생성되고 나서 bark() 메소드를 호출하기 전에 먼저 set_info() 메소드가 호출되어 name이라는 변수를 먼저 선언해야만 제대로 동작하는 구조이기 때문이다.</p> 
+      <p>파이썬에서는 이와 같은 경우를 미리 방지하기 위해 인스턴스가 생성될 때 자동으로 호출되어 변수를 초기화해주는 특별한 메소드를 미리 만들어 제공하고 있으며, 이 메소드가 바로 초기화 메소드(initialize method)이다. 파이썬에서 초기화 메소드의 이름은 __init__으로 고정되어 있다.<br>
+      __init__ 메소드는 인스턴스가 생성되는 시점에서 자동으로 호출됨으로 위의 예제를 다음과 같이 변경하면 메소드 호출의 순서에 상관없이 정상적으로 동작함을 확인할 수 있다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      class Dog: # 클래스 선언</p>
+          def <span style="color: #0000cd;">__init__(self, name):</p>
+              self.name = name  </p>
+          def bark(self):</p>
+              print(self.name + "가 멍멍하고 짖는다.")    </p>
+       </p>
+      my_dog = Dog("삼식이") # 인스턴스 생성</p>
+      my_dog.bark() # 인스턴스의 메소드 호출</p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <span class="fw-bold">실행 결과</span><br>
+      삼식이가 멍멍하고 짖는다.<br>
+      위 예제의 9번 라인처럼 초기화 메소드를 사용하여 속성을 자동으로 초기화하면 10번 라인에서 곧바로 bark() 메소드를 호출하여도 오류가 발생하지 않는다.</p>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">클래스 변수와 인스턴스 변수</h2>
+      <p>클래스에서도 변수가 선언된 위치에 따라 변수의 유효 범위가 달라지며, 이에 따라 다음과 같이 구분할 수 있다.<br>
+      1. 클래스 변수(class variable)<br>
+      2. 인스턴스 변수(instance variable)<br>
+      클래스 변수(class variable)는 해당 클래스에서 생성된 모든 인스턴스가 값을 공유하는 변수이다.<br>
+      하지만 인스턴스 변수(instance variable)는 __init__() 메소드 내에서 선언된 변수로 인스턴스가 생성될 때마다 새로운 값이 할당되는 변수이다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      class Dog: # 클래스 선언</p>
+          sound = "멍멍" # 클래스 변수 선언  </p>
+          def <span style="color: #0000cd;">__init__(self, name):</p>
+              self.name = name # 인스턴스 변수 선언  </p>
+          def bark(self):</p>
+              print(self.name + "가 멍멍하고 짖는다.")    </p>
+       </p>
+      my_dog = Dog("삼식이") # 인스턴스 생성</p>
+      your_dog = Dog("콩이") # 인스턴스 생성  </p>
+      print(my_dog.sound) # 클래스 변수에 접근</p>
+      print(my_dog.name) # 인스턴스 변수에 접근  </p>
+      print(your_dog.sound) # 클래스 변수에 접근</p>
+      print(your_dog.name) # 인스턴스 변수에 접근</p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <span class="fw-bold">실행 결과</span><br>
+      멍멍<br>
+      삼식이<br>
+      멍멍<br>
+      콩이<br>
+      위의 예제에서는 Dog 클래스에 sound라는 이름의 클래스 변수를 선언하고, 초기화 메소드를 통해서는 name이라는 이름의 인스턴스 변수를 선언하고 있다.<br>
+      14번과 17번 라인의 실행결과처럼 하나의 클래스에서 생성된 서로 다른 인스턴스에서도 클래스 변수의 값은 공유됨을 확인할 수 있다.</p>
+        
+      <p>또한, 15번과 18번 라인에서는 인스턴스 변수의 값은 인스턴스마다 서로 다름을 확인할 수 있다.</p> 
+      <p>이처럼 인스턴스 간에 값을 서로 공유하지 않아도 되는 변수는 인스턴스 변수로 선언하고, 같은 값을 공유해야만 하는 변수는 클래스 변수로 선언하는 것이 바람직한다.<br>
+      만약 어떤 변수를 클래스 변수로 선언해야 할 지 아니면 인스턴스 변수로 선언해야 할 지 잘 모르겠다면, 프로그램의 안전성을 위해 무조건 인스턴스 변수로 선언하는 것이 좋다. 이렇게 하면 코드가 중복될 가능성은 생기겠지만 프로그램이 의도치 않게 동작할 가능성은 줄어들기 때문이다.</p>
+      </div>
+
+
+           
+</body>
+</html>

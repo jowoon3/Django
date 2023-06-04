@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>파이썬 상속</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">   
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">     
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <!-- font css -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="{% static '/css/java.css'%}" rel="stylesheet">   
+  <link href="{% static '/css/style.css'%}" rel="stylesheet">     
+</head>
+<body class="ms-3">  
+  <H2 class="coffee_taital" style="text-align:left;"><a name="home">파이썬</a></H2>  
+    <p><a href="/python/p01.html" class="btn btn-warning mb-1" target="_blank">이전 노트</a>
+      <a href="/python/p03.html" class="btn btn-warning mb-1" target="_blank">다음 노트</a>            
+      <a href="/htmls/tut1.html" class="btn btn-danger mb-1" target="_blank">HTML 노트</a> 
+      <a href="/css/tut11.html" class="btn btn-success mb-1" target="_blank">CSS 노트</a> 
+      <a href="/javascript/j01.html" class="btn btn-purple mb-1" target="_blank">Javascript 노트</a>
+     <a href="/python/p01.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">파이썬의 기초</a>
+     <a href="/python/p02.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">변수</a>
+     <a href="/python/p03.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">숫자형타입</a>
+     <a href="/python/p04.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">불리언타입</a>
+     <a href="/python/p05.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">문자열타입</a>
+     <a href="/python/p06.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">조건문</a>
+     <a href="/python/p07.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">반복문</a>
+     <a href="/python/p08.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">break와 continue</a>
+     <a href="/python/p09.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">리스트 타입</a>
+     <a href="/python/p10.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">튜플 타입</a>
+     <a href="/python/p11.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">세트 타입</a>
+     <a href="/python/p12.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">딕셔녀리 타입</a>
+     <a href="/python/p13.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">함수</a>
+     <a href="/python/p14.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">변수의 유효범위</a>
+     <a href="/python/p15.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">클래스</a>
+     <a href="/python/p16.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">객체</a>
+     <a href="/python/p17.html" class=" btn btn-secondary mb-1" target="_blank">상속</a>
+     <a href="/python/p18.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">모듈</a>
+     <a href="/python/p19.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">파일 입출력</a>     
+     <a href="/python/p20.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">예외처리</a>    
+     <a href="/python/p21.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">웹스크래핑1</a>    
+     <a href="/python/p22.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">웹스크래핑2</a>   </p> 
+
+    <div class="col-md-8 mb-2">
+    <div class="p-3 text-white fs-4 bd-pink-800">상속</div>
+    
+    <hr>
+    <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">상속(inheritance)</h2>
+    <p>예를 들어 까치와 참새, 제비는 모두 ‘조류’라는 특징을 가지고 있다.</p>
+    <p>즉, 까치와 참새, 제비는 모두 서로 다른 ‘종’이지만 하늘을 날 수 있는 ‘조류’라는 공통점을 가지고 있는 것이다.</p>
+    <p>이러한 개념을 클래스에 적용시켜 보면, 까치와 참새, 제비라는 클래스는 모두 ‘조류’ 클래스의 특징을 ‘상속받았다’고 할 수 있다.</p>
+    <p>이것이 바로 객체 지향 프로그래밍의 대표적인 개념 중 하나인 상속(inheritance)의 개념이며, 이를 이용하면 이미 존재하는 클래스의 모든 특징을 물려받는 새로운 클래스를 손쉽게 생성할 수 있다.</p>
+    <p>이러한 상속은 기존 클래스를 직접 수정하지 않고, 기능을 추가하거나 변경하고 싶을 때 유용하게 사용할 수 있다.</p>
+    <p>이때 이미 존재하던 클래스를 부모 클래스(parent class) 또는 기초 클래스(base class)라고 부르며, 상속을 통해 새롭게 생성되는 클래스를 자식 클래스(child class) 또는 파생 클래스(derived class)라고 부른다.</p>
+    
+    <hr>
+    <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">클래스 상속하기</h2>
+    <p>파이썬에서 클래스를 선언할 때 다른 클래스를 상속받고 싶다면, 소괄호(())를 사용하여 그 안에 상속받고 싶은 클래스명을 넣어 전달함으로써 해당 클래스의 모든 멤버를 상속받을 수 있다.</p>
+    <h5>문법</h5>
+    class 자식클래스명(부모클래스명):</p>
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+        <p class="card-text" style="padding: 10px 10px;">
+    class Bird:</p>
+        def <span style="color: #0000cd;">__init__(self):</p>
+            self.flying = True  </p>
+        def birdsong(self):</p>
+            print("새소리")    </p>
+      </p>
+    class Sparrow(Bird):</p>
+        def birdsong(self):</p>
+            print("짹짹")    </p>
+      </p>
+    my_pet = Sparrow()  </p>
+    print(my_pet.flying)</p>
+    my_pet.birdsong()</p>
+
+    <p class="card-text bd-blue-100" style="padding: 10px 10px;">
+    <b>실행 결과</b><br>
+    True<br>
+    짹짹</p>
+    <p>위 예제의 9번 라인에서는 Sparrow 클래스가 Bird 클래스를 상속받아 선언되었으며, 14번 라인에서는 Sparrow 클래스의 my_pet 인스턴스를 생성하고 있다.</p>
+    <p>이때 Sparrow 클래스는 Bird 클래스를 상속받았기 때문에, Sparrow 클래스에서는 선언하지 않았지만 부모 클래스인 Bird 클래스에는 존재하는 flying 속성을 16번 라인처럼 자유롭게 사용할 수 있는 것이다.</p>
+    
+    <hr>
+    <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">메소드 오버라이딩(method overriding)</h2>
+    <p>앞선 예제의 10번 라인에서 Sparrow 클래스는 부모 클래스인 Bird 클래스에서 선언한 birdsong() 메소드와 같은 이름의 메소드를 또다시 선언하고 있다. 이처럼 상속 관계에 있는 부모 클래스에서 이미 정의된 메소드를 자식 클래스에서 같은 이름으로 재정의하는 것을 메소드 오버라이딩(method overriding)이라고 한다.</p>
+    <p>자식 클래스에서는 상속받은 부모 클래스의 메소드를 그대로 사용해도 되고, 추가하거나 변경해야 할 사항이 생기면 메소드 오버라이딩을 통해 메소드를 재정의하여 사용할 수도 있는 것이다.</p>
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+        <p class="card-text" style="padding: 10px 10px;">
+    class Bird:</p>
+        def <span style="color: #0000cd;">__init__(self):</p>
+            self.flying = True  </p>
+        def birdsong(self):</p>
+            print("새소리")    </p>
+      </p>
+    class Sparrow(Bird):</p>
+        def birdsong(self):</p>
+            print("짹짹")    </p>
+      </p>
+    class Chicken(Bird):</p>
+        def <span style="color: #0000cd;">__init__(self):</p>
+            self.flying = False    </p>
+      </p>
+    my_sparrow = Sparrow()</p>
+    my_chicken = Chicken()  </p>
+    my_sparrow.birdsong()</p>
+    my_chicken.birdsong()</p>
+
+    <p class="card-text bd-blue-100" style="padding: 10px 10px;">
+    <b>실행 결과</b><br>
+    짹짹</p>
+    새소리</p>
+    <p>위의 예제에서 Sparrow 클래스와 Chicken 클래스는 모두 Bird 클래스를 상속받다.</p>
+    <p>하지만 Sparrow 클래스는 birdsong() 메소드를 재정의하고, Chicken 클래스는 birdsong() 메소드를 재정의하지 않는다.</p> 
+    <p>따라서 23번 라인에서 Chicken 클래스의 인스턴스는 부모 클래스인 Bird 클래스의 birdsong() 메소드를 그대로 사용하는 것을 확인할 수 있다.</p>
+    
+    <hr>
+    <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">접근 제어(access control)</h2>
+    <p>자바나 C++과 같은 대부분의 객체 지향 프로그래밍 언어에서는 사용자가 굳이 알 필요가 없는 정보는 되도록 사용자로부터 숨겨야 한다는 정보 은닉(data hiding)의 원칙에 따라 접근 제어자(access modifier)라는 것을 사용한다.</p>
+    <p>접근 제어자를 사용하면 클래스 외부에서의 직접적인 접근을 허용하지 않는 속성이나 메소드를 선언할 수 있기 때문에 정보 은닉(data hiding)과 캡슐화(encapsulation)를 구체화할 수 있다.</p>
+    <p>다음은 C++ 언어에서 사용할 수 있는 접근 제어자와 그 설명이다.</p>
+    <table class="table" style="width:60%;">
+      <thead>
+        <tr class="bg">
+          <th>접근 제어자</th>
+          <th>설명</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>public</td>
+          <td>
+          <p>선언된 클래스 멤버는 외부로 공개되며, 해당 객체를 사용하는 프로그램 어디에서나 직접 접근할 수 있음.</p>
+          </td>
+        </tr>
+        <tr>
+          <td>private</td>
+          <td>
+          <p>선언된 클래스 멤버는 외부에 공개되지 않으며, 외부에서는 직접 접근할 수 없음.</p>
+          </td>
+        </tr>
+        <tr>
+          <td>protected</td>
+          <td>
+          <p>선언된 클래스 멤버는 부모 클래스에 대해서는 public 멤버처럼 취급되며, 외부에서는 private 멤버처럼 취급됨.</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p>하지만 파이썬에서는 이러한 접근 제어자를 사용하지 않고도, 변수나 메소드의 이름을 작성할 때 그 작명법(naming)에 따라 접근 제어를 구현하고 있다.</p>
+    <table class="table" style="width:60%;">
+      <thead>
+        <tr class="bg">
+          <th style="width: 40%;">C++ 접근 제어자</th>
+          <th>파이썬</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>public</td>
+          <td>
+          <p>멤버 이름에 어떠한 언더스코어(_)도 포함되지 않음.</p>
+          <p>예) name</p>
+          </td>
+        </tr>
+        <tr>
+          <td>private</td>
+          <td>
+          <p>멤버 이름 앞에 두 개의 언더스코어(__)가 접두사로 포함됨.</p>
+          <p>예) __name</p>
+          </td>
+        </tr>
+        <tr>
+          <td>protected</td>
+          <td>
+          <p>멤버 이름 앞에 한 개의 언더스코어(_)가 접두사로 포함됨.</p>
+          <p>예) _name</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+     
+</body>
+</html>

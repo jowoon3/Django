@@ -1,0 +1,29 @@
+.tb-0 {border-collapse: collapse; width: 50%; border:transparent;table-layout:fixed;word-break:break-all;height:auto;} /* 테두리 없음 헤드 밝은회색 */
+.tb-0 thead {text-align: center; background-color:lightgray} 
+.tb-0 .th1 {width:25%;}                                          /* th1 클래스로 지정한 헤드 25% */
+.tb-0 tr:hover {background-color:lightgray;} 
+span.em15 {font-size:1.5em; font-weight: bold;}
+span.bred {color:red; font-weight: bold;}
+span.redbox {border : 2px solid red;}
+.tb-1 {border: 1px solid black; border-collapse: collapse; width: 50%;table-layout:fixed;word-break:break-all;height:auto;} /* 테두리 검정 헤드 밝은 회색*/
+.tb-1 thead {text-align: center; background-color:lightgray} 
+.tb-1 .th1 {width:40%;} 
+.tb-1 th, .tb-1 td, .tb-1.tr {border: 1px solid black; border-collapse: collapse; width: 50%;}  
+.tb-2 {border-collapse: collapse; width: 50%;table-layout:fixed;word-break:break-all;height:auto;} /* 테두리 아래만 검정   */
+.tb-2 thead {text-align: center; background-color:lightgray} 
+.tb-2 .th1 {width:25%;}
+.tb-2 td, .tb-2.tr {border-bottom: 1px solid black; border-collapse: collapse; width: 50%;}  
+.tb-3 {border-collapse: collapse; width: 50%;table-layout:fixed;word-break:break-all;height:auto;} /* 테두리 아래만 검정   */
+.tb-3 th, tb-3 td {padding: 8px;}
+.tb-3 tr:first-child td { text-align: center;  background-color: hsl(247, 58%, 64%); border: 1px solid #6e6ed8; color: #fff;}
+.tb-3 tr td:first-child { background-color: lightgray;}
+img.img25 {width:25%}
+img.img33 {width:33%}
+img.img50 {width:50%}
+img.img150 {width:150px}
+img.img300 {width:300px}
+.bar #gra1 {background: green;
+    background: -webkit-linear-gradient(left, rgba(0,255,0,1), rgba(0,255,0,0));    
+    background: -moz-linear-gradient(left, rgba(0,255,0,1), rgba(0,255,0,0));
+    background: -o-linear-gradient(left, rgba(0,255,0,1), rgba(0,255,0,0));
+    background: linear-gradient(to right, rgba(0,255,0,1), rgba(0,255,0,0));}

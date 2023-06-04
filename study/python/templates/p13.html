@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>파이썬 함수</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">   
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">     
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <!-- font css -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="{% static '/css/java.css'%}" rel="stylesheet">   
+  <link href="{% static '/css/style.css'%}" rel="stylesheet">     
+</head>
+<body class="ms-3">  
+  <H2 class="coffee_taital" style="text-align:left;"><a name="home">파이썬</a></H2>  
+    <p><a href="/python/p01.html" class="btn btn-warning mb-1" target="_blank">이전 노트</a>
+      <a href="/python/p03.html" class="btn btn-warning mb-1" target="_blank">다음 노트</a>            
+      <a href="/htmls/tut1.html" class="btn btn-danger mb-1" target="_blank">HTML 노트</a> 
+      <a href="/css/tut11.html" class="btn btn-success mb-1" target="_blank">CSS 노트</a> 
+      <a href="/javascript/j01.html" class="btn btn-purple mb-1" target="_blank">Javascript 노트</a>
+     <a href="/python/p01.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">파이썬의 기초</a>
+     <a href="/python/p02.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">변수</a>
+     <a href="/python/p03.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">숫자형타입</a>
+     <a href="/python/p04.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">불리언타입</a>
+     <a href="/python/p05.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">문자열타입</a>
+     <a href="/python/p06.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">조건문</a>
+     <a href="/python/p07.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">반복문</a>
+     <a href="/python/p08.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">break와 continue</a>
+     <a href="/python/p09.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">리스트 타입</a>
+     <a href="/python/p10.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">튜플 타입</a>
+     <a href="/python/p11.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">세트 타입</a>
+     <a href="/python/p12.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">딕셔녀리 타입</a>
+     <a href="/python/p13.html" class=" btn btn-secondary mb-1" target="_blank">함수</a>
+     <a href="/python/p14.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">변수의 유효범위</a>
+     <a href="/python/p15.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">클래스</a>
+     <a href="/python/p16.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">객체</a>
+     <a href="/python/p17.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">상속</a>
+     <a href="/python/p18.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">모듈</a>
+     <a href="/python/p19.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">파일 입출력</a>     
+     <a href="/python/p20.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">예외처리</a>    
+     <a href="/python/p21.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">웹스크래핑1</a>    
+     <a href="/python/p22.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">웹스크래핑2</a>   </p> 
+
+     <div class="col-md-8 mb-2">
+      <div class="p-3 text-white fs-4 bd-pink-800">함수</div>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">함수(function)</h2>
+      <p>다음 그림과 같은 계산기는 계산하려는 숫자를 입력하면 내부에서 특정 연산을 수행하고 그 결과를 화면에 출력해 준다.<br>
+      <img alt="calculator" src="http://www.tcpschool.com/lectures/img_python_17_calculator.png" style="width: 150px; height: 203px;"><br>
+      이와 비슷한 원리로 특정 값 X를 인수(arguments)로 전달받으면, 반드시 특정 값 Y를 결과로 반환(return)하는 일종의 계산기와 같은 개념을 함수(function)라고 할 수 있다.<br>
+      프로그래밍에서는 하나의 특정 작업을 수행하기 위해 독립적으로 설계된 프로그램 코드의 집합을 함수(function)라고 부른다.
+      인수(arguments)란 함수를 호출할 때 함수 내부에서 사용할 수 있도록 전달하는 데이터를 가리킨다</p>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">함수를 사용하는 이유</h2>
+      <p>지금까지 우리가 살펴본 print(), type(), range() 등과 같은 함수들은 모두 파이썬 내장 함수로 파이썬에서 미리 만들어 제공해 주는 함수들이다.<br>
+      만약 이러한 함수가 없었다면 우리는 프로그램을 작성하기 전에 먼저 화면에 출력하거나 타입을 확인하는 등과 같은 기본적인 동작을 하는 코드를 매번 따로 작성해야 할 것이다. 또한, 어떤 동작에 수정 사항이 생긴다면, 그 동작을 사용한 모든 소스 코드를 전부 찾아서 수정해야만 할 것이다.<br>
+      이처럼 함수를 사용하는 가장 큰 이유는 프로그램 내에서 중복적인 코드의 작성을 최소화하고, 코드의 재사용성을 높여주기 때문이다.<br>
+      프로그램에서 특정 작업을 여러 번 반복해서 수행해야 할 때는 해당 작업을 수행하는 함수를 한 번만 작성하면 된다. 이후 프로그램 내에서 해당 작업을 수행해야 할 때는 작성해 놓은 함수를 단순히 호출하기만 하면 되기 때문이다.</p>
+      
+      <a href="https://docs.python.org/ko/3/library/functions.html">파이썬 내장함수</a><br><br>
+
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">함수 선언하고 호출하기</h2>
+      <p>파이썬에서는 파이썬이 제공하는 내장 함수를 그대로 사용하는 것뿐만 아니라 자신만의 함수를 직접 만들어서 사용할 수도 있다.<br>
+      파이썬에서 함수는 다음과 같이 선언한다.</p>
+      <h5><b>문법</h5>
+      def 함수명(매개변수1, ...):<br>
+          실행할 코드1<br>
+          실행할 코드2<br>
+                   ⦙</p></b>
+      <p>함수명은 함수를 호출할 때 사용하기 위한 이름이며, 매개변수(parameter)는 함수 호출 시 전달되는 인수의 값을 함수 내부에서 사용할 수 있도록 저장할 변수의 이름이다.<br>
+      이렇게 선언된 함수는 다음과 같은 방식으로 호출할 수 있다.</p>
+       
+      <h5><b>문법</h5>
+      함수명(인수, ...)</p></b>
+      <p>인수(arguments)는 함수를 호출할 때 함수 내부에서 사용할 데이터를 전달해 주는 역할을 한다.<br>
+      다음 예제는 hello라는 이름의 함수를 선언하고 호출하는 예제이다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100"><h5><b>예제</b></h5></div>
+          <p class="card-text" style="padding: 10px 10px;">
+      def hello(): # 함수의 선언<br>
+          print("- 함수 시작 -")<br>
+          print("안녕하세요!")<br>
+          print("- 함수 끝 -")    <br>
+          <br>
+      hello() # 함수의 호출<br>
+      hello() # 함수의 호출<br>
+      hello() # 함수의 호출</p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <span class="fw-bold">실행 결과</span><br>
+      - 함수 시작 -<br>
+      안녕하세요!<br>
+      - 함수 끝 -<br>
+      - 함수 시작 -<br>
+      안녕하세요!<br>
+      - 함수 끝 -<br>
+      - 함수 시작 -<br>
+      안녕하세요!<br>
+      - 함수 끝 -</p></div>
+      <p>위 예제의 hello() 함수는 아무런 인수를 가지지 않고 어떠한 값도 반환하지 않으며, 단순히 함수 내부의 코드만을 실행하는 가장 단순한 형태의 함수이다.</p>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">함수 선언하고 인수전달하여 호출하기</h2>
+      <p>앞선 예제의 hello() 함수처럼 인수를 전달받지 않는 함수는 언제나 같은 동작만을 수행하게 된다. <br>
+        하지만 대부분의 함수는 인수를 전달받아 해당 인수에 따라 다른 동작을 수행하도록 하는 것이 일반적이다.<br>
+      함수 호출 시 여러 개의 인수(arguments)를 한 번에 전달할 수 있으며, 인수들은 소괄호(())안에 쉼표(,)를 사용하여 구분한다.<br>
+      다음 예제는 두 개의 인수를 전달받아 그 합을 출력하는 함수이다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100"><h5><b>예제</b></h5></div>
+          <p class="card-text" style="padding: 10px 10px;">
+      def sum(a, b):<br>
+          print(a + b)    <br>
+       <br>
+      sum(1, 2)<br>
+      sum(3, 4)<br>
+      # sum(5)<br>
+      # sum(6, 7, 8)</p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <span class="fw-bold">실행 결과</span><br>
+      3<br>
+      7</p></div>
+      <p>위의 예제에서 함수 선언에 사용된 a와 b를 매개변수라 하고, 함수 호출 시 전달된 1, 2와 3, 4를 인수라고 부른다.<br>
+      위 예제의 5번과 6번 라인처럼 함수를 호출할 때 다른 값의 인수를 전달하면, 그 결과 또한 달라지는 것을 확인할 수 있다.<br>
+      또한, 인수를 전달할 때는 반드시 함수의 선언에서 명시된 매개변수의 개수와 같은 수의 인수만을 전달해야 한다.<br>
+      만약 주석 처리된 7번과 8번 라인처럼 매개변수의 개수와 다른 수의 인수를 전달하면 TypeError가 발생하며, 프로그램은 강제 종료된다.</p>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">값을 반환(return)하는 함수</h2>
+      <p>파이썬에서는 전달받은 인수를 가지고 함수 내부에서 여러 명령문을 실행한 결과를 return 문을 사용하여 반환할 수 있다.<br>
+      이러한 반환(return)문은 함수의 종료를 의미하며, 함수를 호출한 곳으로 해당 결괏값을 반환해 준다.</p> 
+      <h5><b>문법</h5>
+      def 함수명(매개변수1, ...):<br>
+          실행할 코드1<br>
+          실행할 코드2<br>
+                   ⦙<br>
+          return 결괏값</b><br>
+      return 문을 사용하여 함수에서 반환된 값은 다음과 같이 곧바로 변수에 대입하여 사용할 수 있다.</p>
+      <h5><b>문법</h5>
+      변수명 = 함수명(인수, ...)</b></p>
+      </div>
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100"><h5><b>예제</b></h5></div>
+          <p class="card-text" style="padding: 10px 10px;">
+      def sum(a, b):<br>      
+          print("- 함수 시작 -")<br>      
+          # return a + b // (1)<br>      
+          print("- 함수 끝 -")<br>      
+          return a + b    // (2) <br>      
+       <br>      
+      c = sum(1, 2) <br>      
+      print(c)  <br>      // 함수의 반환값을 변수(c)에 대입하여 사용할 수 있다<br>
+      print(sum(3, 4))   <br>
+      // 함수의 반환값을 그대로 사용할 수도 있다. 하지만 한번 사용후에는 다시 결과값에 접근할수 없다</p>
+      
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <span class="fw-bold">실행 결과</span><br>
+      - 함수 시작 -<br>
+      - 함수 끝 -<br>
+      3<br>
+      - 함수 시작 -<br>
+      - 함수 끝 -<br>
+      7<br>
+      - 함수 시작 - // 만약 (1)과 (2) 를 서로 바꾸면 "- 함수 끝 -"은 실행하지 않는다<br>
+      7 <br>
+       //  함수 내부에서 return 문을 만나게 되면 함수의 나머지 부분은 더 이상 실행하지 않고 곧바로 종료된다.</p></div> 
+
+ 
+      <div class="col-md-8 mb-2">
+        <div class="p-3 text-white fs-4 bd-pink-800">함수 좀 더 파헤치기</div>
+        
+        <hr>
+        <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">인수 전달 시 매개변수 지정</h2>
+        <p>함수에 전달되는 인수는 함수 선언 시 명시한 매개변수의 순서에 따라 언제나 순서대로 저장된다.</p>
+        <p>즉, 다음 예제와 같이 선언된 함수를 호출할 때 전달받은 첫 번째 인수는 언제나 매개변수 a에 저장되며, 두 번째 인수는 언제나 매개변수 b에 저장되는 것이다.</p>
+  
+        <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+          <div class="card-header bd-yellow-100"><h5><b>예제</b></h5></div>
+            <p class="card-text" style="padding: 10px 10px;">
+        def sub(a, b):<br>
+            print(a - b)</p></div>
+         
+        <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+          <div class="card-header bd-yellow-100"><h5><b>예제</b></h5></div>
+            <p class="card-text" style="padding: 10px 10px;">
+        def sub(a, b):<br>      
+            print(a - b)<br>      
+         <br>      
+        sub(1, 2)<br>      
+        sub(a=1, b=2) <br>
+        //함수를 호출할 때 대입 연산자(=)를 사용하여 인수가 저장될 매개변수를 직접 지정할수 있다.<br>      
+        sub(b=1, a=2)<br>
+        //인수가 전달되는 순서를 매개변수를 지정하여 직접 변경할 수 있다.</p>
+  
+        <p class="card-text bd-blue-100" style="padding: 10px 10px;">
+        <b>실행 결과</b><br>
+        -1<br>
+        -1<br>
+        1</p></div> 
+        
+        <hr>
+        <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">매개변수의 기본값 설정(default parameters)</h2>
+        <p>우리는 앞서 함수의 기초에 대해 살펴볼 때 함수를 호출할 때 선언 시 명시된 매개변수의 개수보다 적거나 많은 인수를 전달할 경우 TypeError가 발생한다고 배웠다.</p>
+        <p>하지만 함수를 선언할 때 미리 매개변수의 기본값을 설정해 놓으면, 함수 호출 시 전달받지 못한 인수에 대해서는 설정해 놓은 기본값으로 자동 초기화할 수 있다.</p>
+  
+        <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+          <div class="card-header bd-yellow-100"><h5><b>예제</b></h5></div>
+            <p class="card-text" style="padding: 10px 10px;">
+        def total(a, b=5, c=10):<br>      
+            print(a + b + c)    <br>      
+         <br>      
+        total(1)<br>
+        // total() 함수를 호출하면서 인수를 하나만 전달하고 있다. 인수로 전달받은 1은 매개변수 a에 저장되고, <br>
+        // 전달받지 못한 매개변수 b와 c의 값은 각각 기본값인 5와 10을 사용하여 초기화하게 된다<br>    
+        total(1, 2)<br>  
+        // 인수로 전달받은 1과 2를 각각 매개변수 a와 b에 저장하고, 전달받지 못한 매개변수 c는 10으로 초기화하여 사용하게 된다.<br><Br> 
+        total(1, 2, 3)<br>     
+        //  3개의 인수를 모두 전달받았으므로, 기본값을 사용하지 않고 전달받은 인수의 값으로만 매개변수를 초기화한다.<br>
+        # total(b=2, c=3)<br>    
+        // 하지만 기본값을 설정하지 않은 매개변수에 인수를 전달하지 않거나<br>  
+        # total(1, 2, 3, 4)<br>
+        // 매개변수의 수보다 더 많은 인수를 전달하여 함수를 호출하면 TypeError가 발생한다.<br></p>
+  
+        <p class="card-text bd-blue-100" style="padding: 10px 10px;">
+        <b>실행 결과</b><br>
+        16<br>
+        13<br>
+        6</p></div> 
+  
+        <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+          <div class="card-header bd-yellow-100"><h5><b>예제</b></h5></div>
+            <p class="card-text" style="padding: 10px 10px;">
+        def total(a=5, b, c=10):<br>
+            print(a + b + c)<br>      
+        total(1, 2, 3) # 6<br>
+        total(1, 2) # 13<br>
+        total(1) #SyntaxError</p></div>
+        <p>함수에 전달되는 인수는 함수 선언 시 명시한 매개변수의 순서에 따라 언제나 순서대로 저장된다.</p>
+        <p>위의 예제에서 맨 마지막 total() 함수를 호출할 때 전달받은 인수 1은 매개변수 b가 아닌 매개변수 a에 저장되며, 따라서 매개변수 b에 저장할 인수가 없기 때문에 이 예제는 SyntaxError를 발생시킨다</p> 
+        <p>이처럼 매개변수의 기본값 설정은 매개변수의 목록에서 항상 오른쪽부터 차례대로 명시되어야만 한다.</p>
+        
+        <hr>
+        <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">가변 매개변수(variable parameters)</h2>
+        <p>함수를 실제로 호출할 때 몇 개의 인수가 전달될지 미리 알 수 없다면, 사용자가 직접 매개변수의 개수를 정할 수 있도록 선언할 수 있다.</p>
+        <p>가변 매개변수는 다음과 같이 매개변수명 앞에 별(*) 기호를 추가하여 선언한다.</p>
+        <h5><b>문법</h5>
+        def 함수명(*매개변수명):<br>
+            실행할 코드1<br>
+            실행할 코드2<br>
+                     ⦙</p></b>
+        <p>이렇게 선언된 가변 매개변수에는 함수가 호출될 때 전달된 모든 인수가 튜플(tuple)의 형태로 저장된다.</p>
+        <p>가변 매개변수는 다음 예제처럼 함수 내에서 반복문 등을 통해 자유롭게 접근하여 사용할 수 있다.</p>
+  
+        <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+          <div class="card-header bd-yellow-100"><h5><b>예제</b></h5></div>
+            <p class="card-text" style="padding: 10px 10px;">
+        def add(*paras):<br>      
+            print(paras)<br>      
+            total = 0<br>      
+            for para in paras:<br>      
+                total += para<br>      
+            return total    <br>      
+         <br>      
+        print(add(10))<br>      
+        print(add(10, 100))<br>      
+        print(add(10, 100, 1000))</p>
+  
+        <p class="card-text bd-blue-100" style="padding: 10px 10px;">
+        <b>실행 결과</b><br>
+        (10,)<br>
+        10<br>
+        (10, 100)<br>
+        110<br>
+        (10, 100, 1000)<br>
+        1110</p></div>
+        <p>위의 예제처럼 가변 매개변수를 사용하면 함수를 호출할 때 전달받는 인수의 개수에 상관없이 일정한 동작을 수행하는 함수를 작성할 수 있다.</p>
+        <p>이때 가변 매개변수로 딕셔너리를 사용하려면, 하나의 별(*) 기호가 아닌 두 개의 별(**) 기호를 사용하여 선언해야 한다.</p>
+  
+        <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+          <div class="card-header bd-yellow-100"><h5><b>예제</b></h5></div>
+            <p class="card-text" style="padding: 10px 10px;">
+        def print_map(**dicts):<br>      
+            for item in dicts.items():<br>      
+                print(item)    <br>      
+         <br>      
+        print_map(하나=1)<br>      
+        print_map(one=1, two=2)<br>      
+        print_map(하나=1, 둘=2, 셋=3)</p>
+  
+        <p class="card-text bd-blue-100" style="padding: 10px 10px;">
+        <b>실행 결과</b><br>
+        ('하나', 1)<br>
+        ('one', 1)<br>
+        ('two', 2)<br>
+        ('하나', 1)<br>
+        ('둘', 2)<br>
+        ('셋', 3)</p>
+        </div>
+        
+        <hr>
+        <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">여러 개의 결괏값 반환하기</h2>
+        <p>함수에서 return 문을 통해 반환할 수 있는 결괏값은 언제나 하나이다.<br>      
+        따라서 두 개 이상의 결괏값을 반환하고 싶다면 튜플을 사용해야 한다.</p>
+  
+        <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+          <div class="card-header bd-yellow-100"><h5><b>예제</b></h5></div>
+            <p class="card-text" style="padding: 10px 10px;">
+        def arith(a, b):<br>      
+            add = a + b<br>      
+            sub = a - b<br>      
+            return add, sub   //결괏값을 하나의 튜플로 만들어 반환할 수 있다. <br>      
+         <br>      
+        i, j = arith(10, 1) //튜플의 언패킹을 통해 각각의 변수에 곧바로 대입하여 사용할 수 있다<br>      
+        print(i)<br>      
+        print(j)</p>
+  
+        <p class="card-text bd-blue-100" style="padding: 10px 10px;">
+        <b>실행 결과</b><br>
+        11<br>      
+        9</p> </div>
+        
+  <hr>
+  <h4 id="lambda" class="text-primary fst-italic">람다(lambda)</h2>
+  <p>람다(lambda)란 간단한 함수의 선언과 호출을 하나의 식으로 간략히 표현한 것이다.</p>
+  <p>이러한 람다는 일반 함수와는 달리 이름을 가지지 않으며, map()이나 filter() 함수와 같이 함수 자체를 인수로 전달받는 함수에서 자주 사용된다.</p>
+  <p>파이썬에서는 lambda 키워드를 사용하여 다음과 같이 람다를 정의할 수 있다.</p>
+    <h5><b>문법</h5>
+    lambda 매개변수1, 매개변수2, ... : 매개변수를 이용한 표현식</p></b>
+    </div>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100"><h5><b>예제</b></h5></div>
+        <p class="card-text" style="padding: 10px 10px;">
+    def add(a, b):<br>      
+        return a + b  <br>      
+      <br>      
+    print(add(1, 2))<br>      
+    print((lambda a, b: a+b)(1, 2))</p>
+
+    <p class="card-text bd-blue-100" style="padding: 10px 10px;">
+    <b>실행 결과</b><br>
+    3<br>      
+    3</p></div>
+    <p>위 예제의 1번부터 4번 라인까지의 함수의 선언과 호출 과정 전부를 람다표현식은 단 한 줄로 표현할 수 있다.<br>
+    단, add() 함수는 선언된 이 후에 프로그램 내에서라면 언제라도 또다시 호출할 수 있지만, 람다는 단 한 번밖에 사용할 수 없는 차이점을 가진다.<br> 
+    이처럼 람다는 단 한 번만 사용할 함수를 간단하게 선언하고 호출할 때 매우 유용하게 사용할 수 있다.</p>
+        
+    <hr>
+    <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">맵 (map)</h2>
+    <p><b>map(자료형, iterable) <br>
+      map(함수, iterable)<Br></b><br>
+      두 번째 매개변수는 반복 가능한 자료형(리스트, 튜플 등)이 온다.<br>
+      map함수는 두 번째 인자로 들어온 반복 가능한 자료형 (리스트나 튜플)을 첫 번째 인자의 자료형(정수, 실수, 문자...)으로 변환하거나<br>
+      map함수는 두 번째 인자로 들어온 반복 가능한 자료형 (리스트나 튜플)을 첫 번째 인자로 들어온 함수에 하나씩 집어넣어서 함수를 수행하는 함수다.<br>
+      map 함수의 반환 값은 map객체 이기 때문에 해당 자료형을 list 혹은 tuple로 형 변환시켜주어야 한다.<br> 
+    </div>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100"><h5><b>예제</b></h5></div>
+        <p class="card-text" style="padding: 10px 10px;">
+          import math  # math.ceil 함수 사용<br>
+          --------------- 리스트의 값을 정수 타입으로 변환 ---------------<br>
+          result1 = list(map(int, [1.1, 2.2, 3.3, 4.4, 5.5])) // map 함수의 반환 값은 map객체 이기 때문에 자료형을 list 혹은 tuple로 변환 <br>          
+          print(f'map(int, 리스트) : {result1}')  # map(int, 리스트) : [1, 2, 3, 4, 5]<br>     <br>     
+          --------------- 리스트 값 제곱 ---------------<br> 
+          def func_pow(x):<br>
+              return pow(x, 5)  # x 의 5 제곱을 반환<br><br>          
+          
+          result2 = list(map(func_pow, [1, 2, 3, 4, 5]))<br>
+          print(f'map(func_pow, 리스트) : {result2}') # map(func_pow, 리스트) :: [1, 32, 243, 1024, 3125]<br><br>
+          --------------- 리스트 값 소수점 올림 ---------------<br>
+          result3 = list(map(math.ceil, [1.1, 2.2, 3.3, 4.4, 5.5, 6.6]))<br>
+          print(f'map(func_ceil, 리스트) : {result3}') # map(func_ceil, 리스트) : [2, 3, 4, 5, 6, 7]<br>
+    </p></div>
+    
+    <hr>
+    <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">필터 (filter)</h2>
+    <p><b>filter(함수, iterator)<Br></b><br>
+      filter 함수는 iterator에 들어온 값들을 하나하나 함수에 넣어서 반환이 true인 값을 <br>
+      필터링해서 다시 리스트로 만들어주는 함수<br></div>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100"><h5><b>예제</b></h5></div>
+        <p class="card-text" style="padding: 10px 10px;">
+    arr = [1, 10.2, 100.3, 2.3, 20.2, 200.3, 3, 30, 300]<br><br>
+    # 10보다 작은 수 True <br>
+    def func1(n): <Br>
+      &nbsp;&nbsp;&nbsp;    if n < 10: <Br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return True <br>
+      &nbsp;&nbsp;&nbsp;  return False<br> <br>
+    
+    # 정수일때는 True 반환 <br>
+    def func2(n): <br>
+    &nbsp;&nbsp;&nbsp;if isinstance(n , int): <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return True <br>
+    &nbsp;&nbsp;&nbsp;return False <br> <br>
+    
+    # 실수일때 True 반환 <br>
+    def func3(n): <br>
+    &nbsp;&nbsp;&nbsp;return isinstance(n , float) <br> <br>    
+    
+    result1 = list(filter(func1 ,arr)) <br>
+    result2 = list(filter(func2 ,arr)) <br>
+    result3 = list(filter(func3 ,arr)) <br> <br>
+    
+    print(f'원래 리스트 : {arr}') # 원래 리스트 : [1, 10.2, 100.3, 2.3, 20.2, 200.3, 3, 30, 300]<br>
+    print(f'10보다 작은 수 : {result1}') # 10보다 작은 수 : [1, 2.3, 3]<br>
+    print(f'정수만 출력 {result2}') # 정수만 출력 [1, 3, 30, 300]<br>
+    print(f'실수만 출력 {result3}') # 실수만 출력 [10.2, 100.3, 2.3, 20.2, 200.3]<br></p></div>
+
+</body>
+</html>

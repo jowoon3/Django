@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>파이썬 break와 continue</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">   
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">     
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <!-- font css -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="{% static '/css/java.css'%}" rel="stylesheet">   
+  <link href="{% static '/css/style.css'%}" rel="stylesheet">     
+</head>
+<body class="ms-3">  
+  <H2 class="coffee_taital" style="text-align:left;"><a name="home">파이썬</a></H2>  
+    <p><a href="/python/p01.html" class="btn btn-warning mb-1" target="_blank">이전 노트</a>
+      <a href="/python/p03.html" class="btn btn-warning mb-1" target="_blank">다음 노트</a>            
+      <a href="/htmls/tut1.html" class="btn btn-danger mb-1" target="_blank">HTML 노트</a> 
+      <a href="/css/tut11.html" class="btn btn-success mb-1" target="_blank">CSS 노트</a> 
+      <a href="/javascript/j01.html" class="btn btn-purple mb-1" target="_blank">Javascript 노트</a>
+     <a href="/python/p01.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">파이썬의 기초</a>
+     <a href="/python/p02.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">변수</a>
+     <a href="/python/p03.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">숫자형타입</a>
+     <a href="/python/p04.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">불리언타입</a>
+     <a href="/python/p05.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">문자열타입</a>
+     <a href="/python/p06.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">조건문</a>
+     <a href="/python/p07.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">반복문</a>
+     <a href="/python/p08.html" class=" btn btn-secondary mb-1" target="_blank">break와 continue</a>
+     <a href="/python/p09.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">리스트 타입</a>
+     <a href="/python/p10.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">튜플 타입</a>
+     <a href="/python/p11.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">세트 타입</a>
+     <a href="/python/p12.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">딕셔녀리 타입</a>
+     <a href="/python/p13.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">함수</a>
+     <a href="/python/p14.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">변수의 유효범위</a>
+     <a href="/python/p15.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">클래스</a>
+     <a href="/python/p16.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">객체</a>
+     <a href="/python/p17.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">상속</a>
+     <a href="/python/p18.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">모듈</a>
+     <a href="/python/p19.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">파일 입출력</a>     
+     <a href="/python/p20.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">예외처리</a>    
+     <a href="/python/p21.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">웹스크래핑1</a>    
+     <a href="/python/p22.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">웹스크래핑2</a>   </p> 
+
+     <div class="col-md-8 mb-2">
+      <div class="p-3 text-white fs-4 bd-pink-800">break와 continue</div>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">break 키워드로 반복문 탈출하기</h2>
+      <p>반복문을 통해 명령문을 반복해서 수행하다보면 프로그램의 흐름상 특정 조건을 만족할 때 더 이상 반복문을 수행하지 않고<br>
+         그 즉시 해당 반복문을 빠져나가야 할 경우가 생긴다. 이러한 경우에는 break 키워드를 사용하여 반복 조건에 상관없이 가장 가까운 반복문을 즉시 탈출할 수 있다.<br>
+      다음 예제는 구구단을 5단까지만 출력하도록 한 예제이다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      for col in range(2, 10):<br>
+          if col &gt; 5:<br>
+              break<br>
+          for row in range(1, 10):<br>
+              print (col, " x ", row, " = ", col * row)</p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <span class="fw-bold">실행 결과</span><br>
+      2  x  1  =  2<br>
+      2  x  2  =  4<br>
+      2  x  3  =  6<br>
+      2  x  4  =  8<br>
+      2  x  5  =  10<br>
+      2  x  6  =  12<br>
+      2  x  7  =  14<br>
+      2  x  8  =  16<br>
+      2  x  9  =  18<br>
+            ⁝<br>
+      5  x  1  =  5<br>
+      5  x  2  =  10<br>
+      5  x  3  =  15<br>
+      5  x  4  =  20<br>
+      5  x  5  =  25<br>
+      5  x  6  =  30<br>
+      5  x  7  =  35<br>
+      5  x  8  =  40<br>
+      5  x  9  =  45<br></p></div></div>
+    <p>위의 예제에서 구구단을 5단까지 출력한 후 변수 col에는 정수 6이 대입된다. 따라서 2번 라인의 if 문의 조건식을 만족하게 되어 3번 라인의 break 키워드가 실행된다. break 키워드를 만난 프로그램은 그 즉시 가장 가까운 반복문(1번 라인의 for 문)을 탈출하게 되며, 예제 프로그램은 곧바로 종료된다.</p>
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;"></div>
+    <div class="card-header bd-yellow-100 fw-bold fs-5"> while문 강제로 빠져나가기
+
+      <p class="card-text" style="padding: 10px 10px;">
+coffee = 10<br>
+while True:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;    money = int(input("돈을 넣어 주세요: "))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;    if money == 300:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        print("커피를 줍니다.")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        coffee = coffee -1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;    elif money > 300:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        print("거스름돈 %d를 주고 커피를 줍니다." % (money -300))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        coffee = coffee -1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;    else:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        print("돈을 다시 돌려주고 커피를 주지 않습니다.")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        print("남은 커피의 양은 %d개 입니다." % coffee)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;    if coffee == 0:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        print("커피가 다 떨어졌습니다. 판매를 중지 합니다.")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        break<br></p></div></div>
+<br><br>
+<div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100 fw-bold fs-5"> for문 강제로 빠져나가기</div>
+
+      <p class="card-text" style="padding: 10px 10px;">
+coffee = 10<br>
+for i in range(coffee):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;    money = int(input("돈을 넣어주세요:"))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;    if money == 300:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        print("커피를 줍니다.")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        coffee = coffee - 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;    elif money > 300:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        print("거스름돈 %d를 주고 커피를 줍니다." % (money -300))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        coffee = coffee - 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;    else:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        print("돈을 다시 돌려주고 커피를 주지 않습니다.")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        print("남은 커피의 양은 %d개 입니다." % coffee)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;    if coffee == 0:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        print("sold out")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        break<br></p></div></div>
+<br><br>
+
+
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">continue 키워드로 처음으로 되돌아가기</h2>
+      <p>break 키워드가 해당 반복문 전체를 빠져나가게 해준다면, continue 키워드는 해당 루프만을 즉시 종료하고 다음 루프를 실행시킨다<br>
+      즉, continue 키워드는 해당 키워드 바로 다음 명령문부터 해당 반복문의 마지막 명령문까지를 모두 건너뛰고 바로 다음 반복을 실행하는 것이다.<br>
+      다음은 1부터 10까지의 정수 중 홀수만을 출력하는 예제이다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      for n in range(1, 11):<br>
+          if n % 2 == 0:<br>
+              continue<br>
+          print(n, "은 홀수이다.")</p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <span class="fw-bold">실행 결과</span><br>
+      1 은 홀수이다.<br>
+      3 은 홀수이다.<br>
+      5 은 홀수이다.<br>
+      7 은 홀수이다.<br>
+      9 은 홀수이다.<br></p></div></div>
+    <p>위의 예제 2번 라인의 if 문에서 변수 n을 2로 나눈 나머지가 0인 경우는 n이 짝수인 경우이다. 즉, n이 짝수이면 그 즉시 해당 반복을 중지하고 n의 크기를 1 증가시킨 후 2번 라인부터 다시 조건식을 검사하게 된다.</p>
+     
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100 fw-bold fs-5"> while문 무시하고 다시 반복하기</div>
+
+        <p class="card-text" style="padding: 10px 10px;">
+<span class="fw-bold"># 해당 조건을 만나면 while문 무시하고 다시 반복하기 : continue<br></span>
+# 짝수(2로 나눠서 나머지가 없음)일 때 넘어가고, 다시 반복문 진행<br>
+a = 0<br>
+while a &lt; 10:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;    a = a + 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;    if a % 2 == 0: continue<br>
+&nbsp;&nbsp;&nbsp;&nbsp;    print(a)<br></p></div></div>
+<br><br>
+<div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100 fw-bold fs-5"> for문 무시하고 다시 반복하기</div>
+
+        <p class="card-text" style="padding: 10px 10px;">
+<span class="fw-bold"># 해당 조건을 만나면 for문 무시하고 다시 반복하기 :  : continue<br></span>
+marks = [90, 25, 67, 45, 80]<br>
+number = 0<br>
+for mark in marks:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;    number = number +1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;    if mark &lt; 60:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        continue # makrks의 요소 중 60점 미만이면 넘어감<br>
+&nbsp;&nbsp;&nbsp;&nbsp;    print("%d번 학생 축하합니다. 합격입니다. " % number)<br></p></div></div>
+<br><br>
+           
+</body>
+</html>

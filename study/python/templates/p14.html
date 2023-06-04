@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>파이썬 변수의 유효범위</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">   
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">     
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <!-- font css -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="{% static '/css/java.css'%}" rel="stylesheet">   
+  <link href="{% static '/css/style.css'%}" rel="stylesheet">     
+</head>
+<body class="ms-3">  
+  <H2 class="coffee_taital" style="text-align:left;"><a name="home">파이썬</a></H2>  
+    <p><a href="/python/p01.html" class="btn btn-warning mb-1" target="_blank">이전 노트</a>
+      <a href="/python/p03.html" class="btn btn-warning mb-1" target="_blank">다음 노트</a>            
+      <a href="/htmls/tut1.html" class="btn btn-danger mb-1" target="_blank">HTML 노트</a> 
+      <a href="/css/tut11.html" class="btn btn-success mb-1" target="_blank">CSS 노트</a> 
+      <a href="/javascript/j01.html" class="btn btn-purple mb-1" target="_blank">Javascript 노트</a>
+     <a href="/python/p01.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">파이썬의 기초</a>
+     <a href="/python/p02.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">변수</a>
+     <a href="/python/p03.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">숫자형타입</a>
+     <a href="/python/p04.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">불리언타입</a>
+     <a href="/python/p05.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">문자열타입</a>
+     <a href="/python/p06.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">조건문</a>
+     <a href="/python/p07.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">반복문</a>
+     <a href="/python/p08.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">break와 continue</a>
+     <a href="/python/p09.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">리스트 타입</a>
+     <a href="/python/p10.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">튜플 타입</a>
+     <a href="/python/p11.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">세트 타입</a>
+     <a href="/python/p12.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">딕셔녀리 타입</a>
+     <a href="/python/p13.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">함수</a>
+     <a href="/python/p14.html" class=" btn btn-secondary mb-1" target="_blank">변수의 유효범위</a>
+     <a href="/python/p15.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">클래스</a>
+     <a href="/python/p16.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">객체</a>
+     <a href="/python/p17.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">상속</a>
+     <a href="/python/p18.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">모듈</a>
+     <a href="/python/p19.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">파일 입출력</a>     
+     <a href="/python/p20.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">예외처리</a>    
+     <a href="/python/p21.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">웹스크래핑1</a>    
+     <a href="/python/p22.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">웹스크래핑2</a>   </p> 
+
+     <h3>파이썬 함수의 네임스페이스(namespace)와 변수 스코프(variable scope)</h3>
+     <p>파이썬에서 함수는 하나의 네임스페이스를 형성하고 그 함수 내부에 선언된 함수는 그 네임스페이스 내부에 <Br>
+      포함되지만 분리된 또 하나의 네임스페이스를 형성한다. 하나의 상자 안에 하나 이상의 상자를 넣고 <Br>
+     그 내부의 상자들 안에도 다시 하나 이상의 상자를 넣은 경우를 상상해보면 된다. 그렇게 상상한다면 <Br>
+     그 상자들 안에 구슬을 넣었을 때 그 구슬이 움직일 수 있는 범위들이 각각 변수 스코프가 된다.<Br></p> 
+     <img src="https://post-phinf.pstatic.net/MjAxOTA0MjZfMjM4/MDAxNTU2MjU1NjQ5NDEz.gnxyQ6odA3QTcMV22HfzDywI-tDgrJgXUiJA88v5pjsg.AYwUUIjtzDx-2ZgHVbpZ5VaQOiWJVQcnGwdAEBC8tIAg.JPEG/20190426_141354.jpg?type=w1200" alt="">
+     <br>
+     최외곽에 있는 함수는 다시 모듈(module)이라는 네임스페이스에 속해 있을 수 있고, 이 모듈은 최종적으로 <br>
+     특정 전역 네임스페이스(global namespace) 내부에 속해있게 된다. 이 전역 네임스페이스는 특정 시점에 실행되고 있는 <br>
+     파이썬 인터프리터 스레드의 상위 네임스페이스라고 할 수 있다. 그 상위에는 빌트인 네임스페이스가 존재한다.<br><Br>
+위 다이어그램에서 검은 색 상자가 전역 네임스페이스이고 상자 하나를 담고 있는 갈색 상자가 함수 네임스페이스, <br>
+상자 두 개를 담고 있는 갈색 상자가 모듈 네임스페이스라고 생각해볼 수 있다. <br>
+함수 네임스페이스는 그 내장 함수 하나의 네임스페이스를 갖고 있고, 모듈 네임스페이스는 두 함수 네임스페이스를 갖고 있다고 생각할 수 있다.<br><br>
+     <div class="col-md-8 mb-2">
+      <div class="p-3 text-white fs-4 bd-pink-800">변수의 유효 범위</div>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">변수의 유효 범위(variable scope)</h2>
+      <p>파이썬에서는 변수가 선언된 위치에 따라 해당 변수가 영향을 미치는 범위까지 달라지며, 이것을 변수의 유효 범위(variable scope)라고 부른다.<br>
+      예를 들어, 함수 내부에서 선언된 변수는 해당 함수 내부에서만 사용할 수 있으며, 함수 밖에서는 사용할 수 없다.<br>
+      파이썬에서 변수는 유효 범위에 따라 다음과 같이 나눌 수 있다.<br>
+      1. 지역 변수(local variable)<br>
+      2. 전역 변수(global variable)</p>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">지역 변수(local variable)</h2>
+      <p>파이썬에서 지역 변수(local variable)란 함수 내에서 선언된 변수를 의미한다.<br>
+      이렇게 함수 내에서 선언된 지역 변수는 일반적으로 함수 내에서만 사용할 수 있다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      def func():</p>
+          local_var = "지역 변수"</p>
+          print(local_var)    </p>
+       </p>
+      func()</p>
+      # print(local_var)</p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <span class="fw-bold">실행 결과</span><br>
+      지역 변수<br>
+      위의 예제에서는 func() 함수 내부에서 local_var이라는 이름의 지역 변수를 선언하고 사용하고 있다.<br>
+      하지만 7번 라인의 주석 처리를 해제하고 함수 밖에서 함수 내에 선언된 지역 변수에 접근하려고 하면 NameError가 발생하는 것을 확인할 수 있다.</p> 
+      <p>함수 내부에서 선언된 지역 변수는 함수의 호출이 끝남과 동시에 소멸되므로, 함수 밖에서 접근하려고 하면 선언되지 않은 변수에 접근하는 것으로 인식하여 오류가 발생하는 것이다. 함수의 매개변수 또한 함수 내부에서 정의되는 지역 변수로 취급된다.</p>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">전역 변수(global variable)</h2>
+      <p>파이썬에서 전역 변수(global variable)란 함수 외부에서 선언된 변수를 의미한다.<br>
+      이렇게 함수 외부에서 선언된 전역 변수는 함수 외부에서는 당연히 접근할 수 있으며, 모든 함수에서 global 키워드로 재선언하면 접근할 수 있게 된다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      def func():</p>
+          global global_var</p>
+          local_var = "지역 변수"</p>
+          print(local_var)</p>
+          print(global_var)    </p>
+       </p>
+      global_var = "전역 변수"</p>
+      func()</p>
+      print(global_var)</p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <span class="fw-bold">실행 결과</span><br>
+      지역 변수<br>
+      전역 변수<br>
+      전역 변수<br>
+      위 예제의 5번 라인처럼 함수 내부에서 전역 변수를 사용하기 위해서는 반드시 2번 라인처럼 global 키워드를 사용하여 해당 전역 변수를 재선언해야 한다.<br>
+      만약 함수 외부에서 선언된 전역 변수와 함수 내부에서 선언된 지역 변수의 이름이 같은 경우에는 다음 예제와 같이 global 키워드를 사용하지 않으면 전혀 별개의 변수로 취급되므로 주의해야 한다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      def func():</p>
+          var = "지역 변수"</p>
+          print(var)    </p>
+       </p>
+      var = "전역 변수"</p>
+      print(var)</p>
+      func()</p>
+      print(var)</p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <span class="fw-bold">실행 결과</span><br>
+      전역 변수<br>
+      지역 변수<br>
+      전역 변수<br>
+      위 예제의 2번 라인은 전역 변수 var에 대입 연산을 하는 것이 아니라 새로운 지역 변수인 var를 선언하는 것으로 인식된다. 따라서 9번 라인에서 전역 변수 var의 값이 변하지 않았음을 확인할 수 있다.<br>
+      다음 예제의 3번 라인처럼 global 키워드를 사용해야만 지역 변수의 선언이 아닌 전역 변수의 값을 변경하는 구문으로 제대로 동작할 수 있다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      def func():</p>
+          global var</p>
+          var = "지역 변수"</p>
+          print(var)    </p>
+       </p>
+      var = "전역 변수"</p>
+      print(var)</p>
+      func()</p>
+      print(var)</p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <span class="fw-bold">실행 결과</span><br>
+      전역 변수<br>
+      지역 변수<br>
+      지역 변수<br>
+      10번 라인에서 전역 변수 var의 출력 결과가 "전역 변수"에서 "지역 변수"로 변경된 것을 확인할 수 있다.</p>
+      위의 예제처럼 전역 변수의 값을 함수 내부에서 변경하는 것은 그리 좋은 방법이 아닙니다. 이러한 행위는 해당 전역 변수를 사용하는 다른 함수의 동작을 의도치 않게 바꾸는 결과를 초래할 수 있으므로, 변수의 유효 범위를 이해하는 용도로만 사용하시길 바랍니다.</div>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">지역 변수 vs 전역 변수</h2>
+      <p>그렇다면 변수를 선언할 때 지역 변수와 전역 변수 중 어떤 변수로 선언해야 좋을지 고민될 수 있다.<br>
+      둘 중 어떤 변수를 사용하는 것이 더 좋다고 딱 잘라 말할 수는 없으며, 해당 변수가 사용되는 목적에 따라 구분해서 사용할 필요가 있다.</p> 
+      <p>즉, 프로그램이 실행되는 내내 변하지 않아야 하거나 여러 함수에서 함께 사용하는 값들은 전역 변수로 선언하는 것이 좋으며, 특정 함수에서만 사용되는 값들은 지역 변수로 선언하는 것이 좋다.</p>
+    
+
+</body>
+</html>

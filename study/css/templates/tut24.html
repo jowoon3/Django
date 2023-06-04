@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3 transition 애니메이션 </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <H2>CSS</H2>  
+    <style>
+        .txtlink {color: green; text-decoration:none; margin-left:20px; font-size:16px;}
+        .txtlink:hover {text-decoration:underline;}        /*마우스 올라가면 밑줄 */        
+        /* .button_S {display:inline-block; background-color:gray; color: #FFFFFF; padding: 14px 25px; text-align: center; text-decoration: none; font-size: 16px; margin-left: 20px; opacity: 0.9; border-radius: 5px;}
+        .button_S:hover {color:white; background-color:lightyellow ; opacity:1.0;}      /*마우스 올라가면 배경색 핑크색 글자 흰색으로 바뀜 
+        .button1 {display:inline-block; background-color:#f44336; color: #FFFFFF; padding: 14px 25px; text-align: center; text-decoration: none; font-size: 16px; margin-left: 20px; opacity: 0.9; border-radius: 5px;}
+        .button1:hover {color:white; background-color:pink; opacity:1.0;}      마우스 올라가면 배경색 핑크색 글자 흰색으로 바뀜 
+        .button2 {background-color: white; color: black; border: 2px solid #f44336; padding: 14px 24px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin-left: 20px;}
+        .button2:hover {background-color: #f44336; color: white;}    /*마우스 올라가면 배경색 및 글자 색 바뀜
+        .button3 {display:inline-block; background-color: #44bb55; color: #FFFFFF; padding: 14px 25px; text-align: center; text-decoration: none; font-size: 16px; margin-left: 20px; opacity: 0.9;border-radius: 5px;}
+        .button3:hover {background-color: #44bb55; color: white;}    마우스 올라가면 배경색 및 글자 색 바뀜 
+        .button4 {background-color: white; color: black; border: 2px solid #44bb55; padding: 14px 24px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin-left: 20px;}
+        .button4:hover {background-color: #44bb55; color: white;}    마우스 올라가면 배경색 및 글자 색 바뀜 */
+        
+        .btn {margin: 4px 0px;--bs-btn-padding-x: 0.75rem;  --bs-btn-padding-y: 0.375rem; --bs-btn-font-family: 'Nanum Gothic', sans-serif; --bs-btn-font-size: 1rem; --bs-btn-font-weight: 400;
+              --bs-btn-line-height: 1.5;    --bs-btn-border-width: var(--bs-border-width);
+              --bs-btn-border-radius: 0.375rem;   --bs-btn-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15),0 1px 1px rgba(0, 0, 0, 0.075);
+              --bs-btn-disabled-opacity: 0.65;    --bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(var(--bs-btn-focus-shadow-rgb), .5);
+              display: inline-block; padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x); font-family: var(--bs-btn-font-family);
+              font-size: var(--bs-btn-font-size); font-weight: var(--bs-btn-font-weight); line-height: var(--bs-btn-line-height); 
+              color: var(--bs-btn-color);         text-align: center;    text-decoration: none;    vertical-align: middle;    cursor: pointer;
+              -webkit-user-select: none;    -moz-user-select: none;      user-select: none;    
+              border: var(--bs-btn-border-width) solid var(--bs-btn-border-color); border-radius: var(--bs-btn-border-radius);
+              background-color: var(--bs-btn-bg);}
+        .button_S {--bs-btn-color: #fff;    --bs-btn-bg: #6c757d;    --bs-btn-border-color: #6c757d;    --bs-btn-hover-color: #fff;
+              --bs-btn-hover-bg: #5c636a;    --bs-btn-hover-border-color: #565e64;    --bs-btn-focus-shadow-rgb: 130,138,145;
+              --bs-btn-active-color: #fff;    --bs-btn-active-bg: #565e64;    --bs-btn-active-border-color: #51585e;
+              --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #fff;    --bs-btn-disabled-bg: #6c757d;
+              --bs-btn-disabled-border-color: #6c757d;}
+        .button1 {--bs-btn-color: #fff;     --bs-btn-bg: #dc3545;       --bs-btn-border-color: #dc3545;     --bs-btn-hover-color: #fff;
+                  --bs-btn-hover-bg: #bb2d3b;    --bs-btn-hover-border-color: #b02a37;     --bs-btn-focus-shadow-rgb: 225,83,97;
+                  --bs-btn-active-color: #fff;   --bs-btn-active-bg: #b02a37;    --bs-btn-active-border-color: #a52834;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #fff;
+                  --bs-btn-disabled-bg: #dc3545;    --bs-btn-disabled-border-color: #dc3545;}
+        .button2 {--bs-btn-color: #dc3545;    --bs-btn-border-color: #dc3545;    --bs-btn-hover-color: #fff;    --bs-btn-hover-bg: #dc3545;
+                  --bs-btn-hover-border-color: #dc3545;    --bs-btn-focus-shadow-rgb: 220,53,69;    --bs-btn-active-color: #fff;
+                  --bs-btn-active-bg: #dc3545;    --bs-btn-active-border-color: #dc3545; --bs-border-width: 2px;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #dc3545;
+                  --bs-btn-disabled-bg: transparent;    --bs-btn-disabled-border-color: #dc3545;    --bs-gradient: none;}
+        .button3 {--bs-btn-color: #fff;    --bs-btn-bg: #198754;    --bs-btn-border-color: #198754;    --bs-btn-hover-color: #fff;
+                  --bs-btn-hover-bg: #157347;     --bs-btn-hover-border-color: #146c43;     --bs-btn-focus-shadow-rgb: 60,153,110;
+                  --bs-btn-active-color: #fff;    --bs-btn-active-bg: #146c43;    --bs-btn-active-border-color: #13653f;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #fff;
+                  --bs-btn-disabled-bg: #198754; --bs-btn-disabled-border-color: #198754;}
+        .button4 {--bs-btn-color: #198754;    --bs-btn-border-color: #198754;    --bs-btn-hover-color: #fff;    --bs-btn-hover-bg: #198754;
+                  --bs-btn-hover-border-color: #198754;    --bs-btn-focus-shadow-rgb: 25,135,84;    --bs-btn-active-color: #fff;
+                  --bs-btn-active-bg: #198754;    --bs-btn-active-border-color: #198754;--bs-border-width: 2px;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #198754;
+                  --bs-btn-disabled-bg: transparent;    --bs-btn-disabled-border-color: #198754;    --bs-gradient: none;}
+        </style>
+        <p><a href="/css/tut13.html" class="btn button3" target="_blank">이전 노트</a>
+        <a href="/css/tut15.html" class="btn button3" target="_blank">다음 노트</a>
+        <a href="/htmls/tut1.html" class="btn button1" target="_blank">HTML 노트</a> 
+        <a href="/htmls/html_CSS.html" class="btn button2" target="_blank">HTML+CSS</a>
+        <a href="/htmls/html_Emmet.html" class="btn button2" target="_blank">HTML+Emmet</a>
+        <a href="/htmls/html_tags.html" class="btn button2" target="_blank">HTML+Tags</a><br>
+        <a href="/javascript/j01.html" class="btn btn-success mb-1" target="_blank">자바스크립트 노트</a>  
+        <a href="/python/p01.html" class="btn btn-success mb-1" target="_blank">파이썬 노트</a>   
+        <a href="/css/tut11.html" class="btn button4" target="_blank">CSS 문법</a>
+        <a href="/css/tut12.html" class="btn button4" target="_blank">색과 배경</a>
+        <a href="/css/tut13.html" class="btn button4" target="_blank">선형 원형 그래디언트 CSS3 배경속성</a>
+        <a href="/css/tut14.html" class="btn button4" target="_blank">텍스트 글꼴 링크 </a>
+        <a href="/css/tut15.html" class="btn button4" target="_blank">글꼴 링크 이미지 스프라이트</a> 
+        <a href="/css/tut16.html" class="btn button4" target="_blank">리스트 테이블</a>
+        <a href="/css/tut17.html" class="btn button4" target="_blank">박스모델 크기 패딩</a> 
+        <a href="/css/tut18.html" class="btn button4" target="_blank">박스모델 테두리 마진 아웃라인</a> 
+        <a href="/css/tut19.html" class="btn button4" target="_blank">Flexible Box 플렉서블 박스 플렉스</a>
+        <a href="/css/tut20.html" class="btn button4" target="_blank">CSS3 테두리 버튼 사용자인터페이스</a> 
+        <a href="/css/tut21.html" class="btn button4" target="_blank">위치 디스플레이 플로트 정렬</a> 
+        <a href="/css/tut22.html" class="btn button4" target="_blank">위치 포지션 선택자 selector</a>
+        <a href="/css/tut23.html" class="btn button4" target="_blank">CSS3 선택자(selector)</a>
+        <a href="/css/tut24.html" class="btn button_S" target="_blank">CSS3 transition 애니메이션</a>     
+        <a href="/css/tut25.html" class="btn button4" target="_blank">유사클래스 상태의사클래스 동적의사클래스 </a>
+        <a href="/css/tut26.html" class="btn button4" target="_blank">구조의사클래스</a> 
+        <a href="/css/tut27.html" class="btn button4" target="_blank">의사 요소(pseudo-element)</a>
+        <a href="/css/tut28.html" class="btn button4" target="_blank">CSS 네비게이션바</a>
+        <a href="/css/tut29.html" class="btn button4" target="_blank">CSS form 요소 @규칙</a> 
+        <a href="/css/tut30.html" class="btn button4" target="_blank">bootstrap 활용</a>  
+        <a href="/css/tut31.html" class="btn button4" target="_blank">test several things</a></p>  
+    <h4>CSS3 전환(Transition)</h4>
+    <p>CSS3에서는 transition 속성을 사용하여 정해진 시간 동안 요소의 속성값을 부드럽게 변화시킬 수 있다.<br>
+    아래 펭귄 그림 위로 마우스를 올려놔 보세요!!</p>
+    
+    <div><img  class="penguin" alt="" src="http://www.tcpschool.com/lectures/img_css3_penguin_large.png"></div>
+    
+    </div><hr>
+<style>        
+    .penguin {width: 10%; animation: MovingPenguin 1.5s; animation-duration: 1.5s; animation-timing-function: ease-in;}
+    .penguin:hover {animation-name: JumpPenguin; animation-duration: 0.5s; animation-timing-function: linear; 
+                        animation-iteration-count: infinite; animation-direction: alternate;}
+    @keyframes MovingPenguin {  0% { transform: rotate(45deg); opacity: 1;} 
+                              60% { transform: rotate(-45deg); opacity: 1;}  
+                              100% { transform: none; opacity: 1; }}
+    @keyframes JumpPenguin { 0% { transform: translate3d(0,300px,0);}} 
+</style>    
+
+<h4>CSS3 전환(transition) 지원 버전</h4>
+    <p>CSS3 전환(transition)을 지원하는 주요 웹 브라우저의 버전<br>
+    또한, 브라우저별로 벤더 프리픽스(vendor prefix)를 이용해 이 기능을 최초로 지원한 버전도 같이 표기했다.</p>
+    
+    <table class="tb-1" summary="">
+        <tbody style="text-align: center;">
+            <tr>
+                <th style="width: 60%;">속성</th>
+                <th><img alt="ie" class="icon" src="http://www.tcpschool.com/img/icon-ie.png"></th>  
+                <th><img alt="ie" class="icon" src="http://www.tcpschool.com/img/icon-ie.png"></th>
+                <th><img alt="chrome" class="icon" src="http://www.tcpschool.com/img/icon-chrome.png"></th>
+                <th><img alt="firefox" class="icon" src="http://www.tcpschool.com/img/icon-firefox.png"></th>
+                <th><img alt="safari" class="icon" src="http://www.tcpschool.com/img/icon-safari.png"></th>
+                <th><img alt="opera" class="icon" src="http://www.tcpschool.com/img/icon-opera.png"></th>
+            </tr>
+            <tr>
+                <td>
+                <p>transition</p>
+    
+                <p>transition-delay</p>
+    
+                <p>transition-duration</p>
+    
+                <p>transition-property</p>
+    
+                <p>transition-timing-function</p>
+                </td>
+                <td>
+                <p>10.0</p>
+                </td>
+                <td>
+                <p>26.0</p>
+    
+                <p>4.0 -webkit-</p>
+                </td>
+                <td>
+                <p>16.0</p>
+    
+                <p>4.0 -moz-</p>
+                </td>
+                <td>
+                <p>6.1</p>
+    
+                <p>3.1 -webkit-</p>
+                </td>
+                <td>
+                <p>12.1</p>
+    
+                <p>10.5 -webkit</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <hr>
+    
+    <h4>전환(transition)</h4>
+    <p>전환(transition)을 위해 제공되는 속성(property)<br>
+    1. transition<br>
+    2. transition-delay<br>
+    3. transition-duration<br>
+    4. transition-property<br>
+    5. transition-timing-function</p>
+    
+    <hr>
+    
+    <h4>transition 속성</h4>
+    <p>transition 속성은 다음과 같은 순서로 정의할 수 있다.<br>
+    1. 해당 요소에 추가할 CSS 스타일 전환(transition) 효과를 설정한다.<br>
+    2. 추가할 전환 효과가 지속될 시간을 설정한다.<br>
+    <style>
+        .keyboard {border:black 1px solid; width: 100px;
+            transition: width 1s;} 
+        .keyboard:hover { width: 300px; }
+        #resize {border:red 1px solid; height: 100px; width: 150px; 
+            transition: width 1s, height 3s;} 
+        #resize:hover { width: 300px; height: 500px; }
+        .trans {border:blue 3px solid; width: 100px; transition: width 1s;} 
+        #trans_01 {transition-timing-function: linear;}
+        #trans_02 {transition-timing-function: ease-in-out;}
+        .trans:hover { width: 300px; }
+        #resize1 {border:green 3px solid; height: 100px; width: 150px; transition: width 1s, height 2s; transition-delay: 3s;} 
+        #resize1:hover { width: 300px; height: 300px; }
+        #windmill {border:yellow 2px solid; height: 100px; width: 100px; transition: width 2s, height 2s, transform 2s;} 
+        #windmill:hover {width: 300px; height: 300px; transform: rotateY(180deg);} 
+    </style>
+
+    <h4>요소에 마우스를 올려놓으면 요소의 너비가 1초 동안 3배로 늘어나는 예제</h4>        
+    <div class="keyboard">마우스를 올려놓으면 1초동안 너비가 100에서 300으로  </div>
+    
+    <p>또한, 해당 요소의 여러 속성을 동시에 변경할 수도 있다.<br>
+    <h4>요소에 마우스를 올려놓으면 해당 요소의 너비뿐만 아니라 높이까지도 변경하는 예제</h4>         
+    <div id="resize">마우스를 올려놓으면 1초동안 너비가 150에서 300으로 3초동안 높이가 100에서 500으로 변화 </div>  
+    
+    <div>지속 시간의 <span class="bred">기본값은 0초</span>이므로, 효과가 지속될 시간을 명시하지 않으면<span class="bred"> 아무런 효과도 나타나지 않을 것</span>이다.</div><hr>
+    
+    <h4>transition-timing-function 속성</h4>
+    <p>transition-timing-function 속성은 전환(transition) 효과의 시간당 속도를 설정한다.<br>
+    transition-timing-function 속성의 속성값으로는 다음과 같은 값을 설정할 수 있다.</p>
+    
+    <p>1. linear : 전환(transition) 효과가 처음부터 끝까지 일정한 속도로 진행된다.</p> 
+    <p>2. ease : 기본값으로, 전환(transition) 효과가 천천히 시작되어, 그다음에는 빨라지고, 마지막에는 다시 느려진다.<br>
+    3. ease-in : 전환(transition) 효과가 천천히 시작된다.<br>
+    4. ease-out : 전환(transition) 효과가 천천히 끝난다.<br>
+    5. ease-in-out : 전환(transition) 효과가 천천히 시작되어, 천천히 끝난다.<br>
+    6. cubic-bezier(n,n,n,n) : 전환(transition) 효과가 사용자가 정의한 cubic-bezier 함수에 따라 진행된다.</p>
+
+    <h4>예제</h4> 
+    <div class="trans" id="trans_01">마우스를 올려놓으면 1초동안 너비가 100에서 300으로 일정한 속도로 변화 </div> 
+    <div class="trans" id="trans_02">마우스를 올려놓으면 1초동안 너비가 100에서 300으로 천천히 시작하여 천천히 끝나는 변화</div> 
+
+    <h4>transition-delay 속성</h4>
+    <p>transition-delay 속성은 전환(transition) 효과가 나타나기 전까지의 지연 시간을 설정한다.<br>
+    전환(transition) 효과는 이 메소드로 설정된 시간이 흐른 뒤에야 비로소 시작된다.</p> 
+    <h4>예제</h4>            
+    <div id="resize1">마우스를 올려놓으면 3초간 지연후 1초동안 너비가 150에서 300으로 2초동안 높이가 100에서 300으로 변화 </div>  
+
+    <h4>전환(transition) 효과와 변형(transform) 효과의 동시 적용</h4>
+    <p>전환(transition) 효과와 변형(transform) 효과를 같이 적용할 수도 있다.</p> 
+    <h4>예제</h4>         
+    <div id="windmill">마우스를 올려놓으면 3초간 지연후 2초동안 너비가 100에서 300으로 2초동안 높이가 100에서 300으로 2초동안 Y축 180도 회전하는 변화 </div> 
+    <br><br><br><br><br><br><br><hr> 
+    <h4>CSS3 transition 속성</h4>
+    <table class="tb-2" summary="">
+        <thead>
+            <tr class="bg">
+                <th style="width: 25%;">속성</th>
+                <th>설명</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>transition</td>
+                <td>모든 transition 속성을 이용한 스타일을 한 줄에 설정할 수 있음.</td>
+            </tr>
+            <tr>
+                <td>transition-property</td>
+                <td>요소에 추가할 전환(transition) 효과를 설정함.</td>
+            </tr>
+            <tr>
+                <td>transition-duration</td>
+                <td>전환(transition) 효과가 지속될 시간을 설정함.</td>
+            </tr>
+            <tr>
+                <td>transition-timing-function</td>
+                <td>전환(transition) 효과의 시간당 속도를 설정함.</td>
+            </tr>
+            <tr>
+                <td>transition-delay</td>
+                <td>전환(transition) 효과가 나타나기 전까지의 지연 시간을 설정함.</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    
+    <h4>CSS3 애니메이션(Animation)</h4>
+    <p>CSS3에서는 animation 속성을 사용하여 요소의 현재 스타일을 다른 스타일로 천천히 변화시킬 수 있다.<br>
+    CSS2에서는 이러한 효과를 표현하기 위해서는 자바스크립트나 플래시 등의 외부 플러그인을 사용해야만 했다.<br>
+    하지만 CSS3에서는 이러한 애니메이션 효과를 손쉽게 적용할 수 있게 되었다.</p>
+    <div style="width:60%; border: 2px solid #3b6c9b;"> 
+        <div class="animation_box">
+            <img src="http://www.tcpschool.com/lectures/img_css3_bunny.png">
+        </div>
+    </div><hr>
+    
+    <h4>CSS3 애니메이션(animation) 지원 버전</h4>
+    <p>CSS3 애니메이션(animation)을 지원하는 주요 웹 브라우저의 버전<br>
+    또한, 브라우저별로 벤더 프리픽스(vendor prefix)를 이용해 이 기능을 최초로 지원한 버전도 같이 표기했다.</p>
+    
+    <table class="tb-1" summary="">
+        <tbody style="text-align: center;">
+            <tr>
+                <th style="width: 60%;">속성</th>
+                <th><img alt="ie" class="icon" src="http://www.tcpschool.com/img/icon-ie.png"></th>
+                <th><img alt="chrome" class="icon" src="http://www.tcpschool.com/img/icon-chrome.png"></th>
+                <th><img alt="firefox" class="icon" src="http://www.tcpschool.com/img/icon-firefox.png"></th>
+                <th><img alt="safari" class="icon" src="http://www.tcpschool.com/img/icon-safari.png"></th>
+                <th><img alt="opera" class="icon" src="http://www.tcpschool.com/img/icon-opera.png"></th>
+            </tr>
+            <tr>
+                <td>
+                <p>@keyframes</p>
+    
+                <p>animation</p>
+                </td>
+                <td>
+                <p>10.0</p>
+                </td>
+                <td>
+                <p>43.0</p>
+    
+                <p>4.0 -webkit-</p>
+                </td>
+                <td>
+                <p>16.0</p>
+    
+                <p>5.0 -moz-</p>
+                </td>
+                <td>
+                <p>9.0</p>
+    
+                <p>4.0 -webkit-</p>
+                </td>
+                <td>
+                <p>30.0</p>
+    
+                <p>15.0 -webkit</p>
+    
+                <p>12.0 -o-</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>  
+
+    <style>
+        .animation_box {width: 80px; height: 58px; animation: movingBunny 1.5s; animation-duration: 1.5s; animation-timing-function: ease-out;}
+        .animation_box:hover {animation-name: pulseBunny; animation-duration: 0.3s; animation-timing-function: linear; 
+	                        animation-iteration-count: infinite; animation-direction: alternate;}
+        @keyframes movingBunny {  0% { transform: translate3d(780px, 0, 0) skewX(30deg); opacity: 0;} 
+                                  60% { transform: skewX(-20deg); opacity: 1;} 
+                                  80% { transform: skewX(5deg); opacity: 1;}
+                                  100% { transform: none; opacity: 1; }}
+        @keyframes pulseBunny { 0% {transform: scale(1.2);}}
+
+        .animation {position:absolute; width: 100%; height: 100%; margin:0px 0px; display:inline-block;}
+        .animation:hover {animation-name: movingPara; animation-duration: 4s; animation-timing-function: ease-in-out;}   
+        @keyframes movingPara {  0%  { transform: translate3d(800px, 0, 0);} 
+                                20%  { transform: translate3d(700px, 0, 0);} 
+                                60%  { transform: translate3d(600px, 0, 0) scale (1.2);} 
+                                100% { transform: translate3d(400px, 0, 0) scale(1.5);}}    
+        .ani1 {position:absolute; left:100px; width:100px; height:50px; padding-top: 8px; border : 6px solid; text-align:center;
+                    font-size:28px; font-weight:bold; color:black;}
+        .ani1:hover {animation-name: movingBunny1; animation-duration:6s;}  
+        @keyframes movingBunny1 {0% { border-color: red; transform: translate3d(400px, 0, 0);}
+                                20% { border-color: orange;transform: translate3d(300px, 0, 0); }
+                                40% { border-color: yellow; transform: translate3d(200px, 0, 0);}
+                                50% { border-color: green;transform: translate3d(100px, 0, 0); }
+                                60% { border-color: blue;transform: translate3d(80px, 0, 0); }
+                                80% { border-color: navy;transform: translate3d(40px, 0, 0); }
+                                100% { border-color: purple;  transform: translate3d(0px, 0, 0) scale(2);}}
+        .ani2 {position:absolute; left:100px; width:200px; height:50px; padding-top: 8px; border : 6px solid; text-align:center;
+                    font-size:28px; font-weight:bold; color:black;}                        
+        .ani2:hover {animation-name: movingbox; animation-duration: 4s;animation-delay: 2s;} 
+        @keyframes movingbox {0% { border-color: red; transform: translate3d(400px, 0, 0);}
+                                20% { border-color: orange;transform: translate3d(300px, 0, 0); }
+                                40% { border-color: yellow; transform: translate3d(200px, 0, 0);}
+                                50% { border-color: green;transform: translate3d(100px, 0, 0); }
+                                60% { border-color: blue;transform: translate3d(80px, 0, 0); }
+                                80% { border-color: navy;transform: translate3d(40px, 0, 0); }
+                                100% { border-color: purple;  transform: translate3d(0px, 0, 0) scale(2);}}
+        .ani3 {position:absolute; left:100px; width:100px; height:50px; padding-top: 8px; border : 6px solid black;}
+        .ani3:hover {animation-name: moving; animation-duration: 4s;animation-iteration-count: 2; } 
+        .ani4 {position:absolute; left:100px; width:100px; height:50px; padding-top: 8px; border : 6px solid black;}
+        .ani4:hover {animation-name: moving; animation-duration: 4s;animation-iteration-count: infinite; }  
+        @keyframes moving {0% { border-color: red; transform: translate3d(400px, 0, 0);}
+                           40% { border-color: orange;transform: translate3d(300px, 0, 0); } 
+                           60% { border-color: green;transform: translate3d(100px, 0, 0); } 
+                           100% { border-color: purple;  transform: translate3d(0px, 0, 0) scale(2);}} 
+        .ani5 {position:absolute; left:100px; width:100px; height:50px; padding-top: 8px; border : 6px solid black;}
+        .ani5:hover {animation-name: moving; animation-duration: 4s;animation-direction: reverse; } 
+        .ani6 {position:absolute; left:100px; width:100px; height:50px; padding-top: 8px; border : 6px solid black;}
+        .ani6:hover {animation-name: moving; animation-duration: 4s; animation-direction: alternate; }    
+        .ani7 {position:absolute; left:100px; width:100px; height:50px; padding-top: 8px; border : 6px solid black;}
+        .ani7:hover {animation-name: moving; animation-duration: 4s;animation-timing-function: linear; } 
+        .ani8 {position:absolute; left:100px; width:100px; height:50px; padding-top: 8px; border : 6px solid black;}
+        .ani8:hover {animation-name: moving; animation-duration: 4s; animation-timing-function: ease-in-out; }    
+    </style>
+
+    <h4>@keyframes 규칙</h4>
+    <p>CSS3에서 애니메이션 효과를 사용하기 위해서는 우선 애니메이션에 대한 키 프레임(keyframe)을 정의해야 한다.<br>
+    키 프레임(keyframe)에는 특정한 시간에 해당 요소가 가져야 할 CSS 스타일을 명시한다.</p>
+    <p>@keyframes 규칙 안에 이렇게 CSS 스타일을 설정해 놓으면, 해당 요소의 스타일은 특정 시간까지 현재 스타일에서 설정해 놓은 새로운 스타일로 천천히 변화할 것이다.<br>
+    애니메이션 효과가 동작하기 위해서는 먼저 animation-name 속성을 이용하여 요소와 키 프레임을 연결해 주어야 한다.</p> 
+
+    <h4>예제</h4>  
+    <div style="height:58px; width:900px; border:red 2px solid"> 
+    <div class="animation"><img src="http://www.tcpschool.com/lectures/img_css3_bunny.png"></div></div>
+    <p>위의 예제에서 from 키워드에는 처음 스타일을 명시하고, to 키워드에는 마지막 스타일을 명시한다.<br>
+    하지만 좀 더 복잡한 애니메이션 효과를 나타내기 위해서는 from 키워드나 to 키워드 대신에 퍼센트(%)를 사용할 수 있다.</p>
+    <p>0%에는 처음 스타일을, 100%에는 마지막 스타일을 명시하고, 중간에 원하는 수만큼의 키 프레임을 생성할 수 있다.</p> 
+    <h4>예제</h4> 
+    <div class="ani1"> BOX </div>     
+    <br><br><br><br><br>
+
+    <p>재생이 모두 끝난 애니메이션 효과는 해당 요소가 맨 처음 가지고 있던 스타일로 요소를 되돌려 놓는다.</p>
+    <hr>
+    
+    <h4>animation-duration 속성</h4>
+    <p>animation-duration 속성은 애니메이션 효과를 재생할 시간을 설정한다.<br>
+    재생 시간의 기본값은 0초이므로, 재생할 시간을 명시하지 않으면 아무런 효과도 나타나지 않을 것이다.</p>
+    <hr>
+    
+    <h4>animation-delay 속성</h4>
+    <p>animation-delay 속성은 애니메이션 효과가 나타나기까지의 지연 시간을 설정한다.<br>
+    애니메이션 효과는 이 속성값으로 설정된 시간이 흐른 뒤에야 비로소 시작된다.</p>
+     
+    <h4>예제 : 위예제에서 2초 지연후 효과시작 </h4>
+    <div class="ani2"> MOVING BOX </div>     
+    <br><br><br><br><br>   
+    
+    <h4>animation-iteration-count 속성</h4>
+    <p>animation-iteration-count 속성은 애니메이션 효과의 반복 횟수를 설정한다.<br>
+    이 속성값으로 infinite를 설정하면, 애니메이션 효과가 무한히 반복될 것이다.</p> 
+
+    <h4>예제</h4>  
+    <div class="ani3"><img src="http://www.tcpschool.com/lectures/img_css3_bunny.png"></div> 2번 반복
+    <br><br><br><br><br>   
+    <div class="ani4"><img src="http://www.tcpschool.com/lectures/img_css3_bunny.png"></div> 무한 반복 
+    <br><br><br><br><br>    
+
+    <h4>animation-direction 속성</h4>
+    <p>animation-direction 속성은 애니메이션의 진행 방향을 설정한다.<br>
+    진행 방향을 나타내는 속성값으로 reverse와 alternate를 설정할 수 있다.<br>
+    reverse 속성값은 애니메이션 효과의 진행 방향을 원래 방향이 아닌 반대 방향으로 변경한다.<br>
+    즉, 애니메이션 효과가 from에서 to 방향이 아닌, to에서 from 방향으로 진행된다.</p> 
+
+    <h4>예제</h4>     
+    <div class="ani5"><img src="http://www.tcpschool.com/lectures/img_css3_bunny.png"></div> 반대방향
+    <br><br><br><br><br>   
+    <p>alternate 속성값은 애니메이션 효과의 진행 방향을 애니메이션이 반복될 때마다 계속 변경한다.<br>
+    즉, 애니메이션 효과가 from에서 to 방향으로 한 번 진행되고 나면, 다음번에는 to에서 from 방향으로 진행되게 변경시킨다.<br>
+    이런 식으로 번갈아 가면서 전체 반복 횟수만큼 애니메이션을 반복하게 된다.</p>
+     
+    <h4>예제</h4>
+    <div class="ani6"><img src="http://www.tcpschool.com/lectures/img_css3_bunny.png"></div> 방향 교대로 변경 
+    <br><br><br><br><br>    
+    
+    <h4>animation-timing-function 속성</h4>
+    <p>animation-timing-function 속성은 애니메이션 효과의 시간당 속도를 설정한다.<br>
+    animation-timing-function 속성의 속성값으로는 다음과 같은 값을 설정할 수 있다.<br>
+    1. linear : 애니메이션 효과가 처음부터 끝까지 일정한 속도로 진행된다.<br>
+    2. ease : 기본값으로, 애니메이션 효과가 천천히 시작되어, 그다음에는 빨라지고, 마지막에는 다시 느려진다.<br>
+    3. ease-in : 애니메이션 효과가 천천히 시작된다.<br>
+    4. ease-out : 애니메이션 효과가 천천히 끝난다.<br>
+    5. ease-in-out : 애니메이션 효과가 천천히 시작되어, 천천히 끝난다.<br>
+    6. cubic-bezier(n,n,n,n) : 애니메이션 효과가 사용자가 정의한 cubic-bezier 함수에 따라 진행된다.</p>
+
+    <h4>예제</h4> 
+    
+    <div class="ani7"><img src="http://www.tcpschool.com/lectures/img_css3_bunny.png"></div> 일정한 속도 변경 
+    <br><br><br><br><br>    
+    
+    <div class="ani8"><img src="http://www.tcpschool.com/lectures/img_css3_bunny.png"></div> 천천히 시작되어, 천천히 끝남
+    <br><br><br><br><br>   
+
+    <h4>애니메이션 축약 표현(animation shorthand)</h4>
+    <p>모든 animation 속성을 이용한 스타일을 한 줄에 설정할 수 있다.</p>
+    <h5>문법</h5> 
+    div {animation-name: myShorthand; animation-duration: 3s; animation-timing-function: ease-in-out;
+        animation-delay: 1s; animation-iteration-count: 3;animation-direction: alternate;} <Br>
+    
+    위와 똑같은 애니메이션 효과를 다음과 같이 표현할 수 있다. <Br>
+    div { animation: myShorthand 3s ease-in-out 1s 3 alternate; }    
+ 
+    <h4>CSS3 animation 속성</h4>
+    <table class="tb-2" summary="">
+        <thead>
+            <tr class="bg">
+                <th style="width: 25%;">속성</th>
+                <th>설명</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>animation</td>
+                <td>모든 animation 속성을 이용한 스타일을 한 줄에 설정할 수 있음.</td>
+            </tr>
+            <tr>
+                <td>animation-name</td>
+                <td>애니메이션 효과의 이름을 설정함.</td>
+            </tr>
+            <tr>
+                <td>animation-duration</td>
+                <td>애니메이션 효과를 재생할 시간을 설정함.</td>
+            </tr>
+            <tr>
+                <td>animation-delay</td>
+                <td>애니메이션 효과가 나타나기까지의 지연 시간을 설정함.</td>
+            </tr>
+            <tr>
+                <td>animation-iteration-count</td>
+                <td>애니메이션 효과가 몇 번 반복될지를 설정함.</td>
+            </tr>
+            <tr>
+                <td>animation-direction</td>
+                <td>애니메이션의 진행 방향을 설정함.</td>
+            </tr>
+            <tr>
+                <td>animation-timing-function</td>
+                <td>애니메이션 효과의 시간당 속도를 설정함.</td>
+            </tr>
+            <tr>
+                <td>animation-fill-mode</td>
+                <td>애니메이션 효과가 재생 중이 아닐 때 요소의 스타일을 설정함.</td>
+            </tr>
+            <tr>
+                <td>animation-play-state</td>
+                <td>애니메이션 효과의 재생 상태를 설정함.</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <hr> 
+            
+</body>
+</html>

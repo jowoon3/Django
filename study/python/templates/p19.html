@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>파이썬 파일 입출력</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">   
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">     
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <!-- font css -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="{% static '/css/java.css'%}" rel="stylesheet">   
+  <link href="{% static '/css/style.css'%}" rel="stylesheet">     
+</head>
+<body class="ms-3">  
+  <H2 class="coffee_taital" style="text-align:left;"><a name="home">파이썬</a></H2>  
+    <p><a href="/python/p01.html" class="btn btn-warning mb-1" target="_blank">이전 노트</a>
+      <a href="/python/p03.html" class="btn btn-warning mb-1" target="_blank">다음 노트</a>            
+      <a href="/htmls/tut1.html" class="btn btn-danger mb-1" target="_blank">HTML 노트</a> 
+      <a href="/css/tut11.html" class="btn btn-success mb-1" target="_blank">CSS 노트</a> 
+      <a href="/javascript/j01.html" class="btn btn-purple mb-1" target="_blank">Javascript 노트</a>
+     <a href="/python/p01.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">파이썬의 기초</a>
+     <a href="/python/p02.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">변수</a>
+     <a href="/python/p03.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">숫자형타입</a>
+     <a href="/python/p04.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">불리언타입</a>
+     <a href="/python/p05.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">문자열타입</a>
+     <a href="/python/p06.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">조건문</a>
+     <a href="/python/p07.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">반복문</a>
+     <a href="/python/p08.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">break와 continue</a>
+     <a href="/python/p09.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">리스트 타입</a>
+     <a href="/python/p10.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">튜플 타입</a>
+     <a href="/python/p11.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">세트 타입</a>
+     <a href="/python/p12.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">딕셔녀리 타입</a>
+     <a href="/python/p13.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">함수</a>
+     <a href="/python/p14.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">변수의 유효범위</a>
+     <a href="/python/p15.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">클래스</a>
+     <a href="/python/p16.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">객체</a>
+     <a href="/python/p17.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">상속</a>
+     <a href="/python/p18.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">모듈</a>
+     <a href="/python/p19.html" class=" btn btn-secondary mb-1" target="_blank">파일 입출력</a>     
+     <a href="/python/p20.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">예외처리</a> 
+     <a href="/python/p21.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">웹스크래핑1</a>    
+     <a href="/python/p22.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">웹스크래핑2</a>   </p> 
+
+     <div class="col-md-8 mb-2">
+      <div class="p-3 text-white fs-4 bd-pink-800">파일 입출력</div>
+      <p>수백만단위의 숫자들의 합을 구하는 코드를 만들어야 한다면 이를 일일이 키보드로 타이핑 해야 한다면 번거로운일일것이다 <br>
+        많은 양의 데이터를 일괄적으로 처리하기에 가장 좋은 방법은 입력값을 파일에 저장해 놓은 다음, 이것을 읽어서 처리하는 것이다. </p> 
+
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">파일 입출력</h2>
+      <p>파이썬에서는 표준 입출력 함수인 input()과 print() 함수를 사용하여 프로그램과 사용자 사이의 입출력 작업을 수행할 수 있다.<br> 
+      그리고 프로그램과 파일 사이의 입출력 즉, 파일에 저장된 내용을 읽고 쓰는 동작은 파일 객체(file object)를 사용하여 수행할 수 있다.</p>
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">파일 핸들러</h2>
+      <p>파일을 액세스하기 위해서는 파일을 생성하거나 열고 그 파일에 대한 핸들러를 얻어야 한다.<br>
+      이 핸들러를 통해서 파일로부터 데이터를 읽어들이거나 파일로 데이터를 쓰는 작업을 처리할 수 있다.<br>
+      파일 핸들러는 내부적으로 TextIOWrapper 라는 버퍼 객체이다.<br>  
+
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">파일 열고 닫기</h2>
+      <p>파일의 내용을 읽고 쓰기 위해서는 우선 파일을 열어야만 한다. 파일 핸들러를 만드는 함수는 바로 open() 이라는 내장함수이다. <br> 
+      파이썬에서는 내장 함수인 open() 함수를 사용하여 파일을 열 수 있다.</p>
+
+      <p class="bd-yellow-100"><span class="fw-bold">문법</span><br> 
+      파일객체 = open(파일명, 파일모드, 인코딩문자열)<br>
+      lines = f.readlines()<br>
+      ...<br>
+      f.close()<br>
+      </p><br><p>
+      
+      open() 함수 파일의 이름(및 경로)과 모드 그리고 인코딩을 이용해서 파일을 열고 액세스할 준비를 하게 된다.<br> 
+      이렇게 호출된 open() 함수는 해당 파일을 가리키는 파일 객체(file object)를 반환하며, 이 파일 객체를 가지고 다양한 파일 입출력 작업을 수행할 수 있다.<br>  
+      파일 입출력 작업이 모두 끝나면 파일 객체의 close() 함수를 사용하여 해당 파일 객체를 닫아줘야 한다.</p><br>
+      기본파일은 텍스트 파일이라고 가정되는데 만약 파일 내에 영문자와 숫자와 같은 ASCII 코드 범위 밖의 글자 (한글, 한자, 일본어 및 특수문자 들)가 <br>
+      포함되는 경우라면 대부분 어떠한 인코딩이 적용된 상태일 것이다. 정상적인 텍스트를 얻고 싶다면 정확한 인코딩을 명시해줄 필요가 있다. <br>
+      (이는 마치 mp3 파일을 jpg전용 이미지 뷰어에서 열어 볼 수 없는 것과 비슷한 이유이다.)<br><br> 
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      fp = open('test.txt', 'w')<br> 
+      ...<br> 
+      fp.close()</p>     </div> 
+      
+        <p>위의 예제는 "test.txt"라는 파일을 쓰기 전용으로 열고, 이에 해당하는 파일 객체를 변수 fp에 저장하고 있다.<br>
+        이렇게 저장된 파일 객체를 가지고 원하는 작업을 모두 수행한 다음에는 close() 함수를 통해 파일 객체를 닫아주고 있다.<br>
+        실행 중인 파이썬 프로그램이 종료되면, 해당 프로그램을 통해 열린 모든 파일 객체는 자동으로 닫힙니다.<br>
+        하지만 close() 함수를 사용하여 명시적으로 파일 객체를 닫아주는 것이 예상치 못한 오류를 방지할 수 있다.</p> 
+        파일 입출력에 관한 예제는 보안상 온라인 코딩 연습에서는 연습해 볼 수 없으므로, 각자 자신의 컴퓨터에 설치된 파이썬 인터프리터를 활용하여 연습해 보도록 합시다.</div>
+        
+        <hr>
+        <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">파일 모드 문자열</h2>
+        <p>open() 함수의 두 번째 인수로 전달되는 파일 모드 문자열은 해당 파일의 사용 용도를 결정하고 파일의 데이터를 어떤 방식으로 입출력할지를 결정하는 역할을 한다.<br>
+        파일 모드는 가장 먼저 파일의 사용 용도를 결정하는 문자열이 나오며, 이를 생략할 경우 파일은 읽기 전용 모드(read mode)로 열린다.</p>
+        <p>1. r (read mode) : 읽기 전용 모드 (기본값)<br>
+        2. w (write mode) : 쓰기 전용 모드.  이 모드에서 파일에 기록을 시작하면 이전 내용은 모두 지워진다<br>
+        3. a (append mode) : 쓰기 모드이나, 파일의 원래 내용을 유지하고 파일의 끝 부분부터 내용을 추가한다.</p><br>
+
+        <p>그 다음으로 파일의 데이터를 어떤 방식으로 입출력할지를 결정하는 문자열이 이어지며, 이를 생략하면 파일은 텍스트 모드(text mode)로 열린다.<br>
+        1. t (text mode) : 해당 파일의 데이터를 텍스트 파일로 인식하고 입출력함. (기본값)<br>
+        2. b (binary mode) : 해당 파일의 데이터를 바이너리 파일로 인식하고 입출력함.<br><br>
+
+        마지막으로 다음과 같은 파일 모드를 추가할 수 있다.</p>
+        <p>1. x (exclusive mode) : 열고자 하는 파일이 이미 존재하면 파일 개방에 실패함. create를 의미한다. 이미 존재하는 파일을 이 모드로 열게되면 에러가 발생된다.<br>
+        2. + (update mode) : rw로 파일을 읽을 수도 있고 쓸 수도 있도록 개방함.<br>
+        예를 들어, 쓰기 전용 모드인 ‘w’로 파일을 열었을 경우 같은 이름의 파일이 이미 존재하면, 해당 파일에 저장되어 있던 모든 내용이 제거되고 파일이 열린다. <br>
+        하지만 같은 이름의 파일이 존재하지 않는다면, 해당 이름의 새로운 파일이 만들어져서 열리게 되는 것이다.<br>
+        파일 모드 문자열 중 파일 사용 용도의 기본값은 'r'(읽기 전용 모드)이며, 파일 양식의 기본값은 't'(텍스트 모드)이다.<br>
+        따라서 다음 보기의 파일 모드 문자열은 모두 같은 의미인 텍스트 파일의 읽기 전용 모드를 나타낸다.</p>
+        <p class="fw-bold">보기<br>
+        'r', 't', 'rt'</p>
+        
+        <hr>
+        <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">파일 내용 읽기</h2>
+        <p>open() 함수로 파일을 연 다음에는 해당 파일의 내용을 읽을 수 있다.<br>
+        이를 위해 파이썬에서는 다음과 같은 함수들을 제공하고 있다.<br>
+        1. read() 함수<br>
+        2. readline() 함수<br>
+        3. readlines() 함수<br><br>
+
+        예제에 사용될 ‘test.txt’ 파일에는 다음과 같은 내용이 저장되어 있다.<br>
+        <p class="fw-bold">text.txt 내용<br></p><p>
+        1번째 라인이다.<br>
+        2번째 라인이다.<br>
+        3번째 라인이다.<br>
+        마지막 라인이다.<br>
+        read() 함수는 해당 파일의 모든 내용을 읽어 들여 하나의 문자열로 반환한다.</p>
+  
+        <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+          <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+            <p class="card-text" style="padding: 10px 10px;">
+        fp = open('test.txt', 'r')  <br> 
+        &nbsp;&nbsp;&nbsp;&nbsp;file_data = fp.read()<br> 
+        &nbsp;&nbsp;&nbsp;&nbsp;print(file_data)  <br> 
+        fp.close()</p> 
+
+        <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+          <span class="fw-bold">실행 결과</span><br>   
+        1번째 라인이다.<br>
+        2번째 라인이다.<br>
+        3번째 라인이다.<br>
+        마지막 라인이다.</p></div></div>
+        <p>readline() 함수는 해당 파일의 내용을 한 라인씩 읽어 들여 문자열로 반환하며, 파일의 끝(EOF)에 도달하여 더 이상 가져올 라인이 없을 경우에는 None을 반환한다.</p>
+  
+        <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+          <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+            <p class="card-text" style="padding: 10px 10px;">
+        fp = open('test.txt', 'r')  <br> 
+        &nbsp;&nbsp;&nbsp;&nbsp;file_data = fp.readline()<br> 
+        &nbsp;&nbsp;&nbsp;&nbsp;print(file_data)  <br> 
+        fp.close()</p> 
+
+        <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+          <span class="fw-bold">실행 결과</span><br>  
+      
+        1번째 라인이다.</p></div></div>
+
+        <p>readline() 함수는 한 번에 한 라인만을 읽을 수 있기 때문에 파일의 모든 내용을 읽기 위해서는 다음과 같이 반복문을 사용해야 한다.</p>
+  
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+        <p class="card-text" style="padding: 10px 10px;">
+          fp = open('test.txt', 'r')  <br> 
+          while True:<br> 
+          &nbsp;&nbsp;&nbsp;&nbsp;file_line = fp.readline()<br> 
+          &nbsp;&nbsp;&nbsp;&nbsp;if not file_line:<br> 
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break<br> 
+          &nbsp;&nbsp;&nbsp;&nbsp;print(file_line, end='')  <br> 
+          fp.close()</p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+          <span class="fw-bold">실행 결과</span><br>     
+          1번째 라인이다.<br>
+          2번째 라인이다.<br>
+          3번째 라인이다.<br>
+          마지막 라인이다.</p></div></div>  
+          
+  <p>마지막으로 readlines() 함수는 해당 파일의 모든 라인을 순서대로 읽어 들여 각각의 라인을 하나의 요소로 저장하는 하나의 리스트를 반환한다.</p>
+
+  <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+      <p class="card-text" style="padding: 10px 10px;">
+  fp = open('test.txt', 'r')  <br> 
+  &nbsp;&nbsp;&nbsp;&nbsp;file_lines = fp.readlines()<br> 
+  &nbsp;&nbsp;&nbsp;&nbsp;print(file_lines)  <br> 
+  fp.close()</p>
+
+  <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+    <span class="fw-bold">실행 결과</span>      
+  ['1번째 라인이다.\n', '2번째 라인이다.\n', '3번째 라인이다.\n', '마지막 라인이다.']</p></div></div>
+  <p>위의 실행결과처럼 readlines() 함수를 사용하여 파일의 내용을 읽어들일 때에는 개행 문자(‘\n’)까지 모두 함께 저장되는 것에 주의를 기울여야 한다.</p>          
+
+  <hr>
+  <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">파일에 내용 추가하기</h2>
+  <p>쓰기 전용 모드인 'w'는 만약 같은 이름의 파일이 이미 존재하면, 해당 파일에 저장되어 있는 모든 내용을 제거한 후 파일을 열게 된다.<br>
+  따라서 기존에 존재하는 파일에 새로운 내용을 추가하려면 파일 모드 문자열을 ‘w’가 아닌 ‘a’로 전달해서 파일을 열어야만 한다.<br>
+  write() 함수를 사용하면 파일에 새로운 내용을 추가할 수 있다.</p>
+
+  <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+      <p class="card-text" style="padding: 10px 10px;">
+  fp = open('test.txt', 'a')<br> 
+  fp.write("\n추가된 라인이다.")<br> 
+  fp.close()</p> 
+  
+  <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+    <span class="fw-bold">실행 결과</span>  
+      
+  1번째 라인이다.<br>
+  2번째 라인이다.<br>
+  3번째 라인이다.<br>
+  마지막 라인이다.<br> 
+  추가된 라인이다.</p>  </div></div>
+
+  <hr>
+  <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">자동으로 파일 닫기</h2>
+  <p>지금까지 우리는 open() 함수를 사용하여 파일을 열고, 모든 작업이 끝난 뒤에는 close() 함수를 사용하여 파일을 닫아주었다.<br>
+  하지만 실제 프로그래밍을 하다보면 특정 작업을 위해 연 파일을 닫는 작업을 자주 잊어버리는 실수를 하게 된다.</p> 
+  <p>이와 같은 불편함을 해소하기 위해 파이썬에서는 개방한 파일을 자동으로 닫아주는 with 문이라는 편리한 구문을 제공하고 있다.</p> 
+  <p>with 문은 해당 with 블록을 벗어남과 동시에 개방되었던 파일 객체를 자동으로 닫아줌으로써, 사용자가 열고 작업한 파일을 일일이 닫는 수고를 덜어주고 코드의 가독성까지 향상시켜 준다.</p>
+
+  <p class="fw-bold">문법<br>
+  <p><p class="fw-bold">with open(파일명, 파일모드문자열) as 파일객체:<br>
+    수행할 명령문</b></p> 
+
+<div class="card text-bg-light mb-3" style="max-width: 50rem;">
+  <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+    <p class="card-text" style="padding: 10px 10px;">
+  fp = open('test.txt', 'r')  <br> 
+  &nbsp;&nbsp;&nbsp;&nbsp;file_data = fp.read()<br> 
+  &nbsp;&nbsp;&nbsp;&nbsp;print(file_data)  <br> 
+  fp.close()</p></div>
+  <p>위의 예제를 with 문을 사용하여 작성하면 다음과 같다.</p>
+
+  <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+      <p class="card-text" style="padding: 10px 10px;">
+  with open('test.txt', 'r') as fp:<br> 
+  &nbsp;&nbsp;&nbsp;&nbsp;file_data = fp.read()<br> 
+  &nbsp;&nbsp;&nbsp;&nbsp;print(file_data)</p></div>
+  <p>위와 같이 with 문을 사용하면 close() 함수를 사용하지 않아도 열어놓은 파일을 자동으로 닫아주며, 소스 코드의 가독성도 확연히 좋아짐을 확인할 수 있다.<br> 
+</body>
+</html>

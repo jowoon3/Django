@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>함수</title>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">   
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">      
+  <link href="{% static '/css/java.css'%}" rel="stylesheet">   
+</head>
+<body class="ms-3">  
+  <H2><a name="home">Javascript</a></H2>  
+  <p><a href="/javascript/j04.html" class="btn btn-purple mb-1" target="_blank">이전 노트</a>
+  <a href="/javascript/j06.html" class="btn btn-purple mb-1" target="_blank">다음 노트</a>
+  <a href="/htmls/tut1.html" class="btn btn-danger mb-1" target="_blank">HTML 노트</a> 
+  <a href="/css/tut11.html" class="btn btn-success mb-1" target="_blank">CSS 노트</a> 
+  <a href="/htmls/html_CSS.html" class="btn btn-outline-danger border-2 mb-1" target="_blank">HTML+CSS</a>
+  <a href="/htmls/html_Emmet.html" class="btn btn-outline-danger border-2 mb-1" target="_blank">HTML+Emmet</a>
+  <a href="/htmls/html_tags.html" class="btn btn-outline-danger border-2 mb-1" target="_blank">HTML+Tags</a><br>
+  <a href="/python/p01.html" class="btn btn-warning mb-1" target="_blank">파이썬 노트</a> 
+    <a href="/javascript/j01.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">자바스크립트 개요</a>
+  <a href="/javascript/j02.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">기본타입과 타입변환</a>
+  <a href="/javascript/j03.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">자바스크립트 연산자</a>
+  <a href="/javascript/j04.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">제어문과 배열 </a>
+  <a href="/javascript/j05.html" class=" btn btn-secondary mb-1"  target="_blank">함수</a> 
+  <a href="/javascript/j06.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">객체</a>      
+  <a href="/javascript/j07.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Number 객체</a> 
+  <a href="/javascript/j08.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Math 객체</a> 
+  <a href="/javascript/j09.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Date 객체</a>     
+  <a href="/javascript/j10.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">String 문자열 객체</a>
+  <a href="/javascript/j11.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Array 배열 객체</a> 
+  <a href="/javascript/j12.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">문서객체모델 DOM</a> 
+  <a href="/javascript/j13.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">브라우저 객체 모델 BOM</a> 
+  <a href="/javascript/j14.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">이벤트와 예외처리</a>
+  <a href="/javascript/j15.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">정규표현식</a> 
+  <a href="/javascript/j16.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">람다표현식</a> 
+  <a href="/javascript/j17.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Map과 Set, Iterator와 Generator</a> </p> 
+
+    <hr><div class="col-md-8 mb-2">
+      <div class="p-3 text-white fs-4 bd-pink-800">함수(function)란?</div>      </div> 
+    
+    <p>함수(function)란 하나의 특별한 목적의 작업을 수행하도록 설계된 독립적인 블록을 의미한다.<br>
+    이러한 함수는 필요할 때마다 호출하여 해당 작업을 반복해서 수행할 수 있다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">addNum</span>(x, y) {<br>
+        <span style="color:#794938">return</span> x <span style="color:#794938">+</span> y;<br>
+    }<br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(addNum(<span style="color:#811f24;font-weight:700">2</span>, <span style="color:#811f24;font-weight:700">3</span>));</p>
+    자바스크립트에서 블록이란 함수나 실행문의 중괄호({})로 묶여진 부분을 가리킨다.</div>
+    
+    <hr>
+    <h4>자바스크립트 함수</h4>
+    
+    <p>자바스크립트에서는 함수도 하나의 타입(datatype)이다.<br>
+    따라서 함수를 변수에 대입하거나, 함수에 프로퍼티를 지정하는 것도 가능한다.<br>
+    또한, 자바스크립트 함수는 다른 함수 내에 중첩되어 정의될 수도 있다.</p>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">함수의 정의</h4>
+    
+    <p>자바스크립트에서 함수의 정의는 function 키워드로 시작되며, 다음과 같은 구성요소를 가진다.<br>
+    1. 함수의 이름<br>
+    2. 괄호 안에 쉼표(,)로 구분되는 함수의 매개변수(parameter)<br>
+    3. 중괄호({})로 둘러싸인 자바스크립트 실행문<br> </p>
+    <span style="color:#a71d5d;font-style:italic">function</span> 함수이름(매개변수1, 매개변수2,...) {<br>
+        함수가 호출되었을 때 실행하고자 하는 실행문;<br>
+    }</p>
+    </div>
+    <p>함수 이름(function name)은 함수를 구분하는 식별자(identifier)이다.<br>
+    매개변수(parameter)란 함수를 호출할 때 인수(argument)로 전달된 값을 함수 내부에서 사용할 수 있게 해주는 변수이다.</p>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#5a525f;font-style:italic">// addNum라는 이름의 함수를 정의함.</span><br>
+    <span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">addNum</span>(x, y) {    <span style="color:#5a525f;font-style:italic">// x, y는 이 함수의 매개변수임.</span><br>
+    <span style="color:#691c97">    document</span>.<span style="color:#693a17">write</span>(x <span style="color:#794938">+</span> y);<br>
+    }<br>
+    addNum(<span style="color:#811f24;font-weight:700">2</span>, <span style="color:#811f24;font-weight:700">3</span>);              <span style="color:#5a525f;font-style:italic">// addNum() 함수에 인수로 2와 3을 전달하여 호출함.</span><br></div>
+    위의 예제에서 매개변수 x에는 인수 2가 저장되고, y에는 인수 3이 저장되어 사용된다.<br>
+    이렇게 인수와 매개변수는 개수뿐만 아니라 순서 또한 매우 중요하게 적용된다.</p>
+    함수의 인수(argument)란 함수가 호출될 때 함수로 값을 전달해주는 변수나 상수를 의미한다.</div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">반환(return)문</h4>
+    
+    <p>자바스크립트에서 함수는 반환(return)문을 포함할 수 있다.<br>
+    이러한 반환문을 통해 호출자는 함수에서 실행된 결과를 전달받을 수 있다.<br>
+    반환문은 함수의 실행을 중단하고, return 키워드 다음에 명시된 표현식의 값을 호출자에게 반환한다.<br>
+    반환문은 배열이나 객체를 포함한 모든 타입의 값을 반환할 수 있다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">multiNum</span>(x, y) {<br>
+    <span style="color:#794938">    return</span> x <span style="color:#794938">*</span> y;         <span style="color:#5a525f;font-style:italic">// x와 y를 곱한 결과를 반환함.</span><br>
+    }<br>
+    <span style="color:#a71d5d;font-style:italic">var</span> num <span style="color:#794938">=</span> multiNum(<span style="color:#811f24;font-weight:700">3</span>, <span style="color:#811f24;font-weight:700">4</span>); <span style="color:#5a525f;font-style:italic">// multiNum() 함수가 호출된 후, 그 반환값이 변수 num에 저장됨.</span><br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(num);</p></div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">함수의 호출</h4>
+    
+    <p>정의된 함수는 프로그램 내에서 호출되어야 비로소 실행된다.<br>
+    일반적인 함수의 호출은 함수의 정의문과 같은 형태로 호출할 수 있다.</p>
+    <h5>함수의 정의</h5>
+    
+    <span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">addNum</span>(x, y) {<br>
+        <span style="color:#794938">return</span> x <span style="color:#794938">+</span> y;<br>
+    }</p>
+    </div>
+    <h5>함수의 호출</h5>
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> sum <span style="color:#794938">=</span> addNum(<span style="color:#811f24;font-weight:700">3</span>, <span style="color:#811f24;font-weight:700">5</span>); <span style="color:#5a525f;font-style:italic">// 함수 addNum()을 호출하면서, 인수로 3과 5를 전달한다.</span><br>
+                            <span style="color:#5a525f;font-style:italic">// 함수의 호출이 끝난 뒤에는 그 반환값을 변수 sum에 대입한다.</span></p>
+    </div>
+    <p>위의 예제에서 인수(argument)로 전달된 숫자 3과 5는 함수에서 정의된  매개변수(parameter) x와 y에 각각 대입된다.<br>
+    따라서 호출된 함수의 내부에서는 매개변수 x와 y에 각각 3과 5가 대입되어 계산된다.</p>
+    <hr>
+    <h4 class="text-primary fst-italic">함수를 다른 함수로 전달하기</h4>
+    
+    <p>함수를 다른 함수의 인수로 사용하는것도 가능하다.<br>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제 : 함수를 다른 함수로 전달하기</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    <button id="btn_26" onClick="btnfx26()">함수전달</button><br>
+    function hello() {return "안녕하세요?";}<br>
+    function bye() {return "안녕히 가세요."; }   <br> 
+    function userCheck(name, fn) {console.log(`${name}님`, fn());}<br>
+    userCheck("홍길동", hello);  // 홍길동 안녕하세요?<br>
+    userCheck("도레미", bye);  // 도레미 안녕히 가세요.<br></p></div>
+    <script>
+    let btnfx26 =function() {
+      function hello() {
+      return "안녕하세요? ";}
+      function bye() {
+      return "안녕히 가세요.";}    
+     function userCheck(name, fn) {
+      document.write(`${name}님 `, fn());}    
+    userCheck("홍길동", hello);  // 홍길동 안녕하세요?
+    userCheck("도레미", bye);  // 도레미 안녕히 가세요.
+    }
+    
+    let btnfx27 =function() {
+      let init = () => {
+      return function(a, b) {
+        return a - b > 0 ? a - b : b - a;}
+    }
+    document.write(`init()(30, 20) : ${init()(10, 20)}`);  
+    }
+    </script>
+    <hr>
+    <h4 class="text-primary fst-italic">함수에서 다른 함수 반환하기</h4>
+    
+    <p>함수에서 다른 함수를 반환할수 있다. 복잡한 소스에서 유용하게 사용된다.<br>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제 : init()함수에서 다른 함수 반환하기</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    <button id="btn_27" onClick="btnfx27()">함수반환</button><br>
+    let init = () => {<br>
+      return function(a, b) {<br>
+        return a - b > 0 ? a - b : b - a;} }<br>
+    // console.log(`init(30, 20) : ${init(30, 20)}`);<br>
+    console.log(`init()(30, 20) : ${init()(10, 20)}`);  <br></p></div>
+
+
+    <hr>
+    <h4 class="text-primary fst-italic">값으로서의 함수</h4>
+    
+    <p>자바스크립트에서 함수는 문법적 구문일뿐만 아니라 값(value)이기도 한다.<br>
+    따라서 함수가 변수에 대입될 수도 있으며, 다른 함수의 인수로 전달될 수도 있다.<br> 
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제 : 함수를 변수에 저장하여 사용</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">sqr</span>(x) {                <span style="color:#5a525f;font-style:italic">// 제곱의 값을 구하는 함수 sqr를 정의함.</span><br>
+        <span style="color:#794938">return</span> x <span style="color:#794938">*</span> x;<br>
+    }<br>
+    <span style="color:#a71d5d;font-style:italic">var</span> sqrNum <span style="color:#794938">=</span> sqr;                <span style="color:#5a525f;font-style:italic">// 변수 sqrNum에 함수 sqr을 대입함.</span><br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(sqr(<span style="color:#811f24;font-weight:700">4</span>) <span style="color:#794938">+</span> <span style="color:#0b6125">"&lt;br&gt;"</span>); <span style="color:#5a525f;font-style:italic">// 함수 sqr을 호출함.</span><br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(sqrNum(<span style="color:#811f24;font-weight:700">4</span>));       <span style="color:#5a525f;font-style:italic">// 변수 sqrNum를 함수처럼 호출함.</span></p></div>
+    
+    <hr><div class="col-md-8 mb-2">
+      <div id="variable" class="p-3 text-white fs-4 bd-pink-800">변수의 유효 범위(variable scope)</div>      </div> 
+    
+    <p>자바스크립트에서 객체나 함수는 모두 변수(variable)이다.<br>
+    변수의 유효 범위(scope)란 해당 변수가 접근할 수 있는 변수, 객체 그리고 함수의 집합을 의미한다.<br>
+    자바스크립트에서 변수는 유효 범위에 따라 다음과 같이 구분된다.<br>
+    1. 지역 변수(local variable)<br>
+    2. 전역 변수(global variable)</p>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">지역 변수(local variable)</h4>
+    
+    <p>지역 변수(local variable)란 함수 내에서 선언된 변수를 가리킨다.<br>
+    이러한 지역 변수는 변수가 선언된 <span class="text-danger fw-bold">함수 내에서만 유효하며, 함수가 종료되면 메모리에서 사라진다.</span><br>
+    함수의 매개변수 또한 함수 내에서 정의되는 지역 변수처럼 동작한다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">localNum</span>() {<br>
+    <span style="color:#a71d5d;font-style:italic">    var</span> num <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">10</span>; <span style="color:#5a525f;font-style:italic">// 지역 변수 num에 숫자 10을 대입함.</span><br>
+    <span style="color:#a71d5d;font-style:italic">    </span><span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"함수 내부에서 변수 num의 타입은 "</span> <span style="color:#794938">+</span> <span style="color:#794938">typeof</span> num <span style="color:#794938">+</span> <span style="color:#0b6125">"이다.&lt;br&gt;"</span>); <span style="color:#5a525f;font-style:italic">// number</span><br>
+    }<br>
+    localNum();       <span style="color:#5a525f;font-style:italic">// 함수 localNum()을 호출함.</span><br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"함수의 호출이 끝난 뒤 변수 num의 타입은 "</span> <span style="color:#794938">+</span> <span style="color:#794938">typeof</span> num <span style="color:#794938">+</span> <span style="color:#0b6125">"이다."</span>); <span style="color:#5a525f;font-style:italic">// undefined</span></p></div>
+    
+    
+    <p>자바스크립트에서는 선언되지 않은 변수를 사용하려고 하거나 접근하려고 하면 오류를 발생시킨다.<br>
+    하지만 선언되지 않은 변수에 대한 typeof 연산자의 결괏값은 undefined 값을 반환한다.</p>
+    </div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">전역 변수(global variable)</h4>
+    
+    <p>전역 변수(global variable)란 <span class="text-danger fw-bold">함수의 외부에서 선언</span>된 변수를 가리킨다.<br>
+    이러한 전역 변수는 프로그램의 어느 영역에서나 접근할 수 있으며, 웹 페이지가 닫혀야만 메모리에서 사라진다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> num <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">10</span>; <span style="color:#5a525f;font-style:italic">// 전역 변수 num을 선언함.</span><br>
+    <span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">globalNum</span>() {<br>
+    <span style="color:#a71d5d;font-style:italic">    </span><span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"함수 내부에서 변수 num의 값은 "</span> <span style="color:#794938">+</span> num <span style="color:#794938">+</span> <span style="color:#0b6125">"이다.&lt;br&gt;"</span>); <span style="color:#5a525f;font-style:italic">// 10</span><br>
+        num <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">20</span>; <span style="color:#5a525f;font-style:italic">// 전역 변수 num의 값을 함수 내부에서 변경함.</span><br>
+    }<br>
+    globalNum();  <span style="color:#5a525f;font-style:italic">// 함수 globalNum()을 호출함.</span><br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"함수의 호출이 끝난 뒤 변수 num의 값은 "</span> <span style="color:#794938">+</span> num <span style="color:#794938">+</span> <span style="color:#0b6125">"이다."</span>); <span style="color:#5a525f;font-style:italic">// 20</span><br></div>
+    위의 예제처럼 전역 변수는 함수 외부뿐만 아니라 내부에서도 접근하여 변경할 수 있다. <br>
+    자바스크립트에서 지역 변수를 선언할 때에는 반드시 var 키워드를 사용하여 선언해야 한다.<br>
+    함수 내부에서 var 키워드를 사용하지 않고 변수를 선언하면, 해당 변수는 지역 변수가 아닌 전역 변수로 선언된다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">globalNum</span>() {<br>
+    <span style="color:#a71d5d;font-style:italic">    </span>num <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">10</span>; <span style="color:#5a525f;font-style:italic">// var 키워드를 사용하지 않고 변수 num을 선언함.</span><br>
+    <span style="color:#a71d5d;font-style:italic">    </span><span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"함수 내부에서 변수 num의 값은 "</span> <span style="color:#794938">+</span> num <span style="color:#794938">+</span> <span style="color:#0b6125">"이다.&lt;br&gt;"</span>); <span style="color:#5a525f;font-style:italic">// </span>10<br>
+    }<br>
+    globalNum();  <span style="color:#5a525f;font-style:italic">// 함수 globalNum()을 호출함.</span><br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"함수의 호출이 끝난 뒤 변수 num의 값은 "</span> <span style="color:#794938">+</span> num <span style="color:#794938">+</span> <span style="color:#0b6125">"이다."</span>); <span style="color:#5a525f;font-style:italic">// </span>10<br></div>
+    또한, 전역 변수와 같은 이름의 지역 변수를 선언하면, 해당 블록에서는 해당 이름으로 지역 변수만을 호출할 수 있다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> num <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">10</span>; <span style="color:#5a525f;font-style:italic">// 전역 변수 num을 선언함.</span><br>
+    <span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">globalNum</span>() {<br>
+    <span style="color:#a71d5d;font-style:italic">    var</span> num <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">20</span>; <span style="color:#5a525f;font-style:italic">// 같은 이름의 지역 변수 num을 선언함.</span><br>
+    <span style="color:#a71d5d;font-style:italic">    </span><span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"함수 내부에서 변수 num의 값은 "</span> <span style="color:#794938">+</span> num <span style="color:#794938">+</span> <span style="color:#0b6125">"이다.&lt;br&gt;"</span>); <span style="color:#5a525f;font-style:italic">// </span>20<br>
+    }<br>
+    globalNum(); <span style="color:#5a525f;font-style:italic">// 함수 globalNum()을 호출함.</span><br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"함수의 호출이 끝난 뒤 변수 num의 값은 "</span> <span style="color:#794938">+</span> num <span style="color:#794938">+</span> <span style="color:#0b6125">"이다."</span>); <span style="color:#5a525f;font-style:italic">// </span>10<br></div>
+    위의 예제와 같은 경우 해당 블록에서 전역 변수를 호출하려면, 전역 변수가 window 객체의 프로퍼티임을 명시하면 된다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> num <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">10</span>; <span style="color:#5a525f;font-style:italic">// 전역 변수 num을 선언함.</span><br>
+    <span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">globalNum</span>() {<br>
+    <span style="color:#a71d5d;font-style:italic">    var</span> num <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">20</span>; <span style="color:#5a525f;font-style:italic">// 같은 이름의 지역 변수 num을 선언함.</span><br>
+    <span style="color:#a71d5d;font-style:italic">    </span><span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"함수 내부에서 지역 변수 num의 값은 "</span> <span style="color:#794938">+</span> num <span style="color:#794938">+</span> <span style="color:#0b6125">"이다.&lt;br&gt;"</span>);<br>
+    <span style="color:#a71d5d;font-style:italic">    </span><span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"함수 내부에서 전역 변수 num의 값은 "</span> <span style="color:#794938">+</span> <span style="color:#691c97">window</span>.num <span style="color:#794938">+</span> <span style="color:#0b6125">"이다.&lt;br&gt;"</span>);<br>
+    }<br>
+    globalNum(); <span style="color:#5a525f;font-style:italic">// 함수 globalNum()을 호출함.</span></p> </div>
+    
+    <hr><div class="col-md-8 mb-2">
+      <div class="p-3 text-white fs-4 bd-pink-800">함수의 유효 범위(function scope)</div>  </div>
+    
+    <p>대부분의 프로그래밍 언어에서는 블록 내에서 정의된 변수를 블록 외부에서는 접근할 수 없다.<br>
+    블록(block)이란 코드 내에서 중괄호({})로 둘러싸인 부분을 가리킨다.<br>
+    이러한 블록을 기준으로 하는 유효 범위를 블록 단위의 유효 범위라고 한다.<br>
+    하지만 자바스크립트는 다른 언어와는 달리 함수를 블록 대신 사용한다.<br>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100">블록 스코프 고려해서 작성하기</div> 
+      <p class="card-text" style="padding: 10px 10px;">
+          const factor = 5  <br>
+            function cal(num) {<br> 
+              return num*factor;<br> 
+            }<br> 
+            {<br> 
+              let result = cal(10); <br>
+              docoment.write( `result: ${result}`) ;<br> 
+            }     <br> 
+      </div>  </div>
+  
+        
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100">익명 함수 선언 및 실행하기 </div> 
+      <p class="card-text" style="padding: 10px 10px;">
+          let sum = function(a,b) { <br>
+            return a*b;<br> 
+            }<br> 
+            console.log(`함수 실행결과 : ${sum(10,20)}`);<br>  
+      </div>  </div>
+      
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100">즉시 실행함수 </div> 
+      <p class="card-text" style="padding: 10px 10px;">
+          (function(a,b) { <br>
+            let sum = a+b;<br> 
+            console.log(`함수 실행결과 : ${sum}`)
+            }<br> 
+          (100,200)) ;<br>  
+      </div>  </div>
+  
+    자바스크립트에서 함수는 자신이 정의된 범위 안에서 정의된 모든 변수 및 함수에 접근할 수 있다.<br>
+    '전역 함수'는 모든 전역 변수와 전역 함수에 접근할 수 있다.<br>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100">전역함수 사용하기 </div> 
+      <p class="card-text" style="padding: 10px 10px;">
+          var hi = "hello"; <br>
+  
+          function change() { <br>
+            var hi = "bye";
+            } <br><br>
+          
+          console.log(hi);<br>
+          change();<br>
+          cosole.log(hi);<br> 
+      </div>  </div>
+    
+    반면, 다른 함수 내에 정의된 '내부 함수'는 그 함수의 부모 함수(parent function)에서 정의된 모든 변수 및 부모 함수가 접근할 수 있는 모든 다른 변수까지도 접근할 수 있다(?).</p>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#5a525f;font-style:italic">// x, y, name을 전역 변수로 선언함.</span><br>
+    <span style="color:#a71d5d;font-style:italic">var</span> x <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">10</span>, y <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">20</span>;<br>
+    <span style="color:#5a525f;font-style:italic">// sub()를 전역 함수로 선언함.</span><br>
+    <span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">sub</span>() {<br>
+    <span style="color:#794938">    return</span> x <span style="color:#794938">-</span> y;     <span style="color:#5a525f;font-style:italic">// 전역 변수인 x, y에 접근함.</span><br>
+    }<br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#693a17">sub</span>() <span style="color:#794938">+</span> <span style="color:#0b6125">"&lt;br&gt;"</span>);<span style="color:#5a525f;font-style:italic">// -10</span><br>
+    <span style="color:#5a525f;font-style:italic">// parentFunc()을 전역 함수로 선언함.</span><br>
+    <span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">parentFunc</span>() {<br>
+    <span style="color:#794938">    </span><span style="color:#a71d5d;font-style:italic">var</span> x <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">1</span>, y <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">2</span>; <span style="color:#5a525f;font-style:italic">// 전역 변수와 같은 이름으로 선언하여 전역 변수의 범위를 제한함.</span><br>
+    <span style="color:#794938">    </span><span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">add</span>() {  <span style="color:#5a525f;font-style:italic">// add() 함수는 내부 함수로 선언됨.</span><br>
+    <span style="color:#794938">        return</span> x <span style="color:#794938">+</span> y; <span style="color:#5a525f;font-style:italic">// 전역 변수가 아닌 지역 변수 x, y에 접근함.</span><br>
+    <span style="color:#794938">    </span>}<br>
+    <span style="color:#794938">    return</span> <span style="color:#693a17">add</span>();<br>
+    }<br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(parentFunc());<span style="color:#5a525f;font-style:italic">// 3</span></p></div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">함수 호이스팅(hoisting)</h4>
+    
+    <p>자바스크립트에서 함수의 유효 범위라는 것은 함수 안에서 선언된 모든 변수는 함수 전체에 걸쳐 유효하다는 의미이다.<br>
+    그런데 이 유효 범위의 적용이 변수가 선언되기 전에도 똑같이 적용된다.<br>
+    이러한 자바스크립트의 특징을 함수 호이스팅(hoisting)이라고 한다.<br>
+    즉, 자바스크립트 함수 안에 있는 모든 변수의 선언은 함수의 맨 처음으로 이동된 것처럼 동작한다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    <span style="color:#a71d5d;font-style:italic">var</span> globalNum <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">10</span>;     <span style="color:#5a525f;font-style:italic">// globalNum을 전역 변수로 선언함.</span><br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">globalNum)</span><span style="color:#5a525f;font-style:italic">// 10</span><br>
+    
+    <span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">printNum</span>() {<br>
+    <span style="color:#794938">    </span><span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"지역 변수 선언 전 globalNum은 "</span> <span style="color:#794938">+</span> globalNum); <span style="color:#5a525f;font-style:italic">// ①undefined이다.</span><br>
+    <span style="color:#794938">    </span><span style="color:#a71d5d;font-style:italic">var</span> globalNum <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">20</span>; <span style="color:#5a525f;font-style:italic">// globalNum을 지역 변수로 선언함. // ②</span><br>
+    <span style="color:#794938">    </span><span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"지역 변수 선언 후 globalNum은 "</span> <span style="color:#794938">+</span> globalNum); <span style="color:#794938;font-style:italic">//20</span><br>
+    }<br>
+    printNum();<br> <span style="color:#794938;font-style:italic">// printNum 함수 호출완료</span><br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">globalNum)</span><span style="color:#5a525f;font-style:italic">// 다시 전역변수 10</span><br>  
+  </div>
+    위의 예제 ①의 시점에서는 변수 globalNum가 전역 변수를 가리킨다고 생각하기 쉽다.<br>
+    하지만 자바스크립트 내부에서는 함수 호이스팅에 의해 다음과 같이 코드가 변경되어 처리된다.</p>
+    
+    <h5>호이스팅 후의 코드</h5> 
+    <span style="color:#a71d5d;font-style:italic">var</span> globalNum <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">10</span>;<br>
+    <span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">printNum</span>() {<br>
+    <span style="color:#794938">    </span><span style="color:#a71d5d;font-style:italic">var</span> globalNum; <span style="color:#5a525f;font-style:italic">// 함수 호이스팅에 의해 변수의 선언 부분이 함수의 맨 처음 부분으로 이동됨.</span><br>
+    <span style="color:#794938">    </span><span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"지역 변수 globalNum 선언 전의 globalNum의 값은 "</span> <span style="color:#794938">+</span> globalNum <span style="color:#794938">+</span> <span style="color:#0b6125">"이다.&lt;br&gt;"</span>);<br>
+    <span style="color:#794938">    </span>globalNum <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">20</span>;<br>
+    <span style="color:#794938">    </span><span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"지역 변수 globalNum 선언 후의 globalNum의 값은 "</span> <span style="color:#794938">+</span> globalNum <span style="color:#794938">+</span> <span style="color:#0b6125">"이다.&lt;br&gt;"</span>);<br>
+    }<br>
+    printNum();</p>
+    </div>
+    <p>위의 예제 ①의 시점에서는 globalNum라는 지역 변수가 선언만 되어 있고, 아직 값이 부여(초기화)되지 않은 상태이다.<br>
+    따라서 이때 globalNum 변수에 접근하면 아직 초기화되지 않은 변수에 접근했으므로, undefined 값을 반환하게 된다.<br>
+    실제로 변수가 초기화되는 시점은 원래 코드에서 변수가 선언된 ②의 시점이다.</p>
+    자바스크립트에서는 함수 호이스팅이 자동으로 수행되지만, 항상 함수 블록의 첫 부분에 변수를 선언하는 것이 좋다.</div>
+    
+    <hr><div class="col-md-8 mb-2">
+      <div class="p-3 text-white fs-4 bd-pink-800">매개변수(parameter)와 인수(argument)</div>  </div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">매개변수(parameter)</h4>
+    
+    <p>자바스크립트에서는 함수를 정의할 때는 매개변수의 타입을 따로 명시하지 않는다.<br>
+    함수를 호출할 때에도 인수(argument)로 전달된 값에 대해 어떠한 타입 검사도 하지 않는다.<br>
+    함수를 호출할 때 함수의 정의보다 적은 수의 인수가 전달되더라도, 다른 언어와는 달리 오류를 발생시키지 않는다.<br>
+    이 같은 경우 자바스크립트는 전달되지 않은 나머지 매개변수에 자동으로 undefined 값을 설정한다.<br>
+    매개변수(parameter)란 함수의 정의에서 전달받은 인수를 함수 내부로 전달하기 위해 사용하는 변수를 의미한다.<br>
+    인수(argument)란 함수가 호출될 때 함수로 값을 전달해주는 값을 말한다.</p>
+    </div> 
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100">매개변수의 기본값 지정하기</div> 
+    <p class="card-text" style="padding: 10px 10px;">
+        function multiple(a=5,b=10,c=12) {<br>
+          return a*b*c;}<br><br>
+
+        document.write(`multiple (3,4,5)는 3*4*5 로 계산하여 ${multiple(3,4,5)} 이다.<br>`); <br>
+        document.write(`multiple (2,5)는 2*5*c에서 c의 default 값인 12를 대입하여 ${multiple(2,5)} 이다.br>`);<br>
+        document.write(`multiple (7)는 7*b*c에서 b, c의 default 값인 10, 12를 대입하여 ${multiple(7)} 이다.);<br>
+    </div>  </div>
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5 class="card-title">매개변수가 없을때 </h5></div> 
+    <p class="card-text" style="padding: 10px 10px;">
+        let hi = () => {return `안녕하세요?`} <br> 
+    </div>  </div>
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5 class="card-title">매개변수가 1개일때 </h5></div> 
+    <p class="card-text" style="padding: 10px 10px;">
+        let hi = user => console.log(`${user}님, 안녕하세요?`) <br>      
+        hi("홍길동")    ;<br> 
+    </div>  </div> 
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100"><h5 class="card-title">매개변수가  2개 이상일때 </h5></div> 
+    <p class="card-text" style="padding: 10px 10px;">
+        let sum = (a, b) => a+b; <br>    
+        sum(10,20);<br> 
+    </div>  </div> 
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제 : 3개의 매개변수를 가지는 함수에 각각 다른 수의 인수를 전달</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">addNum</span>(x, y, z) { // x, y, z라는 3개의 매개변수를 가지는 함수 addNum()을 정의함.<br>
+    <span style="color:#794938">    return</span> x <span style="color:#794938">+</span> y <span style="color:#794938">+</span> z;<br>
+    }<br>
+    addNum(<span style="color:#811f24;font-weight:700">1</span>, <span style="color:#811f24;font-weight:700">2</span>, <span style="color:#811f24;font-weight:700">3</span>); <span style="color:#5a525f;font-style:italic">// 인수로 1, 2, 3을 전달하여 함수를 호출함. -&gt; 6</span><br>
+    addNum(<span style="color:#811f24;font-weight:700">1</span>, <span style="color:#811f24;font-weight:700">2</span>);    <span style="color:#5a525f;font-style:italic">// 인수로 1, 2을 전달하여 함수를 호출함. -&gt; NaN</span><br>
+    addNum(<span style="color:#811f24;font-weight:700">1</span>);       <span style="color:#5a525f;font-style:italic">// 인수로 1을 전달하여 함수를 호출함. -&gt; NaN</span><br>
+    addNum();        <span style="color:#5a525f;font-style:italic">// 인수로 아무것도 전달하지 않고 함수를 호출함. -&gt; NaN</span><br></div>
+    위의 예제에서 addNum() 함수를 호출할 때 인수가 세 개보다 적게 전달되면, 계산할 수 없다는 의미인 NaN을 반환한다.<br>
+    그 이유는 전달되지 않은 나머지 값이 자동으로 undefined 값으로 설정되어, 산술 연산을 수행할 수 없기 때문이다.</p>
+    <p>하지만 다음 예제처럼 하면 NaN을 반환하지 않고 전달된 인수만을 가지고 정상적으로 계산하는 함수를 작성할 수 있다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제 : NaN을 반환하지 않고 전달된 인수만을 가지고 정상적으로 계산하는 함수</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">addNum</span>(x, y, z) {<br>
+    <span style="color:#794938">    if</span>(x <span style="color:#794938">===</span> <span style="color:#811f24;font-weight:700">undefined</span>) <span style="color:#5a525f;font-style:italic">// 함수 호출시 x에 해당하는 인수가 전달되지 않은 경우</span><br>
+    <span style="color:#794938">    </span><span style="color:#794938">    </span>x <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">0</span>;          <span style="color:#5a525f;font-style:italic">// 변수 x의 값을 undefined에서 0으로 변경함.</span><br>
+    <span style="color:#794938">    if</span>(y <span style="color:#794938">===</span> <span style="color:#811f24;font-weight:700">undefined</span>) <span style="color:#5a525f;font-style:italic">// 함수 호출시 y에 해당하는 인수가 전달되지 않은 경우</span><br>
+    <span style="color:#794938">    </span><span style="color:#794938">    </span>y <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">0</span>;          <span style="color:#5a525f;font-style:italic">// 변수 y의 값을 undefined에서 0으로 변경함.</span><br>
+    <span style="color:#794938">    if</span>(z <span style="color:#794938">===</span> <span style="color:#811f24;font-weight:700">undefined</span>) <span style="color:#5a525f;font-style:italic">// 함수 호출시 z에 해당하는 인수가 전달되지 않은 경우</span><br>
+    <span style="color:#794938">    </span><span style="color:#794938">    </span>z <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">0</span>;          <span style="color:#5a525f;font-style:italic">// 변수 z의 값을 undefined에서 0으로 변경함.</span><br>
+    <span style="color:#794938">    return</span> x <span style="color:#794938">+</span> y <span style="color:#794938">+</span> z;<br>
+    }<br>
+    addNum(<span style="color:#811f24;font-weight:700">1</span>, <span style="color:#811f24;font-weight:700">2</span>, <span style="color:#811f24;font-weight:700">3</span>); <span style="color:#5a525f;font-style:italic">// 6</span><br>
+    addNum(<span style="color:#811f24;font-weight:700">1</span>, <span style="color:#811f24;font-weight:700">2</span>);    <span style="color:#5a525f;font-style:italic">// 3</span><br>
+    addNum(<span style="color:#811f24;font-weight:700">1</span>);       <span style="color:#5a525f;font-style:italic">// 1</span><br>
+    addNum();        <span style="color:#5a525f;font-style:italic">// 0</span></p></div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">arguments 객체</h4>
+    
+    <p>만약 함수의 정의보다 더 많은 수의 인수가 전달되면, 매개변수에 대입되지 못한 인수들은 참조할 방법이 없게 된다.<br>
+    하지만 arguments 객체를 이용하면, 함수로 전달된 인수의 총 개수를 확인하거나, 각각의 인수에도 바로 접근할 수 있다.<br>
+    arguments 객체는 함수가 호출될 때 전달된 인수를 배열의 형태로 저장하고 있다.<br>
+    첫 번째 인수는 arguments[0]에 저장되며, 다음 인수는 arguments[1]에 저장된다.<br>
+    또한, 인수의 총 개수는 arguments 객체의 length 프로퍼티에 저장된다.<br> 
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제 : addNum() 함수를 이용하여 인수의 개수에 상관없이 정상적으로 계산 </h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">addNum</span>() {<br>
+    <span style="color:#794938">    </span><span style="color:#a71d5d;font-style:italic">var</span> sum <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">0</span>;                                <span style="color:#5a525f;font-style:italic">// 합을 저장할 변수 sum을 선언함.</span><br>
+    <span style="color:#794938">    for</span>(<span style="color:#a71d5d;font-style:italic">var</span> i <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">0</span>; i <span style="color:#794938">&lt;</span> arguments.<span style="color:#b4371f">length</span>; i<span style="color:#794938">++</span>) { <span style="color:#5a525f;font-style:italic">// 전달받은 인수의 총 수만큼 반복함.</span><br>
+    <span style="color:#794938">    </span><span style="color:#794938">    </span>sum <span style="color:#794938">+</span><span style="color:#794938">=</span> arguments[i];                    <span style="color:#5a525f;font-style:italic">// 전달받은 각각의 인수를 sum에 더함.</span><br>
+    <span style="color:#794938">    </span>}<br>
+    <span style="color:#794938">    return</span> sum;<br>
+    }<br>
+    addNum(<span style="color:#811f24;font-weight:700">1</span>, <span style="color:#811f24;font-weight:700">2</span>, <span style="color:#811f24;font-weight:700">3</span>); <span style="color:#5a525f;font-style:italic">// 6</span><br>
+    addNum(<span style="color:#811f24;font-weight:700">1</span>, <span style="color:#811f24;font-weight:700">2</span>);    <span style="color:#5a525f;font-style:italic">// 3</span><br>
+    addNum(<span style="color:#811f24;font-weight:700">1</span>);       <span style="color:#5a525f;font-style:italic">// 1</span><br>
+    addNum();        <span style="color:#5a525f;font-style:italic">// 0</span><br>
+    addNum(<span style="color:#811f24;font-weight:700">1</span>, <span style="color:#811f24;font-weight:700">2</span>, <span style="color:#811f24;font-weight:700">3</span>, <span style="color:#811f24;font-weight:700">4</span>, <span style="color:#811f24;font-weight:700">5</span>, <span style="color:#811f24;font-weight:700">6</span>, <span style="color:#811f24;font-weight:700">7</span>, <span style="color:#811f24;font-weight:700">8</span>, <span style="color:#811f24;font-weight:700">9</span>, <span style="color:#811f24;font-weight:700">10</span>); <span style="color:#5a525f;font-style:italic">// 55</span></p></div>
+    
+    <p>arguments 객체는 배열과 비슷할 뿐, 실제로 Array 객체는 아니다.<br>
+    숫자로 된 인덱스와 length 프로퍼티만을 가지고 있을 뿐, 모든 것을 배열처럼 다룰 수는 없다.</p>
+    </div>
+    
+    <hr>
+    <h4>디폴트 매개변수와 나머지 매개변수</h4>
+    
+    <p>ECMAScript 6부터 새롭게 정의된 매개변수는 다음과 같다.<br>
+    1. 디폴트 매개변수(default parameter)<br>
+    2. 나머지 매개변수(rest parameter)</p>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">디폴트 매개변수(default parameter)</h4>
+    
+    <p>디폴트 매개변수란 함수를 호출할 때 명시된 인수를 전달하지 않았을 경우에 사용하게 될 기본값을 의미한다.<br>
+    자바스크립트에서 매개변수의 기본값은 undefined 값으로 설정되어 있다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">mul</span>(a, b) {<br>
+    <span style="color:#5a525f;font-style:italic">    // 인수가 한 개만 전달되었을 때 나머지 매개변수의 값을 undefined 값이 아닌 1로 설정함.</span><br>
+    <span style="color:#5a525f;font-style:italic">    </span>b <span style="color:#794938">=</span> (<span style="color:#794938">typeof</span> b <span style="color:#794938">!</span><span style="color:#794938">==</span> <span style="color:#0b6125">'undefined'</span>)  ? b : <span style="color:#811f24;font-weight:700">1</span>;<br>
+    <span style="color:#5a525f;font-style:italic">    </span><span style="color:#794938">return</span> a <span style="color:#794938">*</span> b;<br>
+    }<br>
+    mul(<span style="color:#811f24;font-weight:700">3</span>, <span style="color:#811f24;font-weight:700">4</span>); <span style="color:#5a525f;font-style:italic">// 12</span><br>
+    mul(<span style="color:#811f24;font-weight:700">3</span>);    <span style="color:#5a525f;font-style:italic">// 3</span><br></div>
+    하지만 디폴트 매개변수를 이용하면 이러한 매개변수의 기본값을 바꿀 수 있다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">mul</span>(a, b = 1) { <span style="color:#5a525f;font-style:italic">// 인수가 한 개만 전달되면 나머지 매개변수의 값을 언제나 1로 설정해 줌.</span><br>
+    <span style="color:#5a525f;font-style:italic">    </span><span style="color:#794938">return</span> a <span style="color:#794938">*</span> b;<br>
+    }<br>
+    mul(<span style="color:#811f24;font-weight:700">3</span>, <span style="color:#811f24;font-weight:700">4</span>); <span style="color:#5a525f;font-style:italic">// 12</span><br>
+    mul(<span style="color:#811f24;font-weight:700">3</span>);    <span style="color:#5a525f;font-style:italic">// 3</span></p></div>
+    
+    
+    <p>디폴트 매개변수는 익스플로러, 사파리, 오페라에서 지원하지 않는다.</p>
+    </div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">나머지 매개변수(rest parameter)</h4>
+    
+    <p>나머지 매개변수는 <span class="text-danger fw-bold">생략 접두사(...)를 사용</span>하여 특정 위치의 인수부터 마지막 인수까지를 한 번에 지정할 수 있다.<br> 
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제 : 첫 번째 인수에서 두 번째 인수부터 마지막 인수까지를 뺀 후 그 결과를 반환</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">sub</span>() {<br>
+    <span style="color:#5a525f;font-style:italic">    </span><span style="color:#a71d5d;font-style:italic">var</span> firstNum <span style="color:#794938">=</span> arguments[<span style="color:#811f24;font-weight:700">0</span>];                  <span style="color:#5a525f;font-style:italic">// 첫 번째 인수에서</span><br>
+    <span style="color:#5a525f;font-style:italic">    </span><span style="color:#794938">for</span>(<span style="color:#a71d5d;font-style:italic">var</span> i <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">0</span>; i <span style="color:#794938">&lt;</span> arguments.<span style="color:#b4371f">length</span><span style="color:#794938">-</span><span style="color:#811f24;font-weight:700">1</span>; i<span style="color:#794938">++</span>) { <span style="color:#5a525f;font-style:italic">// 두 번째부터 마지막 인수까지를</span><br>
+    <span style="color:#5a525f;font-style:italic">    </span><span style="color:#5a525f;font-style:italic">    </span>firstNum <span style="color:#794938">-</span><span style="color:#794938">=</span> arguments[i<span style="color:#794938">+</span><span style="color:#811f24;font-weight:700">1</span>];               <span style="color:#5a525f;font-style:italic">// 뺌.</span><br>
+    <span style="color:#5a525f;font-style:italic">    </span>}<br>
+    <span style="color:#5a525f;font-style:italic">    </span><span style="color:#794938">return</span> firstNum;<br>
+    }<br>
+    <span style="color:#693a17">sub</span>(<span style="color:#811f24;font-weight:700">10</span>, <span style="color:#811f24;font-weight:700">2</span>, <span style="color:#811f24;font-weight:700">3</span>);    <span style="color:#5a525f;font-style:italic">// 10 - 2 - 3 = 5</span><br>
+    <span style="color:#693a17">sub</span>(<span style="color:#811f24;font-weight:700">10</span>, <span style="color:#811f24;font-weight:700">1</span>, <span style="color:#811f24;font-weight:700">5</span>, <span style="color:#811f24;font-weight:700">8</span>); <span style="color:#5a525f;font-style:italic">// 10 - 1 - 5 - 8 = -4</span><br></div>
+    하지만 나머지 매개변수를 이용하면 sub() 함수를 좀 더 직관적으로 정의할 수 있다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#5a525f;font-style:italic">// 첫 번째 인수를 변수 firstNum에 저장하고 나머지 인수들은 배열 restArgs에 저장함.</span><br>
+    <span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">sub</span>(firstNum, ...restArgs) {<br>
+    <span style="color:#5a525f;font-style:italic">    </span><span style="color:#794938">for</span>(<span style="color:#a71d5d;font-style:italic">var</span> i <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">0</span>; i <span style="color:#794938">&lt;</span> restArgs.<span style="color:#b4371f">length</span>; i<span style="color:#794938">++</span>) {<br>
+    <span style="color:#5a525f;font-style:italic">    </span><span style="color:#5a525f;font-style:italic">    </span>firstNum <span style="color:#794938">-</span><span style="color:#794938">=</span> restArgs[i];<br>
+    <span style="color:#5a525f;font-style:italic">    </span>}<br>
+    <span style="color:#5a525f;font-style:italic">    </span><span style="color:#794938">return</span> firstNum;<br>
+    }<br>
+    <span style="color:#693a17">sub</span>(<span style="color:#811f24;font-weight:700">10</span>, <span style="color:#811f24;font-weight:700">2</span>, <span style="color:#811f24;font-weight:700">3</span>);    <span style="color:#5a525f;font-style:italic">// 10 - 2 - 3 = 5</span><br>
+    <span style="color:#693a17">sub</span>(<span style="color:#811f24;font-weight:700">10</span>, <span style="color:#811f24;font-weight:700">1</span>, <span style="color:#811f24;font-weight:700">5</span>, <span style="color:#811f24;font-weight:700">8</span>); <span style="color:#5a525f;font-style:italic">// 10 - 1 - 5 - 8 = -4</span></p></div>
+    
+    
+    <div class="card text-bg-light mb-3" style="max-width: 36rem;">  
+      <div class="card-header" style="background-color:rgb(115, 199, 250)"><h5 class="card-title">전개구문 ... 기호 사용 </h5></div> 
+        <p class="card-text" style="padding: 10px 10px;">
+          fruits = ["apple", "banana", "grape"]  <br>   <br>  
+          
+          console.log(fruits);<br>
+          console.log(...fruits);   <br> 
+      </div>  </div>
+      
+    <div class="card text-bg-light mb-3" style="max-width: 36rem;">  
+      <div class="card-header" style="background-color:rgb(115, 199, 250)">인수의 개수와 상관없이 숫자를 더하는 프로그램 </div> 
+        <p class="card-text" style="padding: 10px 10px;">
+          function addNum(...numbers) { <br>    
+            let sum =0;;<br>   <br>
+  
+            for (let number of numbers) <br>   
+            sum += number;<br>   
+            return sum;}<br> 
+  
+          console.log(addNum(1, 3));<br> 
+          console.log(addNum(1, 3, 5, 7));<br> 
+      </div>  </div>
+   
+    <div class="card text-bg-light mb-3" style="max-width: 36rem;">  
+      <div class="card-header" style="background-color:rgb(115, 199, 250)"> 인수의 일부분만 함수실행하고 ... 기호로 나머지 매개변수를 만들기 </h5></div> 
+        <p class="card-text" style="padding: 10px 10px;">
+          function displayFavorites(first, ...favs) { <br>    
+            let str = `가장 좋아하는 과일은 ${first}이고 ${favs}는 딱히 좋아하진 않는군요`;<br>
+            return str;}   <br>
+  
+            console.log(displayFavorites("사과", "배", "딸기", "포도", "귤")); <br>    
+      </div>  </div>
+    <p>나머지 매개변수는 익스플로러, 사파리에서 지원하지 않는다.</p>
+    </div>
+    
+    <hr>
+    <h4>웹 브라우저 호환성</h4>
+    
+    <p>자바스크립트의 디폴트 매개변수와 나머지 매개변수를 지원하는 주요 웹 브라우저의 버전은 다음과 같다.</p>
+    
+    <table class="table table-responsive text-center" summary="">
+      <tbody>
+    <tr>
+    <th>매개변수</th>
+    <th><img alt="ie" class="icon" src="http://www.tcpschool.com/img/icon-ie.png"></th>
+    <th><img alt="edge" class="icon" src="http://www.tcpschool.com/img/icon-edge.png"></th>
+    <th><img alt="chrome" class="icon" src="http://www.tcpschool.com/img/icon-chrome.png"></th>
+    <th><img alt="firefox" class="icon" src="http://www.tcpschool.com/img/icon-firefox.png"></th>
+    <th><img alt="safari" class="icon" src="http://www.tcpschool.com/img/icon-safari.png"></th>
+    <th><img alt="opera" class="icon" src="http://www.tcpschool.com/img/icon-opera.png"></th>
+    </tr>
+    <tr>
+    <td>default parameter</td>
+    <td>지원하지 않음</td>
+    <td>지원하지 않음</td>
+    <td>49</td>
+    <td>15.0</td>
+    <td>지원하지 않음</td>
+    <td>지원하지 않음</td>
+    </tr>
+    <tr>
+    <td>rest parameter</td>
+    <td>지원하지 않음</td>
+    <td>지원함</td>
+    <td>47</td>
+    <td>15.0</td>
+    <td>지원하지 않음</td>
+    <td>34</td>
+    </tr>
+      </tbody>
+    </table>
+    
+
+    <hr><div class="col-md-8 mb-2">
+      <div class="p-3 text-white fs-4 bd-pink-800">미리 정의된 전역 함수(predefined functions)</div>   </div>
+    
+    <p>자바스크립트는 사용자의 편의를 위해 다양한 기능의 여러 전역 함수를 미리 정의하여 제공한다.<br>
+    이러한 전역 함수는 자바스크립트의 어떤 타입의 객체에서도 바로 사용할 수 있다.<br>
+    자바스크립트에서 미리 정의되어 있는 전역 함수는 다음과 같다.<br>
+    1. eval()<br>
+    2. isFinite()<br>
+    3. isNaN()<br>
+    4. parseFloat()<br>
+    5. parseInt()<br>
+    6. decodeURI()<br>
+    7. decodeURIComponent()<br>
+    8. encodeURI()<br>
+    9. encodeURIComponent()<br>
+    10. escape()<br>
+    11. unescape()<br>
+    12. Number()<br>
+    13. String()</p>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">eval()</h4>
+    
+    <p>eval() 함수는 문자열로 표현된 자바스크립트 코드를 실행하는 함수이다.</p>
+    <span style="color:#A52A2A;">eval</span>("문자열로 된 명령문");</p>
+    </div>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> x <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">10</span>, y <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">20</span>;<br>
+    <span style="color:#a71d5d;font-style:italic">var</span> a <span style="color:#794938">=</span> <span style="color:#693a17">eval</span>(<span style="color:#0b6125">"x + y"</span>); // 30<br>
+    <span style="color:#a71d5d;font-style:italic">var</span> b <span style="color:#794938">=</span> <span style="color:#693a17">eval</span>(<span style="color:#0b6125">"y * 3"</span>); // 60<br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(a <span style="color:#794938">+</span> <span style="color:#0b6125">"&lt;br&gt;"</span> <span style="color:#794938">+</span> b);</p></div>
+      
+    
+    <hr>
+    <h4 class="text-primary fst-italic">isFinite()</h4>
+    
+    <p>isFinite() 함수는 전달된 값이 유한한 수인지를 검사하여 그 결과를 반환한다.<br>
+    만약 인수로 전달된 값이 숫자가 아니라면, 숫자로 변환하여 검사한다.</p>
+    <span style="color:#A52A2A;">isFinite</span>(검사할값);</p>
+    </div>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#693a17">isFinite</span>(<span style="color:#811f24;font-weight:700">123</span>);       // true<br>
+    <span style="color:#693a17">isFinite</span>(123e100);   // true<br>
+    <span style="color:#693a17">isFinite</span>(<span style="color:#811f24;font-weight:700">0</span>);         // true<br>
+    <span style="color:#693a17">isFinite</span>(<span style="color:#811f24;font-weight:700">true</span>);      // true<br>
+    <span style="color:#693a17">isFinite</span>(<span style="color:#811f24;font-weight:700">false</span>);     // true<br>
+    <span style="color:#693a17">isFinite</span>(<span style="color:#811f24;font-weight:700">null</span>);      // true<br>
+    <span style="color:#693a17">isFinite</span>(<span style="color:#0b6125">"123"</span>);     // true<br>
+    <span style="color:#693a17">isFinite</span>(<span style="color:#0b6125">""</span>);        // true<br>
+    <span style="color:#693a17">isFinite</span>(<span style="color:#0b6125">"문자열"</span>);  // false<br>
+    <span style="color:#693a17">isFinite</span>(<span style="color:#811f24;font-weight:700">undefined</span>); // false<br>
+    <span style="color:#693a17">isFinite</span>(<span style="color:#811f24;font-weight:700">NaN</span>);       // false</p></div>
+    </div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">isNaN()</h4>
+    
+    <p>isNaN() 함수는 전달된 값이 NaN인지를 검사하여 그 결과를 반환한다.<br>
+    만약 인수로 전달된 값이 숫자가 아니라면, 숫자로 강제 변환하여 검사한다.<br>
+    전달된 값이 숫자인지 아닌지를 확인하기 위하여 <span class="text-danger fw-bold">typeof 연산자</span>를 대신 사용할 수도 있다.</p>
+    <span style="color:#A52A2A;">isNaN</span>(검사할값);</p>
+    </div>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#693a17">isNaN</span>(<span style="color:#811f24;font-weight:700">123</span>);       // false<br>
+    <span style="color:#693a17">isNaN</span>(123e100);   // false<br>
+    <span style="color:#693a17">isNaN</span>(<span style="color:#811f24;font-weight:700">0</span>);         // false<br>
+    <span style="color:#693a17">isNaN</span>(<span style="color:#811f24;font-weight:700">true</span>);      // false<br>
+    <span style="color:#693a17">isNaN</span>(<span style="color:#811f24;font-weight:700">false</span>);     // false<br>
+    <span style="color:#693a17">isNaN</span>(<span style="color:#811f24;font-weight:700">null</span>);      // false<br>
+    <span style="color:#693a17">isNaN</span>(<span style="color:#0b6125">"123"</span>);     // false<br>
+    <span style="color:#693a17">isNaN</span>(<span style="color:#0b6125">""</span>);        // false<br>
+    <span style="color:#693a17">isNaN</span>(<span style="color:#0b6125">"문자열"</span>);  // true<br>
+    <span style="color:#693a17">isNaN</span>(<span style="color:#811f24;font-weight:700">undefined</span>); // true<br>
+    <span style="color:#693a17">isNaN</span>(<span style="color:#811f24;font-weight:700">NaN</span>);       // true</p></div>
+      
+    이 함수는 숫자로의 강제 변환에 따라 예상치 못한 결과를 얻을 수 있으므로 ECMAScript 6부터는 <span class="text-danger fw-bold">Number.isNaN() 메소드</span>의 사용을 권장하고 있다.</div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">parseFloat()</h4>
+    
+    <p>parseFloat() 함수는 문자열을 파싱하여 부동 소수점 수(floating point number)로 반환한다.</p>
+    <span style="color:#A52A2A;">parseFloat</span>("문자열");</p>
+    </div>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#693a17">parseFloat</span>(<span style="color:#0b6125">"123"</span>);        // 123<br>
+    <span style="color:#693a17">parseFloat</span>(<span style="color:#0b6125">"123.000"</span>);    // 123<br>
+    <span style="color:#693a17">parseFloat</span>(<span style="color:#0b6125">"123.456"</span>);    // 123.456<br>
+    <span style="color:#693a17">parseFloat</span>(<span style="color:#0b6125">"12 34 56"</span>);   // 12<br>
+    <span style="color:#693a17">parseFloat</span>(<span style="color:#0b6125">" 123 "</span>);      // 123<br>
+    <span style="color:#693a17">parseFloat</span>(<span style="color:#0b6125">"123 초콜릿"</span>); // 123<br>
+    <span style="color:#693a17">parseFloat</span>(<span style="color:#0b6125">"초콜릿 123"</span>); // NaN<br>
+    <span style="color:#693a17">parseFloat</span>(<span style="color:#0b6125">"10"</span>, <span style="color:#811f24;font-weight:700">10</span>);     // 10 두번째 인수는 아무 영향없음<br>
+    <span style="color:#693a17">parseFloat</span>(<span style="color:#0b6125">"15"</span>, <span style="color:#811f24;font-weight:700">8</span>);      // 15<br>
+    <span style="color:#693a17">parseFloat</span>(<span style="color:#0b6125">"8"</span>, <span style="color:#811f24;font-weight:700">16</span>);     // 8<br>
+    <span style="color:#693a17">parseFloat</span>(<span style="color:#0b6125">"0x10"</span>);       // 0</p></div></div>
+        
+    <hr>
+    <h4 class="text-primary fst-italic">parseInt()</h4>
+    
+    <p>parseInt() 함수는 문자열을 파싱하여 정수로 반환한다.</p>
+    <span style="color:#A52A2A;">parseInt</span>("문자열");</p>
+    <span style="color:#A52A2A;">parseInt</span>([숫자값], [진법]); => 두번째인수 (진법)의 첫번째인수(숫자값)을 10진수로 변환한다</p> 
+    </div>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#693a17">parseInt</span>(<span style="color:#0b6125">"123"</span>);        // 123<br>
+    <span style="color:#693a17">parseInt</span>(<span style="color:#0b6125">"123.000"</span>);    // 123<br>
+    <span style="color:#693a17">parseInt</span>(<span style="color:#0b6125">"123.456"</span>);    // 123<br>
+    <span style="color:#693a17">parseInt</span>(<span style="color:#0b6125">"12 34 56"</span>);   // 12<br>
+    <span style="color:#693a17">parseInt</span>(<span style="color:#0b6125">" 123 "</span>);      // 123<br>
+    <span style="color:#693a17">parseInt</span>(<span style="color:#0b6125">"123 초콜릿"</span>); // 123<br>
+    <span style="color:#693a17">parseInt</span>(<span style="color:#0b6125">"초콜릿 123"</span>); // NaN<br>
+    <span style="color:#693a17">parseInt</span>(<span style="color:#0b6125">"10"</span>, <span style="color:#811f24;font-weight:700">10</span>);  // 10<br>
+    <span style="color:#693a17">parseInt</span>(<span style="color:#0b6125">"10"</span>, <span style="color:#811f24;font-weight:700">8</span>);   // 8<br>    
+    <span style="color:#693a17">parseInt</span>(<span style="color:#0b6125">"24"</span>, <span style="color:#811f24;font-weight:700">2</span>);   // 8진수 24를 10진법으로 20 <br>
+    <span style="color:#693a17">parseInt</span>(<span style="color:#0b6125">"1010"</span>, <span style="color:#811f24;font-weight:700">2</span>);  // 2진수 24을 10진법으로 그런수는 없다고 NaN<br>
+    <span style="color:#693a17">parseInt</span>(<span style="color:#0b6125">"1010"</span>, <span style="color:#811f24;font-weight:700">2</span>);  // 2진수 1010을 10진법으로 10<br>
+    <span style="color:#693a17">parseInt</span>(<span style="color:#0b6125">"0x10"</span>);       // 16</p></div>
+      
+    <p>위의 예제처럼 parseInt() 함수에 두 번째 인수로 특정 진법을 전달하면, 해당 진법에 맞는 정수로 반환한다.<br>
+    또한, 전달받은 문자열의 시작이 "0x"로 시작하면, parseInt() 함수는 해당 문자열을 16진수로 인식한다.</p>
+    지금까지 parseInt() 함수는 전달받은 문자열의 시작이 "0"로 시작하면, 해당 문자열을 8진수로 인식했다.<br>
+    하지만 자바스크립트는 더 이상 이 문법을 지원하지 않는다.</div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">encodeURI()와 encodeURIComponent()</h4>
+    
+    <p>encodeURI() 함수는 URI에서 주소를 표시하는 특수문자를 제외하고, 모든 문자를 이스케이프 시퀀스(escape sequences) 처리하여 부호화한다.<br>
+    하지만 encodeURIComponent() 함수는 URI에서 encodeURI() 함수에서 부호화하지 않은 모든 문자까지 포함하여 이스케이프 시퀀스 처리한다.</p>
+    <span style="color:#A52A2A;">encodeURI</span>(부호화할URI);<br>
+    <span style="color:#A52A2A;">encodeURIComponent</span>(부호화할URI);</p>
+    </div>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> uri <span style="color:#794938">=</span> <span style="color:#0b6125">"http://google.com/search.php?name=홍길동&amp;city=서울"</span>;<br>
+    <span style="color:#a71d5d;font-style:italic">var</span> enc1 <span style="color:#794938">=</span> encodeURI(uri);   <br>      // http://google.com/search.php?name=%ED%99%8D%EA%B8%B8%EB%8F%99&city=%EC%84%9C%EC%9A%B8<br>
+    <span style="color:#a71d5d;font-style:italic">var</span> enc2 <span style="color:#794938">=</span> encodeURIComponent(uri); <br>  // http%3A%2F%2Fgoogle.com%2Fsearch.php%3Fname%3D%ED%99%8D%EA%B8%B8%EB%8F%99%26city%3D%EC%84%9C%EC%9A%B8<br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(enc1 <span style="color:#794938">+</span> <span style="color:#0b6125">"&lt;br&gt;"</span> <span style="color:#794938">+</span> enc2);</p></div>
+      
+    
+    <hr>
+    <h4 class="text-primary fst-italic">decodeURI()와 decodeURIComponent()</h4>
+    
+    <p>decodeURI() 함수는 encodeURI() 함수나 다른 방법으로 만들어진 URI(Uniform Resource Identifier)를 해독한다.<br>
+    decodeURIComponent() 함수는 encodeURIComponent() 함수나 다른 방법으로 만들어진 URI 컴포넌트를 해독한다.</p>
+    <span style="color:#A52A2A;">decodeURI</span>(해독할URI);<br>
+    <span style="color:#A52A2A;">decodeURIComponent</span>(해독할URI);</p>
+    </div>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> uri <span style="color:#794938">=</span> <span style="color:#0b6125">"http://google.com/search.php?name=홍길동&amp;city=서울"</span>;<br>
+    <span style="color:#a71d5d;font-style:italic">var</span> enc1 <span style="color:#794938">=</span> encodeURI(uri);   <br>      // http://google.com/search.php?name=%ED%99%8D%EA%B8%B8%EB%8F%99&city=%EC%84%9C%EC%9A%B8<br>
+    <span style="color:#a71d5d;font-style:italic">var</span> enc2 <span style="color:#794938">=</span> encodeURIComponent(uri); <br>  // http%3A%2F%2Fgoogle.com%2Fsearch.php%3Fname%3D%ED%99%8D%EA%B8%B8%EB%8F%99%26city%3D%EC%84%9C%EC%9A%B8<br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(enc1 <span style="color:#794938">+</span> <span style="color:#0b6125">"&lt;br&gt;"</span> <span style="color:#794938">+</span> enc2 <span style="color:#794938">+</span> <span style="color:#0b6125">"&lt;br&gt;&lt;br&gt;"</span>);<br>
+    <span style="color:#a71d5d;font-style:italic">var</span> dec1 <span style="color:#794938">=</span> decodeURI(enc1);<br> //"http://google.com/search.php?name=홍길동&amp;city=서울" <br>
+    <span style="color:#a71d5d;font-style:italic">var</span> dec2 <span style="color:#794938">=</span> decodeURIComponent(enc2);<br> //"http://google.com/search.php?name=홍길동&amp;city=서울"<br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(dec1 <span style="color:#794938">+</span> <span style="color:#0b6125">"&lt;br&gt;"</span> <span style="color:#794938">+</span> dec2);</p></div>
+    <hr>
+    <h4 class="text-primary fst-italic">escape()와 unescape()</h4>
+    
+    <p>escape() 함수는 전달받은 문자열에서 특정 문자들을 16진법 이스케이프 시퀀스 문자로 변환한다.<br>
+    unescape() 함수는 전달받은 문자열에서 escape() 함수나 다른 방법으로 만들어진 16진법 이스케이프 시퀀스 문자를 원래의 문자로 변환한다.</p>
+    <span style="color:#A52A2A;">escape</span>("변환할문자열");<br>
+    <span style="color:#A52A2A;">unescape</span>("원래대로변환할문자열");</p>
+    </div>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> str <span style="color:#794938">=</span> <span style="color:#0b6125">"Hello! World ?#$"</span>;<br>
+    <span style="color:#a71d5d;font-style:italic">var</span> esc <span style="color:#794938">=</span> <span style="color:#693a17">escape</span>(str);<br>
+    <span style="color:#a71d5d;font-style:italic">var</span> une <span style="color:#794938">=</span> <span style="color:#693a17">unescape</span>(esc);<br>
+    <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(esc <span style="color:#794938">+</span> <span style="color:#0b6125">"&lt;br&gt;"</span> <span style="color:#794938">+</span> une);</p></div>
+    <div class="content-box s2">escape() 함수는 자바스크립트 1.5버전부터 더는 지원하지 않으므로, encodeURI() 함수나<br>
+    encodeURIComponent() 함수를 대신 사용해야 한다.</div>
+    
+    <div class="content-box s4">unescape() 함수는 자바스크립트 1.5버전부터 더는 지원하지 않으므로, decodeURI() 함수나<br>
+    decodeURIComponent() 함수를 대신 사용해야 한다.</div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">Number()</h4>
+    
+    <p>Number() 함수는 전달받은 객체의 값을 숫자로 반환한다.</p>
+    <span style="color:#A52A2A;">Number</span>(객체);</p>
+    </div>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#691c97">Number</span>(<span style="color:#0b6125">"123"</span>);        // 123<br>
+    <span style="color:#691c97">Number</span>(<span style="color:#0b6125">"123.000"</span>);    // 123<br>
+    <span style="color:#691c97">Number</span>(<span style="color:#0b6125">"123.456"</span>);    // 123.456<br>
+    <span style="color:#691c97">Number</span>(<span style="color:#0b6125">"12 34 56"</span>);   // NaN<br>
+    <span style="color:#691c97">Number</span>(<span style="color:#0b6125">"123 초콜릿"</span>); // NaN<br>
+    <span style="color:#691c97">Number</span>(<span style="color:#811f24;font-weight:700">true</span>);         // 1<br>
+    <span style="color:#691c97">Number</span>(<span style="color:#811f24;font-weight:700">false</span>);        // 0<br>
+    <span style="color:#691c97">Number</span>(<span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>());   // 현재 날짜에 해당하는 숫자를 반환함.<br>
+    <span style="color:#691c97">Number</span>(<span style="color:#811f24;font-weight:700">null</span>);         // 0</p></div>
+    
+    <hr>
+    <h4 class="text-primary fst-italic">String()</h4>
+    
+    <p>String() 함수는 전달받은 객체의 값을 문자열로 반환한다.</p>
+    <span style="color:#A52A2A;">String</span>(객체);</p>
+    </div>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#691c97">String</span>(<span style="color:#811f24;font-weight:700">123</span>);        // 123<br>
+    <span style="color:#691c97">String</span>(<span style="color:#811f24;font-weight:700">123.456</span>);    // 123.456<br>
+    <span style="color:#691c97">String</span>(<span style="color:#0b6125">"123"</span>);      // 123<br>
+    <span style="color:#691c97">String</span>(<span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>()); // 현재 날짜에 해당하는 문자열을 반환함.<br>
+    <span style="color:#691c97">String</span>(<span style="color:#811f24;font-weight:700">null</span>);       // null<br>
+    <span style="color:#691c97">String</span>(<span style="color:#811f24;font-weight:700">true</span>);       // true<br>
+    <span style="color:#691c97">String</span>(<span style="color:#811f24;font-weight:700">false</span>);      // false<br>
+    <span style="color:#691c97">String</span>(<span style="color:#691c97">Boolean</span>(<span style="color:#811f24;font-weight:700">1</span>)); // true<br>
+    <span style="color:#691c97">String</span>(<span style="color:#691c97">Boolean</span>(<span style="color:#811f24;font-weight:700">0</span>)); // false</p></div>
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제 : 최대공약수 구하기</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">    
+    // 최대공약수 : Greatest Common Divisor (GCD)<br> 
+    function getGCD(n, m) {<br> 
+    let max = n > m ? n : m;<br> 
+    let GCD = 0;<br> 
+    for (let i = 1; i <= max; i++) {<br> 
+      if (n % i === 0 && m % i === 0) {<br> 
+        GCD = i;   // 최대공약수<br> 
+      }<br> 
+    }<br> 
+    return GCD;<br> 
+    }<br>  </p></div>
+    
+  <button id="btn_28" onClick="btnfx28()">최대공약수</button><br> 
+  <p id="spotgcd"></p>
+  
+    <script>
+      let btnfx28 = function() {
+        const gcd = (a,b) => { 
+          let c=Math.min(a,b); 
+          for(let i=c; i>=1; i--) { 
+            if (a%i === 0 && b%i === 0) { 
+              return i; } 
+            } 
+          }; 
+        const num1 = parseInt(prompt("최대공약수 : 첫번째 정수를 입력해주세요")); 
+        const num2 = parseInt(prompt("최대공약수 : 두번째 정수를 입력해주세요")); 
+        if (num1!==0&&num2!==0) { 
+          document.getElementById("spotgcd").innerHTML=`${num1}과 ${num2}의 최대공약수는 ${gcd (num1, num2)}이다.`;
+         }
+      }
+    </script>
+</body>
+</html>

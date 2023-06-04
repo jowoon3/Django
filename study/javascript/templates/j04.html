@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>제어문과 배열</title>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">   
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">     
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+  <link href="{% static '/css/java.css'%}" rel="stylesheet">   
+</head>
+<body class="ms-3">  
+    <H2><a name="home">Javascript</a></H2>  
+    <p><a href="/javascript/j03.html" class="btn btn-purple mb-1" target="_blank">이전 노트</a>
+    <a href="/javascript/j05.html" class="btn btn-purple mb-1" target="_blank">다음 노트</a>
+    <a href="/htmls/tut1.html" class="btn btn-danger mb-1" target="_blank">HTML 노트</a> 
+    <a href="/css/tut11.html" class="btn btn-success mb-1" target="_blank">CSS 노트</a> 
+    <a href="/htmls/html_CSS.html" class="btn btn-outline-danger border-2 mb-1" target="_blank">HTML+CSS</a>
+    <a href="/htmls/html_Emmet.html" class="btn btn-outline-danger border-2 mb-1" target="_blank">HTML+Emmet</a>
+    <a href="/htmls/html_tags.html" class="btn btn-outline-danger border-2 mb-1" target="_blank">HTML+Tags</a><br>
+    <a href="/python/p01.html" class="btn btn-warning mb-1" target="_blank">파이썬 노트</a> 
+    <a href="/javascript/j01.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">자바스크립트 개요</a>
+    <a href="/javascript/j02.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">기본타입과 타입변환</a>
+    <a href="/javascript/j03.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">자바스크립트 연산자</a>
+    <a href="/javascript/j04.html" class=" btn btn-secondary mb-1" target="_blank">제어문과 배열 </a>
+    <a href="/javascript/j05.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">함수</a> 
+    <a href="/javascript/j06.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">객체</a>      
+    <a href="/javascript/j07.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Number 객체</a> 
+    <a href="/javascript/j08.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Math 객체</a> 
+    <a href="/javascript/j09.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Date 객체</a>     
+    <a href="/javascript/j10.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">String 문자열 객체</a>
+    <a href="/javascript/j11.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Array 배열 객체</a> 
+    <a href="/javascript/j12.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">문서객체모델 DOM</a> 
+    <a href="/javascript/j13.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">브라우저 객체 모델 BOM</a> 
+    <a href="/javascript/j14.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">이벤트와 예외처리</a>
+    <a href="/javascript/j15.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">정규표현식</a> 
+    <a href="/javascript/j16.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">람다표현식</a> 
+    <a href="/javascript/j17.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Map과 Set, Iterator와 Generator</a> </p> 
+
+    <hr><div class="col-md-8 mb-2">
+      <div class="p-3 text-white fs-4 bd-pink-800">제어문(control flow statements)</div>      </div>
+    
+    <p>프로그램의 순차적인 흐름을 제어해야 할 때 사용하는 실행문을 제어문이라고 한다.<br>
+    이러한 제어문에는 조건문, 반복문 등이 포함된다.</p>
+    
+    <hr><div class="col-md-8 mb-2">
+      <div class="p-3 text-white fs-4 bd-pink-800">조건문(conditional statements)</div>      </div>
+    
+    <p>조건문이란 프로그램 내에서 주어진 표현식의 결과에 따라 별도의 명령을 수행하도록 제어하는 실행문이다.<br>
+    조건문 중에서 가장 기본이 되는 실행문은 if 문이다.<br>
+    자바스크립트에서 사용할 수 있는 조건문의 형태는 다음과 같다.<br>
+    1. if 문<br>
+    2. if / else 문<br>
+    3. if / else if / else 문<br>
+    4. switch 문</p>
+    
+    <hr>
+    <h4 class="text-primary"><em>if 문</em></h4>
+    
+    <p>if 문은 표현식의 결과가 참(true)이면 주어진 실행문을 실행하며, 거짓(false)이면 아무것도 실행하지 않는다.<br>
+    if 문을 순서도로 표현하면 다음 그림과 같이 표현할 수 있다.<br>
+    <img alt="if 문" src="http://tcpschool.com/lectures/img_js_if.png" style="width: 300px; height: 289px;"><br>
+    if 문의 문법은 다음과 같다.</p>
+    <span style="color:#794938">if</span> (표현식) {<br>
+        표현식의 결과가 참일 때 실행하고자 하는 실행문;<br>
+    }</p>
+    </div>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> x <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">10</span>, y <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">20</span>;<br>
+    <span style="color:#794938">if</span> (x <span style="color:#794938">==</span> y) {<br>
+    <span style="color:#691c97">    document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"x와 y는 같다."</span>);<br>
+    }<br>
+    <span style="color:#794938">if</span> (x <span style="color:#794938">&lt;</span> y) {<br>
+    <span style="color:#691c97">    document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"x가 y보다 작다."</span>);<br>
+    }<br>
+    <span style="color:#794938">if</span> (x <span style="color:#794938">&gt;</span> y) <span style="color:#5a525f;font-style:italic">// 실행될 </span>실행문<span style="color:#5a525f;font-style:italic">이 한 줄뿐이라면 중괄호({})를 생략할 수 있음.</span><br>
+    <span style="color:#691c97">    document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"x가 y보다 크다."</span>);</p>
+    </div>
+    
+    <hr>
+    <h4 class="text-primary"><em>프로그래밍 초보자의 실수</em></h4>
+    
+    <p>프로그래밍을 처음 배우는 사람들이 if 문과 같은 실행문을 처음 접하게 되면 다음과 같은 실수를 많이 하게 된다.</p>
+    <h5>잘못된 예제</h5>
+    
+    <span style="color:#794938">if</span> (x <span style="color:#794938">=</span> y) {<br>
+    <span style="color:#691c97">    document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"두 변수 x와 y는 같다."</span>);<br>
+    }</p>
+    </div>
+    <p>위의 예제는 변수 x와 y의 값이 같으면 두 변수가 같다는 문자열을 출력하려고 하는 예제이다.<br>
+    하지만 if 문의 표현식에서 동등 연산자(==)를 사용해야 할 곳에 잘못해서 대입 연산자(=)을 사용했다.<br>
+    따라서 위의 예제는 다음과 같이 수정해야만 정상적으로 동작한다.</p>
+    <h5>비교 예제</h5>
+    
+    <span style="color:#794938">if</span> (x <span style="color:#794938">==</span> y) {<br>
+    <span style="color:#691c97">    document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"두 변수 x와 y는 같다."</span>);<br>
+    }</p>
+    </div>
+    <p>또한, 위의 예제가 실제로 if 문의 표현식 내에서 변수 x에 변수 y의 값을 대입하고자 했을 수도 있다.<br>
+    하지만 그럴 때에는 코드를 다음과 같이 수정해야만 그 의미를 제대로 전달할 수 있다.</p>
+    <h5>대입 예제</h5>
+    
+    <span style="color:#794938">if</span> ((x <span style="color:#794938">=</span> y)) {<br>
+    <span style="color:#691c97">    document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"두 변수 x와 y는 같다."</span>);<br>
+    }</p>
+    </div>
+    하지만 if 문과 같은 제어문의 표현식에 위와 같이 대입문을 사용하는 것은 바람직하지 못한다.</div>
+    
+    <hr>
+    <h4 class="text-primary"><em>else 문</em></h4>
+    
+    <p>if 문과 같이 사용할 수 있는 else 문은 if 문의 표현식 결과가 거짓(false)일 때 주어진 실행문을 실행한다.<br>
+    if / else 문을 순서도로 표현하면 다음 그림과 같이 표현할 수 있다.<br>
+    <img alt="else 문" src="http://tcpschool.com/lectures/img_js_else.png" style="width: 450px; height: 277px;"><br>
+    else 문의 문법은 다음과 같다.</p>
+    <span style="color:#794938">if</span> (표현식) {<br>
+    <span style="color:#691c97">    </span>표현식의 결과가 참일 때 실행하고자 하는 실행문;<br>
+    } <span style="color:#794938">else</span> {<br>
+    <span style="color:#691c97">    </span>표현식의 결과가 거짓일 때 실행하고자 하는 실행문;<br>
+    }</p>
+    </div>
+    <p>else 문을 사용하면 앞의 예제를 좀 더 직관적으로 표현할 수 있다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> x <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">10</span>, y <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">20</span>;<br>
+    <span style="color:#794938">if</span> (x <span style="color:#794938">==</span> y) {<br>
+    <span style="color:#691c97">    document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"x와 y는 같다."</span>);<br>
+    } <span style="color:#794938">else</span> {<br>
+    <span style="color:#794938">    if</span> (x <span style="color:#794938">&lt;</span> y)<br>
+    <span style="color:#794938">    </span><span style="color:#691c97">    document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"x가 y보다 작다."</span>);<br>
+    <span style="color:#794938">    else</span> <span style="color:#5a525f;font-style:italic">// 실행될 </span>실행문<span style="color:#5a525f;font-style:italic">이 한 줄뿐이라면 중괄호({})를 생략할 수 있음.</span><br>
+    <span style="color:#691c97">    </span><span style="color:#794938">    </span><span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"x가 y보다 크다."</span>);<br>
+    }</p></div>
+    
+    <hr>
+    <h4 class="text-primary"><em>else if 문</em></h4>
+    
+    <p>else if 문은 if 문처럼 표현식을 설정할 수 있으므로, 중첩된 if 문을 좀 더 간결하게 표현할 수 있다.<br>
+    하나의 조건문 안에서 if 문과 else 문은 단 한 번만 사용될 수 있다.<br>
+    하지만 else if 문은 여러 번 사용되어 다양한 조건을 설정할 수 있다.<br>
+    if / else if / else 문을 순서도로 표현하면 다음 그림과 같이 표현할 수 있다.<br>
+    <img alt="else if 문" src="http://tcpschool.com/lectures/img_js_elseif.png" style="width: 620px; height: 366px;"><br>
+    else if 문의 문법은 다음과 같다.</p>
+    <span style="color:#794938">if</span> (표현식1) {<br>
+    <span style="color:#691c97">    </span>표현식1의 결과가 참일 때 실행하고자 하는 실행문;<br>
+    } <span style="color:#794938">else</span> <span style="color:#794938">if</span> (표현식2) {<br>
+    <span style="color:#691c97">    </span>표현식2의 결과가 참일 때 실행하고자 하는 실행문;<br>
+    } <span style="color:#794938">else</span> {<br>
+    <span style="color:#691c97">    </span>표현식1의 결과도 거짓이고, 표현식2의 결과도 거짓일 때 실행하고자 하는 실행문;<br>
+    }</p>
+    </div>
+    <p>else if 문을 사용하면 앞선 예제를 더욱 간결하게 표현할 수 있다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> x <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">10</span>, y <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">20</span>;<br>
+    <span style="color:#794938">if</span> (x <span style="color:#794938">==</span> y) {<br>
+    <span style="color:#691c97">    document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"x와 y는 같다."</span>);<br>
+    } <span style="color:#794938">else</span> <span style="color:#794938">if</span> (x <span style="color:#794938">&lt;</span> y) {<br>
+    <span style="color:#691c97">    document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"x가 y보다 작다."</span>);<br>
+    } <span style="color:#794938">else</span> { <span style="color:#5a525f;font-style:italic">// x &gt; y인 경우</span><br>
+    <span style="color:#691c97">    document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"x가 y보다 크다."</span>);<br>
+    }</p></div>
+    
+    <hr>
+    <h4>삼항 연산자에 의한 조건문</h4>
+    
+    <p>자바스크립트에서는 간단한 if / else 문을 삼항 연산자를 이용하여 간단히 표현할 수 있다.</p>
+    <p>표현식 <span style="color:#A52A2A;">?</span> 반환값1 <span style="color:#A52A2A;">:</span> 반환값2</p>
+    </div> 
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100"><h5>예제1</h5></div>
+        <p class="card-text" style="padding: 10px 10px;">
+    <button id="btn_01" onClick="btnfx1()">화씨온도 변환</button><br>
+            let fah = parseInt(prompt("변환할 화씨온도를 입력하세요"))<br>
+            let cel = (fah-32)/1.8<br>
+            alert (`화씨 ${fah}도는 섭씨 ${cel.toFixed(2)}도 이다.)<br>
+    </div> </div>  
+        
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100"><h5>예제2</h5></div>
+        <p class="card-text" style="padding: 10px 10px;">
+    <button id="btn_02" onClick="btnfx2()">이름</button><br>
+        let userInput = prompt("이름을 입력해주세요");<br>
+        if (userInput !== null) {alert (userInput)};<br>
+    </div> </div> 
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100"><h5>예제3</h5></div>
+        <p class="card-text" style="padding: 10px 10px;">
+    <button id="btn_03" onClick="btnfx3()">시험성적</button><br>
+        let score = prompt("프로그래밍 시험 성적을 입력하세요");  <br>
+        if (score !== null ) {<br>
+          if (parseInt(score) >= 90 ) {alert ("A학점 이다.");}<br>
+          else if (parseInt(score) >= 80) {alert ("B학점 이다.");}<br>
+          else {alert ("C학점 이다.");}}<br>
+    </div> </div> 
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100"><h5>예제4</h5></div>
+        <p class="card-text" style="padding: 10px 10px;">
+
+    <button id="btn_04" onClick="btnfx4()">홀짝 버튼</button><br>
+        let userNumber = prompt("숫자를 입력하세요"); <br>
+        if (userNumber !== null) { userNumber = parseInt(userNumber);}<br>
+        (userNumber%2 ==0) ? alert(`${userNumber}는 짝수이다.`) : alert(`${userNumber}는 홀수이다.`)<br>
+    </div> </div> 
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100"><h5>예제5</h5></div>
+        <p class="card-text" style="padding: 10px 10px;">
+    <button id="btn_05" onClick="btnfx5()">신청과목</button><br>
+        let subject = prompt("신청과목을 선택하여 번호를 입력하세요. 1. HTML 2. CSS 3. javascript");<br>    
+        if (subject !==null) {<br>
+          switch(subject) {<br>
+            case "1" : document.write("HTML을 선택하였다.");<br>
+             break;<br>
+            case "2" : document.write("CSS를 선택하였다.");<br>
+            break;<br>
+            case "3" : document.write("javascript를 선택하였다.");<br>
+              break;
+            default : document.write("잘못 입력했다. 숫자로만 다시 입력해주세요.");<br>
+            break;<br>
+          }  <br>
+        }<br>
+    </div> </div> 
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100"><h5>예제6</h5></div>
+        <p class="card-text" style="padding: 10px 10px;">
+    <button id="btn_06" onClick="btnfx6()">정수 홀짝 버튼</button><br>
+        let num1 = parseInt(prompt("첫번째 양의 정수를 입력해주세요"));<br>
+        let num2 = parseInt(prompt("두번째 양의 정수를 입력해주세요")); <br>
+        
+        if (isNaN(num1) || isNaN(num2)) {alert(`잘못 입력되었다. 양의 정수를 입력해주세요`)}<br>
+          else if (num1%2 == 0 && num1%2 == 0 ) {<br>
+          alert(`${num1}, ${num2} 두 정수 모두 짝수이다.)}<br>
+          else if (num1%2!==0 && num2%2!==0) {<br>
+          alert(`${num1}, ${num2} 두 정수 모두 홀수이다.)} <br>
+          else {alert(`${num1}, ${num2} 두 정수중 짝수가 아닌 수가 있다.)}<br>
+      </div> </div> 
+    
+      <script>
+        let btnfx1 = function() {
+        let fah = parseInt(prompt("변환할 화씨온도를 입력하세요"));
+        let cel = (fah-32)/1.8;
+        alert (`화씨 ${fah}도는 섭씨 ${cel.toFixed(2)}도 이다.`);}
+    
+        let btnfx2 = function() {
+        let userInput = prompt("이름을 입력해주세요"); 
+        if (userInput !== null) {alert (userInput)}; }
+    
+        let btnfx3 = function() {
+        let score = prompt("프로그래밍 시험 성적을 입력하세요");
+        if (score !== null ) {
+        if (parseInt(score) >= 90 ) {alert ("A학점 이다.");}
+        else if (parseInt(score) >= 80) {alert ("B학점 이다.");}
+        else {alert ("C학점 이다.");}}}
+    
+        let btnfx4 = function() {
+        let userNumber = prompt("숫자를 입력하세요");
+        if (userNumber !== null) { userNumber = parseInt(userNumber);}
+        (userNumber%2 ==0) ? alert(`${userNumber}는 짝수이다.`) : alert(`${userNumber}는 홀수이다.`)}
+    
+        let btnfx5 = function() {
+        let subject = prompt("신청과목을 선택하여 번호를 입력하세요. \n  1. HTML 2. CSS 3. javascript");
+        if (subject !==null) {
+        switch(subject) {
+        case "1" : document.write("HTML을 선택하였다.");
+        break;
+        case "2" : document.write("CSS를 선택하였다.");
+        break;
+        case "3" : document.write("javascript를 선택하였다.");
+        break; default : document.write("잘못 입력했다. 숫자로만 다시 입력해주세요.");
+        break;
+        } }}
+
+        let btnfx6 = function() {
+        let num1 = parseInt(prompt("첫번째 양의 정수를 입력해주세요"));
+        let num2 = parseInt(prompt("두번째 양의 정수를 입력해주세요"));
+        if (isNaN(num1) || isNaN(num2)) {alert("잘못 입력되었다. 양의 정수를 입력해주세요")}
+        else if (num1%2 == 0 && num1%2 == 0 ) {
+        alert(`${num1}, ${num2} 두 정수 모두 짝수이다.`)}
+        else if (num1%2!==0 && num2%2!==0) {
+        alert(`${num1}, ${num2} 두 정수 모두 홀수이다.`)}
+        else {alert(`${num1}, ${num2} 두 정수중 짝수가 아닌 수가 있다.`)}}
+    
+    </script>
+    <hr>
+    <h4 class="text-primary"><em>switch 문</em></h4>
+    
+    <p>switch 문은 if / else 문과 마찬가지로 주어진 조건 값에 따라 프로그램이 다른 명령을 수행하도록 하는 조건문이다.<br>
+    이러한 switch 문은 if / else 문보다 가독성 측면에서 더 좋다.<br>
+    switch 문의 문법은 다음과 같다.</p>
+    <span style="color:#794938">switch</span> (<span style="color:#006400;">조건 값</span>) {<br>
+    <span style="color:#691c97">    </span><span style="color:#794938">case</span> <span style="color:#006400;">값1</span>:<br>
+            조건 값이 값1일 때 실행하고자 하는 실행문;<br>
+    <span style="color:#691c97">        </span><span style="color:#794938">break</span>;<br>
+    <span style="color:#691c97">    </span><span style="color:#794938">case</span> <span style="color:#006400;">값2</span>:<br>
+        <span style="color:#691c97">    </span>조건 값이 값2일 때 실행하고자 하는 실행문;<br>
+    <span style="color:#691c97">        </span><span style="color:#794938">break</span>;<br>
+    <span style="color:#691c97">    </span>...<br>
+    <span style="color:#691c97">    </span><span style="color:#794938">default</span>:<br>
+    <span style="color:#691c97">        </span>조건 값이 어떠한 case 절에도 해당하지 않을 때 실행하고자 하는 실행문;<br>
+    <span style="color:#691c97">        </span><span style="color:#794938">break</span>;<br>
+    }</p>
+    </div>
+    <p>default 절은 조건 값이 위에 나열된 어떠한 case 절에도 해당하지 않을 때 실행된다.<br>
+    이 구문은 반드시 존재해야 하는 것은 아니며, 필요할 때만 선언할 수 있다.<br>
+    각 case 절 및 default 절은 반드시 break 키워드를 포함하고 있어야 한다.<br>
+    break 키워드는 조건 값에 해당하는 case 절이나 default 절이 실행된 뒤에 전체 switch 문을 빠져나가게 해준다.</p>
+    default 절의 위치가 반드시 switch 문의 맨 마지막일 필요는 없다.</div> 
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> x <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">10</span>;<br>
+    <span style="color:#794938">switch</span> (<span style="color:#794938">typeof</span> x) {<br>
+    <span style="color:#691c97">    </span><span style="color:#794938">case</span> <span style="color:#0b6125">"number"</span>:<br>
+    <span style="color:#691c97">        document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"변수 x의 타입은 숫자이다."</span>);<br>
+    <span style="color:#691c97">        </span><span style="color:#794938">break</span>;<br>
+    <span style="color:#691c97">    </span><span style="color:#794938">case</span> <span style="color:#0b6125">"string"</span>:<br>
+    <span style="color:#691c97">        document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"변수 x의 타입은 문자열이다."</span>);<br>
+    <span style="color:#691c97">        </span><span style="color:#794938">break</span>;<br>
+    <span style="color:#691c97">    </span><span style="color:#794938">case</span> <span style="color:#0b6125">"object"</span>:<br>
+    <span style="color:#691c97">        document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"변수 x의 타입은 객체이다."</span>);<br>
+    <span style="color:#691c97">        </span><span style="color:#794938">break</span>;<br>
+    <span style="color:#691c97">    </span><span style="color:#794938">default</span>:<br>
+    <span style="color:#691c97">        document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"변수 x의 타입을 잘 모르겠네요..."</span>);<br>
+    <span style="color:#691c97">        </span><span style="color:#794938">break</span>;<br>
+    }<br></p> </div>
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제: case 절과 default 절에 break 키워드가 없을 때 벌어지는 현상 </h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> x <span style="color:#794938">=</span> <span style="color:#0b6125">"문자열"</span>;<br>
+    <span style="color:#794938">switch</span> (<span style="color:#794938">typeof</span> x) {<br>
+    <span style="color:#691c97">    </span><span style="color:#794938">case</span> <span style="color:#0b6125">"number"</span>:<br>
+    <span style="color:#691c97">        document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"변수 x의 타입은 숫자이다.&lt;br&gt;"</span>);<br>
+    <span style="color:#691c97">    </span><span style="color:#794938">case</span> <span style="color:#0b6125">"string"</span>:<br>
+    <span style="color:#691c97">        document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"변수 x의 타입은 문자열이다.&lt;br&gt;"</span>);<br>
+    <span style="color:#691c97">    </span><span style="color:#794938">case</span> <span style="color:#0b6125">"object"</span>:<br>
+    <span style="color:#691c97">        document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"변수 x의 타입은 객체이다.&lt;br&gt;"</span>);<br>
+    <span style="color:#691c97">    </span><span style="color:#794938">default</span>:<br>
+    <span style="color:#691c97">        document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"변수 x의 타입을 잘 모르겠네요...&lt;br&gt;"</span>);<br>
+    }<br>
+  [결과] 변수 x의 타입은 문자열이다. <br>
+  변수 x의 타입은 객체이다.<br>
+  변수 x의 타입을 잘 모르겠네요...<br>
+  </p></div>
+
+    위의 예제에서 변수 x는 string 타입이므로, 두 번째 case 절의 document.write() 메소드가 맨 먼저 실행된다.<br>
+    하지만 break 키워드가 없으므로, 두 번째 case 절 이후에 나오는 모든 실행문이 모두 실행될 것이다.<br>
+    따라서 case 절과 default 절은 반드시 break 키워드를 포함하고 있어야 정확하게 동작할 수 있다.<br> <br>
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제:여러 개의 case 절을 사용하여 여러 개의 조건을 한 번에 표현</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> day <span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">Date</span>().<span style="color:#693a17">getDay</span>(); <span style="color:#5a525f;font-style:italic">// 오늘의 요일을 반환함. (일요일: 0 ~ 토요일: 6)</span><br>
+    <span style="color:#794938">switch</span> (day) {<br>
+    <span style="color:#794938">    case</span> <span style="color:#811f24;font-weight:700">1</span>: <span style="color:#5a525f;font-style:italic">// 월요일인 경우</span><br>
+    <span style="color:#794938">    case</span> <span style="color:#811f24;font-weight:700">2</span>: <span style="color:#5a525f;font-style:italic">// 화요일인 경우</span><br>
+    <span style="color:#794938">    case</span> <span style="color:#811f24;font-weight:700">3</span>: <span style="color:#5a525f;font-style:italic">// 수요일인 경우</span><br>
+    <span style="color:#794938">    case</span> <span style="color:#811f24;font-weight:700">4</span>: <span style="color:#5a525f;font-style:italic">// 목요일인 경우</span><br>
+    <span style="color:#794938">    default</span>: <span style="color:#5a525f;font-style:italic">// 0부터 6까지의 값이 아닌 경우</span><br>
+    <span style="color:#794938">    </span><span style="color:#794938">    </span><span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"아직도 주말은 멀었네요... 힘내자구요!!"</span>);<br>
+    <span style="color:#794938">        break</span>;<br>
+    <span style="color:#794938">    case</span> <span style="color:#811f24;font-weight:700">5</span>: <span style="color:#5a525f;font-style:italic">// 금요일인 경우</span><br>
+    <span style="color:#794938">    </span><span style="color:#794938">    </span><span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"오늘은 불금이네요!!"</span>);<br>
+    <span style="color:#794938">        break</span>;<br>
+    <span style="color:#794938">    case</span> <span style="color:#811f24;font-weight:700">6</span>: <span style="color:#5a525f;font-style:italic">// 토요일인 경우</span><br>
+    <span style="color:#794938">    case</span> <span style="color:#811f24;font-weight:700">0</span>: <span style="color:#5a525f;font-style:italic">// 일요일인 경우</span><br>
+    <span style="color:#794938">    </span><span style="color:#794938">    </span><span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"즐거운 주말에도 열심히 공부하는 당신~ 최고에요!!"</span>);<br>
+    <span style="color:#794938">        break</span>;<br>
+    }</p></div>
+    <hr><div class="col-md-8 mb-2">
+      <div class="p-3 text-white fs-4 bd-pink-800">반복문(iteration statements)</div>      </div>
+      
+    <p>반복문이란 프로그램 내에서 똑같은 명령을 일정 횟수만큼 반복하여 수행하도록 제어하는 실행문이다.<br>
+    프로그램이 처리하는 대부분의 코드는 반복적인 형태가 많으므로, 가장 많이 사용되는 실행문 중 하나이다.<br>
+    자바스크립트에서 사용할 수 있는 반복문의 형태는 다음과 같다.<br>
+    1. while 문<br>
+    2. do / while 문<br>
+    3. for 문<br>
+    4. for / in 문<br>
+    5. for / of 문</p>
+    
+    <hr>
+    <h4 class="text-primary"><em>while 문</em></h4>
+    
+    <p>while 문은 특정 조건을 만족할 때까지 계속해서 주어진 실행문을 반복 실행한다.<br>
+    while 문을 순서도로 표현하면 다음 그림과 같다.<br>
+    <img alt="while 문" src="http://tcpschool.com/lectures/img_js_while.png" style="width: 300px; height: 349px;"><br>
+    while 문의 문법은 다음과 같다.</p>
+    <span style="color:#794938">while</span> (표현식) {<br>
+        표현식의 결과가 참인 동안 반복적으로 실행하고자 하는 실행문;<br>
+    }</p>
+    </div>
+    <p>while 문은 우선 표현식이 참(true)인지를 판단하여 참이면 내부의 실행문을 실행한다.<br>
+    내부의 실행문을 전부 실행하고 나면, 다시 표현식으로 돌아와 또 한 번 표현식이 참인지를 판단하게 된다.<br>
+    이렇게 표현식의 검사를 통해 반복해서 실행되는 반복문을 루프(loop)라고 한다.</p>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> i <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">1</span>;<br>
+    <span style="color:#794938">while</span> (i <span style="color:#794938">&lt;</span> <span style="color:#811f24;font-weight:700">10</span>) { <span style="color:#5a525f;font-style:italic">// 변수 i가 10보다 작을 때만 while 문을 반복함.</span><br>
+        <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(i <span style="color:#794938">+</span> <span style="color:#0b6125">"&lt;br&gt;"</span>);<br>
+        i<span style="color:#794938">++</span>; <span style="color:#5a525f;font-style:italic">// 반복할 때마다 변수 i를 1씩 증가시켜 변수 i가 10보다 커지면 반복문을 종료함.</span><br>
+    }<br></div>
+    while 문 내부에 표현식의 결과를 변경하는 실행문이 존재하지 않을 경우 프로그램은 루프를 영원히 반복하게 된다.<br>
+    이것을 무한 루프(infinite loop)에 빠졌다고 하며, 무한 루프에 빠진 프로그램은 영원히 종료되지 않는다.<br>
+    무한 루프는 특별히 의도한 경우가 아니라면 반드시 피해야 하는 상황이다.<br>
+    따라서 while 문을 작성할 때는 표현식의 결과가 <span class="text-danger"><strong>어느 순간에는 거짓(false)을 갖도록 표현식를 변경하는 실행문을 반드시 포함해야 한다.</strong></span>
+    while 문도 실행될 실행문이 한 줄 뿐이라면 중괄호({})를 생략할 수 있다</div>
+    
+    <hr>
+    <h4 class="text-primary"><em>do / while 문</em></h4>
+    
+    <p>while 문은 루프에 진입하기 전에 먼저 표현식부터 검사한다.<br>
+    하지만 do / while 문은 <span class="text-danger"><strong>먼저 루프를 한 번 실행한 후</strong></span>에 표현식을 검사한다.<br>
+    즉, do / while 문은 표현식의 <span class="text-danger"><strong>결과와 상관없이 무조건 한 번은 루프를 실행</strong></span>한다.<br>
+    do / while 문을 순서도로 표현하면 다음 그림과 같다.<br>
+    <img alt="do while 문" src="http://tcpschool.com/lectures/img_js_do.png" style="width: 200px; height: 337px;"><br>
+    do / while 문의 문법은 다음과 같다.</p>
+    <span style="color:#794938">do</span> {<br>
+        표현식의 결과가 참인 동안 반복적으로 실행하고자 하는 실행문;<br>
+    } <span style="color:#794938">while</span> (표현식);</p>
+    </div>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> i <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">1</span>, j <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">1</span>;<br>
+    <span style="color:#794938">while</span> (i <span style="color:#794938">&gt;</span> <span style="color:#811f24;font-weight:700">3</span>) { <span style="color:#5a525f;font-style:italic">// 변수 i의 초깃값은 1이기 때문에 3보다 작으므로 이 while 문은 아예 한 번도 실행되지 않음.</span><br>
+        <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"i : "</span> <span style="color:#794938">+</span> (i<span style="color:#794938">++</span>) <span style="color:#794938">+</span> <span style="color:#0b6125">"&lt;br&gt;"</span>);<br>
+    }<br>
+    <span style="color:#794938">do</span> { <span style="color:#5a525f;font-style:italic">// 일단 한번은 실행해주고 변수 j의 초깃값은 1이기 때문에 이 do / while 문은 두번째 이후부터 실행되지 않음.</span><br>
+        <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"j : "</span> <span style="color:#794938">+</span> (j<span style="color:#794938">++</span>) <span style="color:#794938">+</span> <span style="color:#0b6125">"&lt;br&gt;"</span>);<br>
+    } <span style="color:#794938">while</span> (j <span style="color:#794938">&gt;</span> <span style="color:#811f24;font-weight:700">3</span>);</p>
+[결과]j : 1<br> <br>
+</div>  
+    <hr>
+    <h4 class="text-primary"><em>for 문</em></h4>
+    
+    <p>for 문은 while 문과는 달리 <span class="text-danger"><strong>자체적으로 초기식, 표현식, 증감식을 모두 포함</strong></span>하고 있는 반복문이다.<br>
+    따라서 while 문보다는 좀 더 간결하게 반복문을 표현할 수 있다.<br>
+    for 문을 순서도로 표현하면 다음 그림과 같다.<br>
+    <img alt="for 문" src="http://tcpschool.com/lectures/img_js_for.png" style="width: 300px; height: 408px;"><br>
+    for 문의 문법은 다음과 같다.</p>
+    <span style="color:#794938">for</span> (초기식; 표현식; 증감식) {<br>
+        표현식의 결과가 참인 동안 반복적으로 실행하고자 하는 실행문;<br>
+    }</p>
+    </div>
+    <p>for 문을 구성하는 초기식, 표현식, 증감식은 각각 생략될 수 있다.<br>
+    또한, 쉼표 연산자(,)를 사용하면 여러 개의 초기식이나 증감식을 동시에 사용할 수도 있다.<br>
+    for 문을 사용하면 앞선 예제의 while 문을 더욱 더 간결하게 표현할 수 있다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#794938">for</span> (<span style="color:#a71d5d;font-style:italic">var</span> i <span style="color:#794938">= </span><span style="color:#811f24;font-weight:700">1</span>; i <span style="color:#794938">&lt; </span><span style="color:#811f24;font-weight:700">10</span>; i<span style="color:#794938">++</span>) {<br>
+        <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(i <span style="color:#794938">+</span> <span style="color:#0b6125">"&lt;br&gt;"</span>);<br>
+    }<br></div>
+    for 문에서 실행될 실행문이 한 줄 뿐이라면 중괄호({})를 생략할 수 있다</div>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>for예제1</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    <button id="btn_07" onClick="btnfx7()">버튼</button><br>
+    <h5>for () {}</h5>
+    const students =["Kim", "Lee", "Park", "Kang", "Ann"];<br>
+    for (let i=0; i &lt;students.length; i++ ) <br>
+    {document.write(`${students[i]} &lt;br>`)} <br>
+  </div> </div> 
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>for예제2</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    <button id="btn_08" onClick="btnfx8()">정수출력</button><br> 
+       1보다 큰 자연수를 입력받고 그 자연수 이하의 짝수를 열거하고 짝수끼리의 합을 출력하라 <br>
+        const integer = parseInt(prompt("1보다 큰 자연수를 입력해주세요"));<br>
+        if (integer !==null) { <br>
+        for (let i=1, j=0;  i<=integer; i++) {<br>
+        if (i%2===0) {j+=i; document.write(`${i} ----- ${j}&lt;br>`)}}};<br> </p>
+    </div>  </div>
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>for예제3</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    <button id="btn_09" onClick="btnfx9()">1부터 10까지 더하기</button><br>
+        function calsum() {<br>
+          let sum =0 ;<br>
+          for (let i=0; i<=10; i++) {<br>
+            sum += i;}<br>
+            document.write(`1부터 10까지 합은 ${sum}이다.)} <br>
+        calsum();<br>
+    </div>  </div>
+
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>for예제4</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    <button id="btn_10" onClick="btnfx10()">1부터  n까지 더하기</button><br>
+        let number = parseInt(prompt("1보다 큰 자연수를 입력해주세요"));<br>
+        function calsum() {<br>
+          let sum =0 ;<br>
+          for (let i=0; i<=number; i++) {<br>
+            sum += i;}<br>
+            document.write(`1부터 ${number}까지 합은 ${sum}이다.)} <br>
+        if (number !== null) { <br>
+        calsum();}<br>
+    </div>  </div>
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>for예제5</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    <button id="btn_11" onClick="btnfx11()">계산함수호출</button><br>
+        function calsum(n) {<br>
+          let sum =0 ;<br>
+          for (let i=0; i<=n; i++) {<br>
+            sum += i;}<br>
+          return sum;}<br><br>
+          
+          let number = parseInt(prompt("몇까지 더할까요"));<br>
+          if (number !== null) { <br>
+            document.write(`1부터 ${number}까지 합은 ${calsum(number)}이다.)} <br>
+    </div> </div> 
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>forEach</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    <button id="btn_12" onClick="btnfx12()">배열과 forEach</button><br></p>    
+    <h5>배열.forEach(<span class="text-danger fw-bold">function</span>(배열의 요소) {})</h5>    
+    <p>const fruits =["apple", "strawberry", "peach", "melon", "grape"];<br>
+    fruits.forEach(function(fruit) {<br>
+    document.write(`${fruit} &lt;br>`)})<br></p>
+  </div> </div> 
+
+    <hr>
+    <h4 class="text-primary"><em>for / in 문</em></h4>
+    
+    <p>for / in 문은 일반적인 for 문과는 전혀 다른 형태의 반복문이다.<br>
+    for / in 문은 해당 객체의 모든 <span class="text-danger fw-bold">열거할 수 있는 프로퍼티(enumerable properties)</span>를 순회할 수 있도록 해준다.</p>
+    열거할 수 있는 프로퍼티란 내부적으로 enumerable 플래그가 true로 설정된 프로퍼티를 의미한다.<br>
+    이러한 프로퍼티들은 for / in 문으로 접근할 수 있게 된다.</div>
+    <p>이 반복문은 루프마다 객체의 열거할 수 있는 프로퍼티의 이름을 지정된 변수에 대입한다.<br>
+    이렇게 대입받은 변수를 이용하면 루프 안에서 객체의 열거할 수 있는 프로퍼티에 순차적으로 접근할 수 있다.<br>
+    for / in 문의 문법은 다음과 같다.</p>
+    <span style="color:#794938">for</span> (변수 <span style="color:#794938">in</span> 객체) {<br>
+        객체의 모든 열거할 수 있는 프로퍼티의 개수만큼 반복적으로 실행하고자 하는 실행문;<br>
+    }</p>
+    </div> 
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제 : for / in 문을 사용하여 배열의 요소에 접근</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> arr <span style="color:#794938">=</span> [<span style="color:#811f24;font-weight:700">3</span>, <span style="color:#811f24;font-weight:700">4</span>, <span style="color:#811f24;font-weight:700">5</span>];<br>
+    <span style="color:#794938">for</span> (<span style="color:#a71d5d;font-style:italic">var</span> i <span style="color:#794938">= </span><span style="color:#811f24;font-weight:700">0</span>; i <span style="color:#794938">&lt; </span>arr.<span style="color:#b4371f">length</span>; i<span style="color:#794938">++</span>) { <span style="color:#5a525f;font-style:italic">// 배열 arr의 모든 요소의 인덱스(index)를 출력함.</span><br>
+        <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(i <span style="color:#794938">+</span> <span style="color:#0b6125">" "</span>);<br>
+    }<br>
+    <span style="color:#794938">for</span> (<span style="color:#a71d5d;font-style:italic">var</span> i <span style="color:#794938">in</span> arr) { <span style="color:#5a525f;font-style:italic">// 위와 같은 동작을 하는 for / in 문</span><br>
+        <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(i <span style="color:#794938">+</span> <span style="color:#0b6125">" "</span>);<br>
+    }<br><br>
+    [결과]0 1 2 0 1 2</p>    </div>
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제 : for / in 문을 사용하여 객체의 프로퍼티에 접근</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> obj <span style="color:#794938">=</span> { name : <span style="color:#0b6125">"이순신"</span>, age : <span style="color:#811f24;font-weight:700">20</span> };<br>
+    <span style="color:#794938">for</span> (<span style="color:#a71d5d;font-style:italic">var</span> i <span style="color:#794938">in</span> obj) {<br>
+    <span style="color:#691c97">    document</span>.<span style="color:#693a17">write</span>(i <span style="color:#794938">+</span> <span style="color:#0b6125">"&lt;br&gt;"</span>);<br>
+    }<br><br>
+    [결과]name<br>
+    age</p>    </div>
+
+    for / in 문은 해당 객체가 가진 모든 프로퍼티를 반환하는 것이 아닌, 오직 열거할 수 있는 프로퍼티만을 반환한다.</div>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>for ~ in</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    <button id="btn_13" onClick="btnfx13()">for in</button><br>
+        const gitBook = {<br>
+        title : "깃 & 깃허브 입문",<br>
+        pubDate : "2019-12-06" ,<br>
+        pages : 272,<br>
+        finished : true }<br>
+         
+        for (key in gitBook) {<br>
+        document.write(`${key} : ${gitBook[key]} &lt;br>`)}&lt;/p><br>
+    </div> </div>
+
+    <hr>
+    <h4 class="text-primary"><em>for / of 문</em></h4>
+    
+    <p>for / of 문은 <span class="text-danger fw-bold">반복할 수 있는 객체(iterable objects)</span>를 순회할 수 있도록 해주는 반복문이다.<br>
+    자바스크립트에서 반복할 수 있는 객체에는 <span class="text-danger"><strong>Array, Map, Set, arguments 객체</strong></span> 등이 있다.<br>
+    참고로 for /in 문은 iterable 하지 않은 일반객체도 가능하다 <br>
+    이 반복문은 루프마다 객체의 열거할 수 있는 프로퍼티의 값을 지정된 변수에 대입한다. </p>
+    <span style="color:#794938">for</span> (변수 <span style="color:#794938">of</span> 객체) {<br>
+        객체의 모든 열거할 수 있는 프로퍼티의 개수만큼 반복적으로 실행하고자 하는 실행문;<br>
+    }</p>
+    </div> 
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제 : for / of 문을 사용하여 배열의 요소에 접근</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> arr <span style="color:#794938">=</span> [<span style="color:#811f24;font-weight:700">1</span>, <span style="color:#811f24;font-weight:700">1</span>, <span style="color:#811f24;font-weight:700">2</span>, <span style="color:#811f24;font-weight:700">2</span>, <span style="color:#811f24;font-weight:700">3</span>, <span style="color:#811f24;font-weight:700">3</span>];<br>
+    <span style="color:#794938">for</span> (<span style="color:#a71d5d;font-style:italic">var</span> i <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">0</span>; i <span style="color:#794938">&lt;</span> arr.<span style="color:#b4371f">length</span>; i<span style="color:#794938">++</span>) { <span style="color:#5a525f;font-style:italic">// 배열 arr의 모든 요소의 인덱스(index)를 출력함.</span><br>
+        <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(arr[i] <span style="color:#794938">+</span> <span style="color:#0b6125">" "</span>);<br>
+    }<br>
+    <span style="color:#794938">for</span> (<span style="color:#a71d5d;font-style:italic">var</span> value of arr) { <span style="color:#5a525f;font-style:italic">// 위와 같은 동작을 하는 for / of 문</span><br>
+        <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(value <span style="color:#794938">+</span> <span style="color:#0b6125">" "</span>);<br>
+    }<br>[결과]1 1 2 2 3 3 1 1 2 2 3 3</p></div> 
+    for / of 문은 익스플로러에서 지원하지 않는다.
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제 : for / of 문을 사용하여 Set 객체의 프로퍼티에 접근</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> arr <span style="color:#794938">=</span> <span style="color:#794938">new</span> <span style="color:#bf4f24">Set</span>([<span style="color:#811f24;font-weight:700">1</span>, <span style="color:#811f24;font-weight:700">1</span>, <span style="color:#811f24;font-weight:700">2</span>, <span style="color:#811f24;font-weight:700">2</span>, <span style="color:#811f24;font-weight:700">3</span>, <span style="color:#811f24;font-weight:700">3</span>]);<br>
+    <span style="color:#794938">for</span> (<span style="color:#a71d5d;font-style:italic">var</span> value of arr) {<br>
+    <span style="color:#691c97">    document</span>.<span style="color:#693a17">write</span>(value <span style="color:#794938">+</span> <span style="color:#0b6125">" "</span>);<br>
+    }<br>[결과]1 2 3</p></div>
+        
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>for ~ of</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    <button id="btn_14" onClick="btnfx14()">for of</button><br>
+    const students =["Kim", "Lee", "Park", "Kang", "Ann"];<br>
+    for (student of students) { <br>
+    document.write(`${students} &lt;br>`);} <br>
+    </div> </div>
+  
+  
+<script>
+    let btnfx7 = function() {
+    const students =["Kim", "Lee", "Park", "Kang", "Ann"];
+    for (let i=0; i<students.length; i++) {document.write(`${students[i]}<br>`);}}
+
+    let btnfx8 = function() {
+    const integer = parseInt(prompt("1보다 큰 자연수를 입력해주세요"));
+    if (integer !==null) {document.write(`1보다 큰 자연수 이하의 짝수끼리의 합은<br>`);
+    for (let i=1, j=0; i<=integer; i++) {
+    if (i%2===0) {j+=i; document.write(`${i} ----- ${j}<br>`)}}};}
+
+    let btnfx9 = function() {
+    function calsum() {
+    let sum =0 ;
+    for (let i=0; i<=10; i++) {
+    sum += i;}
+    document.write(`1부터 10까지 합은 ${sum}이다.`)}
+    calsum();}
+
+    let btnfx10 = function() {
+    let number = parseInt(prompt("1보다 큰 자연수를 입력해주세요"));
+    function calsum() {
+    let sum =0 ;
+    for (let i=0; i<=number; i++) {
+    sum += i;}
+    document.write(`1부터 ${number}까지 합은 ${sum}이다.`)}
+    if (number !== null) {
+    calsum();}}
+
+    let btnfx11 = function() {
+    function calsum(n) {
+    let sum =0 ;
+    for (let i=0; i<=n; i++) {
+    sum += i;}
+    return sum;}
+
+    let number = parseInt(prompt("몇까지 더할까요"));
+    if (number !== null) {
+    document.write(`1부터 ${number}까지 합은 ${calsum(number)}이다.`)}}
+
+    let btnfx12 = function() {
+    const fruits =["apple", "strawberry", "peach", "melon", "grape"];
+    fruits.forEach(function(fruit) {
+    document.write(`${fruit} <br>`)})}
+
+    let btnfx13 = function() {
+    const gitBook = {
+    title : "깃 & 깃허브 입문",
+    pubDate : "2019-12-06" ,
+    pages : 272,
+    finished : true }
+    for (key in gitBook) {
+    document.write(`${key} : ${gitBook[key]} <br>`)} }
+
+    let btnfx14 = function() {
+    const students =["Kim", "Lee", "Park", "Kang", "Ann"];
+    for (student of students) {document.write(`${student} <br>`);}}
+
+    </script>
+
+    <hr><div class="col-md-8 mb-2">
+      <div class="p-3 text-white fs-4 bd-pink-800">루프의 제어</div>      </div>
+    
+    <p>일반적으로 표현식의 검사를 통해 루프로 진입하면, 다음 표현식을 검사하기 전까지 루프 안에 있는 모든 실행문을 실행한다.<br>
+    하지만 continue 문과 break 문은 이러한 일반적인 루프의 흐름을 사용자가 직접 제어할 수 있게 해준다.<br>
+    
+    <hr>
+    <h4 class="text-primary"><em>label 문</em></h4>
+    
+    <p>label 문은 프로그램 내의 특정 영역을 식별할 수 있도록 해주는 식별자이다.<br>
+    label 문을 사용하면 continue 문과 break 문의 동작이 프로그램의 흐름을 특정 영역으로 이동시킬 수 있다.<br>
+  
+    <p>label:<br>
+    식별하고자 하는 특정 영역</p>
+    </div>
+    <p>다음 예제에서 라벨인 arrIndex는 그 이후에 나오는 for 문 전체를 가리키는 식별자로 사용되고 있다.</p>
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <p>arrIndex:<br>
+    <span style="color:#794938">for</span> (<span style="color:#a71d5d;font-style:italic">var</span> i <span style="color:#794938">in</span> arr) {<br>
+    <span style="color:#691c97">    document</span>.<span style="color:#693a17">write</span>(i);<br>
+    }</p>
+    </div>
+    
+    <hr>
+    <h4 class="text-primary"><em>continue 문</em></h4>
+    
+    <p>continue 문은 루프 내에서 사용하여 해당 루프의 나머지 부분을 건너뛰고, 바로 다음 표현식의 판단으로 넘어가게 한다.<br>
+    보통 반복문 내에서 특정 조건에 대한 처리를 제외하고자 할 때 자주 사용된다.<br>
+    자바스크립트에서 continue 문은 다음과 같이 두 가지 형태로 사용할 수 있다.</p>
+    <p>1. continue;<br>
+    2. continue 라벨이름;</p>
+    </div> 
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제 : 1부터 100까지의 정수 중에서 3의 배수를 제외하고 출력</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> exceptNum <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">3</span>;<br>
+    <span style="color:#794938">for</span> (<span style="color:#a71d5d;font-style:italic">var</span> i <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">0</span>; i <span style="color:#794938">&lt;=</span> <span style="color:#811f24;font-weight:700">100</span>; i<span style="color:#794938">++</span>) {<br>
+    <span style="color:#794938">    if</span> (i <span style="color:#794938">%</span> exceptNum <span style="color:#794938">==</span> <span style="color:#811f24;font-weight:700">0</span>) <span style="color:#5a525f;font-style:italic">// 3의 배수, 즉 exceptNum의 나누어 떨어지면 </span><br>
+    <span style="color:#794938">        continue</span>;<br>
+    <span style="color:#691c97">    document</span>.<span style="color:#693a17">write</span>(i <span style="color:#794938">+</span> <span style="color:#0b6125">" "</span>);<span style="color:#5a525f;font-style:italic">// continue문이 있으므로 3의 배수는 이 실행문을 실행하지 않고 다음 for문으로 넘어간다</span><br>
+    }<br></div> 
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5> 예제 : 라벨을 이용하여 구구단의 값이 홀수인 경우에만 출력 </h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <p>gugudan:<span style="color:#5a525f;font-style:italic">// 다음 한줄의 for문을 gugudan이라고 선언하고 i가 2부터 시작 9까지 1씩 증가한다.</span><br>
+    <span style="color:#794938">for</span> (<span style="color:#a71d5d;font-style:italic">var</span> i <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">2</span>; i <span style="color:#794938">&lt;=</span> <span style="color:#811f24;font-weight:700">9</span>; i<span style="color:#794938">++</span>) {<br>
+        dan:<span style="color:#5a525f;font-style:italic">// 다음 두줄의 for문을 dan이라고 선언하고 j가 1부터 시작 9까지 1씩 증가하면서</span><br>
+        <span style="color:#794938">for</span> (<span style="color:#a71d5d;font-style:italic">var</span> j <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">1</span>; j <span style="color:#794938">&lt;=</span> <span style="color:#811f24;font-weight:700">9</span>; j<span style="color:#794938">++</span>) {<span style="color:#5a525f;font-style:italic">// i와 j의 곱이 2의 배수(짝수)인 경우</span><br>
+            <span style="color:#794938">if</span> ((i<span style="color:#794938">*</span>j) <span style="color:#794938">%</span> <span style="color:#811f24;font-weight:700">2</span> <span style="color:#794938">==</span> <span style="color:#811f24;font-weight:700">0</span>)<br>
+                <span style="color:#794938">continue</span> dan;<br>
+            <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(i <span style="color:#794938">+</span> <span style="color:#0b6125">" * "</span> <span style="color:#794938">+</span> j <span style="color:#794938">+</span> <span style="color:#0b6125">" = "</span> <span style="color:#794938">+</span> (i<span style="color:#794938">*</span>j) <span style="color:#794938">+</span> <span style="color:#0b6125">"&lt;br&gt;"</span>);<br>
+        }<br>}<br><span style="color:#5a525f;font-style:italic">// continue dan 아래 실행문은 실행하지 않고 다음 dan for문 (다음 j로) 판단으로 돌아간다</span><br>
+      <Br>[결과]3 * 1 = 3<br>        3 * 3 = 9<br>        3 * 5 = 15<br>        3 * 7 = 21<br>
+        3 * 9 = 27<br>        5 * 1 = 5<br>        5 * 3 = 15<br>        5 * 5 = 25<br>
+        5 * 7 = 35<br>        5 * 9 = 45<br>        7 * 1 = 7<br>        7 * 3 = 21<br>
+        7 * 5 = 35<br>        7 * 7 = 49<br>        7 * 9 = 63<br>        9 * 1 = 9<br>
+        9 * 3 = 27<br>        9 * 5 = 45<br>        9 * 7 = 63<br>        9 * 9 = 81</div>
+    
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제 : 소수인지 여부 확인</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    <button id="btn_14" onClick="btnfx15()">소수여부 확인</button><br>
+        const number = parseInt(prompt("자연수를 입력하세요"));<br>
+        let isPrime;<br><br>
+        if (number === 1) {<br>
+        document.write(`1은 소수도 합성수도 아닙니다.`);<br>
+        } else if (number === 2) {<br>
+        isPrime = true;   // 숫자 2는 당연히 소수이므로 true로 설정<br>
+        } else {<br>
+        for (let i = 2; i < number; i++) {<br>
+        if (number % i === 0) {<br>
+            isPrime = false;<br>
+            break;<br>
+        }<br>
+        else {<br>
+            isPrime = true;<br>
+        }<br>
+        }<br><br>
+        if (isPrime) {<br>
+        document.write(`${number}는 소수입니다.`);<br>
+        } else {<br>
+        document.write(`${number}는 소수가 아닙니다.`);<br>
+        }<br>
+        }<br></p></div>
+    <script>
+        let btnfx15 = function() {
+            const number = parseInt(prompt("자연수를 입력하세요"));
+            let isPrime;
+            if (number === 1) {
+                document.write(`1은 소수도 합성수도 아닙니다.`);
+            } else if (number === 2) {
+                document.write(`2는 소수입니다.`);  // 숫자 2는 당연히 소수이므로 true로 설정
+            } else {
+                for (let i = 2; i < number; i++) {
+                    if (number % i === 0) {
+                    isPrime = false;
+                    break;
+                    }
+                    else {
+                    isPrime = true;
+                    }
+                }
+            if (isPrime) {
+                document.write(`${number}는 소수입니다.`);
+                } else {
+                    document.write(`${number}는 소수가 아닙니다.`);
+                }
+            }   
+        }
+    </script>
+
+    <hr>
+    <h4 class="text-primary"><em>break 문</em></h4>
+    
+    <p>break 문은 루프 내에서 사용하여 해당 반복문을 완전히 종료시키고, 반복문 바로 다음에 위치한 실행문으로 프로그램의 흐름을 이동시킨다.<br>
+    즉, 루프 내에서 표현식의 판단 결과에 상관없이 반복문을 완전히 빠져나가고 싶을 때 사용한다.<br>
+    자바스크립트에서 break 문은 다음과 같이 두 가지 형태로 사용할 수 있다.</p>
+    <p>1. break;<br>
+    2. break 라벨이름;</p>
+    </div> 
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5>예제 : 배열에서 특정값을 가지고 있는 인덱스를 출력 </h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+    <span style="color:#a71d5d;font-style:italic">var</span> lectures <span style="color:#794938">=</span> [<span style="color:#0b6125">"html"</span>, <span style="color:#0b6125">"css"</span>, <span style="color:#0b6125">"자바스크립트"</span>, <span style="color:#0b6125">"php"</span>];<br>
+    <span style="color:#a71d5d;font-style:italic">var</span> topic <span style="color:#794938">=</span> <span style="color:#0b6125">"자바스크립트"</span>;<br>
+    <span style="color:#794938">for</span> (<span style="color:#a71d5d;font-style:italic">var</span> i <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">0</span>; i <span style="color:#794938">&lt;</span> lectures.<span style="color:#b4371f">length</span>; i<span style="color:#794938">++</span>) {<br>
+    <span style="color:#794938">    if</span> (lectures[i] <span style="color:#794938">==</span> topic) {<br>
+    <span style="color:#691c97">        document</span>.<span style="color:#693a17">write</span>(topic <span style="color:#794938">+</span> <span style="color:#0b6125">" 과목은 "</span> <span style="color:#794938">+</span> (i <span style="color:#794938">+</span> <span style="color:#811f24;font-weight:700">1</span>) <span style="color:#794938">+</span> <span style="color:#0b6125">"번째 과목이다."</span>);<br>
+    <span style="color:#794938">        break</span>; <span style="color:#5a525f;font-style:italic">// 원하는 값을 찾은 후에는 더 이상 for 문을 반복하지 않고 빠져나감.</span><br>
+        }<br>
+    }<br><br>[결과] 자바스크립트 과목은 3번째 과목이다.<br></div> 
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+    <div class="card-header bd-yellow-100"><h5> 예제 : 라벨을 이용하여 구구단을 3단까지만 출력</h5></div>
+    <p class="card-text" style="padding: 10px 10px;">
+    
+      <p>gugudan:<span style="color:#5a525f;font-style:italic">// 다음 한줄의 for문을 gugudan이라고 선언하고 i가 2부터 시작 9까지 1씩 증가한다.</span><br>
+        <span style="color:#794938">for</span> (<span style="color:#a71d5d;font-style:italic">var</span> i <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">2</span>; i <span style="color:#794938">&lt;=</span> <span style="color:#811f24;font-weight:700">9</span>; i<span style="color:#794938">++</span>) {<br>
+            dan:<span style="color:#5a525f;font-style:italic">// 다음 두줄의 for문을 dan이라고 선언하고 j가 1부터 시작 9까지 1씩 증가하면서</span><br>
+    
+            <span style="color:#794938">if</span> (i <span style="color:#794938">&gt;</span> <span style="color:#811f24;font-weight:700">3</span>)<span style="color:#5a525f;font-style:italic">// i가 2, 3까지는 i와 j의 곱을 출력하고 i가 3을 초과하면 gugudan for문 이하를 모두 종료한다</span><br>
+                <span style="color:#794938">break</span> gugudan;<br>
+            <span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(i <span style="color:#794938">+</span> <span style="color:#0b6125">" * "</span> <span style="color:#794938">+</span> j <span style="color:#794938">+</span> <span style="color:#0b6125">" = "</span> <span style="color:#794938">+</span> (i<span style="color:#794938">*</span>j) <span style="color:#794938">+</span> <span style="color:#0b6125">"&lt;br&gt;"</span>);<br>
+        }<br>
+    }</p></div>     
+        
+</body>
+</html>

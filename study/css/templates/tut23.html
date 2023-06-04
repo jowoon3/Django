@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3 선택자(selector)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <H2>CSS</H2>  
+    <style>
+        .txtlink {color: green; text-decoration:none; margin-left:20px; font-size:16px;}
+        .txtlink:hover {text-decoration:underline;}        /*마우스 올라가면 밑줄 */        
+        /* .button_S {display:inline-block; background-color:gray; color: #FFFFFF; padding: 14px 25px; text-align: center; text-decoration: none; font-size: 16px; margin-left: 20px; opacity: 0.9; border-radius: 5px;}
+        .button_S:hover {color:white; background-color:lightyellow ; opacity:1.0;}      /*마우스 올라가면 배경색 핑크색 글자 흰색으로 바뀜 
+        .button1 {display:inline-block; background-color:#f44336; color: #FFFFFF; padding: 14px 25px; text-align: center; text-decoration: none; font-size: 16px; margin-left: 20px; opacity: 0.9; border-radius: 5px;}
+        .button1:hover {color:white; background-color:pink; opacity:1.0;}      마우스 올라가면 배경색 핑크색 글자 흰색으로 바뀜 
+        .button2 {background-color: white; color: black; border: 2px solid #f44336; padding: 14px 24px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin-left: 20px;}
+        .button2:hover {background-color: #f44336; color: white;}    /*마우스 올라가면 배경색 및 글자 색 바뀜
+        .button3 {display:inline-block; background-color: #44bb55; color: #FFFFFF; padding: 14px 25px; text-align: center; text-decoration: none; font-size: 16px; margin-left: 20px; opacity: 0.9;border-radius: 5px;}
+        .button3:hover {background-color: #44bb55; color: white;}    마우스 올라가면 배경색 및 글자 색 바뀜 
+        .button4 {background-color: white; color: black; border: 2px solid #44bb55; padding: 14px 24px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin-left: 20px;}
+        .button4:hover {background-color: #44bb55; color: white;}    마우스 올라가면 배경색 및 글자 색 바뀜 */
+        
+        .btn {margin: 4px 0px;--bs-btn-padding-x: 0.75rem;  --bs-btn-padding-y: 0.375rem; --bs-btn-font-family: 'Nanum Gothic', sans-serif; --bs-btn-font-size: 1rem; --bs-btn-font-weight: 400;
+              --bs-btn-line-height: 1.5;    --bs-btn-border-width: var(--bs-border-width);
+              --bs-btn-border-radius: 0.375rem;   --bs-btn-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15),0 1px 1px rgba(0, 0, 0, 0.075);
+              --bs-btn-disabled-opacity: 0.65;    --bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(var(--bs-btn-focus-shadow-rgb), .5);
+              display: inline-block; padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x); font-family: var(--bs-btn-font-family);
+              font-size: var(--bs-btn-font-size); font-weight: var(--bs-btn-font-weight); line-height: var(--bs-btn-line-height); 
+              color: var(--bs-btn-color);         text-align: center;    text-decoration: none;    vertical-align: middle;    cursor: pointer;
+              -webkit-user-select: none;    -moz-user-select: none;      user-select: none;    
+              border: var(--bs-btn-border-width) solid var(--bs-btn-border-color); border-radius: var(--bs-btn-border-radius);
+              background-color: var(--bs-btn-bg);}
+        .button_S {--bs-btn-color: #fff;    --bs-btn-bg: #6c757d;    --bs-btn-border-color: #6c757d;    --bs-btn-hover-color: #fff;
+              --bs-btn-hover-bg: #5c636a;    --bs-btn-hover-border-color: #565e64;    --bs-btn-focus-shadow-rgb: 130,138,145;
+              --bs-btn-active-color: #fff;    --bs-btn-active-bg: #565e64;    --bs-btn-active-border-color: #51585e;
+              --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #fff;    --bs-btn-disabled-bg: #6c757d;
+              --bs-btn-disabled-border-color: #6c757d;}
+        .button1 {--bs-btn-color: #fff;     --bs-btn-bg: #dc3545;       --bs-btn-border-color: #dc3545;     --bs-btn-hover-color: #fff;
+                  --bs-btn-hover-bg: #bb2d3b;    --bs-btn-hover-border-color: #b02a37;     --bs-btn-focus-shadow-rgb: 225,83,97;
+                  --bs-btn-active-color: #fff;   --bs-btn-active-bg: #b02a37;    --bs-btn-active-border-color: #a52834;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #fff;
+                  --bs-btn-disabled-bg: #dc3545;    --bs-btn-disabled-border-color: #dc3545;}
+        .button2 {--bs-btn-color: #dc3545;    --bs-btn-border-color: #dc3545;    --bs-btn-hover-color: #fff;    --bs-btn-hover-bg: #dc3545;
+                  --bs-btn-hover-border-color: #dc3545;    --bs-btn-focus-shadow-rgb: 220,53,69;    --bs-btn-active-color: #fff;
+                  --bs-btn-active-bg: #dc3545;    --bs-btn-active-border-color: #dc3545; --bs-border-width: 2px;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #dc3545;
+                  --bs-btn-disabled-bg: transparent;    --bs-btn-disabled-border-color: #dc3545;    --bs-gradient: none;}
+        .button3 {--bs-btn-color: #fff;    --bs-btn-bg: #198754;    --bs-btn-border-color: #198754;    --bs-btn-hover-color: #fff;
+                  --bs-btn-hover-bg: #157347;     --bs-btn-hover-border-color: #146c43;     --bs-btn-focus-shadow-rgb: 60,153,110;
+                  --bs-btn-active-color: #fff;    --bs-btn-active-bg: #146c43;    --bs-btn-active-border-color: #13653f;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #fff;
+                  --bs-btn-disabled-bg: #198754; --bs-btn-disabled-border-color: #198754;}
+        .button4 {--bs-btn-color: #198754;    --bs-btn-border-color: #198754;    --bs-btn-hover-color: #fff;    --bs-btn-hover-bg: #198754;
+                  --bs-btn-hover-border-color: #198754;    --bs-btn-focus-shadow-rgb: 25,135,84;    --bs-btn-active-color: #fff;
+                  --bs-btn-active-bg: #198754;    --bs-btn-active-border-color: #198754;--bs-border-width: 2px;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #198754;
+                  --bs-btn-disabled-bg: transparent;    --bs-btn-disabled-border-color: #198754;    --bs-gradient: none;}
+        </style>
+        <p><a href="/css/tut13.html" class="btn button3" target="_blank">이전 노트</a>
+        <a href="/css/tut15.html" class="btn button3" target="_blank">다음 노트</a>
+        <a href="/htmls/tut1.html" class="btn button1" target="_blank">HTML 노트</a> 
+        <a href="/htmls/html_CSS.html" class="btn button2" target="_blank">HTML+CSS</a>
+        <a href="/htmls/html_Emmet.html" class="btn button2" target="_blank">HTML+Emmet</a>
+        <a href="/htmls/html_tags.html" class="btn button2" target="_blank">HTML+Tags</a><br>
+        <a href="/javascript/j01.html" class="btn btn-success mb-1" target="_blank">자바스크립트 노트</a>  
+        <a href="/python/p01.html" class="btn btn-success mb-1" target="_blank">파이썬 노트</a>   
+        <a href="/css/tut11.html" class="btn button4" target="_blank">CSS 문법</a>
+        <a href="/css/tut12.html" class="btn button4" target="_blank">색과 배경</a>
+        <a href="/css/tut13.html" class="btn button4" target="_blank">선형 원형 그래디언트 CSS3 배경속성</a>
+        <a href="/css/tut14.html" class="btn button4" target="_blank">텍스트 글꼴 링크 </a>
+        <a href="/css/tut15.html" class="btn button4" target="_blank">글꼴 링크 이미지 스프라이트</a> 
+        <a href="/css/tut16.html" class="btn button4" target="_blank">리스트 테이블</a>
+        <a href="/css/tut17.html" class="btn button4" target="_blank">박스모델 크기 패딩</a> 
+        <a href="/css/tut18.html" class="btn button4" target="_blank">박스모델 테두리 마진 아웃라인</a> 
+        <a href="/css/tut19.html" class="btn button4" target="_blank">Flexible Box 플렉서블 박스 플렉스</a>
+        <a href="/css/tut20.html" class="btn button4" target="_blank">CSS3 테두리 버튼 사용자인터페이스</a> 
+        <a href="/css/tut21.html" class="btn button4" target="_blank">위치 디스플레이 플로트 정렬</a> 
+        <a href="/css/tut22.html" class="btn button4" target="_blank">위치 포지션 선택자 selector</a>
+        <a href="/css/tut23.html" class="btn button_S" target="_blank">CSS3 선택자(selector)</a>
+        <a href="/css/tut24.html" class="btn button4" target="_blank">CSS3 transition 애니메이션</a>     
+        <a href="/css/tut25.html" class="btn button4" target="_blank">유사클래스 상태의사클래스 동적의사클래스 </a>
+        <a href="/css/tut26.html" class="btn button4" target="_blank">구조의사클래스</a> 
+        <a href="/css/tut27.html" class="btn button4" target="_blank">의사 요소(pseudo-element)</a>
+        <a href="/css/tut28.html" class="btn button4" target="_blank">CSS 네비게이션바</a>
+        <a href="/css/tut29.html" class="btn button4" target="_blank">CSS form 요소 @규칙</a> 
+        <a href="/css/tut30.html" class="btn button4" target="_blank">bootstrap 활용</a>  
+        <a href="/css/tut31.html" class="btn button4" target="_blank">test several things</a></p>  
+
+        
+    <h4>CSS3 선택자(selector)</h4>
+    <p>CSS3에서는 다양한 기능을 하는 많은 선택자가 새롭게 정의되었다.</p>
+    
+    <hr>
+    
+    <h4>선택자(selectors) Level 3</h4>
+    <p>CSS3에서 새롭게 정의된 선택자</p>
+    <table class="tb-1" summary=""> 
+        <thead>
+            <tr class="bg">
+                <th style="width: 25%;">선택자</th>
+                <th>설명</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>일반 동위 선택자</td>
+                <td>해당 요소와 동위 관계에 있으며, 문서의 위치에서 해당 요소보다 뒤에 위치한 모든 특정 요소를 선택함.</td>
+            </tr>
+            <tr>
+                <td>[속성이름^="속성값"] 선택자</td>
+                <td>특정 속성의 속성값이 특정 문자열로 시작하는 요소를 선택함.</td>
+            </tr>
+            <tr>
+                <td>[속성이름$="속성값"] 선택자</td>
+                <td>특정 속성의 속성값이 특정 문자열로 끝나는 요소를 선택함.</td>
+            </tr>
+            <tr>
+                <td>[속성이름*="속성값"] 선택자</td>
+                <td>특정 속성의 속성값이 특정 문자열로 시작하는 하나의 단어로 된 요소를 선택함.</td>
+            </tr>
+            <tr>
+                <td>:root</td>
+                <td>문서의 루트(root) 요소를 선택함.</td>
+            </tr>
+            <tr>
+                <td>:nth-child</td>
+                <td>모든 자식(child) 요소들 중에서 앞에서부터 n번째에 위치한 자식(child) 요소를 모두 선택함.</td>
+            </tr>
+            <tr>
+                <td>:nth-last-child</td>
+                <td>모든 자식(child) 요소들 중에서 뒤에서부터 n번째에 위치한 자식(child) 요소를 모두 선택함.</td>
+            </tr>
+            <tr>
+                <td>:nth-of-type</td>
+                <td>모든 자식(child) 요소들 중에서 n번째로 등장하는 특정 타입의 요소를 모두 선택함.</td>
+            </tr>
+            <tr>
+                <td>:nth-last-of-type</td>
+                <td>모든 자식(child) 요소들 중에서 뒤에서부터 n번째로 등장하는 특정 타입의 요소를 모두 선택함.</td>
+            </tr>
+            <tr>
+                <td>:last-child</td>
+                <td>모든 자식(child) 요소들 중에서 맨 마지막에 위치한 자식(child) 요소를 모두 선택함.</td>
+            </tr>
+            <tr>
+                <td>:first-of-type</td>
+                <td>모든 자식(child) 요소들 중에서 맨 처음으로 등장하는 특정 타입의 요소를 모두 선택함.</td>
+            </tr>
+            <tr>
+                <td>:last-of-type</td>
+                <td>모든 자식(child) 요소들 중에서 맨 마지막으로 등장하는 특정 타입의 요소를 모두 선택함.</td>
+            </tr>
+            <tr>
+                <td>:only-child</td>
+                <td>자식(child) 요소를 단 하나만 가지는 모든 요소의 자식(child) 요소를 선택함.</td>
+            </tr>
+            <tr>
+                <td>:only-of-type</td>
+                <td>자식(child)  요소로 특정 타입의 요소를 단 하나만 가지는 모든 요소의 자식(child) 요소를 선택함.</td>
+            </tr>
+            <tr>
+                <td>:empty</td>
+                <td>자식(child) 요소를 전혀 가지고 있지 않은 요소를 모두 선택함.</td>
+            </tr>
+            <tr>
+                <td>:target</td>
+                <td>현재 활성화된 target 요소를 모두 선택함.</td>
+            </tr>
+            <tr>
+                <td>:checked</td>
+                <td>체크된(checked) 상태의 input 요소를 모두 선택함.</td>
+            </tr>
+            <tr>
+                <td>:enabled</td>
+                <td>사용할 수 있는 input 요소를 모두 선택함.</td>
+            </tr>
+            <tr>
+                <td>:disabled</td>
+                <td>사용할 수 없는 input 요소를 모두 선택함.</td>
+            </tr>
+            <tr>
+                <td>:not(선택자)</td>
+                <td>모든 선택자와 함께 사용할 수 있으며, 해당 선택자의 의미를 반대로 적용함.</td>
+            </tr>
+        </tbody>
+    </table>
+    <h4>2D Transform 변형(Transform)</h4>
+    <p>CSS3에서는 transform 속성을 사용하여 HTML 요소의 모양, 크기, 위치 등을 자유롭게 바꿀 수 있다.<br>
+    transform 속성은 HTML 요소에 대해 다음과 같은 동작을 제공한다.<br>
+    - 해당 요소를 움직이다.<br>
+    - 해당 요소를 회전시킨다.<br>
+    - 해당 요소의 크기를 변경한다.<br>
+    - 해당 요소를 기울이다.<br>
+    - 해당 요소에 위의 네 가지 동작 중 원하는 동작들을 한 번에 적용시킨다.<br>
+    CSS3에서는 transform 속성을 사용하여 2D 변형(transform)과 3D 변형(transform)을 모두 제공한다.</p>
+    <hr>
+    
+    <h4>CSS 좌표 체계</h4>
+    <p>transform 속성에서 사용하는 x, y, z좌표는 다음 그림과 같은 좌표 체계를 따릅니다.<br>
+    <img alt="CSS 좌표계" src="/lectures/img_css_coordinate.png" style="width: 600px; height: 418px;"><br>
+    CSS 좌표 체계에서 기준점은 브라우저의 왼쪽 상단이 된다.<br>
+    Z축은 입체적인 방향으로 모니터를 바라보고 있는 여러분이 있는 방향을 가리키는 좌표축이다.<br>
+    또한, 각 좌표축의 화살표 방향이 양의 방향이며, 반대쪽이 음의 방향을 가리킨다.</p>
+    <hr>
+    
+    <h4>CSS3 2D 변형(transform) 지원 버전</h4>
+    <p>CSS3 2D 변형(transform)을 지원하는 주요 웹 브라우저의 버전<br>
+    또한, 브라우저별로 벤더 프리픽스(vendor prefix)를 이용해 이 기능을 최초로 지원한 버전도 같이 표기했다.</p>
+    
+    <table class="tb-1" summary="">
+        <tbody>
+            <tr>
+                <th>속성</th>
+                <th><img alt="ie" class="icon" src="http://www.tcpschool.com/img/icon-ie.png"></th>
+                <th><img alt="chrome" class="icon" src="http://www.tcpschool.com/img/icon-chrome.png"></th>
+                <th><img alt="firefox" class="icon" src="http://www.tcpschool.com/img/icon-firefox.png"></th>
+                <th><img alt="safari" class="icon" src="http://www.tcpschool.com/img/icon-safari.png"></th>
+                <th><img alt="opera" class="icon" src="http://www.tcpschool.com/img/icon-opera.png"></th> 
+            </tr>
+            <tr>
+                <td>
+                <p>transform</p>
+    
+                <p>transform-origin</p>
+                </td>
+                <td>
+                <p>10.0</p>
+    
+                <p>9.0 -ms-</p>
+                </td>
+                <td>
+                <p>36.0</p>
+    
+                <p>4.0 -webkit-</p>
+                </td>
+                <td>
+                <p>16.0</p>
+    
+                <p>3.5 -moz-</p>
+                </td>
+                <td>
+                <p>9.0</p>
+    
+                <p>3.2 -webkit-</p>
+                </td>
+                <td>
+                <p>23.0</p>
+    
+                <p>15.0 -webkit</p>
+    
+                <p>12.1</p>
+    
+                <p>10.5 -o-</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <hr>
+    <h4>2D 변형(transform)</h4>
+    <p>2D 변형(transform)을 위해 제공되는 메소드(method)<br>
+    1. translate()<br>
+    2. rotate()<br>
+    3. scale()<br>
+    4. skew()<br>
+    5. matrix()</p>
+    <hr>
+    
+    <h4>translate() 메소드</h4>
+    <p>translate() 메소드는 현재 위치에서 해당 요소를 주어진 x축과 y축의 거리만큼 이동시킨다.<br>
+    주어진 거리가 양수이면 해당 축의 양의 방향으로, 음수이면 해당 축의 음의 방향으로 이동시킨다.</p>
+    <h4>예제 그림 위에 마우스커서 올려놓기 </h4> 
+    <div class="translate">
+        <div class="item" id="ball_1">ball1</div>
+        <div class="item" id="ball_2">ball2</div>
+        <div class="item" id="ball_3">ball3</div>
+        <div class="item" id="ball_4">ball4</div>
+    </div>
+    <style>
+    .translate {float:left; width:12%; height: auto}
+    .translate .item {margin: 0 auto;
+        height: 100px;
+        width: 100px;
+        background: #d6d4d4;
+        box-shadow: inset 0 2px 45px #2e2d2d;
+        color: #FFFFFF;
+        border-radius: 50%;
+        padding: 10px;
+        margin-bottom: 3.5em;
+        display:flex;
+        flex-flow:row wrap;}     
+
+    #ball_2:hover {transform: translate(100px, 0px);}
+    #ball_3:hover {transform: translate(200px, 0px);}
+    #ball_4:hover {transform: translate(300px, 0px);}
+    </style>   
+    <div style="clear:both"> </div>
+    <h4>rotate() 메소드</h4>
+    <p>rotate() 메소드는 해당 요소를 주어진 각도만큼 시계 방향이나 반시계 방향으로 회전시킨다.<br>
+    주어진 각도가 양수이면 시계 방향으로, 음수이면 반시계 방향으로 회전시킨다.</p>
+    <div class="rotate">
+        <image id="image_1" src="https://images.pexels.com/photos/36744/agriculture-arable-clouds-countryside.jpg?auto=compress&cs=tinysrgb&w=200">image transform: rotate(30deg)</image>
+        <image id="image_2" src="https://images.pexels.com/photos/36744/agriculture-arable-clouds-countryside.jpg?auto=compress&cs=tinysrgb&w=200">image transform: rotate(60deg)</image>
+        <image id="image_3" src="https://images.pexels.com/photos/36744/agriculture-arable-clouds-countryside.jpg?auto=compress&cs=tinysrgb&w=200">image transform: rotate(-30deg)</image>
+    </div>
+    <style>
+        .rotate {float:left; width:12%; height: auto}
+        .rotate .item1 {
+            height: 100px;
+            width: 100px;
+            display:flex;
+            flex-flow:row wrap;}        
+        #image_1:hover {transform: rotate(30deg);}
+        #image_2:hover {transform: rotate(60deg);}
+        #image_3:hover {transform: rotate(-30deg);}   
+    </style>   
+    <div style="clear:both"> </div>       
+    <h4>scale() 메소드</h4>
+    <p>scale() 메소드는 해당 요소의 크기를 주어진 배율만큼 늘리거나 줄이다.<br>
+    주어진 배율이 1보다 크면 크기를 늘리고, 0보다 크고 1보다 작으면 크기를 줄이다.</p>
+    <h4>예제 그림 위에 마우스커서 올려놓기 </h4>
+    <div class="scale">
+        <image id="image_4" src="https://images.pexels.com/photos/36744/agriculture-arable-clouds-countryside.jpg?auto=compress&cs=tinysrgb&w=300">image transform: scale(1.5, 2); <image>
+        <image id="image_5" src="https://images.pexels.com/photos/36744/agriculture-arable-clouds-countryside.jpg?auto=compress&cs=tinysrgb&w=300">image transform: scale(0.7, 0.7);<image> 
+    </div>
+    <style>
+        .scale {float:left; width:12%; height: auto}         
+        #image_4:hover {transform: scale(1.5, 2);}
+        #image_5:hover {transform: scale(0.7, 0.7);}    
+    </style>   
+    <div style="clear:both"> </div>  
+    <h4>skewX() 메소드</h4>
+    <p>skewX() 메소드는 해당 요소를 주어진 각도만큼 x축 방향으로 기울이다.<br>
+    주어진 각도가 양수이면 x축의 양의 방향으로, 음수이면 x축의 음의 방향으로 기울이다.</p>
+     
+    <h4>예제 그림 위에 마우스커서 올려놓기 </h4>
+    <div class="skew">
+            <image id="image_6" src="https://cdn.pixabay.com/photo/2020/07/30/10/29/woman-5450043__340.jpg?auto=compress&cs=tinysrgb&w=300">image transform: skewX(20deg); <image>
+    <h4>skewY() 메소드</h4>
+    <p>skewY() 메소드는 해당 요소를 주어진 각도만큼 y축 방향으로 기울이다.<br>
+    주어진 각도가 양수이면 y축의 양의 방향으로, 음수이면 y축의 음의 방향으로 기울이다.</p>
+    
+    <h4>예제 그림 위에 마우스커서 올려놓기 </h4>
+    <image id="image_7" src="https://cdn.pixabay.com/photo/2020/07/30/10/29/woman-5450043__340.jpg?auto=compress&cs=tinysrgb&w=300">image transform: skewY(20deg);</image>
+    
+    <h4>skew() 메소드</h4>
+    <p>skew() 메소드는 해당 요소를 주어진 각도만큼 각각 x축과 y축 방향으로 기울인다.</p>
+    <h4>예제 그림 위에 마우스커서 올려놓기 </h4>
+    <image id="image_8" src="https://cdn.pixabay.com/photo/2020/07/30/10/29/woman-5450043__340.jpg?auto=compress&cs=tinysrgb&w=300">image transform: skew(20deg, 30deg);</image>
+    </div>
+        <style>
+            .skew {float:left; width:12%; height: auto}         
+            #image_6:hover {transform: skewX(20deg);}
+            #image_7:hover {transform: skewY(20deg);}    
+            #image_8:hover {transform: skew(20deg, 30deg);}    
+        </style>   
+    <div style="clear:both"> </div>     
+
+    <h4>matrix() 메소드</h4>
+        <p>matrix() 메소드는 모든 2D transform 메소드를 한 줄에 설정할 수 있도록 해준다.<br>
+        transform:matrix(1, 0, 0, 1, 0, 0) 는 매개변수를 행렬로 표시한다<br>
+        이 메소드는 2D 변형(transform)과 관련된 6개의 매개변수를 가진다.<br><br>
+        <h5>문법</h5>
+        <p class="textarea">matrix(<span style="color:#811f24;font-weight:700">scaleX()</span>, <span style="color:#811f24;font-weight:700">skewY()</span>, <span style="color:#811f24;font-weight:700">skewX()</span>, <span style="color:#811f24;font-weight:700">scaleY()</span>, <span style="color:#811f24;font-weight:700">translateX()</span>, <span style="color:#811f24;font-weight:700">translateY()</span>);</p>
+        </p>
+<div style="border:transparent; background-color:lightgray;">         
+        transform: translate(40px, 50px)  => transform:matrix(0,0,0,0,40,50)<br> 
+        transform: scale(2)  => transform:matrix(2,0,0,2,0,0) <br>
+        transform: skew(45deg)  => transform:matrix(0,tan45,tan45,0,0,0) <br>
+        transform: skewX(20deg)  => transform:matrix(0,tan20,0,0,0,0) <br>
+        transform: skewY(30deg)  => transform:matrix(0,0,tan30,0,0,0) <br>
+        transform: rotate(45deg)  => transform:matrix(con45, sin45, -sin45, con45,0,0) <br>;
+        transform: scale(3,2) rotate(45deg) => transform: matrix(3con45, sin45, -sin45, 2con45, 0, 0);  
+         
+</div>
+        <h4>예제 그림 위에 마우스커서 올려놓기 </h4>
+        <div class="matrix">
+            <image id="image_9" src="https://images.pexels.com/photos/36744/agriculture-arable-clouds-countryside.jpg?auto=compress&cs=tinysrgb&w=300">image transform: matrix(0.7, 0, 0, 0.7, 1, 0);</image>
+            <image id="image_10" src="https://images.pexels.com/photos/36744/agriculture-arable-clouds-countryside.jpg?auto=compress&cs=tinysrgb&w=300">image transform: matrix(0.7, 0, 0, 0.7, 0, 0);</image>
+            <image id="image_11" src="https://images.pexels.com/photos/36744/agriculture-arable-clouds-countryside.jpg?auto=compress&cs=tinysrgb&w=300">image transform: matrix(2, 0.3, 0.2, 1.3, 150, 100);</image>
+            </div>
+        <style>
+            .matrix {float:left; width:12%; height: auto}        
+            #image_9:hover {transform: matrix(0.7, 0, 0, 0.7, 1, 0);}      
+            #image_10:hover {transform: matrix(0.7, 0, 0, 0.7, 0, 0);}
+            #image_11:hover {transform: matrix(2, 0.3, 0.2, 1.3, 150, 100)}    
+        </style>   
+        <div style="clear:both"> </div>  
+    <h4>CSS3 2D transform 속성</h4>
+    <table class="tb-2" summary="">
+        <thead>
+            <tr class="bg">
+                <th style="width: 25%;">속성</th>
+                <th>설명</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>transform</td>
+                <td>요소에 2D 또는 3D 변형(transform)을 적용함.</td>
+            </tr>
+            <tr>
+                <td>transform-origin</td>
+                <td>요소에 변형(transform)을 적용하는 변환 중심을 설정함.</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <h4>CSS3 2D transform 메소드</h4>
+    <table class="tb-2" summary="">
+        <thead>
+            <tr class="bg">
+                <th style="width: 25%;">메소드</th>
+                <th>설명</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>matrix(n,n,n,n,n,n)</td>
+                <td>6개의 매개변수로 모든 2D 변형 메소드를 한 번에 설정함.</td>
+            </tr>
+            <tr>
+                <td>translate(x,y)</td>
+                <td>현재 위치에서 해당 요소를 주어진 x축과 y축의 거리만큼 이동시킴.</td>
+            </tr>
+            <tr>
+                <td>translateX(n)</td>
+                <td>현재 위치에서 해당 요소를 주어진 x축의 거리만큼 이동시킴.</td>
+            </tr>
+            <tr>
+                <td>translateY(n)</td>
+                <td>현재 위치에서 해당 요소를 주어진 y축의 거리만큼 이동시킴.</td>
+            </tr>
+            <tr>
+                <td>rotate(각도)</td>
+                <td>해당 요소를 주어진 각도만큼 시계 방향이나 반시계 방향으로 회전시킴.</td>
+            </tr>
+            <tr>
+                <td>scale(x,y)</td>
+                <td>해당 요소의 크기를 주어진 배율만큼 늘리거나 줄임.</td>
+            </tr>
+            <tr>
+                <td>scaleX(n)</td>
+                <td>해당 요소의 x축 크기를 주어진 배율만큼 늘리거나 줄임.</td>
+            </tr>
+            <tr>
+                <td>scaleY(n)</td>
+                <td>해당 요소의 y축 크기를 주어진 배율만큼 늘리거나 줄임.</td>
+            </tr>
+            <tr>
+                <td>skew(x축각도,y축각도)</td>
+                <td>해당 요소를 주어진 각도만큼 각각 x축과 y축 방향으로 기울임.</td>
+            </tr>
+            <tr>
+                <td>skewX(각도)</td>
+                <td>해당 요소를 주어진 각도만큼 x축 방향으로 기울임.</td>
+            </tr>
+            <tr>
+                <td>skewY(각도)</td>
+                <td>해당 요소를 주어진 각도만큼 y축 방향으로 기울임.</td>
+            </tr>
+        </tbody>
+    </table>
+    <h4>변형(Transform) 3D Transform </h4>
+    <p>CSS3에서는 transform 속성을 사용하여 HTML 요소의 모양, 크기 위치 등을 입체적으로 변형시킬 수 있다.</p>
+    
+    <hr>
+    
+    <h4>CSS3 3D 변형(transform) 지원 버전</h4>
+    <p>CSS3 3D 변형(transform)을 지원하는 주요 웹 브라우저의 버전<br>
+    또한, 브라우저별로 벤더 프리픽스(vendor prefix)를 이용해 이 기능을 최초로 지원한 버전도 같이 표기했다.</p>
+    
+    <table class="tb-1" summary="">
+        <tbody>
+            <tr>
+                <th>속성</th>
+                <th><img alt="ie" class="icon" src="http://www.tcpschool.com/img/icon-ie.png"></th>
+                <th><img alt="chrome" class="icon" src="http://www.tcpschool.com/img/icon-chrome.png"></th>
+                <th><img alt="firefox" class="icon" src="http://www.tcpschool.com/img/icon-firefox.png"></th>
+                <th><img alt="safari" class="icon" src="http://www.tcpschool.com/img/icon-safari.png"></th>
+                <th><img alt="opera" class="icon" src="http://www.tcpschool.com/img/icon-opera.png"></th>
+            </tr>
+            <tr>
+                <td>
+                <p>transform</p>
+    
+                <p>transform-origin</p>
+    
+                <p>perspective</p>
+    
+                <p>perspective-origin</p>
+    
+                <p>backface-visibility</p>
+                </td>
+                <td>
+                <p>10.0</p>
+                </td>
+                <td>
+                <p>36.0</p>
+    
+                <p>12.0 -webkit-</p>
+                </td>
+                <td>
+                <p>16.0</p>
+    
+                <p>10.0 -moz-</p>
+                </td>
+                <td>
+                <p>9.0</p>
+    
+                <p>4.0 -webkit-</p>
+                </td>
+                <td>
+                <p>23.0</p>
+    
+                <p>15.0 -webkit</p>
+                </td>
+            </tr>
+            <tr>
+                <td>transform-style</td>
+                <td>11.0</td>
+                <td>
+                <p>36.0</p>
+    
+                <p>12.0 -webkit-</p>
+                </td>
+                <td>
+                <p>16.0</p>
+    
+                <p>10.0 -moz-</p>
+                </td>
+                <td>
+                <p>9.0</p>
+    
+                <p>4.0 -webkit-</p>
+                </td>
+                <td>
+                <p>23.0</p>
+    
+                <p>15.0 -webkit</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <hr>
+    
+    <h4>3D 변형(transform)</h4>
+    <p>3D 변형(transform)을 위해 제공되는 메소드(method)<br>
+    1. rotate()<br>
+    2. translate()<br>
+    3. scale()<br>
+    4. matrix()<br>
+    5. perspective()</p>
+    
+    <hr>
+    
+    <h4>rotateX() 메소드</h4>
+    <p>rotateX() 메소드는 해당 요소를 주어진 각도만큼 x축을 기준으로 회전시킨다.<br>
+    주어진 각도가 양수이면 x축 양의 방향으로, 음수이면 x축 음의 방향으로 회전시킨다.</p>
+    
+    <style>
+        .trans3d {float:left; width:12%; height: auto}        
+        #image3_2:hover {transform: rotateX(20deg);}     
+        #image3_3:hover {transform: rotateY(20deg);}
+        #image3_4:hover {transform: rotateZ(20deg);}       
+        #image3_5:hover {transform: translate(100px, 50px);}   
+        #image3_6:hover {transform: translate3d(50px, 200px, -150px);}
+    </style>  
+ 
+    <h4>rotateY() 메소드</h4>
+    <p>rotateY() 메소드는 해당 요소를 주어진 각도만큼 y축을 기준으로 회전시킨다.<br>
+    주어진 각도가 양수이면 y축 양의 방향으로, 음수이면 y축 음의 방향으로 회전시킨다.</p> 
+
+    <h4>rotateZ() 메소드</h4>
+    <p>rotateZ() 메소드는 해당 요소를 주어진 각도만큼 z축을 기준으로 회전시킨다.<br>
+    주어진 각도가 양수이면 z축 양의 방향으로, 음수이면 z축 음의 방향으로 회전시킨다.</p>
+     
+    <h4>예제 그림 위에 마우스커서 올려놓기 </h4></div>   
+    <div class="trans3d">
+        <image id="image3_1" src="https://cdn.pixabay.com/photo/2017/05/12/08/29/coffee-2306471__340.jpg?auto=compress&cs=tinysrgb&w=200">image original;</image>
+        <image id="image3_2" src="https://cdn.pixabay.com/photo/2017/05/12/08/29/coffee-2306471__340.jpg?auto=compress&cs=tinysrgb&w=200">image transform: rotateX(20deg);</image>
+        <image id="image3_3" src="https://cdn.pixabay.com/photo/2017/05/12/08/29/coffee-2306471__340.jpg?auto=compress&cs=tinysrgb&w=200">image transform: rotateY(20deg);</image>
+        <image id="image3_4" src="https://cdn.pixabay.com/photo/2017/05/12/08/29/coffee-2306471__340.jpg?auto=compress&cs=tinysrgb&w=200">image transform: rotateZ(20deg);</image>
+    </div>
+    <div style="clear:both"> </div> 
+    <h4>translate3d() 메소드</h4>
+    <p>translate3d() 메소드는 현재 위치에서 해당 요소를 주어진 x축과 y축, z축의 거리만큼 이동시킨다.<br>
+    주어진 거리가 양수이면 해당 축의 양의 방향으로, 음수이면 해당 축의 음의 방향으로 이동시킨다.</p>
+     
+    <h4>예제 그림 위에 마우스커서 올려놓기 </h4></div>      
+    <div class="trans3d">
+        <image id="image3_5" src="https://cdn.pixabay.com/photo/2017/05/12/08/29/coffee-2306471__340.jpg?auto=compress&cs=tinysrgb&w=200">image transform: translate(100px, 50px);</image>
+        <image id="image3_6" src="https://cdn.pixabay.com/photo/2017/05/12/08/29/coffee-2306471__340.jpg?auto=compress&cs=tinysrgb&w=200">image transform: translate3d(50px, 200px, -150px);</image>
+    </div>
+    <div style="clear:both"> </div> 
+    <p>rotate3d(), translate3d(), scale3d() 메소드와 같이 입체적으로 보여지는 3D 변형에 관련된 메소드는 원근감을 표현할 기준을 명시해야 한다.<br>
+    위의 예제에서는 perspective() 메소드를 사용하여 원근감을 표현하기 위해 사용할 픽셀 수를 500px로 설정하고 있다.</p>
+    
+    <hr>
+    
+    <h4>CSS3 3D transform 속성</h4>
+    <table class="tb-2" summary="">
+        <thead>
+            <tr class="bg">
+                <th style="width: 25%;">속성</th>
+                <th>설명</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>transform</td>
+                <td>요소에 2D 또는 3D 변형(transform)을 적용함.</td>
+            </tr>
+            <tr>
+                <td>transform-origin</td>
+                <td>요소에 변형(transform)을 적용하는 변환 중심을 설정함.</td>
+            </tr>
+            <tr>
+                <td>transform-style</td>
+                <td>요소에 변형을 적용할 때 그 변환이 자식(child) 요소들에게도 적용될지 안 될지를 설정함.</td>
+            </tr>
+            <tr>
+                <td>perspective</td>
+                <td>3D 요소에 원근감을 표현할 때 사용할 픽셀 수를 설정함.</td>
+            </tr>
+            <tr>
+                <td>perspective-origin</td>
+                <td>3D 요소에 원근감을 표현할 때 사용할 기준 축을 설정함.</td>
+            </tr>
+            <tr>
+                <td>backface-visibility</td>
+                <td>요소의 앞면만을 표현하고, 뒷면을 표현할지 안 할지를 설정함.</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    
+    <h4>CSS3 3D transform 메소드</h4>
+    <table class="tb-2" summary="">
+        <thead>
+            <tr class="bg">
+                <th style="width: 25%;">메소드</th>
+                <th>설명</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>matrix3d(n×16)</td>
+                <td>4x4 행렬을 이용한 16개의 매개변수로 모든 3D 변형 메소드를 한 번에 설정함.</td>
+            </tr>
+            <tr>
+                <td>rotate3d(x,y,z,angle)</td>
+                <td>해당 요소를 주어진 각도만큼 x축, y축과 z축을 기준으로 회전시킴.</td>
+            </tr>
+            <tr>
+                <td>rotateX(angle)</td>
+                <td>해당 요소를 주어진 각도만큼 x축을 기준으로 회전시킴.</td>
+            </tr>
+            <tr>
+                <td>rotateY(angle)</td>
+                <td>해당 요소를 주어진 각도만큼 y축을 기준으로 회전시킴.</td>
+            </tr>
+            <tr>
+                <td>rotateZ(angle)</td>
+                <td>해당 요소를 주어진 각도만큼 z축을 기준으로 회전시킴.</td>
+            </tr>
+            <tr>
+                <td>translate3d(x,y,z)</td>
+                <td>현재의 위치에서 해당 요소를 주어진 x축, y축과 z축의 거리만큼 이동시킴.</td>
+            </tr>
+            <tr>
+                <td>translateX(x)</td>
+                <td>현재의 위치에서 해당 요소를 주어진 x축의 거리만큼 이동시킴.</td>
+            </tr>
+            <tr>
+                <td>translateY(y)</td>
+                <td>현재의 위치에서 해당 요소를 주어진 y축의 거리만큼 이동시킴.</td>
+            </tr>
+            <tr>
+                <td>translateZ(z)</td>
+                <td>현재의 위치에서 해당 요소를 주어진 z축의 거리만큼 이동시킴.</td>
+            </tr>
+            <tr>
+                <td>scale3d(x,y,z)</td>
+                <td>해당 요소의 크기를 주어진 배율만큼 x축, y축과 z축 방향으로 늘리거나 줄임.</td>
+            </tr>
+            <tr>
+                <td>scaleX(x)</td>
+                <td>해당 요소의 x축 크기를 주어진 배율만큼 늘리거나 줄임.</td>
+            </tr>
+            <tr>
+                <td>scaleY(y)</td>
+                <td>해당 요소의 y축 크기를 주어진 배율만큼 늘리거나 줄임.</td>
+            </tr>
+            <tr>
+                <td>scaleZ(z)</td>
+                <td>해당 요소의 z축 크기를 주어진 배율만큼 늘리거나 줄임.</td>
+            </tr>
+            <tr>
+                <td>perspective(n)</td>
+                <td>3D 요소에 원근감을 표현할 때 사용할 픽셀 수를 설정함.</td>
+            </tr>
+        </tbody>
+    </table>
+         
+</body>
+</html>

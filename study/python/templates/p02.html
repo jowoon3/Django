@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>파이썬 변수</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">   
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">     
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <!-- font css -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="{% static '/css/java.css'%}" rel="stylesheet">   
+  <link href="{% static '/css/style.css'%}" rel="stylesheet">     
+</head>
+<body class="ms-3">  
+  <H2 class="coffee_taital" style="text-align:left;"><a name="home">파이썬</a></H2>  
+    <p><a href="/python/p01.html" class="btn btn-warning mb-1" target="_blank">이전 노트</a>
+      <a href="/python/p03.html" class="btn btn-warning mb-1" target="_blank">다음 노트</a>            
+      <a href="/htmls/tut1.html" class="btn btn-danger mb-1" target="_blank">HTML 노트</a> 
+      <a href="/css/tut11.html" class="btn btn-success mb-1" target="_blank">CSS 노트</a> 
+      <a href="/javascript/j01.html" class="btn btn-purple mb-1" target="_blank">Javascript 노트</a> 
+     <a href="/python/p01.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">파이썬의 기초</a>
+     <a href="/python/p02.html" class=" btn btn-secondary mb-1" target="_blank">변수</a>
+     <a href="/python/p03.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">숫자형타입</a>
+     <a href="/python/p04.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">불리언타입</a>
+     <a href="/python/p05.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">문자열타입</a>
+     <a href="/python/p06.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">조건문</a>
+     <a href="/python/p07.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">반복문</a>
+     <a href="/python/p08.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">break와 continue</a>
+     <a href="/python/p09.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">리스트 타입</a>
+     <a href="/python/p10.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">튜플 타입</a>
+     <a href="/python/p11.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">세트 타입</a>
+     <a href="/python/p12.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">딕셔녀리 타입</a>
+     <a href="/python/p13.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">함수</a>
+     <a href="/python/p14.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">변수의 유효범위</a>
+     <a href="/python/p15.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">클래스</a>
+     <a href="/python/p16.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">객체</a>
+     <a href="/python/p17.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">상속</a>
+     <a href="/python/p18.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">모듈</a>
+     <a href="/python/p19.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">파일 입출력</a>     
+     <a href="/python/p20.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">예외처리</a>    
+     <a href="/python/p21.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">웹스크래핑1</a>    
+     <a href="/python/p22.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">웹스크래핑2</a>   </p> 
+
+
+     <div class="col-md-8 mb-2">
+      <div class="p-3 text-white fs-4 bd-pink-800">변수</div>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">변수(variable)</h2>
+      <p>대부분의 프로그램은 데이터를 활용하여 다양한 동작을 수행하며, 이러한 데이터는 컴퓨터의 메모리 공간에 저장될 수 있다.<br>
+         이때 데이터를 저장한 메모리 공간에 이름을 할당받아야만 나중에 다시 해당 데이터에 접근할 수 있다.<br>
+      <p>이것은 마치 다음과 같이 제목(label)을 붙여 놓은 서류함(cabinet)과 비슷한 원리라고 생각하면 된다.<br>
+      <p><img alt="programming" src="http://www.tcpschool.com/lectures/img_python_06_var.jpg" style="width: 400px; height: 265px;"><br>
+      이처럼 프로그램에서 사용되는 데이터를 저장해 놓는 일종의 저장 공간을 변수(variable)라고 부른다. <Br>
+        즉, 변수란 데이터를 저장할 수 있도록 이름을 할당받은 메모리 공간을 의미하며, 이렇게 저장된 데이터에는 언제든지 다시 접근하거나 그 값을 변경할 수 있다.</p>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">변수의 사용</h2>
+      <p>다음은 애국가 1절 전반부를 세 번 출력하기 위해서 print() 함수를 세 번 사용하는 예제이다.</p>
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+          <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+      <p class="card-text" style="padding: 10px 10px;">
+      print("동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세")<br>
+      print("동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세")<br>
+      print("동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세")  </p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <span class="fw-bold">실행 결과</span><br>
+      동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세<br>
+      동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세<br>
+      동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세</p></div></p>
+
+      <p>하지만 이와 같은 방법은 매우 비효율적이며 코드 또한 매우 복잡해진다.<br>
+      이때 우리가 사용할 수 있는 것이 바로 변수이다.<br>
+      우선 변수를 선언하여 문자열을 저장한 다음 해당 변수를 사용하여 문자열을 출력하면 된다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+      <p class="card-text" style="padding: 10px 10px;">
+      korea = "동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세"<br>
+      print(korea)<br>
+      print(korea)<br>
+      print(korea)</p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <span class="fw-bold">실행 결과</span><br>
+      동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세<br>
+      동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세<br>
+      동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세</p></div></div>
+
+      <p>위 예제의 1번 라인에서는 korea라는 이름의 변수를 선언하고, <span class="text-danger fw-bold">대입 연산자(=)</span>를 사용하여 해당 변수에 문자열을 저장하고 있다.<br>
+        이렇게 선언된 변수는 해당 프로그램이 종료될 때까지 계속해서 재사용할 수 있다.<br>
+      이처럼 변수를 사용하면 중복해서 작성해야 하는 코드가 많이 줄어들게 되므로, 코드의 가독성이 높아진다.</p>
+       
+      <p>위의 예제에서 사용된 ‘\n’ 문자는 줄바꿈(new line)을 나타내는 이스케이프 문자(escape character)로 print() 함수는 이 문자를 만나면 <br>
+        줄을 바꾼 후에 계속해서 출력을 진행하게 된다.<br><br>
+      파이썬에서 '같음'을 비교할 때는 <span class="text-danger fw-bold">등호가 두 개(==)인 비교연산자</span>를 사용한다. <br>
+      이때 실수로 값을 비교할 때 대입연산자(=)를 잘못 사용하지 않도록 주의할 필요가 있다.</div>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">변수의 재활용</h2>
+      <p>선언된 변수는 해당 프로그램이 종료될 때까지 계속해서 사용할 수 있으며, 이때 변수에 저장된 데이터를 변경할 수도 있다.<br>
+      다음 예제는 변수 korea에 저장된 값을 프로그램이 실행되는 도중 대입 연산자를 사용하여 다른 값으로 변경하는 예제이다.</p>
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+          <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+      <p class="card-text" style="padding: 10px 10px;">
+      korea = "동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세"<br>
+      print(korea)<br>
+      print(korea)<br>
+      print(korea + "\n")  <br><br>
+      korea = "남산 위에 저 소나무 철갑을 두른 듯 바람 서리 불변함은 우리 기상일세"<br>
+      print(korea)<br>
+      print(korea)<br>
+      print(korea)  </p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <span class="fw-bold">실행 결과</span><br>
+      동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세<br>
+      동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세<br>
+      동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세<br>
+      <br>
+      남산 위에 저 소나무 철갑을 두른 듯 바람 서리 불변함은 우리 기상일세<br>
+      남산 위에 저 소나무 철갑을 두른 듯 바람 서리 불변함은 우리 기상일세<br>
+      남산 위에 저 소나무 철갑을 두른 듯 바람 서리 불변함은 우리 기상일세</p></div></div>
+      <p>위 예제의 5번 라인에서는 이미 선언된 변수 korea 는 immutable 변경이 불가한 객체이므로 <br>
+        1절이 저장된 korea 객체의 주소와 완전히 다른 주소의 새로운 객체가 생성되어 변수명 korea를 가지고 애국가 2절 문자열 값이 할당된다. <br> 
+      이렇게 변수의 데이터를 변경하면 기존에 저장되어 있던 데이터는 완전히 사라지게 되니 주의해야 한다.</p></div>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">변수명 생성 규칙</h2>
+      <p>만약 파이썬에서 변수명으로 if나 while 등을 사용할 수 있으면, 파이썬 인터프리터는 이것이 변수명인지 아니면 조건문이나 반복문을 나타내는 것인지 알 수 없게 된다. 따라서 파이썬 인터프리터는 SyntaxError라는 에러 메시지를 출력하고 프로그램을 강제로 종료시킨다<br>
+      이처럼 파이썬을 비롯한 모든 프로그래밍 언어에서는 변수의 이름을 짓는데 반드시 지켜야하는 공통된 규칙을 가지고 있다.<br>
+        <br>다음은 파이썬에서 변수명을 지을 때 지켜야하는 규칙들이다.<br>
+      1. 변수명은 영문자(대소문자), 숫자, 언더스코어(_)로만 작성할 수 있다.<br>
+      2. 변수명은 숫자로 시작할 수 없다. 즉, 반드시 영문자나 언더스코어(_)로 시작해야 한다.<br>
+      3. 변수명은 대소문자를 구분한다.<br>
+      4. 변수명에는 파이썬에서 미리 정의된 예약어(reserved words)는 사용할 수 없다.<br>
+      파이썬에서 미리 정의된 예약어는 다음과 같다.<br>
+
+      <table class="table" summary="">
+        <thead>
+        </thead>
+        <tbody>
+          <tr>
+            <td>False</td>
+            <td>await</td>
+            <td>else</td>
+            <td>import</td>
+            <td>pass</td>
+          </tr>
+          <tr>
+            <td>None</td>
+            <td>break</td>
+            <td>except</td>
+            <td>in</td>
+            <td>raise</td>
+          </tr>
+          <tr>
+            <td>True</td>
+            <td>class</td>
+            <td>finally</td>
+            <td>is </td>
+            <td>return</td>
+          </tr>
+          <tr>
+            <td>and</td>
+            <td>continue</td>
+            <td>for</td>
+            <td>lambda</td>
+            <td>try</td>
+          </tr>
+          <tr>
+            <td>as</td>
+            <td>def</td>
+            <td>from</td>
+            <td>nonlocal</td>
+            <td>while</td>
+          </tr>
+          <tr>
+            <td>assert</td>
+            <td>del</td>
+            <td>global</td>
+            <td>not</td>
+            <td>with</td>
+          </tr>
+          <tr>
+            <td>async</td>
+            <td>elif</td>
+            <td>if</td>
+            <td>or</td>
+            <td>yield</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>파이썬에서 변수명은 해당 변수에 저장되는 데이터를 의미할 수 있는 단어를 사용하여 간단명료하게 구성하는 것이 좋으며, 같은 프로그램에서 선언된 변수들의 이름은 가급적 일관되게 작성하는 것이 좋다.</div>
+
+      
+</body>
+</html>

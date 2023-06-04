@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 개요와 문법 css 변수 </title>
+</head>
+<body> 
+<div>
+    <H2>css</H2>  
+    <style>
+        .txtlink {color: green; text-decoration:none; margin-left:20px; font-size:16px;}
+        .txtlink:hover {text-decoration:underline;}        /*마우스 올라가면 밑줄 */        
+        /* .button_S {display:inline-block; background-color:gray; color: #FFFFFF; padding: 14px 25px; text-align: center; text-decoration: none; font-size: 16px; margin-left: 20px; opacity: 0.9; border-radius: 5px;}
+        .button_S:hover {color:white; background-color:lightyellow ; opacity:1.0;}      /*마우스 올라가면 배경색 핑크색 글자 흰색으로 바뀜 
+        .button1 {display:inline-block; background-color:#f44336; color: #FFFFFF; padding: 14px 25px; text-align: center; text-decoration: none; font-size: 16px; margin-left: 20px; opacity: 0.9; border-radius: 5px;}
+        .button1:hover {color:white; background-color:pink; opacity:1.0;}      마우스 올라가면 배경색 핑크색 글자 흰색으로 바뀜 
+        .button2 {background-color: white; color: black; border: 2px solid #f44336; padding: 14px 24px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin-left: 20px;}
+        .button2:hover {background-color: #f44336; color: white;}    /*마우스 올라가면 배경색 및 글자 색 바뀜
+        .button3 {display:inline-block; background-color: #44bb55; color: #FFFFFF; padding: 14px 25px; text-align: center; text-decoration: none; font-size: 16px; margin-left: 20px; opacity: 0.9;border-radius: 5px;}
+        .button3:hover {background-color: #44bb55; color: white;}    마우스 올라가면 배경색 및 글자 색 바뀜 
+        .button4 {background-color: white; color: black; border: 2px solid #44bb55; padding: 14px 24px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin-left: 20px;}
+        .button4:hover {background-color: #44bb55; color: white;}    마우스 올라가면 배경색 및 글자 색 바뀜 */
+        
+        .btn {margin: 4px 0px;--bs-btn-padding-x: 0.75rem;  --bs-btn-padding-y: 0.375rem; --bs-btn-font-family: 'Nanum Gothic', sans-serif; --bs-btn-font-size: 1rem; --bs-btn-font-weight: 400;
+              --bs-btn-line-height: 1.5;    --bs-btn-border-width: var(--bs-border-width);
+              --bs-btn-border-radius: 0.375rem;   --bs-btn-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15),0 1px 1px rgba(0, 0, 0, 0.075);
+              --bs-btn-disabled-opacity: 0.65;    --bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(var(--bs-btn-focus-shadow-rgb), .5);
+              display: inline-block; padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x); font-family: var(--bs-btn-font-family);
+              font-size: var(--bs-btn-font-size); font-weight: var(--bs-btn-font-weight); line-height: var(--bs-btn-line-height); 
+              color: var(--bs-btn-color);         text-align: center;    text-decoration: none;    vertical-align: middle;    cursor: pointer;
+              -webkit-user-select: none;    -moz-user-select: none;      user-select: none;    
+              border: var(--bs-btn-border-width) solid var(--bs-btn-border-color); border-radius: var(--bs-btn-border-radius);
+              background-color: var(--bs-btn-bg);}
+        .button_S {--bs-btn-color: #fff;    --bs-btn-bg: #6c757d;    --bs-btn-border-color: #6c757d;    --bs-btn-hover-color: #fff;
+              --bs-btn-hover-bg: #5c636a;    --bs-btn-hover-border-color: #565e64;    --bs-btn-focus-shadow-rgb: 130,138,145;
+              --bs-btn-active-color: #fff;    --bs-btn-active-bg: #565e64;    --bs-btn-active-border-color: #51585e;
+              --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #fff;    --bs-btn-disabled-bg: #6c757d;
+              --bs-btn-disabled-border-color: #6c757d;}
+        .button1 {--bs-btn-color: #fff;     --bs-btn-bg: #dc3545;       --bs-btn-border-color: #dc3545;     --bs-btn-hover-color: #fff;
+                  --bs-btn-hover-bg: #bb2d3b;    --bs-btn-hover-border-color: #b02a37;     --bs-btn-focus-shadow-rgb: 225,83,97;
+                  --bs-btn-active-color: #fff;   --bs-btn-active-bg: #b02a37;    --bs-btn-active-border-color: #a52834;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #fff;
+                  --bs-btn-disabled-bg: #dc3545;    --bs-btn-disabled-border-color: #dc3545;}
+        .button2 {--bs-btn-color: #dc3545;    --bs-btn-border-color: #dc3545;    --bs-btn-hover-color: #fff;    --bs-btn-hover-bg: #dc3545;
+                  --bs-btn-hover-border-color: #dc3545;    --bs-btn-focus-shadow-rgb: 220,53,69;    --bs-btn-active-color: #fff;
+                  --bs-btn-active-bg: #dc3545;    --bs-btn-active-border-color: #dc3545; --bs-border-width: 2px;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #dc3545;
+                  --bs-btn-disabled-bg: transparent;    --bs-btn-disabled-border-color: #dc3545;    --bs-gradient: none;}
+        .button3 {--bs-btn-color: #fff;    --bs-btn-bg: #198754;    --bs-btn-border-color: #198754;    --bs-btn-hover-color: #fff;
+                  --bs-btn-hover-bg: #157347;     --bs-btn-hover-border-color: #146c43;     --bs-btn-focus-shadow-rgb: 60,153,110;
+                  --bs-btn-active-color: #fff;    --bs-btn-active-bg: #146c43;    --bs-btn-active-border-color: #13653f;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #fff;
+                  --bs-btn-disabled-bg: #198754; --bs-btn-disabled-border-color: #198754;}
+        .button4 {--bs-btn-color: #198754;    --bs-btn-border-color: #198754;    --bs-btn-hover-color: #fff;    --bs-btn-hover-bg: #198754;
+                  --bs-btn-hover-border-color: #198754;    --bs-btn-focus-shadow-rgb: 25,135,84;    --bs-btn-active-color: #fff;
+                  --bs-btn-active-bg: #198754;    --bs-btn-active-border-color: #198754;--bs-border-width: 2px;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #198754;
+                  --bs-btn-disabled-bg: transparent;    --bs-btn-disabled-border-color: #198754;    --bs-gradient: none;}
+        </style>
+        <p><a href="/css/tut11.html" class="btn button3" target="_blank">이전 노트</a>
+        <a href="/css/tut12.html" class="btn button3" target="_blank">다음 노트</a>
+        <a href="/htmls/tut1.html" class="btn button1" target="_blank">HTML 노트</a> 
+        <a href="/htmls/html_css.html" class="btn button2" target="_blank">HTML+css</a>
+        <a href="/htmls/html_Emmet.html" class="btn button2" target="_blank">HTML+Emmet</a>
+        <a href="/htmls/html_tags.html" class="btn button2" target="_blank">HTML+Tags</a><br>   
+        <a href="/javascript/j01.html" class="btn btn-success mb-1" target="_blank">자바스크립트 노트</a>  
+        <a href="/python/p01.html" class="btn btn-success mb-1" target="_blank">파이썬 노트</a>   
+        <a href="/css/tut11.html" class="btn button_S" target="_blank">css 문법</a>
+        <a href="/css/tut12.html" class="btn button4" target="_blank">색과 배경</a>
+        <a href="/css/tut13.html" class="btn button4" target="_blank">선형 원형 그래디언트 css3 배경속성</a>
+        <a href="/css/tut14.html" class="btn button4" target="_blank">텍스트 글꼴 링크 </a>
+        <a href="/css/tut15.html" class="btn button4" target="_blank">글꼴 링크 이미지 스프라이트</a> 
+        <a href="/css/tut16.html" class="btn button4" target="_blank">리스트 테이블</a>
+        <a href="/css/tut17.html" class="btn button4" target="_blank">박스모델 크기 패딩</a> 
+        <a href="/css/tut18.html" class="btn button4" target="_blank">박스모델 테두리 마진 아웃라인</a> 
+        <a href="/css/tut19.html" class="btn button4" target="_blank">Flexible Box 플렉서블 박스 플렉스</a>
+        <a href="/css/tut20.html" class="btn button4" target="_blank">css3 테두리 버튼 사용자인터페이스</a> 
+        <a href="/css/tut21.html" class="btn button4" target="_blank">위치 디스플레이 플로트 정렬</a> 
+        <a href="/css/tut22.html" class="btn button4" target="_blank">위치 포지션 선택자 selector</a>
+        <a href="/css/tut23.html" class="btn button4" target="_blank">css3 선택자(selector)</a>
+        <a href="/css/tut24.html" class="btn button4" target="_blank">css3 transition 애니메이션</a>     
+        <a href="/css/tut25.html" class="btn button4" target="_blank">유사클래스 상태의사클래스 동적의사클래스 </a>
+        <a href="/css/tut26.html" class="btn button4" target="_blank">구조의사클래스</a> 
+        <a href="/css/tut27.html" class="btn button4" target="_blank">의사 요소(pseudo-element)</a>
+        <a href="/css/tut28.html" class="btn button4" target="_blank">css 네비게이션바</a>
+        <a href="/css/tut29.html" class="btn button4" target="_blank">css form 요소 @규칙</a> 
+        <a href="/css/tut30.html" class="btn button4" target="_blank">bootstrap 활용</a>  
+        <a href="/css/tut31.html" class="btn button4" target="_blank">test several things</a></p>  
+
+<hr>    
+
+</div>
+        <h4>css 개요</h4>
+        <p>웹 페이지의 스타일과 내용적인 부분을 서로 분리해 놓은 서식을 스타일 시트라고 한다.<br>
+        이러한 스타일 시트를 이용하면 웹 페이지의 스타일을 편리하게 개발할 수 있다.</p>
+        
+<div id="css1">
+        <div style="border:2px solid #3b6c9b;">
+        <h4>css3 애니메이션(Animation)</h4>
+        <p>아래의 토끼 그림자 위에 마우스를 올려놔 보세요!</p>        
+        <div class="animation_box"> <img alt="rabbit" id="css_page1" src=" http://www.tcpschool.com/lectures/img_css3_bunny.png"></div>
+        </div>
+
+        <style>
+            .animation_box {width: 80px; height: 58px; animation: movingBunny 1.5s; animation-duration: 1.5s; animation-timing-function: ease-out;}
+            .animation_box:hover {animation-name: pulseBunny; animation-duration: 0.3s; animation-timing-function: linear; 
+                                animation-iteration-count: infinite; animation-direction: alternate;}
+            @keyframes movingBunny {  0% { transform: translate3d(780px, 0, 0) skewX(30deg); opacity: 0;} 
+                                    60% { transform: skewX(-20deg); opacity: 1;} 
+                                    80% { transform: skewX(5deg); opacity: 1;}
+                                    100% { transform: none; opacity: 1; }}
+            @keyframes pulseBunny { 0% {transform: scale(1.2);}}
+            #css1 
+            {background-color: silver;}
+            #css1>h1 
+            {    font-family: "Times New Roman", Georgia, Serif;
+                text-align: center;}
+            #css1>p   
+            {    color: #663399;
+                text-decoration:underline;
+                font-weight: bold;
+            }
+        </style></div>
+        <p>예제</p>
+        &lt;style #css1&gt;<br>
+        #css1 <br>
+        {background-color: silver;}<br>
+        #css1&gt;h1 <br>
+        {    font-family: "Times New Roman", Georgia, Serif;<br>
+            text-align: center;}<br>
+        #css1&gt;p   <br>
+        {    color: #663399;<br>
+            text-decoration:underline;<br>
+            font-weight: bold;<br>
+        }<br>
+&lt;/style&gt;&lt;/div&gt;<hr>
+
+<div>
+        <h4>css란?</h4>
+        <p>css는 Cascading Style Sheets의 약자<br>
+        css는 HTML 요소들이 각종 미디어에서 어떻게 보이는가를 정의하는 데 사용되는 스타일 시트 언어<br>
+        HTML4 부터는 이러한 모든 서식 설정을 HTML 문서로부터 따로 분리하는 것이 가능해졌다.<br>
+        오늘날 대부분의 웹 브라우저들은 모두 css를 지원하고 있다.</p><hr>
+
+        <h4>css를 사용하는 이유</h4>
+        <p>HTML만으로 웹 페이지를 제작할 경우 HTML 요소의 세부 스타일을 일일이 따로 지정해 주어야만 한다.<br>
+        이 작업은 매우 많은 시간이 걸리며, 완성한 후에도 스타일의 변경 및 유지 보수가 매우 힘들어진다<br>
+        이러한 문제점을 해소하기 위해 W3C(World Wide Web Consortium)에서 만든 스타일 시트 언어가 바로 css</p>
+        <p>css는 웹 페이지의 스타일을 별도의 파일로 저장할 수 있게 해주므로 사이트의 전체 스타일을 손쉽게 제어할 수 있다.<br>
+        또한, 웹 사이트의 스타일을 일관성 있게 유지할 수 있게 해주며, 그에 따른 유지 보수 또한 쉬워진다<br>
+        이러한 외부 스타일 시트는 보통 확장자를 .css 파일로 저장한다.</p>
+        <hr>
+        <h4>css 버전</h4>
+        <p>인터넷의 발전에 따라 css는 현재까지 새로운 버전이 계속해서 발표되고 있다.<br>
+        1996년에 최초의 css1이 W3C 표준 권고안으로 제정되었다.</p>
+        <p>그 이후 1998년에 css2가 발표되었으며, 2005년부터는 현재 사용 중인 css3가 개발되고 있다.<br>
+        css는 현재 모듈(module)별로 개발되고 있고, 브라우저 공급자가 지원할 모듈을 자유롭게 선택할 수 있도록 하고 있다.</p>
+        <p> 현재 최신 버전의 css 표준 권고안은 css Level 2 Revision 1 (css 2.1)<br>
+        최신 버전의 css 표준 권고안에 대한 더 자세한 정보는, W3C 공식 사이트를 방문하여 확인 가능하다.<br> 
+        <a href="https://www.w3.org/TR/css/" target="_blank">W3C css Snapshot 2017 : W3C Working Group Note, 31 January 2017 =&gt;</a><br> 
+        <a href="https://www.w3.org/Style/css/current-work" target="_blank">W3C css current work &amp; how to participate =&gt;</a></p><hr></div>
+
+<div>
+    <h4>css 문법</h4>
+    <p><img alt="css 문법" src="http://www.tcpschool.com/lectures/img_css_syntax.png" style="width: 750px; height: 225px;"><br>
+    css의 문법은 선택자(selector)와 선언부(declaratives)로 구성된다.<br>
+    선택자는 css를 적용하고자 하는 HTML 요소(element)를 말한다.<br>
+    선언부는 하나 이상의 선언들을 세미콜론(;)으로 구분하여 포함할 수 있으며, 중괄호({ })를 사용하여 전체를 둘러싼다.<br>
+    <!--attribute 는 html 문서 안에서의 정적인(바뀌지 않는) 속성 그 자체를 의미하고, property 는 html DOM 안에서 동적인(바뀌는) 속성(또는 그 값)을 의미합니다.--> 
+    각 선언은 css 속성명(property)과 속성값(value)을 가지며, 그 둘은 콜론(:)으로 연결된다.<br>
+    이러한 css 선언(declaration)은 언제나 마지막에 세미콜론(;)으로 끝낸다.</p><hr>
+    </div>
+    <div id="css2">
+        <h4>css 선택자</h4>
+        <p>스타일을 적용할 HTML 요소를 가리키는 데 사용하는 선택자는 다음과 같다.<br>
+        - HTML 요소 선택자<br>
+        - 아이디(id) 선택자<br>
+        - 클래스(class) 선택자<br>
+        - 그룹(group) 선택자</p>
+        <hr>
+        <h4>HTML 요소 선택자</h4>
+        <p>css를 적용할 대상으로 HTML 요소의 이름을 직접 사용하여 선택할 수 있다.</p>
+        <style>
+            #css2>h4 { color: teal; text-decoration: underline; }
+        </style>
+    
+        <p>예제</p>
+        &lt;style&gt;<br>
+            h4 { color: teal; text-decoration: underline; }<Br>
+        &lt;/style&gt;<Br>
+        ...<Br>
+        &lt;h4&gt; 부분에 스타일을 적용한다.
+        </div>    <hr>
+    <div id="css3">
+        <h4>아이디(id) 선택자</h4>
+        <p>아이디 선택자는 css를 적용할 대상으로 특정 요소를 선택할 때 사용한다.<br>
+        이 선택자는 웹 페이지에 포함된 여러 요소 중에서 특정 아이디 이름을 가지는 요소만을 선택해 준다</p>
+    
+        <style>
+            #heading { color: blue; text-decoration: line-through; }
+        </style>
+    
+        <p>예제</p>
+        &lt;style&gt;<br>
+        #heading { color: blue; text-decoration: line-through; }<Br>
+        &lt;/style&gt;<Br>
+        ...<Br>
+        &lt;h2 id="heading"&gt; 부분에 스타일을 적용한다.
+        </div>    <hr> 
+        <p>HTML과 css에서는 하나의 웹 페이지에 속하는 여러 요소에 같은 아이디 이름을 사용해도 별 문제없이 동작한다.<br>
+            하지만 이렇게 중복된 아이디를 가지고 자바스크립트 작업을 하게 되면 오류가 발생한다.<br>
+            따라서 되도록이면 하나의 웹 페이지에 속하는 요소에는 다른 아이디 이름을 사용하거나 클래스를 사용하는 것이 좋다.</p><hr>
+        
+    
+            <div id="css3">
+                <h4 class="headings">클래스 headings (class) 선택자</h4>
+                <h4>클래스(class) 선택자</h4>
+                <p class="headings">클래스 선택자는 특정 집단의 여러 요소를 한 번에 선택할 때 사용한다.<br>
+                이러한 특정 집단을 클래스(class)라고 하며, 같은 클래스 이름을 가지는 요소들을 모두 선택해 준다</p> 
+            
+                <style>
+                    .headings { color: lime; text-decoration: overline; }
+                </style>
+            
+                <p>예제</p>
+                &lt;style&gt;<br>
+                .headings { color: lime; text-decoration: overline; }<Br>
+                &lt;/style&gt;<Br>
+                ...<Br>
+                class="headings" 에 해당하는 &lt;h4&gt;와 &lt;p&gt; 부분을 한번에 선택하여 같은 스타일을 적용합니다.</h3>
+                </div>    <hr>    
+            
+    <div id=css4>
+        <h4>그룹(group) 선택자</h4>
+        <p>그룹 선택자는 위에서 언급한 여러 선택자를 같이 사용하고자 할 때 사용한다.<br>
+        그룹 선택자는 여러 선택자를 쉼표(,)로 구분하여 연결한다.<br>
+        이러한 그룹 선택자는 코드를 중복해서 작성하지 않도록 하여 코드를 간결하게 만들어 준다</p>
+        <style>
+            #css4>h4 { color: navy; }
+            #css4>p { text-align: center; background-color: lightgray; } 
+        </style>
+        <p>예제</p>
+        &lt; style&gt;<br>
+            h4 { color: navy; }<Br>
+            p { text-align: center; background-color: lightgray; } <Br>
+        &lt;/style&gt;<br>
+        </div><hr>
+    
+        <h4>css 주석(comments)</h4>
+        <p>주석(comment)이란 개발자가 작성한 해당 코드에 대한 이해를 돕는 설명이나 디버깅을 위해 작성한 구문을 의미한다.<br>
+        이러한 주석은 다른 css 코드와는 달리 웹 브라우저에 의해 해석되지 않는다.<br>  
+        주석내부에 또 다른 주석을 넣기 위해 /*을 재입력하면 정상적인 주석으로 인식되지 못한다.</p> 
+            
+    <div id="css5">
+        첫 번째 주석의 두 번째 라인
+        <style>/* 
+            주석은 몇 줄이라도 가능합니다. 
+            /*
+            /*
+            그러나 주석내부에 또 다른 주석을 넣을 수는 없다 /* 두 번째 주석입니다. */
+            #css5>p { color: teal; /*이것은 한 줄짜리 주석입니다.*/ font-size: 30px; }
+        </style>
+        <p>예제</p>
+        &lt;style&gt;<br>
+        p { color: teal; /*이것은 한 줄짜리 주석입니다.*/ font-size: 30px; }<br>
+        /* <br> 
+        그러나 주석내부에 또 다른 주석을 넣을 수는 없다 /* 두 번째 주석입니다. */<Br>
+        첫 번째 주석의 두 번째 라인<br>
+        */<br>
+        &lt;/style&gt; </div><hr>
+    <h4>css 적용</h4>
+       <a href="/htmls/html_css.html#css적용방법" target="_blank">html_css</a><hr>   
+
+    <h4>벤더 프리픽스(Vendor Prefix)</h4>
+       <p>세계적으로 가장 많이 사용되는 웹 브라우저에는 익스플로러, 크롬, 파이어폭스, 사파리, 오페라 등이 있다.<br>
+       벤더 프리픽스(vendor prefix)란 이러한 주요 웹 브라우저 공급자가 새로운 실험적인 기능을 제공할 때 이전 버전의 웹 브라우저에 그 사실을 알려주기 위해 사용하는 접두사(prefix)를 의미한다.<br>
+       즉 아직 css 권고안에 포함되지 못한 기능이나, css 권고안에는 포함되어 있지만 아직 완벽하게 제정된 상태가 아닌 기능을 사용하고자 할 때 벤더 프리픽스를 사용하게 된다.<br>
+       그렇게 하면 해당 기능이 포함되어 있지 않은 이전 버전의 웹 브라우저에서도 그 기능을 사용할 수 있게 된다.<br>
+       <img alt="vendor prefix" src="http://www.tcpschool.com//lectures/img_html5_browsers.png" style="width: 200px; height: 200px;"></p>
+       
+       <hr>
+       
+       <h4>주요 웹 브라우저의 벤더 프리픽스(vendor prefix)</h4>
+       <p>주요 웹 브라우저가 사용하고 있는 벤더 프리픽스</p>
+       
+       <table class="tb-1" summary="">
+           <tbody>
+               <tr>
+                   <th style="width: 20%;"><img alt="ie" class="icon" src="http://www.tcpschool.com//img/icon-ie.png"></th>
+                   <th style="width: 20%;"><img alt="chrome" class="icon" src="http://www.tcpschool.com//img/icon-chrome.png"></th>
+                   <th style="width: 20%;"><img alt="firefox" class="icon" src="http://www.tcpschool.com//img/icon-firefox.png"></th>
+                   <th style="width: 20%;"><img alt="safari" class="icon" src="http://www.tcpschool.com//img/icon-safari.png"></th>
+                   <th style="width: 20%;"><img alt="opera" class="icon" src="http://www.tcpschool.com//img/icon-opera.png"></th>
+               </tr>
+               <tr>
+                   <td>-ms-</td>
+                   <td>-webkit-</td>
+                   <td>-moz-</td>
+                   <td>-webkit-</td>
+                   <td>-o-</td>
+               </tr>
+           </tbody>
+       </table>
+       
+       <p>크롬과 사파리는 같은 웹킷 계열 브라우저이므로 같은 벤더 프리픽스를 사용한다.</p>
+       
+       <div class="syntax">
+       <h4>예제</h4>
+       <div class="vand">
+       <button class="btn" style="border:2px solid"> Linear Gradient
+       </button>
+       </div>
+       <style>
+           .vand .btn {background: red;
+               background: -webkit-linear-gradient(red, yellow);   
+               background: -moz-linear-gradient(red, yellow);  
+               background: -ms-linear-gradient(red, yellow);  
+               background: -o-linear-gradient(red, yellow);  
+               background: linear-gradient(red, yellow);  }
+       </style>
+       
+       &lt;<span style="color:#bf4f24">style</span>&gt;<br>
+       <span style="color:#bf4f24">    .button</span> {<br>
+       <span style="color:#bf4f24">    </span><span style="color:#bf4f24">    </span><span style="color:#691c97">background</span><span style="color:#794938">:</span> <span style="color:#b4371f">red</span>;          &lt;!-- gradient 속성을 지원하지 않는 모든 브라우저를 위한 코드 --&gt;<br>
+       <span style="color:#bf4f24">    </span><span style="color:#bf4f24">    </span><span style="color:#691c97">background</span><span style="color:#794938">:</span> -webkit-linear-gradient(<span style="color:#b4371f">red</span>, <span style="color:#b4371f">yellow</span>); &lt;!-- 크롬과 사파리 4.0 이상을 위한 코드 --&gt;<br>
+       <span style="color:#bf4f24">    </span><span style="color:#bf4f24">    </span><span style="color:#691c97">background</span><span style="color:#794938">:</span> -moz-linear-gradient(<span style="color:#b4371f">red</span>, <span style="color:#b4371f">yellow</span>);    &lt;!-- 파이어폭스 3.6 이상을 위한 코드 --&gt;<br>
+       <span style="color:#bf4f24">    </span><span style="color:#bf4f24">    </span><span style="color:#691c97">background</span><span style="color:#794938">:</span> -ms-linear-gradient(<span style="color:#b4371f">red</span>, <span style="color:#b4371f">yellow</span>);     &lt;!-- 익스플로러 10.0 이상을 위한 코드 --&gt;<br>
+       <span style="color:#bf4f24">    </span><span style="color:#bf4f24">    </span><span style="color:#691c97">background</span><span style="color:#794938">:</span> -o-linear-gradient(<span style="color:#b4371f">red</span>, <span style="color:#b4371f">yellow</span>);      &lt;!-- 오페라 10.0 이상을 위한 코드 --&gt;<br>
+       <span style="color:#bf4f24">    </span><span style="color:#bf4f24">    </span><span style="color:#691c97">background</span><span style="color:#794938">:</span> linear-gradient(<span style="color:#b4371f">red</span>, <span style="color:#b4371f">yellow</span>);         &lt;!-- css 표준 문법 코드 --&gt;<br>
+       <span style="color:#bf4f24">    </span>}<br>
+       &lt;/<span style="color:#bf4f24">style</span>&gt;</p>
+       </div>
+       <p>위의 예제에서 가장 먼저 나오는 background 속성은 gradient 속성을 지원하지 않는 모든 브라우저를 위한 것이다.<br>
+       맨 마지막에 나오는 background 속성은 css 표준 문법으로 작성된 코드이다. <br>
+       css 표준 문법 코드는 벤더 프리픽스(vendor prefix)로 작성된 코드가 모두 나오고 난 후에 나와야만, 벤더 프리픽스가 포함된 코드가 정상적으로 동작할 수 있다. <br>
+       이러한 벤더 프리픽스는 실험적인 해당 기능들이 css 표준 권고안에 포함되거나, 완벽하게 제정된 상태가 되면 더는 사용할 필요가 없어진다.</p>
+
+       <style>
+        .lgback {background-color:lightgray; width:50%; padding:2px 2px; margin:2px 3px}
+       </style>
+       <h4>css 변수 정의</h4>
+       <div class="lgback">
+       <p>--color: rebeccapurple; /* 변수명: 값; */ <br>
+       --mint:;		    /* X */<br>
+       --mint: ;		/* O */<br>
+       --mint != --MINT<br></div>
+       변수 값에는 공백이라도 들어가야 변수가 선언되며, 대소문자를 구분한다. 그리고 변수값은 하위 요소에 상속된다.<br></p>
+       
+       <h4>css에서 변수 사용 방법</h4>
+       <div class="lgback"> 
+       <p>color: var(--color); /* 속성: var(--변수명); */</div><br>
+       변수값이 지정되지 않았을 경우를 대비하여, 아래와 같이 default 값을 지정할 수 있다.<br>
+       <div class="lgback"> 
+       color: var(--color, yellow); /* 속성: var(--변수명, default 값); */</div><br>
+       물론 default값도 변수로 삽입 가능하다.<br>
+       
+       <div class="lgback"> color: var(--color1, var(--color2, var(--color3, yellow))); </div><br></p>
+       <h4>html에서 변수값 변경 방법</h4>
+       <div style="--color: blue">
+          css Variable<br>
+       </div>
+       css 변수 사용엔 디테일이 필요하다.</p>
+       <h4>변수값의 적용 예</h4>
+       <div class="lgback"> 
+       <p>.block {--p: 33;<br>
+          width: var(--p)vw;<br>
+          height: var(--p)vh;}</div><br> 
+       숫자를 담은 변수를 단위화시키기 위해 위와 같이 코드를 작성했다. 너비: 33vw, 높이: 33vh으로 지정되었을까? <br>
+       <div class="lgback"> 
+       .block {width: 33 vw;<br>
+          height: 33 vh;}</div><br>
+       실제 브라우저는 위와 같이, 숫자와 단위 사위의 무의미한 공백이 발생하면서 두개의 토큰으로 인식한다. <br>
+       따라서 이 경우, <span class="bred">calc()를 사용해야</span> 원하는 값이 나온다.<br>
+       <div class="lgback"> 
+       .block {--p: 33;<br>
+          width: calc(var(--p) * 1vw);<br>
+          height: calc(var(--p) * 1vh);}</div><br>
+       그렇다면, 단위까지 담은 변수는 숫자화 할 수 있을까? calc(20 * 1vh / 1vh)의 값이 20이 아닌것 처럼, 그는 불가능하다.<br>
+        따라서 변수에는 css 값이 아닌, 순수한 데이터 값을 넣어 사용하는 것을 추천한다.</p>
+       
+       <h4>background-image의 url을 변수화</h4>
+       <div class="lgback">
+       <p> /* css LIMITATION */<br>
+       --img: "sample.jpg";<br>
+       background: url("img/" var(--img)); </div><br>
+       <div class="lgback">
+       /* css BUG */<br>
+       --img: "img/sample.jpg";<br>
+       background: url(var(--img));</div><br>
+       <div class="lgback"> 
+       /* ★★★ GOOD ★★★ */<br>
+       --img: url("img/sample.jpg");<br>
+       background: var(--img); </div></p>
+
+       <h4>css 변수를 지원하지 않는 브라우저</h4>
+       <div class="lgback"> 
+       <p>background: red;<br>
+       background: var(--accent-color, orange);<br>
+       css 변수를 지원하지 않는 브라우저: red<br>       
+       --accent-color의 값이 지정되지 않은 경우: orange<br>       
+       --accent-color: yellowgreen으로 지정되어 있는 경우: yellowgreen</div></p>
+       
+       <h4> 변수값이 속성 값에 적절하지 않은 경우</h4>
+       <div class="lgback"> 
+       <p>:root { /* 어디서나 읽을 수 있도록 함 */ <br>
+           --accent: 20px;}<br> 
+       body {background: red;}<br>
+       h1 {background: blue;<br>
+           background: var(--accent, orange);}</div><br>
+        
+       
+       위에서 h1 태그의 background-color에는 20px의 값으로 정의했는데 이것은  background-color 속성에 대한 올바른 값이 아니다. <br>
+       이 경우 브라우저는 어떻게 처리할까. 답은 초기화(initial) 이다. <br>
+       값이 올바르지 않다고 판단될시 default 값으로 돌아간다. <br>
+       위의 경우 background-color의 default값인 transparent가 된다.<br>
+             
+       orange? orange는 변수값이 없을때, 대체용 값이다. 여기서도 잘못된 값을 대체하지 못한다.<br> 
+       Blue? 브라우저가 변수를 지원하는 경우, 위에서 선언된 동일 속성은 없는 속성 취급을 하기 때문에 <br>
+       blue가 앞서 선언되어있음을 전혀 인지하지 못한다.<br><br>
+     
+       위의 background 케이스를 다음처럼 변경하는 경우, h1의 배경색은 무엇이 될까?<br>
+       <div class="lgback"> 
+       :root { /* 어디서나 읽을 수 있도록 함 */ <br>
+           --accent: green;<br>
+           --accent: var(--accent);}<br><br>
+       body {background: red;  }<br>
+       h1 {background: blue;<br>
+           background: var(--accent, orange);}</div><br>  
+
+       여기서는 orange로 나타난다. <br>
+       :root 두 번째 줄에서 --accent는 재정립되었고, --accent의 대한 값이 없기 때문이다. </p>
+
+       <h4>같은 타입 요소 중 변수값의 일부만 수정하고 싶은 경우</h4>
+       <div class="lgback"> 
+       &lt;div>Mint Coding&lt;/div&gt;<br>
+       &lt;div class="invert">Mint Coding&lt;/div&gt;<br><br>
+       
+       &lt;style 예제><br>
+         div {--size: 8em;<br>
+           height: var(--size);}<br> 
+         .invert {--size: calc(var(--size) + 1em);}<br>
+         &lt;/style><br></div><br>
+       위 예제에서 .invert의 높이는 9em이 되지 않는다. <br>
+       .invert에서 --size는 calc(var(--size) + 1em)으로 재정의되었기 때문 <br>
+       var() 안의 --size가 정립되지 않았으므로, 이는 값이 지정되지 않는 변수값이 되어 버린다. <br>
+       height값을 1em만큼 늘리고 싶었던 것이라면, 이렇게 수정해야한다.<br>
+       
+       .invert {height: calc(var(--size) + 1em); }<br>
+        
+</body>
+</html>

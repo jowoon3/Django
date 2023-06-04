@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS form 요소 @규칙 미디어쿼리 </title>
+</head>
+<body> 
+<div>
+    <H2>CSS</H2>  
+    <style>
+        .txtlink {color: green; text-decoration:none; margin-left:20px; font-size:16px;}
+        .txtlink:hover {text-decoration:underline;}        /*마우스 올라가면 밑줄 */        
+        /* .button_S {display:inline-block; background-color:gray; color: #FFFFFF; padding: 14px 25px; text-align: center; text-decoration: none; font-size: 16px; margin-left: 20px; opacity: 0.9; border-radius: 5px;}
+        .button_S:hover {color:white; background-color:lightyellow ; opacity:1.0;}      /*마우스 올라가면 배경색 핑크색 글자 흰색으로 바뀜 
+        .button1 {display:inline-block; background-color:#f44336; color: #FFFFFF; padding: 14px 25px; text-align: center; text-decoration: none; font-size: 16px; margin-left: 20px; opacity: 0.9; border-radius: 5px;}
+        .button1:hover {color:white; background-color:pink; opacity:1.0;}      마우스 올라가면 배경색 핑크색 글자 흰색으로 바뀜 
+        .button2 {background-color: white; color: black; border: 2px solid #f44336; padding: 14px 24px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin-left: 20px;}
+        .button2:hover {background-color: #f44336; color: white;}    /*마우스 올라가면 배경색 및 글자 색 바뀜
+        .button3 {display:inline-block; background-color: #44bb55; color: #FFFFFF; padding: 14px 25px; text-align: center; text-decoration: none; font-size: 16px; margin-left: 20px; opacity: 0.9;border-radius: 5px;}
+        .button3:hover {background-color: #44bb55; color: white;}    마우스 올라가면 배경색 및 글자 색 바뀜 
+        .button4 {background-color: white; color: black; border: 2px solid #44bb55; padding: 14px 24px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin-left: 20px;}
+        .button4:hover {background-color: #44bb55; color: white;}    마우스 올라가면 배경색 및 글자 색 바뀜 */
+        
+        .btn {margin: 4px 0px;--bs-btn-padding-x: 0.75rem;  --bs-btn-padding-y: 0.375rem; --bs-btn-font-family: 'Nanum Gothic', sans-serif; --bs-btn-font-size: 1rem; --bs-btn-font-weight: 400;
+              --bs-btn-line-height: 1.5;    --bs-btn-border-width: var(--bs-border-width);
+              --bs-btn-border-radius: 0.375rem;   --bs-btn-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15),0 1px 1px rgba(0, 0, 0, 0.075);
+              --bs-btn-disabled-opacity: 0.65;    --bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(var(--bs-btn-focus-shadow-rgb), .5);
+              display: inline-block; padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x); font-family: var(--bs-btn-font-family);
+              font-size: var(--bs-btn-font-size); font-weight: var(--bs-btn-font-weight); line-height: var(--bs-btn-line-height); 
+              color: var(--bs-btn-color);         text-align: center;    text-decoration: none;    vertical-align: middle;    cursor: pointer;
+              -webkit-user-select: none;    -moz-user-select: none;      user-select: none;    
+              border: var(--bs-btn-border-width) solid var(--bs-btn-border-color); border-radius: var(--bs-btn-border-radius);
+              background-color: var(--bs-btn-bg);}
+        .button_S {--bs-btn-color: #fff;    --bs-btn-bg: #6c757d;    --bs-btn-border-color: #6c757d;    --bs-btn-hover-color: #fff;
+              --bs-btn-hover-bg: #5c636a;    --bs-btn-hover-border-color: #565e64;    --bs-btn-focus-shadow-rgb: 130,138,145;
+              --bs-btn-active-color: #fff;    --bs-btn-active-bg: #565e64;    --bs-btn-active-border-color: #51585e;
+              --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #fff;    --bs-btn-disabled-bg: #6c757d;
+              --bs-btn-disabled-border-color: #6c757d;}
+        .button1 {--bs-btn-color: #fff;     --bs-btn-bg: #dc3545;       --bs-btn-border-color: #dc3545;     --bs-btn-hover-color: #fff;
+                  --bs-btn-hover-bg: #bb2d3b;    --bs-btn-hover-border-color: #b02a37;     --bs-btn-focus-shadow-rgb: 225,83,97;
+                  --bs-btn-active-color: #fff;   --bs-btn-active-bg: #b02a37;    --bs-btn-active-border-color: #a52834;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #fff;
+                  --bs-btn-disabled-bg: #dc3545;    --bs-btn-disabled-border-color: #dc3545;}
+        .button2 {--bs-btn-color: #dc3545;    --bs-btn-border-color: #dc3545;    --bs-btn-hover-color: #fff;    --bs-btn-hover-bg: #dc3545;
+                  --bs-btn-hover-border-color: #dc3545;    --bs-btn-focus-shadow-rgb: 220,53,69;    --bs-btn-active-color: #fff;
+                  --bs-btn-active-bg: #dc3545;    --bs-btn-active-border-color: #dc3545; --bs-border-width: 2px;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #dc3545;
+                  --bs-btn-disabled-bg: transparent;    --bs-btn-disabled-border-color: #dc3545;    --bs-gradient: none;}
+        .button3 {--bs-btn-color: #fff;    --bs-btn-bg: #198754;    --bs-btn-border-color: #198754;    --bs-btn-hover-color: #fff;
+                  --bs-btn-hover-bg: #157347;     --bs-btn-hover-border-color: #146c43;     --bs-btn-focus-shadow-rgb: 60,153,110;
+                  --bs-btn-active-color: #fff;    --bs-btn-active-bg: #146c43;    --bs-btn-active-border-color: #13653f;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #fff;
+                  --bs-btn-disabled-bg: #198754; --bs-btn-disabled-border-color: #198754;}
+        .button4 {--bs-btn-color: #198754;    --bs-btn-border-color: #198754;    --bs-btn-hover-color: #fff;    --bs-btn-hover-bg: #198754;
+                  --bs-btn-hover-border-color: #198754;    --bs-btn-focus-shadow-rgb: 25,135,84;    --bs-btn-active-color: #fff;
+                  --bs-btn-active-bg: #198754;    --bs-btn-active-border-color: #198754;--bs-border-width: 2px;
+                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);    --bs-btn-disabled-color: #198754;
+                  --bs-btn-disabled-bg: transparent;    --bs-btn-disabled-border-color: #198754;    --bs-gradient: none;}
+        </style>
+        <p><a href="/css/tut13.html" class="btn button3" target="_blank">이전 노트</a>
+        <a href="/css/tut15.html" class="btn button3" target="_blank">다음 노트</a>
+        <a href="/htmls/tut1.html" class="btn button1" target="_blank">HTML 노트</a> 
+        <a href="/htmls/html_CSS.html" class="btn button2" target="_blank">HTML+CSS</a>
+        <a href="/htmls/html_Emmet.html" class="btn button2" target="_blank">HTML+Emmet</a>
+        <a href="/htmls/html_tags.html" class="btn button2" target="_blank">HTML+Tags</a><br>
+        <a href="/javascript/j01.html" class="btn btn-success mb-1" target="_blank">자바스크립트 노트</a>  
+        <a href="/python/p01.html" class="btn btn-success mb-1" target="_blank">파이썬 노트</a>   
+        <a href="/css/tut11.html" class="btn button4" target="_blank">CSS 문법</a>
+        <a href="/css/tut12.html" class="btn button4" target="_blank">색과 배경</a>
+        <a href="/css/tut13.html" class="btn button4" target="_blank">선형 원형 그래디언트 CSS3 배경속성</a>
+        <a href="/css/tut14.html" class="btn button4" target="_blank">텍스트 글꼴 링크 </a>
+        <a href="/css/tut15.html" class="btn button4" target="_blank">글꼴 링크 이미지 스프라이트</a> 
+        <a href="/css/tut16.html" class="btn button4" target="_blank">리스트 테이블</a>
+        <a href="/css/tut17.html" class="btn button4" target="_blank">박스모델 크기 패딩</a> 
+        <a href="/css/tut18.html" class="btn button4" target="_blank">박스모델 테두리 마진 아웃라인</a> 
+        <a href="/css/tut19.html" class="btn button4" target="_blank">Flexible Box 플렉서블 박스 플렉스</a>
+        <a href="/css/tut20.html" class="btn button4" target="_blank">CSS3 테두리 버튼 사용자인터페이스</a> 
+        <a href="/css/tut21.html" class="btn button4" target="_blank">위치 디스플레이 플로트 정렬</a> 
+        <a href="/css/tut22.html" class="btn button4" target="_blank">위치 포지션 선택자 selector</a>
+        <a href="/css/tut23.html" class="btn button4" target="_blank">CSS3 선택자(selector)</a>
+        <a href="/css/tut24.html" class="btn button4" target="_blank">CSS3 transition 애니메이션</a>     
+        <a href="/css/tut25.html" class="btn button4" target="_blank">유사클래스 상태의사클래스 동적의사클래스 </a>
+        <a href="/css/tut26.html" class="btn button4" target="_blank">구조의사클래스</a> 
+        <a href="/css/tut27.html" class="btn button4" target="_blank">의사 요소(pseudo-element)</a>
+        <a href="/css/tut28.html" class="btn button4" target="_blank">CSS 네비게이션바</a>
+        <a href="/css/tut29.html" class="btn button_S" target="_blank">CSS form 요소 @규칙</a>  
+        <a href="/css/tut30.html" class="btn button4" target="_blank">bootstrap 활용</a>  
+        <a href="/css/tut31.html" class="btn button4" target="_blank">test several things</a></p>  
+<hr>    
+
+<h4>form 요소</h4>
+<p>input 요소에도 다양한 스타일을 설정할 수 있다.</p>
+
+<h4>input 요소의 크기 설정</h4>
+<p>width 속성을 이용하여 input 요소의 크기를 설정할 수 있다.</p>
+<p>예제</p>
+<fieldset> 
+<div class="form1" >이름크기 : <input type="text" name="username"></div><br> 
+</fieldset>
+<hr> 
+
+<h4>input 요소의 테두리 설정</h4>
+<p>border 속성을 이용하여 input 요소의 테두리(border) 색상과 두께를 바꿀 수 있다.<br>
+또한, border-radius 속성을 이용하여 input 요소의 모서리를 둥글게 만들 수도 있다.</p>
+<p>예제</p>
+<fieldset>  
+    <div class="form2"> 직위테두리 : <input type="text" name="myRole"></div><br>
+    <div class="form2"> 아이디테두리 : <input type="text" name="myID"></div><br>
+    <div class="form2"> 비밀번호테두리 : <input type="password" name="myPasswor"></div><br>
+</fieldset>
+<hr>
+
+<h4>input 요소에 배경색 적용</h4>
+<p>background-color 속성을 이용하여 input 요소의 배경색을 설정할 수 있다.<br>
+또한, color 속성을 이용하여 input 요소의 텍스트 색상를 변경할 수도 있다.</p>
+<p>예제</p>
+<fieldset>  
+    <div class="form3"> 이메일배경색 : <input type="text" name="myEmail"></div><br> 
+</fieldset>
+<hr>
+
+<h4>포커스를 가지고 있는 input 요소의 스타일 적용</h4>
+<p>:focus 선택자를 이용하여 해당 input 요소가 포커스(focus)를 가지고 있을 때의 스타일을 별도로 설정할 수 있다.</p>
+<p>예제</p>
+<fieldset> 
+    <div class="form4"> 생년월일포커스 : <input type="date" name="myDate"></div><br>
+    <div class="form4"> 결혼유무포커스 : <input type="password" name="myMarriage"></div><br> 
+</fieldset>
+
+<hr>
+
+<h4>input 요소에 아이콘(icon)이나 이미지 삽입</h4>
+<p>background-image 속성을 이용하여 input 요소에 아이콘(icon)이나 이미지를 삽입할 수 있다.<br>
+또한, background-position 속성을 이용하여 삽입한 아이콘이나 이미지가 나타날 위치를 설정할 수도 있다.</p>
+<p>예제</p>
+<fieldset> 
+    <div class="form5"> 성과급이미지삽입 : <input type="number" name="myBonus"></div><br>
+</fieldset>
+
+<hr>
+<h4>textarea 요소의 크기 조절</h4>
+<p>resize 속성을 이용하여 textarea 요소의 크기를 조절할 수 있다.<br>
+resize 속성을 설정하면 해당 textarea 요소의 오른쪽 아래 부분에 마우스로 잡을 수 있는 핸들이 생긴다.<br>
+사용자가 그 핸들을 마우스로 클릭하여 조절하면 textarea 요소의 크기를 마음대로 조절할 수 있게 된다.<br>
+<p>resize 속성은 익스플로러에서 지원하지 않는다.</p>
+
+CSS에서 사용할 수 있는 textarea resize 속성값</p>
+
+<table class="tb-2" summary="">
+	<thead>
+		<tr>
+            <th style="background-color:lightgray; width: 25%;">속성</th>
+            <th style="background-color:lightgray;">설명</th>	
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>none</td>
+			<td>해당 요소의 크기를 조절할 수 없음. (기본 설정)</td>
+		</tr>
+		<tr>
+			<td>both</td>
+			<td>사용자가 해당 요소의 높이와 너비를 모두 조절할 수 있음.</td>
+		</tr>
+		<tr>
+			<td>horizontal</td>
+			<td>사용자가 해당 요소의 너비만을 조절할 수 있음.</td>
+		</tr>
+		<tr>
+			<td>vertical</td>
+			<td>사용자가 해당 요소의 높이만을 조절할 수 있음.</td>
+		</tr>
+	</tbody>
+</table>
+<p>예제</p>
+<fieldset> 
+    <div class="form6"> 자격증 : <textarea name="message" rows=5 cols="30"></textarea></div><br>
+</fieldset>
+
+<style> 
+    .form1 input {width:100%; padding : 10px 20px; margin:5px 0; box-sizing:border-box; }
+    .form2 input[type="text"] {border: solid 2px #D2691E; border-radius: 8px;}
+    .form2 input[type="password"] {border: none; border-bottom: solid 2px #D2691E; }
+    .form3 input {background-color: #FFF8DC; color: olive; }
+    .form4 input[type="text"]{ border: solid 2px #FFE4B5; -webkit-transition: 0.5s; transition: 0.5s; }
+    .form4 input[type="text"]:focus { border: solid 2px #D2691E; }
+    .form4 input[type="password"] { border: solid 1px black; }
+    .form4 input[type="password"]:focus { background-color: #E0FFFF; }
+    .form5 input {height:30px;padding-left:30px; background-image: url("http://www.tcpschool.com/examples/images/img_search_icon.png");background-position: 2px 3px;background-repeat: no-repeat;}
+    .form6 textarea {width:100%; height:200px; box-sizing:border-box; resize:both;}
+</style> 
+
+<h4>select 요소에 스타일 적용</h4>
+<p>CSS를 이용하면 select 요소에도 여러 가지 스타일을 적용할 수 있다.</p>
+<p>예제</p>
+<div class="select">
+<select name="fruit">
+    <option value="apple"> 사과
+    <option value="orange" selected> 귤
+    <option value="strawberry"> 딸기
+    <option value="peach"> 복숭아
+</select></div>
+<style>
+    .select select { width: 20%; padding: 10px; border: solid 1px black; border-radius: 5px; background-color: #FFFFE0;}
+</style> 
+<hr>
+
+<h4>@규칙(at-rule)</h4>
+<p>CSS에서는 W3C에서 규정하고 있는 몇몇 규칙들을 사용할 수 있다.<br>
+그 중에서도 많이 사용되는 대표적인 규칙<br>
+1. @import<br>
+2. @font-face<br>
+3. @media</p>
+
+<hr>
+
+<h4>@import 규칙</h4>
+<p>@import 규칙은 다른 스타일 시트에서 스타일 규칙을 가져올 수 있는 규칙<br>
+이 규칙은 스타일 시트에 사용되는 문자 인코딩을 지정하는 @charset 규칙을 제외하고 모든 다른 규칙보다 앞서 명시되어야 한다.<br>
+보통 HTML 문서에는 다음과 같이 여러 개의 &lt;link&gt;태그를 사용하여 스타일 시트를 추가한다.</p>
+<h4>HTML 문서</h4>
+&lt;<span style="color:#bf4f24">head</span>&gt;<br>
+<a class="textarea">    &lt;<span style="color:#bf4f24">title</span>&gt;@import 규칙&lt;/<span style="color:#bf4f24">title</span>&gt;<br></a>
+<a class="textarea">    &lt;<span style="color:#bf4f24">link</span> <span style="color:#bf4f24">rel</span>=<span style="color:#0b6125">"stylesheet"</span> <span style="color:#bf4f24">href</span>=<span style="color:#0b6125">"firstStyleSheet.css"</span>&gt;<br></a>
+<a class="textarea">    &lt;<span style="color:#bf4f24">link</span> <span style="color:#bf4f24">rel</span>=<span style="color:#0b6125">"stylesheet"</span> <span style="color:#bf4f24">href</span>=<span style="color:#0b6125">"secondStyleSheet.css"</span>&gt;<br></a>
+<a class="textarea">    ...<br></a>
+<a class="textarea">    &lt;<span style="color:#bf4f24">link</span> <span style="color:#bf4f24">rel</span>=<span style="color:#0b6125">"stylesheet"</span> <span style="color:#bf4f24">href</span>=<span style="color:#0b6125">"hundredStyleSheet.css"</span>&gt;<br>
+&lt;/<span style="color:#bf4f24">head</span>&gt;</a>
+
+<p>하지만 이렇게 추가하는 CSS 파일의 개수가 늘어날수록 웹 서버의 부하도 같이 커지게 된다.<br>
+    따라서 HTML 문서에는 일정 개수의 CSS 파일만을 추가하고, 추가된 CSS 파일에서 @import 규칙을 이용해 또 다른 CSS 파일을 추가하는 방법을 사용한다.<br>
+<p>@import 규칙을 사용해도 추가하는 CSS 파일의 개수가 늘어나면 여전히 웹 서버의 부하는 커질 수밖에 없다.<br>
+    따라서 웹 서버의 부하를 줄이기 위해 작성한 CSS 파일들을 적절히 분산해서 추가하는 방법이 필요해진다</p>   
+
+<h4>HTML 문서</h4>
+&lt;<span style="color:#bf4f24">head</span>&gt;<br>
+<a class="textarea">    &lt;<span style="color:#bf4f24">title</span>&gt;@import 규칙&lt;/<span style="color:#bf4f24">title</span>&gt;<br></a>
+<a class="textarea">    &lt;<span style="color:#bf4f24">link</span> <span style="color:#bf4f24">rel</span>=<span style="color:#0b6125">"stylesheet"</span> <span style="color:#bf4f24">href</span>=<span style="color:#0b6125">"firstStyleSheet.css"</span>&gt;<br></a>
+<a class="textarea">    &lt;<span style="color:#bf4f24">link</span> <span style="color:#bf4f24">rel</span>=<span style="color:#0b6125">"stylesheet"</span> <span style="color:#bf4f24">href</span>=<span style="color:#0b6125">"secondStyleSheet.css"</span>&gt;<br></a>
+&lt;/<span style="color:#bf4f24">head</span>&gt;<br></p>
+
+<h4>firstStyleSheet.css</h4>
+@import url("thirdStyleSheet.css");<br>
+@import "fourthStyleSheet.css";<br>
+...<br>
+<p>@import 규칙을 이용하면 미디어 쿼리(media query)의 조건에 따라 필요한 CSS 파일만을 선별적으로 불러올 수 있다.</p>
+<p>프린트할 때에는 firstStyleSheet.css 파일을 불러오고, 스크린이 가로 방향으로 설정되어 있을 때는 secondStyleSheet.css 파일을 불러오는 예제<br>
+<hr>
+&lt;<span style="color:#bf4f24">head</span>&gt;<br>
+<a class="textarea">     &lt;<span style="color:#bf4f24">title</span>&gt;@import 규칙&lt;/<span style="color:#bf4f24">title</span>&gt;<br></a>
+<a class="textarea">    @import url("firstStyleSheet.css") print;<br></a>
+<a class="textarea">    @import "secondStyleSheet.css" screen and (orientation:landscape);<br></a>
+&lt;/<span style="color:#bf4f24">head</span>&gt;</p><hr>
+
+
+<h4>@font-face 규칙</h4>
+<p>@font-face 규칙은 웹 폰트(web font)를 정의할 때 사용하는 규칙<br>
+웹 폰트(web font)는 사용자의 컴퓨터에 설치되어 있지 않은 글꼴(font)을 웹 브라우저가 사용할 수 있게 해준다<br>
+우선 웹 폰트를 서버에 올려놓고, CSS 파일에 @font-face 규칙을 사용하여 웹 폰트를 정의하고 추가한다.<br>
+<p>그러면 해당 웹 페이지에 접속하는 모든 웹 브라우저는 자동으로 서버에서 웹 폰트를 내려받아 해당 글꼴을 표시하게 된다.<br>
+<p>예제</p>
+&lt;<span style="color:#bf4f24">style</span>&gt;<br>
+<a class="textarea">    <span style="color:#794938">@font-face</span> {<br></a>
+<a class="textarea">        <span style="color:#691c97">font-family</span><span style="color:#794938">:</span> <span style="color:#0b6125">"myWebFont"</span>;<br></a>
+<a class="textarea">        <span style="color:#691c97">src</span><span style="color:#794938">:</span> <span style="color:#693a17">local</span>(<span style="color:#0b6125">"NanumGothic"</span>), <span style="color:#693a17">url</span>(<span style="color:#0b6125">"NanumGothic.eot"</span>), <span style="color:#693a17">url</span>(<span style="color:#0b6125">"NanumGothic.ttf"</span>), <span style="color:#693a17">url</span>(<span style="color:#0b6125">"NanumGothic.woff"</span>);<br></a>
+<a class="textarea">    }<br></a>
+<a class="textarea">    <span style="color:#bf4f24">*</span> { <span style="color:#691c97">font-family</span><span style="color:#794938">:</span> <span style="color:#0b6125">"myWebFont"</span>; }<br></a>
+&lt;/<span style="color:#bf4f24">style</span>&gt;<br>
+
+<hr>
+
+<h4>@media 규칙</h4>
+<p>CSS2에서는 @media 규칙을 통해 서로 다른 미디어 타입(media type)을 위한 맞춤식 스타일 시트를 지원한다.<br>
+HTML 문서가 스크린에 표현될 때와 프린트할 때 서로 다른 스타일을 적용해 주는 예제</p>
+<p>예제</p>
+&lt;<span style="color:#bf4f24">style</span>&gt;<br>
+<a class="textarea">    <span style="color:#bf4f24">body</span> { <span style="color:#691c97">background-color</span><span style="color:#794938">:</span> <span style="color:#b52a1d;">darkorange</span>; }<br></a>
+<a class="textarea">    <span style="color:#794938">@media</span> <span style="color:#b4371f">screen</span> {<br></a>
+<a class="textarea">        <span style="color:#bf4f24">body</span> { <span style="color:#691c97">background-color</span><span style="color:#794938">:</span> <span style="color:#b4371f">black</span>; <span style="color:#691c97">color</span><span style="color:#794938">:</span> <span style="color:#b4371f">white</span>; }<br></a>
+<a class="textarea">    }<br></a>
+<a class="textarea">    <span style="color:#794938">@media</span> <span style="color:#b4371f">print</span> {<br></a>
+<a class="textarea">        <span style="color:#bf4f24">body</span> { <span style="color:#691c97">background-color</span><span style="color:#794938">:</span> <span style="color:#b4371f">white</span>; <span style="color:#691c97">color</span><span style="color:#794938">:</span> <span style="color:#b4371f">black</span>; }<br></a>
+<a class="textarea">    }<br></a>
+&lt;/<span style="color:#bf4f24">style</span>&gt;<br>
+
+</body>
+<style>
+    .media1 {background-color: darkorange; }
+             @media screen and (min-width: 480px) {body {background-color: lightblue; }} 
+    .media2 { @media screen { body { background-color: black; color: white; } } 
+              @media print { body { background-color: white; color: black;}} }
+</style>
+
+<h4>미디어 쿼리(media query)</h4>
+<p>CSS2에서는 @media 규칙을 통해 서로 다른 매체 유형(media type)을 위한 맞춤식 스타일 시트(style sheet)를 지원한다.<br>
+예를 들면, HTML 문서가 스크린에 표현될 때와 프린트할 때 서로 다른 스타일을 적용할 수 있다.<br>
+CSS3에서는 @media 규칙을 더욱 발전시켜 매체 유형(media type)과 하나 이상의 표현식(expression)으로 구성된 미디어 쿼리(media query)를 사용할 수 있다.<br>
+미디어 쿼리(media query)는 width, height, color 속성과 같은 미디어 관련 속성을 이용한 표현식을 통해 스타일이 적용되는 범위를 조절할 수 있다.<br>
+미디어 쿼리를 사용하면 콘텐츠(content)를 별도로 변경하지 않아도 웹 페이지에 접속하고 있는 기기에 알맞은 형태로 스타일이 조정된다.</p>
+
+<hr>
+
+<h4>CSS3 미디어 쿼리(media query) 지원 버전</h4>
+<p>CSS3 미디어 쿼리(media query)를 지원하는 주요 웹 브라우저의 버전<br>
+또한, 브라우저별로 벤더 프리픽스(vendor prefix)를 이용해 이 기능을 최초로 지원한 버전도 같이 표기했다.</p>
+
+<table class="tb-1" summary="">
+	<tbody>
+		<tr>
+			<th>규칙</th>
+			<th><img alt="ie" class="icon" src="http://www.tcpschool.com/img/icon-ie.png"></th>
+			<th><img alt="chrome" class="icon" src="http://www.tcpschool.com/img/icon-chrome.png"></th>
+			<th><img alt="firefox" class="icon" src="http://www.tcpschool.com/img/icon-firefox.png"></th>
+			<th><img alt="safari" class="icon" src="http://www.tcpschool.com/img/icon-safari.png"></th>
+			<th><img alt="opera" class="icon" src="http://www.tcpschool.com/img/icon-opera.png"></th>
+		</tr>
+		<tr><td><p>@media</p></td>
+			<td>9.0</td>
+			<td><p>21.0</p></td>
+			<td><p>3.5</p></td>
+			<td><p>4.0</p></td>
+			<td><p>9.0</p></td></tr>
+	</tbody>
+</table>
+<hr>
+
+<h4>미디어 쿼리 문법</h4>
+<p>다음은 같은 파일 내의 &lt;style&gt;태그 안에 미디어 쿼리가 위치할 경우의 문법이다.</p> 
+<p>또 다른 방법으로는 외부 CSS 파일에 미디어 쿼리를 따로 저장할 수도 있다.</p>
+
+<h5>문법</h5>
+@media only|not 매체유형 and (표현식) { CSS스타일코드; }
+<link rel="stylesheet" media="매체유형 and|only|not (표현식)" href="CSS파일URL"/>
+
+<p>만약 웹 페이지에 접속하고 있는 기기의 매체 유형과 명시된 매체 유형이 일치하고, 모든 표현식이 참(true)이면, 미디어 쿼리는 참(true)을 반환한다.<br>
+이렇게 미디어 쿼리의 반환값이 참이면, 해당 블록 안에 명시된 CSS 스타일 코드가 실행된다.</p>
+
+<p>여기에 and, only, not 등과 같은 키워드를 사용하여 더욱 복잡한 조건을 명시할 수도 있다.</p>
+<hr>
+
+<h4>CSS3 매체 유형(media type)</h4>
+<p>CSS3의 매체 유형은 이전 CSS2에서 정의된 것을 그대로 사용하고 있다.<br>
+다음은 자주 사용되는 매체 유형(media type)이다.</p>
+
+<table class="tb-2" summary="">
+	<thead>
+		<tr class="bg">
+			<th style="width: 25%;">매체 유형</th>
+			<th>설명</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr><td>all</td>
+			<td>모든 매체에 사용함.</td></tr>
+		<tr><td>print</td>
+			<td>프린터 기기에 사용함.</td></tr>
+		<tr><td>screen</td>
+			<td>컴퓨터나 태블릿, 스마트폰 등 스크린(screen)이 있는 매체에 사용함.</td></tr>
+		<tr><td>speech</td>
+			<td>웹 페이지를 읽어주는 스크린 리더(screenreader)에 사용함.</td></tr>
+	</tbody>
+</table>
+<hr>
+
+<h4>CSS3 미디어 쿼리(media query) 속성</h4>
+<table class="tb-2" summary="">
+	<thead>
+		<tr class="bg">
+			<th style="width: 25%;">속성</th>
+			<th>설명</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr><td>width</td>
+			<td>화면의 너비</td></tr>
+		<tr><td>height</td>
+			<td>화면의 높이</td></tr>
+		<tr><td>device-width</td>
+			<td>매체 화면의 너비</td></tr>
+		<tr><td>device-height</td>
+			<td>매체 화면의 높이</td></tr>
+		<tr><td>devie-aspect-ratio</td>
+			<td>매체 화면의 비율</td></tr>
+		<tr><td>orientation</td>
+			<td>매체 화면의 방향</td></tr>
+		<tr><td>color</td>
+			<td>매체의 색상 비트 수</td></tr>
+		<tr><td>color-index</td>
+			<td>매체에서 표현 가능한 색상의 개수</td></tr>
+		<tr><td>monochrome</td>
+			<td>흑백 매체에서의 픽셀당 비트 수</td></tr>
+		<tr><td>resolution</td>
+			<td>매체의 해상도</td></tr>
+	</tbody>
+</table>
+
+<p>위의 속성 중에서 orientation 속성을 제외한 모든 속성의 앞에는 min 또는 max 접두사를 사용할 수 있다.<br>
+위의 속성들을 적절히 활용하면 반응형 웹 사이트를 손쉽게 제작할 수 있다.</p>
+<hr>
+
+<h4>CSS3 미디어 쿼리(media query) 예제</h4>
+<p>다음 예제는 뷰포트의 너비가 480픽셀이거나 그 이하일 경우에는 배경색을 darkorange로 표현해 준다.<br>
+하지만 뷰포트의 너비가 그 초과일 경우에는 배경색을 lightblue로 바꿔서 표현해 준다.</p>
+<div class="media1">
+<h1>미디어 쿼리를 이용한 뷰포트별 배경색 설정예제</h1>
+  <p>뷰포트의 너비가 480픽셀이거나 그 이하일 경우에는 배경색을 darkorange로 표현해 준다.<br>
+    하지만 뷰포트의 너비가 그 초과일 경우에는 배경색을 lightblue로 바꿔서 표현해 준다.
+  </p>
+  <p>웹 브라우저의 크기를 줄여서 확인해 보세요!</p>
+</div>
+
+<div class="media2">
+<h1>미디어 쿼리를 이용한 기기별 배경색 설정</h1>
+<p>다음 예제를 웹 브라우저에서 실행하면 배경색을 검정색으로, 텍스트의 색상은 흰색으로 표현한다.<br>
+하지만 웹 페이지를 프린트하게 되면 배경색을 흰색으로, 텍스트의 색상을 검정색으로 바꿔서 프린트한다.</p>
+  
+
+  <p>웹 브라우저에서 실행하면 배경색을 black으로, 글자색을 white로 표현해 준다.<br>
+    하지만 프린트를 하게 되면 배경색을 white로, 글자색을 black으로 바꿔서 표현해 준다
+  </p>
+  <p>웹 브라우저를 프린트해서 확인해 보세요!</p>
+</div>
+
+<p>이처럼 미디어 쿼리를 이용하면 매체에 따라 다른 동작을 하도록 손쉽게 설정할 수 있다.</p>
+<hr> 
+
+</html> 

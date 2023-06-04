@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>자바스크립트 개요</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">   
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">     
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">  
+  <!-- font css -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="{% static '/css/java.css'%}" rel="stylesheet">   
+  <link href="{% static '/css/style.css'%}" rel="stylesheet">   
+</head>
+<body class="ms-3">  
+  <H2><a name="home">Javascript</a></H2>  
+  <p><a href="/javascript/j01.html" class="btn btn-purple mb-1" target="_blank" disabled>이전 노트</a>
+    <a href="/javascript/j02.html" class="btn btn-purple mb-1" target="_blank">다음 노트</a>
+    <a href="/htmls/tut1.html" class="btn btn-danger mb-1" target="_blank">HTML 노트</a> 
+    <a href="/css/tut11.html" class="btn btn-success mb-1" target="_blank">CSS 노트</a> 
+    <a href="/htmls/html_CSS.html" class="btn btn-outline-danger border-2 mb-1" target="_blank">HTML+CSS</a>
+    <a href="/htmls/html_Emmet.html" class="btn btn-outline-danger border-2 mb-1" target="_blank">HTML+Emmet</a>
+    <a href="/htmls/html_tags.html" class="btn btn-outline-danger border-2 mb-1" target="_blank">HTML+Tags</a><br>
+    <a href="/python/p01.html" class="btn btn-warning mb-1" target="_blank">파이썬 노트</a> 
+    <a href="/javascript/j01.html" class=" btn btn-secondary mb-1" target="_blank">자바스크립트 개요</a>
+    <a href="/javascript/j02.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">기본타입과 타입변환</a>
+    <a href="/javascript/j03.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">자바스크립트 연산자</a>
+    <a href="/javascript/j04.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">제어문과 배열 </a>
+    <a href="/javascript/j05.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">함수</a> 
+    <a href="/javascript/j06.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">객체</a>      
+    <a href="/javascript/j07.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Number 객체</a> 
+    <a href="/javascript/j08.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Math 객체</a> 
+    <a href="/javascript/j09.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Date 객체</a>     
+    <a href="/javascript/j10.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">String 문자열 객체</a>
+    <a href="/javascript/j11.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Array 배열 객체</a> 
+    <a href="/javascript/j12.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">문서객체모델 DOM</a> 
+    <a href="/javascript/j13.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">브라우저 객체 모델 BOM</a> 
+    <a href="/javascript/j14.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">이벤트와 예외처리</a>
+    <a href="/javascript/j15.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">정규표현식</a> 
+    <a href="/javascript/j16.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">람다표현식</a> 
+    <a href="/javascript/j17.html" class=" btn btn-outline-purple border-2 mb-1" target="_blank">Map과 Set, Iterator와 Generator</a> </p> 
+
+
+      <div class="col-md-8 mb-2">
+      <div class="p-3 text-white fs-4 bd-pink-800">자바스크립트</div>      </div>  
+
+      <p>자바스크립트(JavaScript)는 객체(object) 기반의 스크립트 언어이다.<br>
+      
+      HTML로는 웹의 내용을 작성하고, CSS로는 웹을 디자인하며, 자바스크립트로는 웹의 동작을 구현할 수 있다.<br>
+      자바스크립트는 주로 웹 브라우저에서 사용되나, Node.js와 같은 프레임워크를 사용하면 서버 측 프로그래밍에서도 사용할 수 있다.<br>
+      현재 컴퓨터나 스마트폰 등에 포함된 대부분의 웹 브라우저에는 자바스크립트 인터프리터가 내장되어 있다.</p>
+      
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">  
+        <div class="card-header bd-yellow-100"><h5>예제</h5></div> 
+        <p class="card-text" style="padding: 10px 10px;">
+        <p>&lt;!<span style="color:#bf4f24">DOCTYPE</span> html&gt;<br>
+        &lt;<span style="color:#bf4f24">html</span> <span style="color:#bf4f24">lang</span>=<span style="color:#0b6125">"ko"</span>&gt;<br>
+        &lt;<span style="color:#bf4f24">head</span>&gt;      <br>      
+        &nbsp;&nbsp;&nbsp;&lt;<span style="color:#bf4f24">meta</span> <span style="color:#bf4f24">charset</span>=<span style="color:#0b6125">"UTF-8"</span>&gt;<br>
+        &nbsp;&nbsp;&nbsp;&lt;<span style="color:#bf4f24">title</span>&gt;JavaScript Intro&lt;/<span style="color:#bf4f24">title</span>&gt;<br>
+        &nbsp;&nbsp;&nbsp;&lt;<span style="color:#bf4f24">script</span>&gt;<br>
+        &nbsp;&nbsp;&nbsp;<span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#0b6125">"&lt;h2&gt;여러분을 환영한다!!&lt;/h2&gt;"</span>)<br>
+        &nbsp;&nbsp;&nbsp;&lt;/<span style="color:#bf4f24">script</span>&gt;<br>
+        &lt;/<span style="color:#bf4f24">head</span>&gt;<br>
+        &lt;<span style="color:#bf4f24">body</span>&gt;<br>
+        &nbsp;&nbsp;&nbsp;&lt;<span style="color:#bf4f24">noscript</span>&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span style="color:#bf4f24">p</span>&gt;여러분의 웹 브라우저가 자바스크립트를 지원하지 않는다!&lt;/<span style="color:#bf4f24">p</span>&gt;<br>
+        &nbsp;&nbsp;&nbsp;&lt;/<span style="color:#bf4f24">noscript</span>&gt;<br>
+        &lt;/<span style="color:#bf4f24">body</span>&gt;<br>
+        &lt;/<span style="color:#bf4f24">html</span>&gt;      
+      </p> </div></div>
+      <hr>  
+      <h4 class="text-primary fst-italic">자바스크립트(JavaScript)란?</h4>
+      
+      <p>자바스크립트(JavaScript)는 객체(object) 기반의 스크립트 언어이다.<br>
+      자바스크립트를 배우기 전에  HTML과 CSS에 대한 기초 지식이 있으면 좋다.<br>
+      HTML로는 웹의 내용을 작성하고, CSS로는 웹을 디자인하며, 자바스크립트로는 웹의 동작을 구현할 수 있다.<br>
+      자바스크립트는 주로 웹 브라우저에서 사용되나, Node.js와 같은 프레임워크를 사용하면 서버 측 프로그래밍에서도 사용할 수 있다.<br>
+      현재 컴퓨터나 스마트폰 등에 포함된 대부분의 웹 브라우저에는 자바스크립트 인터프리터가 내장되어 있다.</p>
+      
+      <hr>
+      <h4 class="text-primary fst-italic">자바스크립트의 역사</h4>
+      <p>자바스크립트는 1995년에 넷스케이프(Netscape)의 브렌던 아이크(Brendan Eich)에 의해 만들어졌다.<br>
+      처음에는 모카(Mocha)라는 이름으로 개발되었으나, 그 후에 라이브스크립트(LiveScript), 최종적으로는 자바스크립트(JavaScript)라는 이름으로 변경된다.</p>
+      
+      <hr>
+      <h4 class="text-primary fst-italic">자바스크립트의 특징</h4>
+      
+      <p>자바스크립트가 가지고 있는 언어적 특징은 다음과 같다.<br>
+      1. 자바스크립트는 객체 기반의 스크립트 언어이다.<br>      
+      2. 자바스크립트는 동적이며, 타입을 명시할 필요가 없는 인터프리터 언어이다.<br>      
+      3. 자바스크립트는 객체 지향형 프로그래밍과 함수형 프로그래밍을 모두 표현할 수 있다.<br><br>
+      C언어와 같은 언어는 소스 파일을 작성한 후, 해당 파일을 컴파일(compile)하여 사용자가 실행할 수 있는 실행 파일(.exe)로 만들어 사용한다.<br>
+      하지만 인터프리터 언어는 이러한 컴파일 작업을 거치지 않고, 소스 코드를 바로 실행할 수 있는 언어를 의미한다.<br>
+      자바스크립트는 웹 브라우저에 포함된 자바스크립트 인터프리터가 소스 코드를 직접 해석하여 바로 실행해 준다.</p>
+      
+      <hr>
+      <h4 class="text-primary fst-italic">자바와 자바스크립트</h4>
+      <p>자바와 자바스크립트는 그 이름만 놓고 보면 서로 관련이 있는 언어로 생각되기 쉽다.<br>
+      하지만 두 언어는 서로 직접적인 관련은 없으며, 비슷한 점보다는 다른 점이 훨씬 많다.<br>
+      문법상 비슷한 부분은 두 언어의 문법이 모두 C언어를 기반으로 만들어졌기 때문이다.</p>
+      <table class="table" style="width: 50%;">
+        <thead class="table-light">
+      <tr class="bg">
+      <th style="width: 50%;">자바</th>
+      <th style="width: 50%;">자바스크립트</th>
+      </tr>
+        </thead>
+        <tbody>
+      <tr>
+      <td style="text-align: left;">컴파일 언어</td>
+      <td>인터프리터 언어</td>
+      </tr>
+      <tr>
+      <td style="text-align: left;">타입 검사를 엄격하게 함.</td>
+      <td>타입을 명시하지 않음.</td>
+      </tr>
+      <tr>
+      <td style="text-align: left;">클래스(class) 기반의 객체 지향 언어</td>
+      <td>프로토타입(prototype) 기반의 객체 지향 언어</td>
+      </tr>
+        </tbody>
+      </table>
+
+      <hr>
+      <h4 class="text-primary fst-italic">자바스크립트 표준</h4>
+      
+      <p>1996년에 넷스케이프(Netscape)는 자바스크립트를 국제 표준안으로 만들기 위해 ECMA(European Computer Manufacturers Association)에 제출한다.<br>
+      그 결과 ECMA는 ECMAScript라는 새로운 표준을 제정하였고, 그 첫 번째 버전인 ECMA-262를 1997년에 공표한다.<br>
+      ECMAScript는 자바스크립트뿐만 아니라 마이크로소프트의 JScript나 어도비의 액션스크립트도 따르는 국제 표준이 된다.<br>
+      현재 자바스크립트의 최신 표준은 2015년에 발표된 ECMAScript 6이다.<br>
+      자바스크립트 최신 표준에 대한 더 자세한 사항은 다음 링크를 참고하면 된다.<br>
+      <a href="http://www.ecma-international.org/publications/standards/Ecma-262.html" target="_blank">Standard ECMA-262 : ECMAScript 2017 Language Specification 8th edition (June 2017) =&gt;</a><br>
+      또한, 자바스크립트 언어에 대한 더 자세한 설명은 모질라 개발자 사이트(MDN)를 참고하면 된다.<br>
+      <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript" target="_blank">MOZILLA DEVELOPER NETWORK : JavaScript =&gt;</a></p>
+      
+      <hr> 
+      <h3>자바스크립트 소개</h3>
+      
+      <hr>
+      <h4 class="text-primary fst-italic">자바스크립트 소개</h4>
+      
+      <p>자바스크립트를 사용하여 웹 프로그래밍에서 할 수 있는 일은 다음과 같이 매우 다양한다.<br>
+      1. 자바스크립트는 HTML의 '내용'을 변경할수 있다<br>
+      2. 자바스크립트는 HTML의 '속성'을 변경할수 있다.<br>
+      3. 자바스크립트는 HTML의 '스타일'을 변경할수 있다.</p>
+      
+      <hr>
+      <h4 class="text-primary fst-italic">HTML 요소의 내용 변경</h4>
+      
+      <p>자바스크립트를 사용하면 HTML 요소의 내용을 손쉽게 변경할 수 있다.</p> 
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+       <div class="card-header bd-yellow-100"><h5>버튼을 클릭하여 특정 &lt;p&gt;태그의 내용을 변경하는 예제</h5></div>
+      <p class="card-text" style="padding: 10px 10px;">
+      <button onclick="document.getElementById('js_intro_intro_01').innerHTML = '단락의 내용이 변경되었다.'" style="width:150px; background-color:#FAEBD7; text-align:center; border:solid 2px orange;">단락의 내용 변경</button>
+      <p id="js_intro_intro_01">이 단락의 내용을 바꾸고 싶어요!</p>
+      </div>
+      
+      <hr>
+      <h4 class="text-primary fst-italic">HTML 요소의 속성값 변경</h4>
+      <p>자바스크립트를 사용하면 HTML 요소의 속성값을 간단히 변경할 수 있다.<br> 
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+       <div class="card-header bd-yellow-100"><h5>버튼을 클릭하여 특정 &lt;img&gt;태그의 src 속성값을 변경하는 예제</h5></div>
+      <p class="card-text" style="padding: 10px 10px;">
+      <button onclick="document.getElementById('js_intro_intro_02').src = 'http://tcpschool.com/lectures/img_js_computer_on.png'" style="width:150px; background-color:#FAEBD7; text-align:center; border:solid 2px orange;">컴퓨터 켜기</button>          
+      <img id="js_intro_intro_02" src="http://tcpschool.com/lectures/img_js_computer_off.png" style="width: 350px; height: 417px;">          
+      <button onclick="document.getElementById('js_intro_intro_02').src = 'http://tcpschool.com/lectures/img_js_computer_off.png'" style="width:150px; background-color:#FAEBD7; text-align:center; border:solid 2px orange;">컴퓨터 끄기</button></div>
+      
+      <hr>
+      <h4 class="text-primary fst-italic">HTML 요소의 스타일 변경</h4>
+      
+      <p>자바스크립트를 사용하면 HTML 요소의 스타일을 손쉽게 변경할 수 있다.<br> 
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+       <div class="card-header bd-yellow-100"><h5>버튼을 클릭하여 특정 &lt;p&gt;태그의 스타일을 변경하는 예제</h5></div>
+      <p class="card-text" style="padding: 10px 10px;">
+      <button onclick="document.getElementById('js_intro_intro_03').style.fontSize = '30px'" style="width:150px; background-color:#FAEBD7; text-align:center; border:solid 2px orange;">단락의 스타일 변경</button>
+      <p id="js_intro_intro_03">이 단락의 스타일을 바꾸고 싶어요!</p>
+      </div>
+      
+      <hr>
+       <h3>자바스크립트 문법</h3>
+      
+      <hr>
+      <h4 class="text-primary fst-italic">프로그램(program)이란?</h4>
+      
+      <p>프로그램은 컴퓨터가 실행할 수 있는 명령(instruction)으로 이루어진다.<br>
+      컴퓨터 프로그래밍에서 컴퓨터가 실행할 수 있는 명령들을 실행문(statement)이라고 한다.<br>
+      즉, 프로그램이란 특정 결과를 얻기 위해서 컴퓨터에 의해 실행되는 실행문의 집합이라고 할 수 있다.</p>
+      
+      <hr>
+      <h4 class="text-primary fst-italic">자바스크립트 문법</h4>
+      
+      <p>자바스크립트의 실행문은 세미콜론(;)으로 구분된다.</p>
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+      <p class="card-text" style="padding: 10px 10px;">
+      
+      <span style="color:#a71d5d;font-style:italic">var</span> x <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">10</span>;<br>
+      <span style="color:#a71d5d;font-style:italic">var</span> result <span style="color:#794938">=</span> x <span style="color:#794938">+</span> <span style="color:#811f24;font-weight:700">3</span>;</p>
+      </div>
+      <p>자바스크립트는 대소문자를 구분한다.<br>
+      자바스크립트에서 변수나 함수의 이름, 예약어 등을 작성하거나 사용할 때에는 대소문자를 정확히 구분해서 사용해야 한다.</p>
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+      <p class="card-text" style="padding: 10px 10px;">
+      
+      <span style="color:#a71d5d;font-style:italic">var</span> javascript <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">10</span>; <span style="color:#5a525f;font-style:italic">// 변수 javascript와 JavaScript는 서로 다른 두 개의 변수로 인식됨.</span><br>
+      <span style="color:#a71d5d;font-style:italic">var</span> JavaScript <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">20</span>;<br>
+      Var Script <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">30</span>; <span style="color:#5a525f;font-style:italic">// 변수의 선언은 var 키워드로만 할 수 있으면 Var는 동작하지 않음.</span></p>
+      </div>
+      
+      <hr>
+      <h4 class="text-primary fst-italic">리터럴(literal)</h4>
+      
+      <p>리터럴은 직접 표현되는 값 그 자체를 의미한다.<br>
+      다음 예제에서 등장하는 값들은 모두 리터럴이다.</p>
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+      <p class="card-text" style="padding: 10px 10px;">
+      
+      <span style="color:#811f24;font-weight:700">12</span>            <span style="color:#5a525f;font-style:italic">// 숫자 리터럴</span><br>
+      <span style="color:#0b6125">"JavaScript"</span>  <span style="color:#5a525f;font-style:italic">// 문자열 리터럴</span><br>
+      <span style="color:#0b6125">'안녕하세요'</span>  <span style="color:#5a525f;font-style:italic">// 문자열 리터럴</span><br>
+      <span style="color:#811f24;font-weight:700">true</span>          <span style="color:#5a525f;font-style:italic">// 불리언 리터럴</span></p>
+      </div>
+      
+      <hr>
+      <h4 class="text-primary fst-italic">식별자(identifier)</h4>
+      
+      <p>식별자는 변수나 함수의 이름을 작성할 때 사용하는 이름을 의미한다.<br>
+      자바스크립트에서 식별자는 영문자(대소문자), 숫자, 언더스코어(_) 또는 달러($)만을 사용할 수 있다.</p>
+      <div class="content-box s2">자바스크립트에서 식별자는 숫자와 식별자의 구별을 빠르게 할 수 있도록 숫자로는 시작할 수 없다.</div>
+      
+      <div class="content-box s4">자바스크립트는 유니코드(unicode) 문자셋을 사용한다.</div>
+      
+      <hr>
+      <h4 class="text-primary fst-italic">식별자 작성 방식</h4>
+      
+      <p>자바스크립트에서는 식별자를 작성할 때 다음과 같은 작성 방식을 사용할 수 있다.<br>
+      <span class="text-bg-warning">1. Camel Case 방식</span><br>
+      <span class="text-bg-warning">2. Underscore Case 방식</span><br><br>
+      Camel Case 방식이란 식별자가 여러 단어로 이루어질 경우에 첫 번째 단어는 모두 소문자로 작성하고, 그다음 단어부터는 첫 문자만 대문자로 작성하는 방식이다.<br>
+      Underscore Case 방식은 식별자를 이루는 단어들을 소문자로만 작성하고, 그 단어들은 언더스코어(_)로 연결하는 방식이다.</p> 
+      <p>자바스크립트에서는 식별자를 작성할 때 관행적으로 Camel Case 방식을 많이 사용한다.</p> 
+      
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+      <p class="card-text" style="padding: 10px 10px;">
+      
+      <span style="color:#a71d5d;font-style:italic">var</span> firstVar <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">10</span>;           <span style="color:#5a525f;font-style:italic">// Camel Case 방식</span><br>
+      <span style="color:#a71d5d;font-style:italic">function</span> my_first_func {     <span style="color:#5a525f;font-style:italic">// Underscore Case 방식</span><br>
+      <span style="color:#a71d5d;font-style:italic">    var</span> firstLocalVar <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">20</span>;  <span style="color:#5a525f;font-style:italic">// Camel Case 방식</span><br>
+      }</p>
+      </div>
+      자바스크립트에서 하이픈(-)은 뺄셈을 위해 예약된 키워드이므로, 식별자를 작성할 때는 사용할 수 없다.</div>
+      
+      <hr>
+      <h4 class="text-primary fst-italic">키워드(keyword)</h4>
+      
+      <p>자바스크립트에서는 몇몇 단어들을 특별한 용도로 사용하기 위해 미리 예약하고 있다.<br>
+      이렇게 미리 예약된 단어들을 키워드(keyword) 또는 예약어(reserved word)라고 한다.<br>
+      이러한 키워드들은 프로그램 내에서 식별자로 사용할 수 없다.</p>
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+      <p class="card-text" style="padding: 10px 10px;">
+      
+      <span style="color:#a71d5d;font-style:italic">var</span> firstVar <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">10</span>;      <span style="color:#5a525f;font-style:italic">// var는 변수의 정의를 위해 예약된 키워드이다.</span><br>
+      <span style="color:#a71d5d;font-style:italic">function</span> myFirstFunc {  <span style="color:#5a525f;font-style:italic">// function은 함수의 정의를 위해 예약된 키워드이다.</span><br>
+      <span style="color:#a71d5d;font-style:italic">    var</span> secondVar <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">20</span>; <span style="color:#5a525f;font-style:italic">// var는 변수의 정의를 위해 예약된 키워드이다.</span><br>
+      }</p>
+      </div>
+      
+      <hr>
+      <h4 class="text-primary fst-italic">주석(comment)</h4>
+      
+      <p>주석(comment)이란 코드 내에 삽입된 일종의 설명문이다.<br>
+      주석은 작성자나 다른 개발자가 나중에 코드를 수정할 때 참고할 수 있으며, 웹 페이지 개발 시 디버깅에도 사용된다.<br>
+      이러한 주석은 자바스크립트 코드의 어느 부분에라도 작성할 수 있으며, 웹 브라우저의 동작에는 전혀 영향을 미치지 않는다.<br>
+      자바스크립트 주석은 다음과 같은 두 가지 형식을 지원한다.</p>
+      <h5>문법</h5>
+      
+      <p>1. 한 줄 주석 : <span style="color:#5a525f;font-style:italic">// 주석문</span><br>
+      2. 여러 줄 주석 : <span style="color:#5a525f;font-style:italic">/* 주석문 */</span></p>
+      </div>
+      
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+      <p class="card-text" style="padding: 10px 10px;">
+      
+      <span style="color:#a71d5d;font-style:italic">var</span> x <span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">10</span>;<br>
+      <span style="color:#5a525f;font-style:italic">// var y = 20; 한 줄의 주석문 : 이 부분은 실행되지 않을 것이다.</span><br>
+      <span style="color:#5a525f;font-style:italic">/* </span><br>
+      <span style="color:#5a525f;font-style:italic">x = x + y;</span><br>
+      <span style="color:#5a525f;font-style:italic">여러 줄의 주석문 : </span><br>
+      <span style="color:#5a525f;font-style:italic">이 부분 또한 실행되지 않을 것이다. </span><br>
+      <span style="color:#5a525f;font-style:italic">*/</span><br>
+      <span style="color:#691c97">document</span>.<span style="color:#693a17">getElementById</span>(<span style="color:#0b6125">"text"</span>).innerHTML <span style="color:#794938">=</span> x;</p>
+      </div>
+      <p>다음 예제는 자바스크립트에서 여러 줄 주석 안에 또 다른 주석을 삽입하는 예제이다.</p>
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+      <p class="card-text" style="padding: 10px 10px;">
+      
+      <p><i>/* 여러 줄</i><br>
+      <span style="color: #666666; font-style: italic;">    // 이렇게 두 줄 주석 안에 또 다른 한 줄 주석을 삽입할 수 있다.</span><br>
+      <i>주석이다. */</i></p>
+      </div>
+      <p>위의 예제처럼 자바스크립트에서는 여러 줄 주석 내부에 또 다른 한 줄 주석을 삽입할 수 있다.<br>
+      하지만 다음 예제처럼 여러 줄 주석 내부에 또 다른 여러 줄 주석을 삽입할 수는 없다.</p>
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+      <p class="card-text" style="padding: 10px 10px;">
+      
+      <p><i>/* 여러 줄</i><br>
+      <span style="color: #666666; font-style: italic;">    </span><i>/* 또 다른 여러 줄 주석이다. */</i><br>
+      주석이다. */</p>
+      </div>
+      <p>위의 예제처럼 여러 줄 주석 안에 또 다른 여러 줄 주석을 삽입하게 되면, 삽입한 주석의 종료를 알려주는 기호(*/)를 첫 번째 주석이 자신의 종료를 알려주는 기호(*/)로 인식하게 된다.<br>
+      따라서 위의 예제에서 세 번째 라인은 주석으로 정상 인식되지 않으며, Uncaught SyntaxError가 발생하여 실행중이던 스크립트는 중지될 것이다.<br>
+      그러므로 자바스크립트에서 여러 줄 주석은 절대로 중첩해서 사용해서는 안 된다.</p>
+      
+
+    <hr>
+      <h4 class="text-primary fst-italic">자바스크립트 출력</h4>
+     
+     <p>자바스크립트는 여러 방법을 통해 결과물을 HTML 페이지에 출력할 수 있다.<br>
+     자바스크립트에서 사용할 수 있는 출력 방법은 다음과 같다.<br>
+     1. window.alert() 메소드<br>
+     2. HTML DOM 요소를 이용한 innerHTML 프로퍼티<br>
+     3. document.write() 메소드<br>
+     4. console.log() 메소드</p>
+
+     <hr>
+      <h4 class="text-primary fst-italic">window.alert() 메소드</h4>
+     
+     <p>자바스크립트에서 가장 간단하게 데이터를 출력할 수 있는 방법은 window.alert() 메소드를 이용하는 것이다.<br>
+     window.alert() 메소드는 브라우저와는 별도의 대화 상자를 띄워 사용자에게 데이터를 전달해 준다.</p>
+     <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+     <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+     <p class="card-text" style="padding: 10px 10px;">
+     
+     &lt;<span style="color:#bf4f24">script</span>&gt;<br>
+     <span style="color:#a71d5d;font-style:italic">    function</span> <span style="color:#bf4f24">alertDialogBox</span>() {<br>
+     <span style="color:#a71d5d;font-style:italic">    </span><span style="color:#a71d5d;font-style:italic">    </span><span style="color:#693a17">alert</span>(<span style="color:#0b6125">"확인을 누를 때까지 다른 작업을 할 수 없어요!"</span>);<br>
+     <span style="color:#a71d5d;font-style:italic">    </span>}<br>
+     &lt;/<span style="color:#bf4f24">script</span>&gt;</p>
+     </div>
+     window 객체의 모든 메소드나 프로퍼티를 사용할 때는 window라는 접두사를 생략할 수 있다.</div>
+     
+     <hr>
+      <h4 class="text-primary fst-italic">HTML DOM 요소를 이용한 innerHTML 프로퍼티</h4> 
+     <p>실제 자바스크립트 코드에서 출력을 위해 가장 많이 사용되는 방법은 HTML DOM 요소를 이용한 <span class="text-danger">innerHTML 프로퍼티</span>를 이용하는 방법이다.<br>
+     우선 document 객체의 getElementByID()나 getElementsByTagName() 등의 메소드를 사용하여 HTML 요소를 선택한다.</p>
+     <p>그리고서 innerHTML 프로퍼티를 이용하면 선택된 HTML 요소의 내용(content)이나 속성(attribute)값 등을 손쉽게 변경할 수 있다.</p>
+     <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+     <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+     <p class="card-text" style="padding: 10px 10px;">
+     
+     &lt;<span style="color:#bf4f24">script</span>&gt;<br>
+     <span style="color:#a71d5d;font-style:italic">    var</span> str <span style="color:#794938">=</span> <span style="color:#691c97">document</span>.<span style="color:#693a17">getElementById</span>(<span style="color:#0b6125">"text"</span>);<br>
+     <span style="color:#a71d5d;font-style:italic">    </span>str.innerHTML <span style="color:#794938">=</span> <span style="color:#0b6125">"이 문장으로 바뀌었다!"</span>;<br>
+     &lt;/<span style="color:#bf4f24">script</span>&gt;</p></p></div>
+     
+     <hr>
+      <h4 class="text-primary fst-italic">document.write() 메소드</h4>
+     
+     <p>document.write() 메소드는 웹 페이지가 로딩될 때 실행되면, 웹 페이지에 가장 먼저 데이터를 출력한다.<br>
+     따라서 document.write() 메소드는 대부분 테스트나 디버깅을 위해 사용된다.</p>
+     <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+     <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+     <p class="card-text" style="padding: 10px 10px;">
+     
+     &lt;<span style="color:#bf4f24">script</span>&gt;<br>
+     <span style="color:#a71d5d;font-style:italic">    </span><span style="color:#691c97">document</span>.<span style="color:#693a17">write</span>(<span style="color:#811f24;font-weight:700">4</span> <span style="color:#794938">*</span> <span style="color:#811f24;font-weight:700">5</span>);<br>
+     &lt;/<span style="color:#bf4f24">script</span>&gt;
+     </p>     </div>
+
+     <p>하지만 웹 페이지의 모든 내용이 로딩된 후에 document.write() 메소드가 실행되면, 웹 페이지 내에 먼저 로딩된 모든 데이터를 지우고 자신의 데이터를 출력하게 된다.<br>
+     따라서 document.write() 메소드를 테스트 이외의 용도로 사용할 때에는 주의해서 사용해야 한다.</p>
+     <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+     <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+     <p class="card-text" style="padding: 10px 10px;">
+     
+     <p> <br>
+     <span style="color:#794938">&lt;</span>button onclick<span style="color:#794938">=</span><span style="color:#0b6125">"document.write(4 * 5)"</span><span style="color:#794938">&gt;</span>버튼을 눌러보세요<span style="color:#794938">!</span><span style="color:#794938">&lt;</span>/button<span style="color:#794938">&gt;</span><br>
+     <button onclick="document.write(4 * 5)">버튼을 눌러보세요!</button> 
+    </p> </p></div>
+     <hr>
+      <h4 class="text-primary fst-italic">console.log() 메소드</h4>
+     
+     <p>console.log() 메소드는 웹 브라우저의 콘솔을 통해 데이터를 출력해 준다.<br>
+     대부분의 주요 웹 브라우저에서는 F12를 누른 후, 메뉴에서 콘솔을 클릭하면 콘솔 화면을 사용할 수 있다.<br>
+     이러한 콘솔 화면을 통한 데이터의 출력은 좀 더 자세한 사항까지 출력되므로, 디버깅하는데 많은 도움을 준다.</p>
+     <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+     <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+     <p class="card-text" style="padding: 10px 10px;">
+     
+     &lt;<span style="color:#bf4f24">p</span>&gt;F12를 눌러서 콘솔 화면을 열면 결과를 확인할 수 있다.&lt;/<span style="color:#bf4f24">p</span>&gt;<br>
+     &lt;<span style="color:#bf4f24">script</span>&gt;<br>
+     <span style="color:#a71d5d;font-style:italic">    </span><span style="color:#bf4f24">console</span><span style="color:#693a17">.log</span>(<span style="color:#811f24;font-weight:700">4</span> <span style="color:#794938">*</span> <span style="color:#811f24;font-weight:700">5</span>);<br>
+     &lt;/<span style="color:#bf4f24">script</span>&gt;</p></p></div>
+     
+     <hr>
+      <h4 class="text-primary fst-italic">자바스크립트를 적용하는 방법</h4>
+     
+     <p>HTML 문서에 자바스크립트 코드를 적용하는 방법에는 다음과 같은 방법이 있다.<br>
+     1. 내부 자바스크립트 코드로 적용<br>
+     2. 외부 자바스크립트 파일로 적용</p>
+     
+     <hr>
+      <h4 class="text-primary fst-italic">내부 자바스크립트 코드</h4>
+     
+     <p>자바스크립트 코드는 &lt;script&gt;태그를 사용하여 HTML 문서 안에 삽입할 수 있다.</p>
+        
+     &lt;<span style="color:#bf4f24">script</span>&gt;<br>
+     <span style="color:#691c97">    document</span>.<span style="color:#693a17">getElementById</span>(<span style="color:#0b6125">"text"</span>).innerHTML <span style="color:#794938">=</span> <span style="color:#0b6125">"여러분을 환영한다!"</span>;<br>
+     &lt;/<span style="color:#bf4f24">script</span>&gt;</p>
+     </div>
+     <p>자바스크립트 코드는 HTML 문서의 &lt;head&gt;태그나 &lt;body&gt;태그, 또는 양쪽 모두에 위치할 수 있다.<br> 
+     <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+     <div class="card-header bd-yellow-100"><h5>HTML 문서의 &lt;head&gt;태그에 자바스크립트 코드를 삽입한 예제</h5></div>
+     <p class="card-text" style="padding: 10px 10px;">
+     
+     &lt;<span style="color:#bf4f24">head</span>&gt;<br>
+     <span style="color:#691c97">    </span>&lt;<span style="color:#bf4f24">meta</span> <span style="color:#bf4f24">charset</span>=<span style="color:#0b6125">"UTF-8"</span>&gt;<br>
+     <span style="color:#691c97">    </span>&lt;<span style="color:#bf4f24">title</span>&gt;JavaScript Apply&lt;/<span style="color:#bf4f24">title</span>&gt;<br>
+     <span style="color:#691c97">    </span>&lt;<span style="color:#bf4f24">script</span>&gt;<br>
+     <span style="color:#691c97">    </span><span style="color:#691c97">    </span><span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">printDate</span>() {<br>
+     <span style="color:#691c97">            document</span>.<span style="color:#693a17">getElementById</span>(<span style="color:#0b6125">"date"</span>).innerHTML <span style="color:#794938">=</span> <span style="color:#691c97">Date</span>();<br>
+     <span style="color:#691c97">    </span><span style="color:#691c97">    </span>}<br>
+     <span style="color:#691c97">    </span>&lt;/<span style="color:#bf4f24">script</span>&gt;<br>
+     &lt;/<span style="color:#bf4f24">head</span>&gt;</p> </p></div>
+
+     <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+     <div class="card-header bd-yellow-100"><h5>HTML 문서의 &lt;body&gt;태그에 자바스크립트 코드를 삽입한 예제</h5></div>
+     <p class="card-text" style="padding: 10px 10px;">
+     
+     &lt;<span style="color:#bf4f24">body</span>&gt;<br>
+     <span style="color:#691c97">    </span>&lt;<span style="color:#bf4f24">p</span>&gt;자바스크립트를 이용하면 현재 날짜와 시간 정보에도 손쉽게 접근할 수 있어요!&lt;/<span style="color:#bf4f24">p</span>&gt;<br>
+     <span style="color:#691c97">    </span>&lt;<span style="color:#bf4f24">button</span> <span style="color:#bf4f24">onclick</span>=<span style="color:#0b6125">"printDate()"</span>&gt;현재 날짜와 시간 표시하기!&lt;/<span style="color:#bf4f24">button</span>&gt;<br>
+     <span style="color:#691c97">    </span>&lt;<span style="color:#bf4f24">p</span> <span style="color:#bf4f24">id</span><span style="color:#794938">=</span><span style="color:#0b6125">"date"</span>&gt;&lt;/<span style="color:#bf4f24">p</span>&gt;<br>
+     <span style="color:#691c97">    </span>&lt;<span style="color:#bf4f24">script</span>&gt;<br>
+     <span style="color:#691c97">    </span><span style="color:#691c97">    </span><span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">printDate</span>() {<br>
+     <span style="color:#691c97">            document</span>.<span style="color:#693a17">getElementById</span>(<span style="color:#0b6125">"date"</span>).innerHTML <span style="color:#794938">=</span> <span style="color:#691c97">Date</span>();<br>
+     <span style="color:#691c97">    </span><span style="color:#691c97">    </span>}<br>
+     <span style="color:#691c97">    </span>&lt;/<span style="color:#bf4f24">script</span>&gt;<br>
+     &lt;/<span style="color:#bf4f24">body</span>&gt;</p>     </div>
+     
+     <p>위의 두 예제에서 살펴볼 수 있듯이 자바스크립트 코드를 &lt;head&gt;태그에 삽입하나 &lt;body&gt;태그에 삽입하나 동작상의 차이는 없다.</p>
+     
+     <hr>
+      <h4 class="text-primary fst-italic">외부 자바스크립트 파일</h4>
+     
+     <p>자바스크립트 코드는 HTML 문서의 내부뿐만 아니라 외부 파일로 생성하여 삽입할 수도 있다.<br>
+     외부에 작성된 자바스크립트 파일은 .js 확장자를 사용하여 저장한다.<br>
+     해당 자바스크립트 파일을 적용하고 싶은 모든 웹 페이지에 &lt;script&gt;태그를 사용해 외부 자바스크립트 파일을 포함하면 된다.</p>
+     <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+      <p class="card-text" style="padding: 10px 10px;">
+     
+     <span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">printDate</span>() {<br>
+     <span style="color:#691c97">    document</span>.<span style="color:#693a17">getElementById</span>(<span style="color:#0b6125">"date"</span>).innerHTML <span style="color:#794938">=</span> <span style="color:#691c97">Date</span>();<br>
+     }</p>
+     </div>
+     
+     <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+     <div class="card-header bd-yellow-100"><h5>예제</h5></div>
+     <p class="card-text" style="padding: 10px 10px;">
+     
+     &lt;<span style="color:#bf4f24">head</span>&gt;<br>
+     <span style="color:#691c97">    </span>&lt;<span style="color:#bf4f24">meta</span> <span style="color:#bf4f24">charset</span>=<span style="color:#0b6125">"UTF-8"</span>&gt;<br>
+     <span style="color:#691c97">    </span>&lt;<span style="color:#bf4f24">title</span>&gt;JavaScript Apply&lt;/<span style="color:#bf4f24">title</span>&gt;<br>
+     <span style="color:#691c97">    </span>&lt;<span style="color:#bf4f24">script</span> <span style="color:#bf4f24">src</span>=<span style="color:#0b6125">"/examples/media/example.js"</span>&gt;&lt;/<span style="color:#bf4f24">script</span>&gt;<br>
+     &lt;/<span style="color:#bf4f24">head</span>&gt;</p>
+     </div>
+     <p>외부 자바스크립트 파일을 사용하면 웹의 내용을 담당하는 HTML 코드로부터 웹의 동작을 구현하는 자바스크립트 코드를 분리할 수 있다.<br>
+     이렇게 하면 HTML 코드와 자바스크립트 코드를 각각 읽기도 편해지고, 유지 보수도 쉬워진다.<br>
+     외부 자바스크립트 파일은 웹 브라우저가 미리 읽어 올 수 있어 웹 페이지의 로딩 속도 또한 빨라진다.</p>
+    
+     <hr>
+      <h4 class="text-primary fst-italic">변수 선언 </h4> <br>
+
+     ** 전역변수 : var 변수명 = 값  <br>
+     ** 지역변수 : const 변수명 = 상수, let   <br>
+     ** 변수명 = 값  <br> <br>
+     <a href="/javascript/j05.html#variable" target="_blank" class="fs-3">변수의 유효 범위 </a><br>
+     <p>const는 재선언 할수도 없고 한번 값이 저장되면 그 값이 바뀌지 않는다. <br>
+      let은 재선언 할수는 없지만 값을 재할당 가능하다. <br>
+      var는 재선언도 가능하고 값의 재할당도 가능하다. 나중에 공동작업자가 같은 이름의 변수를 사용하거나 수정할수도 있어 가급적 사용을 자제한다. <br>
+      const, let 을 사용하여 변수를 선언하기 전에 사용하면 오류가 발생한다. <br>
+      var는 호이스팅(끌어올린다. 변수의 선언부분을 스코프 가장 위쪽으로 끌어올려 해석한다.)<br></p>
+     
+</body>
+</html>

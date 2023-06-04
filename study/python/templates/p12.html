@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>파이썬 딕셔녀리 타입</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">   
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">     
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <!-- font css -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="{% static '/css/java.css'%}" rel="stylesheet">   
+  <link href="{% static '/css/style.css'%}" rel="stylesheet">     
+</head>
+<body class="ms-3">  
+  <H2 class="coffee_taital" style="text-align:left;"><a name="home">파이썬</a></H2>  
+    <p><a href="/python/p01.html" class="btn btn-warning mb-1" target="_blank">이전 노트</a>
+      <a href="/python/p03.html" class="btn btn-warning mb-1" target="_blank">다음 노트</a>            
+      <a href="/htmls/tut1.html" class="btn btn-danger mb-1" target="_blank">HTML 노트</a> 
+      <a href="/css/tut11.html" class="btn btn-success mb-1" target="_blank">CSS 노트</a> 
+      <a href="/javascript/j01.html" class="btn btn-purple mb-1" target="_blank">Javascript 노트</a>
+     <a href="/python/p01.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">파이썬의 기초</a>
+     <a href="/python/p02.html" class=" btn btn-secondary mb-1" target="_blank">변수</a>
+     <a href="/python/p03.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">숫자형타입</a>
+     <a href="/python/p04.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">불리언타입</a>
+     <a href="/python/p05.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">문자열타입</a>
+     <a href="/python/p06.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">조건문</a>
+     <a href="/python/p07.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">반복문</a>
+     <a href="/python/p08.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">break와 continue</a>
+     <a href="/python/p09.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">리스트 타입</a>
+     <a href="/python/p10.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">튜플 타입</a>
+     <a href="/python/p11.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">세트 타입</a>
+     <a href="/python/p12.html" class=" btn btn-secondary mb-1" target="_blank">딕셔녀리 타입</a>
+     <a href="/python/p13.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">함수</a>
+     <a href="/python/p14.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">변수의 유효범위</a>
+     <a href="/python/p15.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">클래스</a>
+     <a href="/python/p16.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">객체</a>
+     <a href="/python/p17.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">상속</a>
+     <a href="/python/p18.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">모듈</a>
+     <a href="/python/p19.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">파일 입출력</a>     
+     <a href="/python/p20.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">예외처리</a>    
+     <a href="/python/p21.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">웹스크래핑1</a>    
+     <a href="/python/p22.html" class=" btn btn-outline-warning border-2 mb-1" target="_blank">웹스크래핑2</a>   </p> 
+
+     
+<div class="card text-bg-light mb-3" style="max-width: 50rem;">
+  <div class="card-header bd-yellow-100"><h4><b>데이터 타입(data-type) : 데이터의 종류</b></h2></div>
+    <p class="card-text" style="padding: 10px 10px;">   
+      # Sequence Types: str(문자열), list(리스트), tuple(튜플), range() <br>
+      # Mapping Type: dict(딕셔너리, 사전)<br>
+      # Set Types: set(집합)<br>
+      # Binary Types: bytes, bytearray, memoryview<br>
+      # Numeric Types: int(정수), float(실수), complex(복소수)<br>
+      # Boolean Type: bool(불리언)  참거짓<br></p></div>
+      
+      <p><table class="table tb-2" id="table1"><thead";><tr><th>TYPES<br></th><th>DATA<br></th><th>Iterable<br>(반복가능)</th><th>mutable<br>(수정가능)</th></tr></thead>
+      <tr><td rowspan="4">Sequence</td><td>str(문자열)<td rowspan="4">O</td><td>X</td></tr>
+      <tr><td>list(리스트)<td>X</td></tr>
+      <tr><td>tuple(튜플)<td>X</td></tr>
+      <tr><td>range()<td>X</td></tr>
+      <tr><td>Mapping</td><td>dict(딕셔너리,사전)<td>O</td><td>O</td></tr>
+      <tr><td>Set</td><td>set(집합)<td>O</td><td>X</td></tr>
+      <tr><td rowspan="3">Binary</td><td>bytes<td rowspan="3">O</td><td>X</td></tr>
+      <tr><td>bytearray<td>X</td></tr>
+      <tr><td>memoryview<td>X</td></tr>
+      <tr><td rowspan="3">Numeric</td><td>int(정수)<td rowspan="3">X</td><td>X</td></tr>
+      <tr><td>float(실수)<td>X</td></tr>
+      <tr><td>complex(복소수)<td>X</td></tr>
+      <tr><td>Boolean Type</td><td>bool(불리언) 참거짓<td>X</td><td>X</td></tr></table></p></div>
+  <style> 
+    #table1 thead {background-color: lightgray;}
+    #table1 th:nth-child(1), #table1 th:nth-child(2), #table1 td:nth-child(1), #table1 td:nth-child(2) {text-align:left; width:20%;}
+    #table1 th:nth-child(3), #table1 th:nth-child(4), #table1 td:nth-child(3), #table1 td:nth-child(4) {text-align:center; width:30%;}
+    #table1 tr:nth-child(3) td:nth-child(2), #table1 tr:nth-child(4) td:nth-child(2), #table1 tr:nth-child(5) td:nth-child(2), 
+    #table1 tr:nth-child(9) td:nth-child(2), #table1 tr:nth-child(10) td:nth-child(2), #table1 tr:nth-child(12) td:nth-child(2), 
+    #table1 tr:nth-child(13) td:nth-child(2) {text-align: center;}
+    #table1 tr {vertical-align:middle;} 
+  </style>
+  
+     <div class="col-md-8 mb-2">
+      <div class="p-3 text-white fs-4 bd-pink-800">딕셔너리 타입</div>
+      
+    <hr>
+    <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">딕셔너리(dictionary)</h2>
+    <p>리스트와 튜플 등에서는 정수인 인덱스(index)를 가지고 순차적으로 각 요소에 접근할 수 있었다면, 딕셔너리는 단어 그대로의 '사전'과 같이<br>
+        별도로 정의한 키(key)를 통해 각 요소에 접근할 수 있도록 만들어진 데이터 타입이다.<br>
+    사전에서 단어를 가지고 그 단어의 설명을 찾을 수 있듯이, 딕셔너리는 "키(Key) - 값(Value)" 쌍을 요소로 갖는 컬렉션이다.<br>
+    <img alt="dict" src="http://www.tcpschool.com/lectures/img_python_16_dict.jpg" style="width: 300px; height: 200px;"><br>
+    대부분의 프로그래밍 언어에서는 파이썬의 딕셔너리와 같이 키(key)와 값(value)으로 구성된 데이터 타입을 맵(map)이라고 부른다.<br>
+    ex) JAVA : Map 컬렉션 클래스, C++ : Map 컨테이너 등<br>
+    다양한 데이터타입을 담을 수 있으며 배열도 저장 가능하다.<br>
+    순서가 없기 때문에 중복저장을 할 수 없다.<br>
+    key는 유일해야하기 때문에 중복될 수 없지만 value는 중복사용할 수 있다. <br>
+    키값은 숫자로 잘 쓰이지 않고 의미있는 단어를 사용한다.</p>
+    <P><span class="text-danger fw-bold">## 딕셔너리 순서x, 중복x, 추가O, 수정O,삭제O ##</span><br><br></P>
+    </div>
+    
+    <hr>
+    <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">딕셔너리 선언하기</h2>
+    <p>딕셔너리는 중괄호({})로 감싸서 선언하며, 딕셔너리의 각 요소(element)들은 쉼표(,)를 사용하여 구분한다.<br>
+    이러한 딕셔너리의 요소는 또다시 키(key)와 값(value)의 한 쌍으로 구성되며, 이 둘은 콜론(:)으로 연결된다.</p>
+    <p class="fw-bold">문법</h5>
+    딕셔너리명 = {요소1, 요소2, 요소3, ...}<br>
+    요소 = 키(key): 값(value)</p> 
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+        <p class="card-text" style="padding: 10px 10px;">
+    dict1 = {'하나': 1, '둘': 'two', '파이': 3.14}<br>
+    dict2 = dict({'하나': 1, '둘': 'two', '파이': 3.14})<br>
+    dict3 = dict([('하나', 1), ('둘', 'two'), ('파이', 3.14)])<br>
+    dict4 = dict(하나=1, 둘='two', 파이=3.14)  <br>
+    print(dict1)<br>
+    print(dict2)<br>
+    print(dict3)<br>
+    print(dict4)</p>
+
+    <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+    <span class="fw-bold">실행 결과</span><br>
+    {'하나': 1, '둘': 'two', '파이': 3.14}<br>
+    {'하나': 1, '둘': 'two', '파이': 3.14}<br>
+    {'하나': 1, '둘': 'two', '파이': 3.14}<br>
+    {'하나': 1, '둘': 'two', '파이': 3.14}</p></div></div>
+    <p>위의 예제처럼 파이썬 내장 함수인 dict() 함수를 사용해도 딕셔너리를 선언할 수 있다. 단, 4번 라인처럼 dict() 함수의 인수에 대입 연산자(=)를 바로 사용하기 위해서는 키(key)가 문자열이어야만 한다.<br>
+    딕셔너리의 키(key)는 정수뿐만 아니라 문자열이나 실수 등도 사용할 수 있지만, 리스트나 딕셔너리와 같이 변경할 수 있는 타입(mutable types)의 값은 사용할 수 없다.</p>
+
+    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+        <p class="card-text" style="padding: 10px 10px;">
+        <span class="fw-bold"># 딕셔너리 기본형태, 입력 방법</span><br>
+        dict1 = {"name":"jawon", "age":20, "phone":"010-1111-2222"}<br>
+        dict2 = {1:"hi"}<br>
+        dict3 = {"a":[1,2,3]}<br>
+        dict4 = {}<br>
+        print('dict1', dict1)<br>
+        print('dict3', dict3)<br> <br>
+
+        company = {"삼성전자": '005930', "LG전자": '066570'}<br>
+        print(f"company: {company} , type: {type(company)}") # 특정 key값의 value 출력<br>
+        print("삼성전자 : ", company["삼성전자"])<br></p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <span class="fw-bold">실행 결과</span><br>
+      dict1 {'name': 'jawon', 'age': 20, 'phone': '010-1111-2222'} <br>
+      dict3 {'a': [1, 2, 3]}<br>
+      company: {'삼성전자': '005930', 'LG전자': '066570'} , type: &lt;class 'dict'><br>
+      삼성전자 :  005930<br></p></div></div>
+
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      dict1 = {'하나': 1, 2: 'two', 3.14: 'pi'}<br>
+      dict2 = {('ten', 10): ['열', 10.0]}  <br>
+      print(dict1)<br>
+      print(dict2)  </p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <span class="fw-bold">실행 결과</p><p>
+      {'하나': 1, 2: 'two', 3.14: 'pi'}<br>
+      {('ten', 10): ['열', 10.0]}</p></div></div>
+      <p>위 예제의 2번 라인처럼 튜플은 그 값을 변경할 수 없는 타입(immutable types)이므로, 딕셔너리의 키(key)로 사용될 수 있다.</p>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">딕셔너리에 요소 추가하기</h2>
+      <p>딕셔너리에 요소를 추가하려면 대괄호([]) 안에 키(key)를 넣고 대입 연산자(=)를 사용하여 값(value)을 저장하면 된다.<br>
+      예를 들어, {‘파이썬’: 100}이라는 요소를 딕셔너리 dict1에 추가하려면, 다음과 같이 추가할 수 있다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      dict1[‘파이썬’] = 100</p></div>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+          <span class="fw-bold"># 딕셔너리 key, value 추가</span><br>
+          company["SK텔레콤"] = '017670'<br>
+          print(f"company: {company} , type: {type(company)}")<br><br>
+
+          a = {'name': 'Kim', 'phone': '01012345678', 'birth': '870124'}<br>
+          b = {0: 'Hello python!'}<br>
+          c = {'arr': [1, 2, 3, 4]}<br><br>
+
+          a['address'] = 'seoul' # 딕셔너리 추가, 딕셔너리에 새로운 key와 value를 추가할 수 있다.<br>
+          a['rank'] = [1, 2, 3]<br>
+          print(c)<br>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <span class="fw-bold">실행 결과</span><br>
+      company: {'삼성전자': '005930', 'LG전자': '066570', 'SK텔레콤': '017670'} , type: &lt;class'dict'><br>
+      {'arr': [1, 2, 3, 4]}<br></p></div></div>
+
+            <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+              <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+                <p class="card-text" style="padding: 10px 10px;"> 
+      <span class="fw-bold"># 딕셔너리 쌍 추가</span><br> 
+      c1 = {1: 'c'}<br>
+      c1[2] = 'd'<br>
+      c1['name'] = 'pey'<br>
+      c1[3] = [1, 2, 3]<br>
+
+      dict11 = {1:'a'}<br>
+      dict11[2] = "b" # 추가<br>
+      print(dict1) # {1: 'a', 2: 'b'}<br><br>
+      dict11["name"] = "jaewon"  # 추가<br>
+      dict11["age"] = 20 # 추가<br>
+      print(dict11) # {1: 'a', 2: 'b', 'name': 'jaewon', 'age': 20}<br><br>
+      dict11[3] = [1,2,3,4]<br>
+      print(dict11) <br></p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <span class="fw-bold">실행 결과</span><br> 
+      {'name': 'jawon', 'age': 20, 'phone': '010-1111-2222'}<br>
+      {1: 'a', 2: 'b', 'name': 'jaewon', 'age': 20}<br>
+      {1: 'a', 2: 'b', 'name': 'jaewon', 'age': 20, 3: [1, 2, 3, 4]}<br></p></div></div>
+
+
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">딕셔너리에 요소 제거하기</h2>
+
+      <p> del 키워드를 사용하여 딕셔너리에 포함된 특정 요소를 제거할 수 있으며, 딕셔너리의 clear() 함수를 사용하면 딕셔너리에 저장된 모든 요소들을 한 번에 삭제할 수 있다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      dict1 = dict({'자바': 80, 'PHP': 90, 'HTML': 70})  <br>
+      dict1['파이썬'] = 100<br>
+      print(dict1)  <br>
+      del dict1['PHP']<br>
+      print(dict1)  <br> <br>
+      dict1['자바'] = 100<br>
+      print(dict1)  <br>
+      dict1.clear()<br>
+      print(dict1)</p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <span class="fw-bold">실행 결과</span><br>
+      {'자바': 80, 'PHP': 90, 'HTML': 70, '파이썬': 100}<br>
+      {'자바': 80, 'HTML': 70, '파이썬': 100}<br>
+      {'자바': 100, 'HTML': 70, '파이썬': 100}<br>
+      {}</p></div></div>
+      <p>위 예제의 6번 라인처럼 del 키워드는 함수가 아니므로 소괄호(())를 사용하지 않는다.<br>
+      그리고 9번 라인처럼 이미 저장되어 있는 키(key)와 동일한 키를 사용하여 요소를 추가하면, 이전에 저장된 값은 지워지고 나중에 추가한 값만이 저장된다.</p>
+       
+      <p>10번 라인의 출력에서 확인할 수 있는 ‘자바’라는 키(key)로 저장된 80이라는 값이 9번 라인에 의해 100으로 변경된 것을 확인할 수 있으며, 이를 이용하여 딕셔너리에 저장된 값을 변경할 수 있는 것이다.</p>
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+      <p class="card-text" style="padding: 10px 10px;"> 
+      <span class="fw-bold"># 딕셔너리 요소 삭제하기(del) </span><br>  
+      del dictName[key값] 으로 지울 수 있고, key:value쌍이 지워짐<br>
+      dict12 = {"name":"jaewon", "age":"20", "location":"seoul", 1:"a", "list_a":[1,2,3,4,5]}<br>
+      del dict12["list_a"]<br>
+      print(dict12)  <br><br>
+      del dict12[1] <br>
+      print(dict12) <br>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;">
+      <p><span class="fw-bold">실행 결과</span><br>
+      {'name': 'jaewon', 'age': '20', 'location': 'seoul', 1: 'a'}<br>
+      {'name': 'jaewon', 'age': '20', 'location': 'seoul'}<br></p></div></div>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+      <p class="card-text" style="padding: 10px 10px;">
+      <p><span class="fw-bold"> key와 value값 모두 지우기 </span></p><P>
+      # key와 value값 모두 지우기 : dictName.clear() <bR>
+      d = {"name":"jaewon", "age":20, "location":"seoul", "lulu":[1,2,3,4,5]}<BR>
+      d.clear() <br>
+      print(d)  <br></p>
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;">
+      <p><span class="fw-bold">실행 결과</span><br>
+      {}</p></div></div>
+
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">딕셔너리 사용하기</h2>
+      <p>딕셔너리는 대괄호([])를 사용하여 키(key)를 전달함으로써 해당 키로 저장된 값을 얻을 수 있다.<br>
+      또한, 딕셔너리의 내장 함수인 get() 함수를 사용해도 같은 결과를 얻을 수 있다.<br>
+      이 두 방식 간의 차이점은 존재하지 않는 키(key)에 대해 대괄호를 사용하는 방식은 KeyError를 발생시키며 프로그램을 강제 종료시키지만, get() 함수는 정상적으로 종료되며 None을 반환하는 것뿐이다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+      dict1 = dict({'자바': 80, 'PHP': 90, 'HTML': 70})  <br>
+      print(dict1['자바'])<br>
+      print(dict1.get('자바'))  <br>
+      # print(dict1['파이썬'])<br>
+      print(dict1.get('파이썬'))</p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <span class="fw-bold">실행 결과</span><br>
+      80<br>
+      80<br>
+      None</p></div></div>
+      <p>None이란 ‘값이 없음’을 나타내는 파이썬의 예약 상수이다.</p>
+      </div>
+      
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">딕셔너리의 정보 얻기</h2>
+      <p>딕셔너리의 keys() 함수를 사용하면 딕셔너리에 저장된 모든 요소의 키(key)들을 한 번에 얻을 수 있으며, values() 함수를 사용하면 딕셔너리에 저장된 모든 요소들의 값(value)들을 따로 얻을 수 있다.<br>
+      또한, 딕셔너리의 items() 함수는 딕셔너리에 저장된 모든 요소들을 각각 키와 값의 한 쌍으로 이루어진 튜플의 형태로 반환한다.<br>
+      keys()와 values(), items() 함수의 반환값은 각각 dict_keys와 dict_values, dict_items 객체로서, 이 객체들은 list() 함수를 사용하여 리스트 타입으로 변환하여 사용할 수 있다. 하지만 굳이 리스트로 변환하지 않더라도 반복문 등에 그대로 사용할 수 있다.</p>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+      <p class="card-text" style="padding: 10px 10px;">
+      dict1 = dict({'자바': 80, 'PHP': 90, 'HTML': 70})  <br>
+      print(dict1.keys())<br>
+      print(dict1.values())<br>
+      print(dict1.items())  <br>
+      print('HTML' in dict1)<br>
+      print('파이썬' in dict1)</p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+      <span class="fw-bold">실행 결과</span><br>
+      dict_keys(['자바', 'PHP', 'HTML'])<br>
+      dict_values([80, 90, 70])<br>
+      dict_items([('자바', 80), ('PHP', 90), ('HTML', 70)])<br>
+      True<br>
+      False</p></div></div>
+
+      <p>위 예제의 7번과 8번 라인처럼 in 키워드를 사용하여 해당 딕셔너리에 특정 키(key)가 포함되어 있는지 여부를 손쉽게 확인할 수 있다.<br>
+        파이썬 2.X 버전까지는 keys()와 values(), items() 함수의 반환값이 모두 리스트 타입이었다.<br>
+        하지만 리스트 타입으로 이들 함수의 결과를 반환하기 위해서는 메모리의 낭비가 많이 발생하였기에, 이를 줄이고자 파이썬 3.0 버전부터는 각각 dict_keys와 dict_values, dict_items 객체로 결과값을 반환하도록 변경되었다.</p>
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+      <p class="card-text" style="padding: 10px 10px;">
+      <span class="fw-bold"># 딕셔너리에서 value값 얻기</span><br> 
+      # 리스트, 튜플, 문자열은 요솟값을 얻고자 할 때 인덱싱이나 슬라이싱 기법을 사용하였으나,<Br>
+      # 딕셔너리에서는 key를 사용해 value를 구하는 방법을 사용함<br>
+      # 왜냐하면 딕셔너리에는 index 순서가 없고, key으로 index 하기때문<br>
+      a = {1:"a", 2:"b", "name":"jaewon", "age":20, "a":[1,2,3,4,5]}<br><br>
+      print(a[1])   <br>
+      print(a["name"])  <br>
+      print(a["age"]) <br>
+      print(a["a"])  <br><br>
+      
+      grade = {'pey': 10, 'julliet': 99}<br>
+      print(grade['pey'])<br><br>
+      print("---------------")<br>
+      a = {'name':'pey', 'phone':'0119993323', 'birth': '1118'}<br>
+      print(a["name"])  <br>
+      print(a.get("name"))  <br>
+      # print(a["location"]) # 없는 key를 호출하면 오류발생<br>
+      print(a.get("location"))  # get은 없는 key를 호출하면 None 반환<br>
+      print(a.get("location", "value is not"))  # get을 사용하면 key가 없는 경우 미리 지정한 default 값을 반환하게 할수 있다. 여기서는 "value is not" 반환 <br><br>
+      
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;">
+      <p><span class="fw-bold">실행 결과</span><br>
+      a<br>
+      jaewon<br>
+      20<br>
+      [1, 2, 3, 4, 5]<br>
+      10<br>
+      ---------------<br>
+      pey<br>
+      pey<br>
+      None<br>
+      value is not<br></p></div></div>
+  
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+        <p class="card-text" style="padding: 10px 10px;">
+        <span class="fw-bold"># 딕셔너리 조회 출력</span><br>
+        a = {'name': 'Kim', 'phone': '01012345678', 'birth': '870124'}<br>
+        b = {0: 'Hello python!'}<br>
+        c = {'arr': [1, 2, 3, 4]}<br><br>
+  
+        print('b : ', b[0]) # b[0]으로 조회할 경우 해당 값이 없다면 error를 띄우지만,<br>
+        print('b : ', b.get(0)) # get()메소드는 해당 값이 없어도 에러없이 none을 표시한다.<br>
+        print('c : ', c['arr']) # c['arr']은 리스트 밸류값을 반환한다.<br>
+        print('c : ', c['arr'][3])<br>
+        print('c : ', c.get('arr'))<br></p>
+  
+        <div class="card-text bd-blue-100" style="padding: 10px 10px;"><p>
+        <span class="fw-bold">실행 결과</span><br>
+        b :  Hello python!<br>
+        b :  Hello python!<br><br>
+        c :  [1, 2, 3, 4]<br>
+        c :  4<br>
+        c :  [1, 2, 3, 4]<br></p></div></div>
+  
+  <hr>
+  <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">딕셔너리(dictionary)로 리스트 만들기</h2>
+      
+  <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+  <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+  <p class="card-text" style="padding: 10px 10px;">
+  <span class="fw-bold"># for 문을 이용하여 key 값을 순차적으로 추출하기, 키값, value값 리스트</span><br> 
+      c = {'name': 'pey', 'phone': '0119993323', 'birth': '1118'}<br>
+      <span class="fw-bold"># key값을 추출하여 리스트 만들기 : dictName.key()</span><br> 
+      list_c_keys = list(c.keys()) # 키값을 뽑은 후에 리스트로 감쌈 <br>
+      print(list_c_keys) # ['name', 'phone', 'birth']<br><br>
+
+      # for문 활용<br>
+      for k in c.keys():<br>
+      &nbsp;&nbsp;&nbsp;print(k) -> 키값을 한개씩 불러올 수 있음<br>
+
+      for key in company:<br>
+      &nbsp;&nbsp;&nbsp;val = company[key]<br>
+      &nbsp;&nbsp;&nbsp;print(f"key : {key}, val : {val}")<br><br>
+
+      # key 값 가져오기<br>
+      keys = company.keys()<br>
+      for k in keys:<br>
+      &nbsp;&nbsp;&nbsp;print(k)<br><br>
+
+      # values 값 가져오기<br>
+      values = company.values()<br>
+      for v in values:<br>
+      &nbsp;&nbsp;&nbsp;print(v)<br>
+
+      # dict의 items()는 키(key)-값(value) 쌍 Tuple 들로 구성된 dict_items 객체를 리턴<br>
+      items = company.items()<br>
+      print(f"items : {items}")<br><br>
+
+      for k, v in company.items():<br>
+      &nbsp;&nbsp;&nbsp;print(f"key : {k}, value : {v}")<br></p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;">
+      <p><span class="fw-bold">실행 결과</span><br>
+      name<br>
+      phone<br>
+      birth<br>
+      ['name', 'phone', 'birth']<br>
+      key : 삼성전자, val : 005930<br>
+      key : LG전자, val : 066570<br>
+      key : SK텔레콤, val : 017670<br>
+      삼성전자<br>
+      LG전자<br>
+      SK텔레콤<br>
+      005930<br>
+      066570<br>
+      017670<br>
+      items : dict_items([('삼성전자', '005930'), ('LG전자', '066570'), ('SK텔레콤', '017670')])<br>
+      key : 삼성전자, value : 005930<br>
+      key : LG전자, value : 066570<br>
+      key : SK텔레콤, value : 017670<br></p></div></div>
+
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+      <p class="card-text" style="padding: 10px 10px;">
+      <p><span class="fw-bold">Key들을 리스트로 만들기, Value 들을 리스트로 만들기, key-value 쌍으로 리스트에 넣기</span><br> 
+      list_c_keys = list(c.keys())<br>
+      print('키값 리스트', list_c_keys)<br><br>
+
+      <span class="fw-bold"># value값을 추출하여 리스트 만들기 : dictName.values()</span><br>
+      list_c_values = list(c.values())<Br>
+      print('value값 리스트', list_c_values) # ['pey', '0119993323', '1118']<br><br>
+
+      <span class="fw-bold"># key, value 쌍으로 리스트에 넣기 : dictName.items()</span><br>
+      list_c_items = list(c.items())<br>
+      print('key-value 리스트', list_c_items) # [('name', 'pey'), ('phone', '0119993323'), ('birth', '1118')]<br><br>
+
+      <span class="fw-bold">dict_keys, dict_values, dict_items</span><br>
+      아이템은 키-밸류 쌍을 뜻한다. item()함수는 딕셔너리 요소를 key-value pair 형태로 가져온다.<br>
+      아이템을 리스트로 형변환 하면 리스트 안에 튜플이 들어간 형태로 반환된다.<br>
+      print('a.keys() : ', a.keys())<br>
+      print('a.values() : ', a.values())<br>
+      print('a.items() : ', a.items())<br><br>
+      print('list(a.keys()) : ', list(a.keys()))<br>
+      print('list(a.values()) : ', list(a.values()))<br>
+      print('list(a.items()) : ', list(a.items()))<br></p>
+
+      <div class="card-text bd-blue-100" style="padding: 10px 10px;">
+      <p><span class="fw-bold">실행 결과</span></P><P>
+      키값 리스트 ['name', 'phone', 'birth']<br>
+      value값 리스트 ['pey', '0119993323', '1118']<br>
+      key-value 리스트 [('name', 'pey'), ('phone', '0119993323'), ('birth', '1118')]<br>
+      a.keys() :  dict_keys(['name', 'phone', 'birth'])<br>
+      a.values() :  dict_values(['pey', '0119993323', '1118'])<br>
+      a.items() :  dict_items([('name', 'pey'), ('phone', '0119993323'), ('birth', '1118')])    <br>
+      list(a.keys()) :  ['name', 'phone', 'birth']<br>
+      list(a.values()) :  ['pey', '0119993323', '1118']<br>
+      list(a.items()) :  [('name', 'pey'), ('phone', '0119993323'), ('birth', '1118')]<br></p></div></div>
+
+
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">딕셔너리(dictionary)속 key 확인하기</h2>
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+        <p class="card-text" style="padding: 10px 10px;">
+        <p><span class="fw-bold"> 해당 key가 딕셔너리에 안에 있는지 확인하기 </span></p><P> 
+        # 해당 key가 딕셔너리에 안에 있는지 확인하기(in) -> 있으면 True, 없으면 False 돌려줌 <br>
+        a = {'name':'pey', 'phone':'0119993323', 'birth': '1118'} <br>
+        print("name" in a) # True<br>
+        print("birth" in a) # True<br>
+        print("location" in a) # False<br>
+        print('a - ', 'name' in a) # name이라는 키가 변수 a에 있는지 물어볼 수 있다.<br></p></div>
+
+      <hr>
+      <h2 class="types_text" style="color:#007bff; font-style:italic; text-align:left;">딕셔너리를 만드는 서브 클래스 Defaultdict</h2>
+      <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header bd-yellow-100 fw-bold fs-5">예제</div>
+          <p class="card-text" style="padding: 10px 10px;">
+<p><span class="fw-bold"> 딕셔너리를 만드는 서브 클래스 Defaultdict </span></p><P> 
+# defaultdict()는 딕셔너리를 만드는 dict클래스의 서브클래스<br><br>
+
+from collections import defaultdict<br><br>
+
+<span class="fw-bold"># defaultdict int</span>
+dict_int = defaultdict(int)<br>
+# A 라는 key 추가, 이 때 값을 할당하지 않으면 디폴트 값이 0이 된다.<br>
+dict_int['A']<br>
+print(f"dict_int['A'] :{dict_int['A']}, Type : {type(dict_int['A'])}")<br>
+# B 라는 key 추가, 1 이라는 값<br>
+dict_int['B'] = 1<br>
+print(f"dict_int['B'] :{dict_int['B']}, Type : {type(dict_int['B'])}")<br><br>
+
+<span class="fw-bold"># defaultdict list<br></span>
+dict_list = defaultdict(list)<br>
+# B 라는 key 추가, [1, 2, 3] 이라는 리스트 값<br>
+dict_list['A'] = [1, 2, 3]<br>
+print(f"dict_list['B'] :{dict_list['B']}, Type : {type(dict_list['B'])}")<br><br>
+
+<div class="card-text bd-blue-100" style="padding: 10px 10px;">
+<p><span class="fw-bold">실행 결과</span><br>
+dict_int['A'] :0, Type : &lt;class'int'><br>
+dict_int['B'] :1, Type : &lt;class'int'><br>
+dict_list['B'] :[], Type : &lt;class'list'></p></div></div>
+
+    </body>
+</html>
